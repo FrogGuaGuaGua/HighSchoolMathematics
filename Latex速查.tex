@@ -1,0 +1,1169 @@
+\documentclass{article}
+\usepackage{geometry}
+\geometry{a4paper,left=0.8cm,right=0.8cm,top=1.5cm,bottom=1.2cm}
+
+\usepackage{ctex}
+\usepackage{amsmath}
+\usepackage{yhmath}
+\usepackage{amssymb}
+\usepackage{extarrows}
+\usepackage{enumerate}
+\usepackage{makecell} % 表格内换行
+\usepackage{paralist}
+\usepackage{fancyhdr}
+\usepackage{datetime} 
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{fontspec}
+\usepackage{bm}       % 同时黑体斜体
+\usepackage{listings} % 插入代码
+\usepackage[all]{xy}
+\usepackage{esint}
+\usepackage{bigints}
+\usepackage{mathrsfs}
+\usepackage{tcolorbox}
+\usepackage{ulem}
+\usepackage{tikz}
+\usepackage{pifont}
+\usepackage{fontawesome5}
+\usepackage{multitoc} %双栏
+\usepackage[hang,flushmargin,perpage]{footmisc}
+\usepackage{hyperref}
+%\usepackage{emoji}
+
+%\setcounter{tocdepth}{1}  % 设置目录深度
+
+\columnseprule 1pt
+\columnsep 8pt  
+
+\special{dvipdfmx:config z 0}
+
+
+% 特别注意大括号中的字体名称区分大小写
+%\setCJKmainfont{SimSun}   % 宋体
+%\setCJKmainfont{FangSong} % 仿宋
+%\setCJKmainfont{NSimSun}  % 新宋体
+%\setCJKmainfont{STFangsong} % 华文仿宋
+%\setCJKmainfont{STZhongsong}% 华文中宋
+%\setCJKmainfont{STXihei}  % 华文细黑
+%\setCJKmainfont{KaiTi}    % 楷体
+%\setCJKmainfont{STKaiti}  % 华文楷体
+%\setCJKmainfont{SimHei}   % 黑体
+%\setCJKmainfont{Microsoft YaHei}    
+%                          % 微软雅黑
+%\setCJKmainfont{LiSu}     % 隶书
+%\setCJKmainfont{STLiti}   % 华文隶书
+%\setCJKmainfont{YouYuan}  % 幼圆
+
+% 以下3行使用了非系统自带的字体，若无对应字体文件，则无法编译
+%\setCJKmainfont[BoldFont=SourceHanSansCN-Bold]{SourceHanSerifCN-Regular}
+%\setCJKmainfont[BoldFont=OPPOSans-B]{SourceHanSerifCN-Regular}
+%\newCJKfontfamily\KaiTifont{gkai00mp.ttf}
+
+\newcommand{\q}{\quad}
+\newcommand*{\mycircled}[1]{\lower.7ex\hbox{\tikz\draw (0pt, 0pt)%
+circle (.4em) node {\makebox[0.5em][c]{\small #1}};}}
+
+\renewcommand{\today}{\number\year-\number\month-\number\day}
+
+\newcommand\parallelogram
+{\mathord{\text{
+\tikz[baseline] 
+\draw (0em, .1ex)   -- ++(0.8em, 0ex) 
+-- ++(0.2em, 1.2ex) -- ++(-0.8em, 0ex)
+-- cycle;} } }
+
+\newcommand{\myfootnote}[1]{
+    \renewcommand{\thefootnote}{}
+    \footnotetext{\scriptsize#1}
+    \renewcommand{\thefootnote}{\arabic{footnote}}
+%    \renewcommand{\thefootnote}{\ding{\numexpr171+\value{footnote}}}
+}
+
+\usepackage{draftwatermark, everypage}
+\SetWatermarkText{磁悬浮青蛙呱呱呱，水印}
+\SetWatermarkLightness{0}
+\SetWatermarkAngle{80}
+\SetWatermarkColor{gray}
+\SetWatermarkScale{0.06}%设置水印的显示大小
+
+\lstset
+{
+    language=[LaTeX]TeX,
+    backgroundcolor = \color{gray!20},
+%    breaklines=true,
+%    basicstyle=\tt\small,
+    basicstyle=\tt\normalsize,
+%    keywordstyle=\color{blue},
+%    identifierstyle=\color{magenta},
+    aboveskip=0pt,
+    belowskip=0pt,
+}
+
+\pagestyle{fancy}
+\rhead{右页眉}
+\lhead{左页眉}
+\chead{中页眉}
+\rfoot{右页脚}
+\lfoot{左页脚，修订日期\today}
+\cfoot{中页脚，第\thepage 页} 
+
+\allowdisplaybreaks
+
+\AtBeginDocument{
+    \addtolength{\abovedisplayskip}{-3mm}
+    \addtolength{\abovedisplayshortskip}{-3mm}
+    \addtolength{\belowdisplayskip}{-3mm}
+    \addtolength{\belowdisplayshortskip}{-3mm} }   
+
+\begin{document}
+\begin{center}
+{\Large \textbf{\LaTeX 简明速查手册} }
+\end{center}  
+
+%\tableofcontents
+
+\begin{multicols}{2}     
+\begin{enumerate}
+
+\item \LaTeX 中的\verb|\usepackage{amsmath}|类似于C语言的\\ \verb|#include<stdio.h>|
+和Python的\verb|import numpy|，\\ 常用\verb|usepackage|如下：
+\begin{lstlisting}
+amsmath,amssymb,bm,ctex,datetime, 
+diagbox,enumerate,esint,extarrows,
+fancyhdr,fontspec,geometry,graphicx,
+listings,longtable,makecell,multicol,
+tabularx,tcolorbox,tikz,xcolor  
+\end{lstlisting} 
+其中\verb|ctex|包用于提供中文显示。
+
+\item \textbf{上标}\q \verb|^|\quad \textbf{下标}\q \verb|_| \\
+$ A_b^c $\ :\q \verb|A_b^c| \q\q\q\q 
+$ A_{bc}^{def} $\ :\q \verb|A_{bc}^{def}| \\
+如果上下标的字母不止一个，则需要加大括号。\\
+组合数$ \binom{n}{2} $：\verb|\binom{n}{2}|或\verb|{n\choose 2}|
+
+\item \textbf{分数与根号}：\\
+高度自适应的分数(行内较矮，行间较高)：\verb|\frac{}{}|\\
+强制较高的分数$ \dfrac{\pi^2}{6} $：\verb|\dfrac{\pi^2}{6}| \\
+强制较矮的分数$ \tfrac{\pi^2}{6} $：\verb|\tfrac{\pi^2}{6}| \\
+(在TexStudio中，用Alt+Shift+F输入\verb|\frac{分子}{分母}|，
+编辑好“分子”后，按“Ctrl+右方向键”可以
+快速选中“分母”，比按两次右方向键再按Delete键更方便。)\\
+$ \sqrt{5} $\q \verb|\sqrt{5}| \q\q\q\q 
+$ \sqrt[3]{5} $\q \verb|\sqrt[3]{5}| 
+
+\item \textbf{运算符}
+\vspace{-5mm}
+\begin{multicols}{2} 
+$ + $\q \verb|+| \\
+$ \odot $\q \verb|\odot,\bigodot| \\
+$ \oplus $\q \verb|\oplus,\bigoplus|\\
+$ \times $\q \verb|\times| \\
+$ \otimes $\q \verb|\otimes,\bigotimes| \\
+$ \div $\q \verb|\div| \\
+$ \neq $\q \verb|\neq| \\
+$ \leq $\q \verb|\leq| \\
+$ \leqslant $\q \verb|\leqslant| {\footnotesize 需\verb|{amssymb}|} \\
+$ \geq $\q \verb|\geq| \\
+$ \geqslant $\q \verb|\geqslant| {\footnotesize 需\verb|{amssymb}|} \\
+$ \gg $\q \verb|\gg| \\
+$ \ll $\q \verb|\ll| \\
+$ \equiv $\q \verb|\equiv| \\
+$ \sim $\q \verb|\sim| \\
+$ \backsim $\q \verb|\backsim| \\
+$ \approx $\q \verb|\approx| \\
+$ \cong $\q \verb|\cong| \\
+$ \pm $\q \verb|\pm| \\
+$ \mp $\q \verb|\mp| \\
+$ \in $\q \verb|\in| \\
+$ \cap $\q \verb|\cap,\bigcap| \\
+$ \cup $\q \verb|\cup,\bigcup| \\
+$ \wedge $\q \verb|\wedge,\bigwedge| \\
+$ \vee $\q \verb|\vee,\bigvee| \\
+$ \subset $\q \verb|\subset| \\
+$ \supset $\q \verb|\supset| \\
+$ \subseteq $\q \verb|\subseteq| \\
+$ \supseteq $\q \verb|\supseteq| \\
+$ \int $\q \verb|\int| \\
+$ \iint $\q \verb|\iint| \\
+$ \iiint $\q \verb|\iiint| \\
+$ \iiiint $\q \verb|\iiiint| \\
+$ \oint $\q \verb|\oint,\bigoint|  
+\end{multicols}
+\vspace{-5mm}
+$ \varoiint $\q \verb|\varoiint| 需\verb|{esint}| \\
+$ \ointctrclockwise $\q \verb|\ointctrclockwise| 需\verb|{esint}| \\
+$ \varointclockwise $\q \verb|\varointclockwise| 需\verb|{esint}| \\
+(“需\verb|{esint}|”是指需要\verb|\usepackage{esint}|) \\
+修改不等号的样式：
+\begin{lstlisting}
+\renewcommand\leq\leqslant
+\renewcommand\geq\geqslant    
+\end{lstlisting} 
+修改不等号样式以后，临时想使用原始样式的不等号，
+则需采用以下曲折方法，\\
+在\verb|\renewcommand\leq\leqslant|之前加上以下两行
+\begin{lstlisting}
+\let\leqstore\leq
+\let\geqstore\geq    
+\end{lstlisting} 
+即用两个新的命令\verb|\leqstore|，\verb|\geqstore|保存不等号的旧样式，
+想用旧样式时，使用\verb|\leqstore|，\verb|\geqstore|即可。
+
+\item 特殊符号(转义)显示：\\
+\vspace{-5mm}
+\begin{multicols}{2} 
+$ \$ $\q \verb|\$| \\
+$ \# $\q \verb|\#| \\
+$ \% $\q \verb|\%| \\
+$ \{ $\q \verb|\{| \\
+$ \} $\q \verb|\}| \\
+$ \& $\q \verb|\&| \\
+$ \^{} $\q \verb|\^{}| \\
+$ \_{} $\q \verb|\_{}| \\
+$ \~{} $\q \verb|\~{}|或\verb|\sim| 
+\end{multicols} 
+\vspace{-5mm} 
+\textbackslash \q \verb|$\backslash$| 或 \verb|\textbackslash| \\
+@符号无需转义，可直接显示。
+还有一个统一的方法，就是将特殊符号置于\verb|\verb|| |的两条竖线之内。
+
+\item \textbf{其它符号与形状}：
+\vspace{-5mm}
+\begin{multicols}{2} 
+    $ \exists $\q \verb|\exists| \\
+    $ \forall $\q \verb|\forall| \\    
+    $ \bullet $ \q \verb|\bullet| \\
+    $ \cdot $\q \verb|\cdot| \\
+    $ \cdots $\q \verb|\cdots| \\
+    $ \vdots $\q \verb|\vdots| \\
+    $ \ddots $\q \verb|\ddots| \\
+    $ \hbar $\q \verb|\hbar| \\
+    $ \infty $\q \verb|\infty| \\
+    $ \partial $\q \verb|\partial| \\
+    $ \varnothing $\q \verb|\varnothing| \\
+    $ \Delta $\q \verb|\Delta|,\verb|\triangle| \\
+    $ \nabla $\q \verb|\nabla| \\
+    $ \square $\q \verb|\square|,\verb|\Box|  \\
+    $ \circ $\q \verb|\circ| \\
+    $ \angle $\q \verb|\angle| \\
+    $ \perp $\q \verb|\perp| \\   
+    $ \parallelogram $\q \verb|\parallelogram|
+\end{multicols} 
+\vspace{-5mm} 
+(要先输入下方代码，\verb|\parallelogram|命令才能生效)。
+\begin{lstlisting}
+\usepackage{tikz}
+\newcommand\parallelogram
+{\mathord{\text{
+\tikz[baseline] 
+\draw (0em, .1ex) -- ++(0.8em, 0ex) 
+-- ++(0.2em, 1.2ex) -- ++(-0.8em, 0ex)
+-- cycle;} } }
+\end{lstlisting} 
+角度$ 45^{\circ} $，\verb|45^{\circ}|
+
+\item \textbf{极限}、\textbf{连加}、\textbf{连乘}、\textbf{积分}：\\
+$ \lim_{n\to\infty} $\q \verb|\lim_{n\to\infty}| \\
+$ \varlimsup_{n\to\infty} $\q \verb|\varlimsup_{n\to\infty}| \\
+$ \varliminf_{n\to\infty} $\q \verb|\varliminf_{n\to\infty}| \\
+$ \sum_{n=1}^{\infty} $\q\q \verb|\sum_{n=1}^{\infty}| \\
+$ \prod_{n=1}^{\infty} $\q\q \verb|\prod_{n=1}^{\infty}| \\
+$ \int_{0}^{+\infty} $\q\q\q \verb|\int_{0}^{+\infty}| \\
+以上代码在行内公式中效果如上，而在行间公式中的效果如下：
+\begin{gather*}
+    \lim_{n\to\infty},\q \sum_{n=1}^{\infty},\q 
+    \prod_{n=1}^{\infty},\q \int_{0}^{+\infty}
+\end{gather*}
+如果要在行内显示跟行间一样的效果，则加上\verb|\limits|或
+\verb|{\displaystyle}|，如下：
+\begin{lstlisting}
+\lim\limits_{n\to\infty}
+\sum\limits_{n=1}^{\infty}
+\prod\limits_{n=1}^{\infty}
+{ \displaystyle \int_{0}^{+\infty} }
+\end{lstlisting} 
+可以为\verb|\lim\limits_{}|, \verb|\sum\limits_{}^{}|,\\
+\verb|\prod\limits_{}^{}|, \verb|\displaystyle|等常用代码
+指定快捷键，提高效率。如果在\verb|\begin{document}|之前加上一句
+\verb|\everymath{\displaystyle}|，那么所有行内公式按行间样式显示，
+\verb|\lim,\sum,\prod|无需加\verb|\limits|，而\verb|\int|无需加
+\verb|\displaystyle|，但副作用是会让行内的连加号、连乘号十分巨大，
+对比如下$ \sum\limits_{n=1}^{\infty},\ 
+\prod\limits_{n=1}^{\infty},\ { \displaystyle 
+\sum_{n=1}^{\infty},\ \prod_{n=1}^{\infty} } $.
+
+虽然\verb|\usepackage{bigints}|后可以用命令
+\begin{lstlisting}
+\bigintssss,\bigintsss,\bigintss,
+\bigints,   \bigint    
+\end{lstlisting} 
+获得不同大小的积分号(而无需\verb|\displaystyle|)，
+但这个系列的积分号太粗了，不美观。\\
+比如\verb|\bigintss|：$ \bigintss_{0}^{+\infty} \sin(x^2)
+\mathrm{d}x =\dfrac{\sqrt{2\pi}}{4} $.\\
+\\
+\textbf{多重极限}：\\
+$ \lim\limits_{x\to x_0 \atop y\to y_0} $\q 
+\verb|\lim\limits_{x\to x_0 \atop y\to y_0}| \\
+$ \lim\limits_{\substack{w\to w_0\\ x\to x_0\\ y\to y_0\\ z\to z_0}} $  
+\begin{lstlisting}
+\lim\limits_{\substack{w\to w_0\\ 
+     x\to x_0\\ y\to y_0\\ z\to z_0}}    
+\end{lstlisting} 
+
+\item \textbf{括号}：
+\begin{lstlisting}
+\left(    \right),  \left[   \right]
+\left\{  \right\},  \left|   \right|
+\big,\bigg,\bigl,\bigr,\biggl,\biggr 
+\Big,\Bigg,\Bigl,\Bigr,\Biggl,\Biggr
+\end{lstlisting} 
+直接使用(),[],\{\}，括号的高度不会随着括号中的内容高度而变化，
+比如$ (\dfrac{3}{4})^2,[\dfrac{\pi^2}{6}],\{\dfrac{\pi^4}{90}\} $.\\
+使用\verb|\left( \right)|，则能让括号随内容增高而变高，
+比如$ \left(\dfrac{\pi^2}{6}\right)^2 $. \\
+使用\verb|\bigg( \bigg)|，\verb|\Bigg( \Bigg)|之类的，不同的命令代表不同尺寸的括号，而与括号中的内容无关。使用\verb|\left \right|时，内部不能出现换行符\verb|\\|，
+若需要较高的括号，就要改用\verb|\bigg( \bigg)|等。\\ 
+如果只需要显示单侧的括号(最常见的情形是只显示左大括号)，现以左侧为例，\verb|\right|不能省略，必须与\verb|\left|配对出现，配对方法是要把右括号改成小数点，即输入\verb|\right.|，比如$ \left\{\dfrac{\pi^2}{6}\right. $的代码是
+\begin{lstlisting}
+\left\{\dfrac{\pi^2}{6}\right.    
+\end{lstlisting} 
+而\verb|\big|系列的括号可以直接省去一侧，无需配对出现。
+
+$ \left\| \dfrac{a}{b} \right\| $\q 
+\verb|\left\||\verb|\dfrac{a}{b}\right\|| \\
+$ \left\langle \dfrac{a}{b} \right\rangle $\q 
+\verb|\left\langle\dfrac{a}{b}\right\rangle| \\
+$ \left\lfloor \dfrac{a}{b} \right\rfloor $\q 
+\verb|\left\lfloor\dfrac{a}{b}\right\rfloor| \\
+$ \left\lceil  \dfrac{a}{b} \right\rceil $\q 
+\verb|\left\lceil \dfrac{a}{b}\right\rceil | 
+
+
+\item 行内公式$ a^2+b^2=c^2 $使用\verb|$ a^2+b^2=c^2 $|即可。\\
+行间公式可用语法很多，比如\verb|\[  \], $$  $$|，
+这两种环境只能输入单行公式，换行符\verb|\\|在其中无效。
+行间公式还可以用
+\verb|\begin{xx} \end{xx}|之类，其中\verb|xx|可以是
+\begin{lstlisting}
+    align(*),alignat(*),flalign(*)
+  equation(*), gather(*),multline(*)
+\end{lstlisting} 
+带*的环境不给公式编号，不带*的环境自动给公式编号，
+使用\verb|\notag|或\verb|\nonumber|可隐藏任意一行公式的编号。
+\verb|equation(*)|也只能输入单行公式，换行符\verb|\\|在其中无效，
+但在其中嵌入\verb|split|环境后就能输入多行公式了，
+好处是多行公式只有一个编号。
+\begin{lstlisting}
+\begin{equation} \label{aaa1}
+    \begin{split}
+         &\ x^4+2x^3+11x^2+18x+18 \\
+        =&\ (x^2+2x+2)(x^2+9)  \\
+        =&\ (x^2+x+3)^2+(2x+3)^2
+    \end{split}
+\end{equation}    
+\end{lstlisting} 
+
+\begin{equation} \label{aaa1}
+    \boxed{
+    \begin{split}
+        &\ x^4+2x^3+11x^2+18x+18 \\
+        =&\ (x^2+2x+2)(x^2+9)  \\
+        =&\ (x^2+x+3)^2+(2x+3)^2
+    \end{split} }
+\end{equation} 
+
+用\verb|\label{aaa1}|给公式加标签，然后用\verb|\ref{aaa1}|引用公式(的编号)，
+\verb|\pageref{aaa1}|引用公式所在的页码。\verb|\usepackage{hyperref}|
+可以让生成的PDF文件带有书签以及可点击跳转的超链接，比如公式(\ref{aaa1})，
+(\ref{aaa2}). 第1次编译可能会报如下错误：
+\begin{lstlisting}
+Paragraph ended before \Hy@setref@link 
+was complete.
+\end{lstlisting} 
+不需任何操作，直接编译第2次即可成功。\\
+\\
+\verb|alignat|和\verb|align|环境区别如下(不明显，\verb|align|整体稍微宽一点)：
+\begin{lstlisting}
+\begin{alignat*}{3}
+    2x+3 &= 5678y-8765z &+ 20 \\
+      4x &= y+z &+ 11112222 
+\end{alignat*}    
+\end{lstlisting} 
+\tcbset{notitle,before={\noindent},after={\noindent},
+    colback=white,top={1mm},bottom={1mm},}
+\begin{tcolorbox}
+    \vspace{-5mm}
+\begin{alignat*}{3}   
+    2x+3 &= 5678y-8765z &+ 20 \\
+    4x &= y+z &+ 11112222  
+\end{alignat*} 
+\end{tcolorbox}
+\begin{lstlisting}
+\begin{align*}
+    2x+3 &= 5678y-8765z &+ 20 \\
+      5x &= y+z &+ 33334444 
+\end{align*}    
+\end{lstlisting} 
+\begin{tcolorbox}
+    \vspace{-3mm}
+\begin{align*}
+    \begin{aligned}
+      2x+3 &= 5678y-8765z &+ 20 \\
+        5x &= y+z &+ 33334444 
+    \end{aligned} 
+\end{align*}
+\end{tcolorbox}
+\verb|gather(*)|环境中不能出现对齐符号\verb|&|，否则报错。
+此环境下所有行的公式全部居中对齐。
+\begin{lstlisting}
+\begin{gather*}
+    2x+3 = 5678y-8765z + 20 \\
+      6x = y+z + 55556666 
+\end{gather*}    
+\end{lstlisting} 
+\begin{gather}
+    \boxed{
+    \begin{gathered}
+        2x+3 = 5678y-8765z + 20 \label{aaa2}\\
+        6x = y+z + 55556666 
+    \end{gathered} }
+\end{gather}
+\verb|cases|环境对于带左大括号的情形特别有用，比如分段函数、方程联立等，
+\begin{lstlisting}
+\begin{align*}
+    \begin{cases}
+        2x+3y=7 \\
+        3x+5y=8
+    \end{cases}
+\end{align*}    
+\end{lstlisting} 
+\begin{align*}
+    \boxed{
+    \begin{cases}
+        2x+3y=7 \\
+        3x+5y=8
+    \end{cases} }
+\end{align*}
+虽然用
+\begin{lstlisting}
+\begin{align*}
+    \left\{  
+        \begin{aligned}
+            & 2x+3y=7 \\
+            & 3x+5y=8
+        \end{aligned}  
+    \right.
+\end{align*}    
+\end{lstlisting} 
+也能实现同样效果，但显然是\verb|cases|更方便。\\
+\verb|multline(*)|环境第一行左对齐，中间的行居中对齐，最后一行右对齐，用得较少。
+\begin{lstlisting}
+\begin{multline}
+    1-line \\
+    2-line \\
+    3-line \\
+    4-line 
+\end{multline}    
+\end{lstlisting}
+\begin{tcolorbox} 
+    \vspace{-5mm}
+    \begin{multline}
+        1-line \\
+        2-line \\
+        3-line \\
+        4-line 
+    \end{multline}
+\end{tcolorbox}
+公式环境中要加汉字，则必须置于\verb|\text{}|之内。\\
+实现文本居中对齐使用\verb|center|环境
+\begin{lstlisting}
+\begin{center}
+
+\end{center}
+\end{lstlisting} 
+以上给公式外围加边框用的是：
+\begin{lstlisting}
+\begin{align*}
+    \boxed{
+        \begin{aligned}
+            ······
+        \end{aligned} 
+    }
+\end{align*}
+\end{lstlisting}
+或
+\begin{lstlisting}
+\usepackage{tcolorbox}
+\tcbset{before={\noindent},
+    after={\noindent},colback=white}
+\begin{tcolorbox}
+    \vspace{-5mm}
+    \begin{align*}
+        ······
+    \end{align*} 
+\end{tcolorbox}
+\end{lstlisting} 
+
+\item 想让公式编号带上“章”序号或“节”序号，可使用
+\begin{lstlisting}
+\numberwithin{equation}{chapter}
+\numberwithin{equation}{section}    
+\end{lstlisting} 
+不想让公式、表格、图片带上章号、节号，
+\begin{lstlisting}
+\usepackage{chngcntr}
+\counterwithout{equation}{chapter}
+\counterwithout{equation}{section}  
+\end{lstlisting} 
+其中的\verb|equation|还可以换成\verb|table|和\verb|figure|.\\
+\verb|\usepackage{chngcntr}|不能与 \\
+\verb|\usepackage[leqno]{amsmath}| 同时使用，
+否则会报错：(选项冲突) 
+\begin{lstlisting}
+Option clash for package amsmath.    
+\end{lstlisting} 
+但可以用\verb|\usepackage{amsmath}|，加\verb|[leqno]|的效果是让公式编号位于左侧，
+如果要实现这一效果，可以使用
+\verb|\documentclass[a4paper,leqno]{article}| \\
+更改编号样式
+\begin{lstlisting}
+\renewcommand{\thetable}{\Roman{table}}
+\renewcommand{\thefigure}{\Roman{figure}}    
+\end{lstlisting} 
+\verb|\arabic|，阿拉伯数字；\verb|\roman|：小写罗马数字；
+\verb|\Roman|：大写罗马数字；\verb|\alph|：小写字母；
+\verb|\Alph|：大写字母。
+
+\item 要让全文的行间公式居左(默认是居中)，使用
+\begin{lstlisting}
+\usepackage[fleqn]{amsmath}    
+\end{lstlisting} 
+如果同时需要公式编号在左侧，那么使用
+\begin{lstlisting}
+\usepackage[leqno,fleqn]{amsmath}    
+\end{lstlisting} 
+如果只想要让单个公式居左，使用
+\begin{lstlisting}
+\begin{flalign}
+    E=mc^2 &&
+\end{flalign}    
+\end{lstlisting} 
+效果如下：
+\begin{flalign}    
+    E=mc^2  && 
+\end{flalign} 
+特别注意最后的两个对齐符号\verb|&&|，如果漏掉，则没有居左的效果。
+
+\item \textbf{矩阵和行列式}：\\
+$ \begin{pmatrix}
+   a_{11} & a_{12}  \\
+   a_{21} & a_{22}  \\
+\end{pmatrix} $
+\begin{lstlisting}
+\begin{pmatrix}
+    a_{11} & a_{12}  \\
+    a_{21} & a_{22}  \\
+\end{pmatrix}    
+\end{lstlisting} 
+$ \begin{bmatrix}
+    a_{11} & a_{12}  \\
+    a_{21} & a_{22}  \\
+\end{bmatrix} $ 用\, \verb|bmatrix|，\ 
+$ \begin{vmatrix}
+    a_{11} & a_{12}  \\
+    a_{21} & a_{22}  \\
+\end{vmatrix} $ 用\, \verb|vmatrix| \\
+不带括号和竖线用\verb|matrix|，大括号用\verb|Bmatrix|，\\
+双竖线用\verb|Vmatrix|.\\
+三种省略号：
+$ \cdots $\  \verb|\cdots|,\ \  
+$ \vdots $\  \verb|\vdots|,\ \
+$ \ddots $\  \verb|\ddots|
+
+\item \textbf{函数}：
+\begin{lstlisting}
+\arg,\exp, \inf,\sup,   \max,\min
+\sin,\sinh,\arcsin,\cos,\cosh,\arccos
+\tan,\tanh,\arctan
+\log,\ln,\lg,      \deg,\det,\dim     
+\end{lstlisting} 
+%\vspace{-3mm}
+这些函数只能在公式环境中使用，而且字体是正体，
+如果不在前面加$ \backslash $，直接输入$ sin,cos,log $，
+字体就是斜体。
+
+\item 公式环境中，某些特殊含义的字母需要用正体而非斜体，比如自然对数底数e，
+虚数单位i和微分符号d，使用\verb|\mathrm{e}|即可，比如
+\begin{lstlisting}
+\mathrm{e}^{\mathrm{i}\theta}=
+    \cos\theta+{\mathrm{i}}\sin\theta \\
+\int_0^{+\infty}\frac{x}{\mathrm{e}^x
+    -1}\mathrm{d}x=\frac{\pi^2}{6}    
+\end{lstlisting} 
+%\vspace{-5mm}
+\begin{gather*}
+    \mathrm{e}^{\mathrm{i}\theta}=
+    \cos\theta+{\mathrm{i}}\sin\theta \\
+    \int_0^{+\infty}\frac{x}{\mathrm{e}^x
+    -1}\mathrm{d}x=\frac{\pi^2}{6} 
+\end{gather*}
+公式环境下e、i、d都不用正体的效果是：$ e,i,d $.
+
+\item 自定义新的命令：\verb|\newcommand{}{}|，
+效果类似于C语言的宏替换\verb|#define|. 
+比如嫌\verb|\quad|太麻烦，可以先
+\begin{lstlisting}
+\newcommand{\q}{\quad}    
+\end{lstlisting} 
+然后就能用\verb|\q|代替\verb|\quad|. 
+在
+\begin{lstlisting}
+\newcommand{\im}{\mathrm{i}}    
+\end{lstlisting} 
+之后，就能用\verb|\im|实现正体的虚数单位$ \mathrm{i} $.
+因为\verb|\i|已经在某个包中定义过了，所以也可以用
+\begin{lstlisting}
+\renewcommand{\i}{\mathrm{i}}    
+\end{lstlisting} 
+覆盖掉\verb|\i|的定义。
+对e和d可类似处理，提高输入效率。个人的一些习惯如下：
+\begin{lstlisting}
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant} 
+\renewcommand{\vec}{\overrightarrow}
+\renewcommand{\Re}{\mathrm{Re}}
+\renewcommand{\Im}{\mathrm{Im}}
+\renewcommand{\d}{\mathrm{d}}
+\renewcommand{\i}{\mathrm{i}} 
+  \newcommand{\e}{\mathrm{e}}
+  \newcommand{\q}{\quad}
+  \newcommand{\disp}{\displaystyle}    
+\end{lstlisting} 
+
+\item \textbf{希腊字母}：
+\vspace{2mm} \\
+\begin{tabular}{|l|l|l|l|l|l|}
+    \hline
+$ \alpha $ & \verb|\alpha| & $ \beta $ & \verb|\beta| & $ \gamma $ & \verb|\gamma|  \\ \hline
+$ \delta $ & \verb|\delta| & $ \epsilon $ & \verb|\epsilon| & $ \varepsilon $ & \verb|\varepsilon| \\ \hline
+$ \zeta  $ & \verb|\zeta|  & $ \eta $ & \verb|\eta| & $ \theta $ & \verb|\theta| \\ \hline
+$ \lambda$ & \verb|\lambda|& $ \mu  $ & \verb|\mu| & $ \nu $ & \verb|\nu|  \\ \hline
+$ \xi    $ & \verb|\xi|    & $ \pi $ & \verb|\pi| & $ \rho $ & \verb|\rho| \\ \hline
+$ \sigma $ & \verb|\sigma| & $ \tau $ & \verb|\tau| & $ \phi $ & \verb|\phi| \\ \hline
+$ \varphi$ & \verb|\varphi|& $ \psi $ & \verb|\psi| & $ \omega $ & \verb|\omega| \\ \hline
+\end{tabular} 
+\vspace{2mm}  \\
+以下字母存在大写形式(省略了一些带\verb|\var|前缀的)，只需把首字母大写即可。
+\begin{lstlisting}
+\Gamma,\Delta,\Theta,\Lambda,\Xi,\O,
+\Pi,\Sigma,\Upsilon,\Phi,\Psi,\Omega    
+\end{lstlisting} 
+
+\item 字母上下加符号：
+\vspace{-4mm}
+\begin{multicols}{2}
+$ \overline{a} $\q \verb|\overline{a}| \\
+$ \underline{a} $\q \verb|\underline{a}| \\
+$ \overbrace{a} $\q \verb|\overbrace{a}| \\
+$ \underbrace{a} $\q \verb|\underbrace{a}| \\
+$ \overleftarrow{a} $\q \verb|\overleftarrow{a}| \\
+$ \overrightarrow{a} $\q \verb|\overrightarrow{a}| \\
+$ \stackrel{b}{a} $\q \verb|\stackrel{b}{a}| \\
+$ \overset{b}{a} $\q \verb|\overset{b}{a}| \\
+$ \underset{b}{a} $\q \verb|\underset{b}{a}| \\
+$ \acute{a} $\q \verb|\acute{a}| \\
+$ \grave{a} $\q \verb|\grave{a}| \\
+$ \tilde{a} $\q \verb|\tilde{a}| \\
+$ \widetilde{abc} $\q \verb|\widetilde{abc}| \\
+$ \bar{a} $\q \verb|\bar{a}| \\
+$ \vec{a} $\q \verb|\vec{a}| \\
+$ \hat{a} $\q \verb|\hat{a}| \\
+$ \widehat{abc} $\q \verb|\widehat{abc}| \\
+$ \check{a} $\q \verb|\check{a}| \\
+$ \breve{a} $\q \verb|\breve{a}| \\
+$ \dot{a} $\q \verb|\dot{a}| \\
+$ \ddot{a} $\q \verb|\ddot{a}| \\
+$ \dddot{a} $\q \verb|\dddot{a}| 
+\end{multicols}
+\vspace{-4mm}
+
+\item \textbf{中文加下划线}：(需\verb|\usepackage{ulem}|)
+\vspace{-5mm}
+\begin{multicols}{2}
+\uline{单下划线}\q \verb|\uline{}| \\
+\uuline{双下划线}\q \verb|\uuline{}| \\
+\uwave{波浪线}\q\q \verb|\uwave{}| \\
+\sout{删除线}\q\q \verb|\sout{}| \\
+\dashuline{虚下划线}\q \verb|\dashuline{}| \\
+\dotuline{点下划线}\q \verb|\dotuline{}| 
+\end{multicols}
+
+\item \textbf{箭头}：
+\vspace{-5mm}
+\begin{multicols}{2}
+$ \to $\q \verb|\to| \\
+$ \rightarrow $\q \verb|\rightarrow| \\
+$ \Rightarrow $\q \verb|\Rightarrow| \\
+$ \longrightarrow $\q \verb|\longrightarrow| \\
+$ \leftarrow $\q \verb|\leftarrow| \\
+$ \Leftarrow $\q \verb|\Leftarrow| \\
+$ \uparrow $\q \verb|\uparrow| \\
+$ \downarrow $\q \verb|\downarrow| 
+\end{multicols}
+\vspace{-5mm}
+$ \xrightarrow[a,b]{c,d} $\q \verb|\xrightarrow[a,b]{c,d}| \\
+$ \xlongequal[140^{\circ}\mathrm{C}]{\text{稀硫酸}} $\q 
+ (\verb|\xlongequal|需\verb|\usepackage{extarrows}|) \\  
+{\small \verb|\xlongequal[140^{\circ}{\mathrm{C}]{\text{稀硫酸}}|}
+
+
+\item \textbf{插入表格}：
+\begin{lstlisting}
+\begin{tabular}{|c|c|}
+    \hline
+    &  \\
+    \hline
+    &  \\
+    \hline
+\end{tabular}    
+\end{lstlisting} 
+表格内换行：
+\begin{lstlisting}
+\usepackage{makecell}  
+\makecell[l]{第一行 \\ 第二行 \\ ···}  
+\end{lstlisting} 
+合并单元格则使用\verb|\multicolumn|和\verb|\multirow|.\\
+跨页的长表格使用\verb|\begin{longtable}···|. \\
+表格行距控制：\verb|\renewcommand{\arraystretch}{1.5}| 
+
+
+\item \textbf{插入图片}：
+\begin{lstlisting}
+\usepackage{graphicx}    
+\begin{figure}
+\centering
+\includegraphics[width=
+        0.3\linewidth]{图片名}
+\caption{图片标题}
+\label{xxx1}
+\end{figure} 
+\end{lstlisting} 
+位置控制：\verb|h(here) t(top) b(bottom) p ! H(Here)|，
+H比h更强，如果使用h后图片还是跑到意料之外的位置，请改用H。使用H需
+\verb|\usepackage{float}|.  \\
+p代表page containing only floats, such as figures and tables. \\
+!代表allows to ignore certain parameters of LaTeX for float placement.\\
+四种宽度：\\
+\verb|\linewidth|\q\q 当前行的宽度 \\
+\verb|\columnwidth|\q 当前分栏的宽度 \\
+\verb|\textwidth|\q\q\ 整个页面版芯的宽度 \\
+\verb|\paperwidth|\q\q 整个页面纸张的宽度
+
+
+\item \textbf{添加页眉页脚}：
+\begin{lstlisting}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{左页眉}
+\chead{中页眉}
+\rhead{右页眉}
+\lfoot{左页脚，修订日期\today}
+\cfoot{中页脚，第\thepage 页}
+\rfoot{右页脚}
+\end{lstlisting} 
+
+\item \textbf{添加水印}：\\
+使用\verb|{xwatermark}|包会遇到报错
+\begin{lstlisting}
+Extra \endgroup. \begin{document}
+\end{lstlisting} 
+\verb|{background}|包第一页水印的颜色比后面的页更深，第二页水印内容也有异常；
+\verb|{watermark}|(2004)和\verb|{draftmark}|(2009)太旧，均无法使用。\\
+下面给出\verb|{draftwatermark}|用法示例，但这个包有时会出现水印文字
+重叠到一起的问题(本文档编译时经常遇到这个问题，但不是100\% 出现)。
+\begin{lstlisting}
+\usepackage{draftwatermark}
+\usepackage{everypage}
+\SetWatermarkText{磁悬浮青蛙呱呱呱，水印}
+\SetWatermarkLightness{0}
+\SetWatermarkAngle{80}
+\SetWatermarkColor{gray}
+\SetWatermarkScale{0.07}
+\end{lstlisting} 
+
+\item 带圈数字，\\
+方法一：\verb|\usepackage{pifont}|，\\
+\ding{172}\ding{173}$ \cdots $\ding{180}\ding{181}\q 
+\verb|\ding{172}···\ding{181}| \\
+\ding{182}\ding{183}$ \cdots $\ding{190}\ding{191}\q
+\verb|\ding{182}···\ding{191}| \\
+\ding{192}\ding{193}$ \cdots $\ding{200}\ding{201}\q 
+\verb|\ding{192}···\ding{201}| \\
+\ding{202}\ding{203}$ \cdots $\ding{210}\ding{211}\q 
+\verb|\ding{202}···\ding{211}| \\
+方法二：\verb|\usepackage{tikz}|，
+然后定义一个新的命令：
+\begin{lstlisting}
+\newcommand*{\mycircled}[1]{\lower
+.7ex\hbox{\tikz\draw (0pt, 0pt) circle 
+(.4em) node {\makebox[0.5em][c]
+    {\small #1}};}}    
+\end{lstlisting} 
+~\mycircled{1}\mycircled{2}\mycircled{9}\mycircled{10} \q  
+% $ \mycircled{1}\mycircled{2}\mycircled{9}\mycircled{10} $ \q  
+\verb|\mycircled{1}\mycircled{2}···| \\
+当\verb|\mycircled{}|命令出现在行首的时候，会遇到报错: 
+\begin{lstlisting}
+You can't use '\lower' in vertical mode.    
+\end{lstlisting} 
+解决方案是在\verb|\mycircled{}|之前加一个波浪号\verb|~|
+(波浪号不会出现在编译结果中)，
+或者把\verb|\mycircled{}|放在行内公式环境中，比如美元符号内。\\
+方法三：\verb|\textcircled{}|，数字在圈内偏上，没有居中，不推荐。\\
+\textcircled{1}\textcircled{2}\textcircled{9} 
+\textcircled{10}\textcircled{100}\textcircled{1000} \q  
+\verb|\textcircled{1}···| 
+
+\item 添加带编号\textbf{脚注}\footnote{这是用
+    $\backslash$footnote\{\}添加的带编号脚注。}：
+\verb|\footnote{}|. \\
+无编号脚注：(自定义了\verb|\myfootnote|命令)\myfootnote{这是用
+    $\backslash$myfootnote\{\}添加的无编号脚注。}
+\begin{lstlisting}
+\newcommand{\myfootnote}[1]{
+\renewcommand{\thefootnote}{}
+\footnotetext{\scriptsize#1}
+\renewcommand{\thefootnote}{
+    \arabic{footnote}}  }    
+\end{lstlisting} 
+把脚注编号改为带圈数字：
+\begin{lstlisting}
+\renewcommand{\thefootnote}{ 
+\ding{\numexpr171+\value{footnote}}}
+\newcommand{\myfootnote}[1]{
+\renewcommand{\thefootnote}{}
+
+\footnotetext{\scriptsize#1}
+\renewcommand{\thefootnote}{
+\ding{\numexpr171+\value{footnote}}}}    
+\end{lstlisting} 
+
+
+\item \textbf{允许公式跨页}：\verb|\allowdisplaybreaks|
+
+\item \textbf{新增空白页}：
+\begin{lstlisting}
+\newpage, \clearpage, \cleardoublepage
+\end{lstlisting} 
+
+%\item \textbf{日期}：\verb|\today|
+
+\item \textbf{目录}：\verb|\tableofcontents| \\
+设置目录深度：\verb|\setcounter{tocdepth}{3}| \\
+设置在几级目录前标记序号：\\ 
+\verb|\setcounter{secnumdepth}{4}|
+
+\item \textbf{字体大小}控制：
+\begin{lstlisting}
+\tiny, \scriptsize, \footnotesize
+\small, \normalsize
+\large, \Large, \LARGE, \huge, \Huge    
+\end{lstlisting} 
+
+文本行距控制：\verb|\linespread{1.3}|(必须放在\\
+    \verb|\begin{document}|之前) 
+
+\item \textbf{粗体}：\verb|\textbf{}|，使用时如果恰好换行，
+在tex源码中让\verb|\textbf{}|处于新一行，则编译后的粗体前面会多一个空格，
+解决方案就是不要恰好在\verb|\textbf{}|前面换行。
+斜体命令\verb|\textit{}|只对英文有效，对中文无效。
+对英文同时斜体和粗体则需\verb|\usepackage{bm}|，
+$ \bm{AB} $：\verb|$\bm{AB}$| 
+
+\item 用以下命令修改全局字体，需\verb|\usepackage{fontspec}|\\
+设置英文字体：\verb|\setmainfont{Microsoft YaHei}|\\
+设置C(中文)、J(日文)、K(韩文)的字体：
+\begin{lstlisting}
+% 特别注意大括号中的字体名称区分大小写
+\setCJKmainfont{SimSun}   % 宋体
+\setCJKmainfont{FangSong} % 仿宋
+\end{lstlisting} 
+其它一些字体名称：NSimSun(新宋体)，STFangsong(华文仿宋)，STZhongsong(华文中宋)，STXihei(华文细黑)，KaiTi(楷体)，STKaiti(华文楷体)，SimHei(黑体)，Microsoft YaHei(微软雅黑)，LiSu(隶书)，STLiti(华文隶书)，YouYuan(幼圆)。\\
+\\
+\textcolor{red}{设置}\textcolor{green}{文本}
+\textcolor{gray}{颜色}\textcolor{orange}{(textcolor)}：
+\begin{lstlisting}
+\textcolor{red}{设置}···
+\end{lstlisting} 
+
+修改局部的字体，只需用大括号包住，然后加上“\textbackslash 字体英文名称”即可。字体英文名称可以通过在Windows的cmd或Powershell中，或者Linux的shell中，输入\verb|fc-list|来查看，查询结果非常多，可以用\verb|fc-list :lang=zh|(注意是英文冒号，而且冒号前有一个空格)筛选中文字体，
+用\verb|fc-list :lang=en|筛选英文字体。
+\begin{lstlisting}
+\newfontfamily{\courier}{Courier New}
+\newfontfamily{\tinro}{Times New Roman}
+\newfontfamily{\airal}{Arial}
+\newfontfamily{\calibri}{Calibri}
+\newfontfamily{\cambria}{Cambria}
+\newfontfamily{\consolas}{Consolas}
+
+{\courier English Courier New font}
+{\tinro   English Times New Roman}
+{\airal   English Arial font show}
+{\calibri  English Calibri font show}
+{\cambria  English Cambria font show}
+{\consolas English Consolas font}
+\end{lstlisting} 
+\newfontfamily{\courier}{Courier New}
+\newfontfamily{\tinro}{Times New Roman}
+\newfontfamily{\airal}{Arial}
+\newfontfamily{\calibri}{Calibri}
+\newfontfamily{\cambria}{Cambria}
+\newfontfamily{\consolas}{Consolas}
+{\courier English Courier New font show} \\  
+{\tinro   English Times New Roman show} \\  
+{\airal   English Arial font show} \\  
+{\calibri  English Calibri font show} \\  
+{\cambria  English Cambria font show} \\  
+{\consolas English Consolas font show}   
+\begin{lstlisting}
+{\songti   宋体-磁悬浮青蛙呱呱呱}
+{\heiti    黑体-磁悬浮青蛙呱呱呱}
+{\fangsong 仿宋-磁悬浮青蛙呱呱呱}
+{\kaishu   楷书-磁悬浮青蛙呱呱呱}
+{\lishu    隶书-磁悬浮青蛙呱呱呱}
+{\youyuan  幼圆-磁悬浮青蛙呱呱呱}
+{\yahei    雅黑-磁悬浮青蛙呱呱呱}
+\end{lstlisting} 
+{\songti   宋体-磁悬浮青蛙呱呱呱} \\ 
+{\heiti    黑体-磁悬浮青蛙呱呱呱} \\  
+{\fangsong 仿宋-磁悬浮青蛙呱呱呱} \\   
+{\kaishu   楷书-磁悬浮青蛙呱呱呱} \\  
+{\lishu    隶书-磁悬浮青蛙呱呱呱} \\  
+{\youyuan  幼圆-磁悬浮青蛙呱呱呱} \\
+{\yahei    雅黑-磁悬浮青蛙呱呱呱}  
+
+\item 部分\ \verb|\part{}| \hspace{2cm} 章\ \ \ \ 
+\verb|\chapter{}| \\
+节\ \ \ \ \verb|\section{}|  \hspace{1.45cm} 小节\ \verb|\subsection{}|
+
+\item \textbf{带编号列表}：
+\begin{lstlisting}
+\usepackage{enumerate}
+\begin{enumerate}[(1)]
+\item 有界变差函数
+\item 可测函数
+\end{enumerate}
+\end{lstlisting} 
+\textbf{不带编号列表}：
+\begin{lstlisting}
+\begin{itemize}
+\item 控制收敛定理
+\item Levi引理和Fatou引理
+\end{itemize}
+\end{lstlisting} 
+\verb|\usepackage{paralist}|后，\\
+用\verb|\begin{compactenum} \end{compactenum}|\\
+代替\verb|\begin{enumerate} \end{enumerate}|，\\
+用\verb|\begin{compactitem} \end{compactitem}|\\
+代替\verb|\begin{itemize} \end{itemize}|，\\
+用\verb|\begin{compactdesc} \end{compactdesc}|\\
+代替\verb|\begin{description} \end{description}|，\\
+可以让item之间的空白更小。\\
+\verb|{paralist}|和\verb|{enumitem}|包存在冲突，
+同时使用这两个包时，会报错：
+\begin{lstlisting}
+Undefined control sequence. 
+\end{enumerate}
+Missing number, treated as zero. 
+\end{enumerate}   
+\end{lstlisting} 
+建议抛弃\verb|{paralist}|，只使用\verb|{enumitem}|，
+在
+\begin{lstlisting}
+\begin{enumerate}
+\begin{itemize}
+\begin{description}     
+\end{lstlisting} 
+后面加上\verb|[itemsep=0pt]|来实现空白更小的效果，
+其中的\verb|0pt|还可以设成\verb|-1pt,-2pt|等负数。
+
+\item 常用\textbf{长度单位}：毫米(mm)，厘米(cm)，点(pt)，ex，em
+
+\item \textbf{交换图}：
+\begin{displaymath}
+\xymatrix{ V \ar[r]^{\bm{\varphi}}
+    \ar[d]_{\bm{\eta}_1} & U\ar[d]^{\bm{\eta}_2} \\
+    {\mathbb{K}_n} \ar[r]^{\bm{\varphi}_A} & {\mathbb{K}_m} }
+\end{displaymath}
+
+\begin{lstlisting}
+\usepackage[all]{xy}
+\begin{displaymath}
+\xymatrix{ 
+V \ar[r]^{\bm{\varphi}}
+  \ar[d]_{\bm{\eta}_1} 
+& U\ar[d]^{\bm{\eta}_2} \\
+{\mathbb{K}_n} \ar[r]^{\bm{\varphi}_A} 
+& {\mathbb{K}_m} }
+\end{displaymath}    
+\end{lstlisting} 
+
+\item \textbf{空格与空白}：
+\vspace{-5mm}
+\begin{multicols}{2} 
+    负空格\q \verb|\!|  \\
+    窄空格\q \verb|\,|  \\
+    中等空格\q \verb|\:|  \\
+    宽空格\q \verb|\;|   \\
+    词间空格\q \verb|\ | \\
+    四倍空格\q \verb|\quad|  \\
+    八倍空格\q \verb|\qquad| 
+\end{multicols} 
+\vspace{-5mm}
+注意，“词间空格”的斜杠后有一个看不见的空格。\\
+取消首行缩进：\verb|\noindent| \\
+水平空白\q \verb|\hspace{|$ \pm $\verb|2cm}| \\
+垂直空白\q \verb|\vspace{|$ \pm $\verb|2cm}| \\
+缩小行间公式与上下文之间的空白(必须放在\\
+\verb|\begin{document}|之前)：
+\begin{lstlisting}
+\AtBeginDocument{
+\addtolength{\abovedisplayskip}{-2ex}
+\addtolength{\abovedisplayshortskip}{-2ex}
+\addtolength{\belowdisplayskip}{-2ex}
+\addtolength{\belowdisplayshortskip}{-2ex} 
+}    
+\end{lstlisting} 
+
+\item \textbf{设置页边距}：
+\begin{lstlisting}
+\usepackage{geometry}
+\geometry{a4paper,left=1cm,right=1cm,
+          top=1.5cm,bottom=1.5cm}    
+\end{lstlisting} 
+
+\item 英文字母几种变体效果如下：\\
+\verb|\mathcal{}|(只能用于大写字母，对小写无效)
+\begin{gather*}
+\boxed{\mathcal{ABCDEFGHIJKLMNOPQRSTUVWXYZ}}
+\end{gather*}
+\verb|\mathscr{}|(只能用于大写字母，需\verb|{mathrsfs}|)
+\begin{gather*}
+\boxed{ \begin{gathered}
+    \mathscr{ABCDEFGHIJKLM}\\
+    \mathscr{NOPQRSTUVWXYZ}
+\end{gathered} }
+\end{gather*}
+\verb|\mathbb{}|(只能用于大写字母，需\verb|{amssymb}|)
+\begin{gather*}
+    \boxed{ \begin{gathered}
+        \mathbb{ABCDEFGHIJKLMNOPQRSTUVWXYZ}
+    \end{gathered} }
+\end{gather*}
+\verb|\mathfrak{}|(同时适用于大小写，需\verb|{amssymb}|)
+\begin{gather*}
+    \boxed{ \begin{gathered}
+            \mathfrak{ABCDEFGHIJKLMNOPQRSTUVWXYZ}\\
+            \mathfrak{abcdefghijklmnopqrstuvwxyz}
+    \end{gathered} }
+\end{gather*}
+
+\item 防止f{}f, f{}i, f{}f{}i, f{}l变成连体(Ligature)：ff,fi,ffi,fl\\
+方法一：\verb|f{}f,f{}i,f{}f{}i,f{}l| \\
+方法二：\verb|f{f},f{i},f{f}i,  f{l}| \\
+连体可能导致从编译的PDF中复制文字或者取词翻译出问题，是我最讨厌的\LaTeX 特性。
+禁用所有连写的命令我还没有测试成功。
+%我把TexLive 2021升级成TexLive 20220321后，如果使用另外的字体文件
+%(要把字体的otf或ttf文件放到\verb|texlive\2022\texmf-dist\fonts\opentype|文件夹中，
+%如果没有OPPOSans-B.ttf和SourceHanSerifCN-Regular.otf文件，则以下\verb|\setCJKmainfont|命令会报错，导致无法编译。)
+%\begin{lstlisting}
+%\setCJKmainfont[BoldFont=OPPOSans-B]
+%    {SourceHanSerifCN-Regular}    
+%\end{lstlisting} 
+%某些中文也出现了连体，比如：\\
+%一个浮躁的人，活动范围受限，\\
+%梅涅劳斯定理，上海浦东新区。\\
+%用上面的大括号的方法无效，可改用加\verb|\,|的方法，
+%即“一个浮\verb|\,|躁的人”，效果：一个浮\,躁的人。\\
+%出现中文连体的同时还有大量警告：\\
+%OpenType feature 'Ligatures=RequiredOff' (rlig) not(fontspec) available for font 'SourceHanSerifCN-Regular' with(fontspec) script 'CJK' and language 'Default'. \\
+%解决方案可能是把字体文件删除后重新放入文件夹。
+
+%\item 使用emoji表情，先\verb|\usepackage{emoji}|，
+%然后用\\ LuaLaTeX 编译(不能使用XeLaTeX，否则报错)，
+%\begin{lstlisting}
+%e\^{}(\emoji{droplet}ln
+%\emoji{grinning-face-with-smiling-eyes})
+%=\emoji{grinning-face-with-sweat}
+%\end{lstlisting} 
+%e\^{}(\emoji{droplet}ln\emoji{grinning-face-with-smiling-eyes})=
+%\emoji{grinning-face-with-sweat}
+%但LuaLaTeX 编译时会有很多报错，比如交换图部分会报错，
+%\verb|{esint}|包也会报错。
+
+\item 本手册使用了多栏环境
+\begin{lstlisting}  
+\usepackage{multicol}      
+\begin{multicols}{2} 
+
+\end{multicols}    
+\end{lstlisting} 
+以及带编号列表环境\verb|enumerate|，用
+\begin{lstlisting}
+\columnseprule 1pt    
+\end{lstlisting} 
+显示中央分隔竖线并控制线宽。用
+\begin{lstlisting}
+\columnsep 20pt  
+\end{lstlisting} 
+控制两栏之间的间隔。显示\LaTeX 代码使用了两种方法，
+较短的代码使用了\verb|\verb| | |，大片的代码使用了 
+\begin{lstlisting}
+\usepackage{listings}
+\lstset
+{ language=[LaTeX]TeX,
+  backgroundcolor=\color{gray!20},
+  basicstyle=\tt\normalsize,
+  aboveskip=0pt,
+  belowskip=0pt, }    
+\end{lstlisting}
+\vspace{-2mm} 
+\begin{tcolorbox}[arc={0mm},colback={gray!20},boxrule={0pt},left={0pt}]
+\verb|\begin{lstlisting}| \\
+\\
+\verb|\end{lstlisting}|
+\end{tcolorbox}
+除了\verb|lstlisting|，也可以使用 \\
+\begin{tcolorbox}[arc={0mm},colback={gray!20},boxrule={0pt},left={0pt}]
+\verb|\begin{verbatim}| \\
+\\
+\verb|\end{verbatim}|
+\end{tcolorbox}
+
+\item 以下三个网站可以在线写作以及编译\LaTeX ：
+\begin{lstlisting}
+https://www.texpage.com/
+https://www.slager.cn/
+https://cn.overleaf.com/
+\end{lstlisting} 
+以下网站可以识别单个手写的\LaTeX 符号，并提供可能的\LaTeX 代码。
+\lstset
+{   language=[LaTeX]TeX,
+    backgroundcolor = \color{gray!20},
+    basicstyle=\tt\small,
+    aboveskip=1pt,
+    belowskip=1pt, }
+\begin{lstlisting}
+http://detexify.kirelabs.org/classify.html 
+\end{lstlisting} 
+Mathpix snip软件(Win,MacOS,Linux,IOS,Android均支持)
+能识别手写或印刷的数学公式、英文和汉字，包括矩阵和表格等，
+然后生成完整的\LaTeX 代码，而且准确率很高，值得尝试。
+
+\end{enumerate}  
+\end{multicols}
+
+\end{document}

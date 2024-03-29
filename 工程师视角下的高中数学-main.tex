@@ -1,0 +1,270 @@
+\documentclass[twoside]{book}
+\usepackage[inner=2cm,outer=1.5cm]{geometry}
+%\geometry{b5paper,left=1cm,right=1cm,top=1.5cm,bottom=1.5cm}
+\geometry{b5paper,top=1.5cm,bottom=1.5cm}
+
+\newif\ifteach
+
+\newif\ifte
+\newif\ifChuBanbook
+
+
+\teachtrue
+\tetrue
+%\teachfalse
+\usepackage{amsthm}
+\usepackage{ctex}
+\usepackage{amsmath}
+\usepackage{yhmath}
+\usepackage{amssymb}
+\usepackage{extarrows}
+\usepackage{enumerate}
+\usepackage{enumitem}
+
+\usepackage{bm} % 黑体 斜体
+%\usepackage{paralist}
+\usepackage{fancyhdr}
+\usepackage{datetime} 
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{pifont} %脚注改带圈数字必须
+\usepackage{fontspec}
+\usepackage{listings} % 代码高亮
+\usepackage{diagbox} % 表格斜线
+\usepackage{esint} % 
+\usepackage{bigints}
+\usepackage{tcolorbox}
+\usepackage{ulem}
+\usepackage[all]{xy}
+\usepackage{mathrsfs}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{xfp}
+\usepackage{cases}
+
+\special{dvipdfmx:config z 0}
+
+% \everymath{\displaystyle} % 全文的行内公式都显示行间公式效果
+% \setCJKmainfont[BoldFont=SimHei]{SimSun}
+%\setCJKmainfont[BoldFont=SourceHanSansCN-Bold]{SourceHanSerifCN-Regular}
+\setCJKmainfont[BoldFont=OPPOSans-B]{SourceHanSerifCN-Regular}
+\newCJKfontfamily\KaiTifont{gkai00mp.ttf}
+%\newCJKfontfamily\KaiTifont{楷体}
+
+% \usepackage{diagbox} % 表头斜线
+\usepackage[hang,flushmargin,perpage]{footmisc}
+\usepackage{tikz}
+\usetikzlibrary{calc,matrix}
+\usepackage{fontawesome5}
+%\usepackage{upgreek} % \uptau
+%\usepackage{dashrule} %     &\hdashrule{5cm}{1pt}{1pt} \\
+\newcommand*{\mycircled}[1]{\lower.7ex\hbox{\tikz\draw (0pt, 0pt)%
+        circle (.4em) node {\makebox[0.5em][c]{\small #1}};}}
+
+% \usepackage{color}
+% \usepackage{draftwatermark}
+%\let\itemize\compactitem
+%\let\enditemize\endcompactitem
+%\let\enumerate\compactenum
+%\let\endenumerate\endcompactenum
+%\let\description\compactdesc
+%\let\enddescription\endcompactdesc
+
+%\setlength{\parindent}{0pt}
+%\setlength{\headheight}{15pt} % 非必须
+
+
+\renewcommand{\thetable}{\thesection{}.\arabic{table}}
+\renewcommand{\thefigure}{\thesection{}.\arabic{table}}
+%\renewcommand{\thefootnote}{} 脚注全没编号了
+%\usepackage{setspace}  %导致行距膨胀
+
+%\usepackage{subfig}
+\usepackage{subcaption}
+
+%\usepackage{subfigure}
+
+\usepackage{tocloft} 
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}} %目录 章后面有黑点
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}} %目录 节后面有黑点
+% 依赖 tocloft
+
+%\renewcommand{\today}{\number\year 年 \number\month 月 \number\day 日}
+\renewcommand{\today}{\number\year-\number\month-\number\day}
+
+% 脚注数字带圈
+\renewcommand{\thefootnote}{\ding{\numexpr171+\value{footnote}}}
+%\renewcommand{\thefootnote}{\textcircled{\@arabic\c@footnote}}
+
+\newcommand{\myfootnote}[1]{
+    \renewcommand{\thefootnote}{}
+    \footnotetext{\scriptsize#1}
+    %    \renewcommand{\thefootnote}{\arabic{footnote}}
+    \renewcommand{\thefootnote}{\ding{\numexpr171+\value{footnote}}}
+}
+\newcommand\parallelogram
+{\mathord{\text{
+    \tikz[baseline] 
+    \draw (0em, .1ex) -- ++(0.8em, 0ex) 
+    -- ++(0.2em, 1.2ex) -- ++(-0.8em, 0ex)
+    -- cycle;} } }
+        
+%%%%%%%%%%%
+\renewcommand{\chaptermark}[1]{\markboth{第\,\thechapter\,章\quad #1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ \ #1}{}}
+%\pagestyle{fancy}
+\pagestyle{empty}
+\fancyhead{} % clear all fields 
+\fancyhead[LO]{\small \Bookname}
+\fancyhead[RE]{\small \Bookname}
+
+%\fancyhead[C]{\small \rightmark}
+\fancyhead[CO]{\small \rightmark}
+\fancyhead[CE]{\small \leftmark}
+%\fancyhead[CE]{\Bookname}
+%\fancyhead[CO]{\rightmark}
+\fancyhead[RO]{\textbf{\thepage}}
+\fancyhead[LE]{\textbf{\thepage}}
+%\fancyfoot{}
+\fancyfoot[L]{本PDF文件免费，下载地址https://github.com/FrogGuaGuaGua/HighSchoolMathematics}
+\fancyfoot[C]{}
+%\fancyfoot[C]{\rightmark}
+%\lhead{}
+%\lfoot{{\small }}
+%\chead{}
+%\rhead{工程师视角下的高中数学 \quad 作者：蒋力夫\quad 修订日期：\today} 
+%\rhead{\quad 作者：蒋力夫\quad 修订日期：\today} 
+%\rfoot{{\scriptsize \quad 作者：蒋力夫\quad 修订日期：\today}} 
+
+
+%\let\itemize\compactitem
+%\let\enditemize\endcompactitem
+%\let\enumerate\compactenum
+%\let\endenumerate\endcompactenum
+%\let\description\compactdesc
+%\let\enddescription\endcompactdesc
+
+
+\newcommand{\q}{\quad}
+\renewcommand{\vec}{\overrightarrow}
+
+\renewcommand{\Re}{\mathrm{Re}}
+\renewcommand{\Im}{\mathrm{Im}}
+  \newcommand{\e}{\mathrm{e}}
+\renewcommand{\d}{\mathrm{d}}
+\renewcommand{\i}{\mathrm{i}}
+\renewcommand{\mod}{\ \mathrm{mod}\ } 
+\newcommand{\disp}{\displaystyle}
+
+\let\leqstore\leq
+\let\geqstore\geq
+
+\renewcommand\leq\leqslant
+\renewcommand\geq\geqslant
+
+\usepackage[center]{titlesec} %chapter1修改为第1章
+\titleformat{\chapter}{\raggedright\Huge\bfseries}{第\,\thechapter\,章}{1em}{}
+
+\usepackage[toc]{multitoc} %双栏 
+\setcounter{tocdepth}{1}  % 设置目录深度
+
+\AtBeginDocument{
+    \addtolength{\abovedisplayskip}{-1ex}
+    \addtolength{\abovedisplayshortskip}{-1ex}
+    \addtolength{\belowdisplayskip}{-1ex}
+    \addtolength{\belowdisplayshortskip}{-1ex}
+}
+\linespread{1.4}
+\setlength{\floatsep}{5pt plus 2pt minus 2pt}
+\setlength{\textfloatsep}{5pt plus 2pt minus 2pt}
+\setlength{\intextsep}{5pt plus 2pt minus 2pt}
+
+%\numberwithin{equation}{section}​
+\allowdisplaybreaks
+%\maketitle
+\columnseprule=0.5pt 
+
+\newcommand{\Bookname}{工程师视角下的高中数学}
+\newcommand{\CopyrightStatementChap}{当前版本：\today.\quad 蒋力夫版权所有，销售电子版或复印版将被追究法律责任！}
+
+\title{\Bookname}
+\author{蒋力夫}
+
+\lstset{
+    backgroundcolor = \color{gray!15},    % 背景色：灰色
+    basicstyle = \small\ttfamily,           % 基本样式 + 小号字体
+    rulesepcolor= \color{black},             % 代码块边框颜色
+    breaklines = true,                  % 代码过长则换行
+    %	numbers = left,                     % 行号在左侧显示
+    numberstyle = \small,               % 行号字体
+    keywordstyle = \color{blue},            % 关键字颜色
+    commentstyle =\color{green!100},        % 注释颜色
+    stringstyle = \color{red!100},          % 字符串颜色
+    frame = single,                  % 用方框框住代码块
+    showspaces = false,                 % 不显示空格
+    columns = fixed,                    % 字间距固定
+    language=matlab
+}
+
+\renewcommand{\labelitemi}{$\bullet$}
+\renewcommand{\labelitemii}{$\triangleright$}
+
+\newcommand{\myenumleftmargin}{0}
+\newcommand{\myenumitempsep}{6}
+\newcommand{\myenumitemindent}{57}
+
+\newcommand{\myitemleftmargin}{-2}
+\newcommand{\myitemitempsep}{6}
+\newcommand{\myitemtopsep}{3}
+
+
+%\includeonly{教案-前言}
+%\includeonly{教案-函数}
+%\includeonly{教案-排列组合}
+%\includeonly{教案-概率论}
+%\includeonly{教案-复数与三角函数}
+%\includeonly{教案-解三角形与向量}
+%\includeonly{教案-导数与积分}
+%\includeonly{教案-不等式}
+%\includeonly{教案-复数与三角函数,教案-数列}
+%\includeonly{教案-数列}
+%\includeonly{教案-解析几何}
+%\includeonly{教案-矩阵和行列式}
+%\includeonly{教案-小考点}
+%%\includeonly{教案-进一步探索}
+%\includeonly{教案-Latex排版入门}
+\begin{document}
+\numberwithin{equation}{chapter}​
+\columnseprule=0.5pt 
+
+编译日期：\today
+    
+\tableofcontents
+\thispagestyle{empty}
+
+%    \include{教案-前言} 
+        \pagestyle{fancy} 
+        \setcounter{page}{1}
+    \include{教案-函数}
+    \include{教案-排列组合}
+%    \include{教案-概率论}
+    \include{教案-复数与三角函数}
+    \include{教案-解三角形与向量}
+    \include{教案-导数与积分}
+%    \include{教案-不等式}
+%    \include{教案-数列}  % 包含\lstset
+%    \include{教案-解析几何}
+%    \include{教案-矩阵和行列式}
+%    \include{教案-小考点}
+%    \include{教案-进一步探索}
+%   \include{教案-Latex排版入门}
+%    \include{教案-杂谈}
+%    \include{教案-感谢名单}
+  
+\end{document}
+
+
+
+
+
+
