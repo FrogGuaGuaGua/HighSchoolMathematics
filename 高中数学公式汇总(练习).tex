@@ -4,8 +4,9 @@
 
 \newif\ifte
 
-\tetrue
+%\tetrue
 \tefalse
+% \tetrue会显示答案，\tefalse则会隐藏答案。
 
 \usepackage{amsthm}
 \usepackage{ctex}
@@ -89,7 +90,6 @@
 %\lfoot{{\small }}
 \chead{高中数学公式表}
 \rhead{}
-%\rhead{高中数学进阶教案 \quad 作者：蒋力夫\quad 修订日期：\today} 
 %\rhead{\quad 作者：蒋力夫\quad 修订日期：\today} 
 %\lfoot{{\scriptsize \quad 作者：蒋力夫\quad 修订日期：\today}} 
 \lfoot{ {\footnotesize \quad 作者：蒋力夫\quad 修订日期：\today}}
@@ -387,7 +387,7 @@ $ (\vec{a}+\vec{b}+\vec{c})^2 $的结果类似。
 \item $^*$ 偶数件不同物品中选出奇数件物品的方法数
 $ C_{2n}^1 $，$ C_{2n}^3 $，$ C_{2n}^5,\cdots $都是
 \underline{\ \ifte 偶\else \hspace{0.5 cm} \fi\ }数。
-\ifte \else (填“奇”或“偶”) \fi
+(填“奇”或“偶”)
 
 \item $^*$ 组合恒等式：
 \begin{align*}
