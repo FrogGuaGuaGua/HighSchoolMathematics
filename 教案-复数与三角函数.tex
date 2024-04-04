@@ -244,6 +244,50 @@ $ x=a\e^{\i\frac{1+2k}{n}\pi} ,\ k=0,1,2\cdots ,(n-1) $.
     \left(x^2+\dfrac{\sqrt{5}-1}{2} ax+a^2 \right)
 \end{align*}
 
+\item 考虑两个复数的除法，$ \dfrac{A+B\i}{C+D\i}=P+Q\i\, (CD\neq 0) $，那么
+\begin{align}\label{复数除法比较性能}
+    P=\dfrac{AC+BD}{C^2+D^2},\q Q=\dfrac{BC-AD}{C^2+D^2}  
+\end{align}
+现在要编一段计算机程序，在已知$ A, B, C, D $的情况下求$ P,Q $.
+如果直接按上面的计算公式编程，至少需要进行6次浮点数乘法运算
+2次浮点数除法运算，2次浮点数加法和1次浮点数减法。至少6次乘法是
+因为$ C^2+D^2 $算过以后可以用一个变量$ E $来保存，
+省掉了2次乘法和1次加法，即
+\begin{align*}
+    E &=C^2+D^2\\
+    P &=\dfrac{AC+BD}{E},\q Q=\dfrac{BC-AD}{E}
+\end{align*}
+将以上算法暂时命名为“直接算法”。请读者思考，是否有办法减少乘法的次数？
+在知名的开源线性代数库LAPACK中，有一个名叫dladiv.f的
+Fortran语言代码文件，里面提供的函数就是来计算$ P,Q $的，
+这种十分在意性能的数学库采取了什么方法来计算
+$ P,Q $呢？实际上就是对(\ref{复数除法比较性能})式进行了等价的变形，
+分子分母同时除以$ C $，得
+\begin{align*}
+    P=\frac{A+B\cdot\frac{D}{C}}{C+D\cdot\frac{D}{C}},\q
+    Q=\frac{B-A\cdot\frac{D}{C}}{C+D\cdot\frac{D}{C}}
+\end{align*}
+引入两个新的变量$ E=\dfrac{D}{C},\ F=C+DE $，那么
+\begin{gather*}
+    P=\dfrac{A+BE}{F},\q Q=\dfrac{B-AE}{F}
+\end{gather*}
+在这种算法中，共有3次乘法，3次除法，2次加法和1次减法。以增加1次除法
+为代价，减少了3次乘法。假如乘法和除法的耗时几乎一样，那么LAPACK
+中的算法效率更高。假如除法的耗时明显比乘法长，那么直接算法可以修改为
+\begin{align*}
+    E &=\dfrac{1}{C^2+D^2} \\
+    P &=(AC+BD)E,\q Q=(BC-AD)E
+\end{align*}
+总共8次乘法，1次除法，加减法次数不变。LAPCAK中的方法可以修改为
+\begin{align*}
+    E &=\dfrac{D}{C},\q F=\dfrac{1}{C+DE} \\
+    P &=(A+BE)F,\q Q=(B-AE)F
+\end{align*}
+总共5次乘法，2次除法，加减法次数不变。与“6乘2除”的直接算法相比肯定更快。
+但与“8乘1除”相比哪个更快，结论并不确定，与执行计算的硬件有关。
+感兴趣的读者可以用C++写程序，在Visual Studio中或者去网站
+https://quick-bench.com上对比一下上面4种写法的速度差异。
+
 
 \end{itemize}
 
