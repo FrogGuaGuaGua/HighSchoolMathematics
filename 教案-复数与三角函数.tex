@@ -40,7 +40,7 @@ AB=&\ DC=\sin(\alpha+\beta)=DF+FC=\cos\beta\sin\alpha+\sin\beta\cos\alpha
 \cos(\alpha +\beta )=\cos \alpha \cos\beta - \sin \alpha \sin\beta 
 \end{align*}
 
-\item 正余弦和角、差角公式：
+\item 两个角正、余弦的和角、差角公式：
 \begin{align*} 
 \cos(\alpha\pm\beta )=&\ \cos\alpha\cos\beta \mp \sin\alpha\sin\beta \\
 \sin(\alpha\pm\beta )=&\ \sin\alpha\cos\beta \pm \cos\alpha\sin\beta 
@@ -94,6 +94,35 @@ a\sin x+b\cos (x+x_0)
 a\sin^2x+b\cos x=a(1-\cos^2x)+b\cos x=
 -a\left( \cos x-\dfrac{b}{2a}\right) ^2+\dfrac{b^2}{4a}
 \end{align*}
+
+\item $ ^* $ 三个角之和的正、余弦公式
+\footnote{这几个公式在笔者的工作中经常遇到，在多轴机械臂的运动控制中，
+    如果5轴或6轴的机械臂存在连续3根轴是平行的，那么其正向运动学计算就需要
+    用到三个角的和与差的正余弦公式，而逆向运动学存在解析解。
+    5轴码垛机械臂就是典型的存在3根平行轴的机械臂，其2、3、4号轴是平行的，
+    且都与1、5号轴垂直。}：
+\begin{align*}
+    &\sin(\alpha+\beta+\gamma)\\
+    =&-\sin\alpha\sin\beta\sin\gamma
+    +\sin \alpha \cos \beta \cos \gamma  + \cos \alpha \sin \beta 
+    \cos \gamma + \cos \alpha \cos \beta \sin \gamma  \\
+    &\cos(\alpha+\beta+\gamma)\\ 
+    =& \cos \alpha \cos \beta \cos\gamma
+    -\cos\alpha  \sin \beta \sin \gamma - \sin \alpha \sin \beta 
+    \cos \gamma - \sin \alpha \cos \beta \sin \gamma
+\end{align*}
+$ \sin(\alpha+\beta+\gamma) $展开式的特点是会含有三个$ \sin $
+的乘积的项，其余三项都是两个$ \cos $，一个$ \sin $，
+$ \sin $的总数等于$ \cos $的总数(都是6个)。
+$ \cos(\alpha+\beta+\gamma) $展开式有类似性质，会含有三个
+$ \cos $的乘积的项，其余三项都是两个$ \sin $，一个$ \cos $，
+$ \sin $的总数等于$ \cos $的总数(都是6个)。
+
+因为两个角的正、余弦的和(差)角公式，$ \sin $的数量等于$ \cos $
+的数量，多个角的和与差展开，就是反复运用两个角的和与差展开，
+所以$ \sin $的数量会始终等于等于$ \cos $的数量。
+手工计算时可以利用这一性质进行快速检查，若发现数量不相等，
+则肯定存在错误。
 
 \item $^*$ 双曲正弦函数 $ \sinh x=\dfrac{\e^x-\e^{-x}}{2} $， 双曲余弦函数
 $\cosh x=\dfrac{\e^x+\e^{-x}}{2} $，这两个函数存在与$ \sin x,\cos x $
