@@ -10,7 +10,7 @@ $ \vec{b}=(b_1,b_2,\cdots,b_n) $，这两者的数量积
     \vec{a}\cdot \vec{b}=a_1b_1+a_2b_2+\cdots+a_nb_n
 \end{gather*}
 
-\item 对于$ 3 $维向量$ \vec{a}=(a_1,a_2,a_3) $，
+\item 对于三维向量$ \vec{a}=(a_1,a_2,a_3) $，
 $ \vec{b}=(b_1,b_2,b_3) $，这两者的向量积(也称为“矢量积”，“外积”，“叉乘”)定义为
 \begin{align}\label{三维向量叉乘}
     \vec{a}\times\vec{b} =
@@ -27,46 +27,6 @@ $ \vec{b}=(b_1,b_2,b_3) $，这两者的向量积(也称为“矢量积”，“
 \vec{b}\neq \vec{b}\times\vec{a} $，
 而是满足$ \vec{a}\times \vec{b}=-\vec{b}
 \times\vec{a} $. 
-
-\item $^*$ 三维向量满足以下恒等式：
-\begin{align*}
-    &\ (a_1^2+a_2^2+a_3^2)(b_1^2+b_2^2+b_3^2)\\
-    =&\  (a_1b_1+a_2b_2+a_3b_3)^2+
-    (a_2b_3-a_3b_2)^2+(a_3b_1-a_1b_3)^2+(a_1b_2-a_2b_1)^2 \\
-    =&\ (\vec{a}\cdot \vec{b})^2+(\vec{a}\times\vec{b})^2 \\
-    =&\ |\vec{a}|^2|\vec{b}|^2\cos^2\langle\vec{a},\vec{b}\rangle 
-    +|\vec{a}|^2|\vec{b}|^2\sin^2\langle\vec{a},\vec{b}\rangle
-\end{align*} 
-$ \vec{a}\times\vec{b} $同时垂直于$ \vec{a} $和$ \vec{b} $，
-方向由右手法则\footnote{
-    假设已经将$ \vec{a},\vec{b} $的起点重合。
-    伸出右手，(除大拇指外的)四根手指从$ \vec{a} $转向$ \vec{b} $，
-    且转过的角度小于等于$ 180^{\circ} $，此时，竖起的大拇指所指
-    的方向就是$ \vec{a}\times\vec{b} $的方向。}确定。
-而$ |\vec{a}\times\vec{b}|=|\vec{a}||\vec{b}|\sin\langle\vec{a},
-\vec{b}\rangle $. 高中阶段，向量积最大的用处就是在
-立体解析几何中计算平面的法向量，以及理解物理学中的
-洛伦兹力$ \vec{F}=q\vec{v}\times \vec{B} $和安培力
-$ \vec{F}=I\vec{L}\times \vec{B} $. 
-
-\item (\ref{三维向量叉乘})式定义的向量积还能适用于七维\footnote{
-参见 https://en.wikipedia.org/wiki/Seven-dimensional\_{}cross\_{}product 
-
-\hspace{4mm} Given the properties of bilinearity, orthogonality and magnitude, a nonzero cross product exists only in three and seven dimensions. This can be shown by postulating the properties required for the cross product, then deducing an equation which is only satisfied when the dimension is 0, 1, 3 or 7. In zero dimensions there is only the zero vector, while in one dimension all vectors are parallel, so in both these cases the product must be identically zero.
-
-\hspace{4mm} The restriction to 0, 1, 3 and 7 dimensions is related to Hurwitz's theorem, that normed division algebras are only possible in 1, 2, 4 and 8 dimensions. The cross product is formed from the product of the normed division algebra by restricting it to the 0, 1, 3, or 7 imaginary dimensions of the algebra, giving nonzero products in only three and seven dimensions. 
-
-\hspace{4mm} In contrast to the three-dimensional cross product, which is unique (apart from sign), there are many possible binary cross products in seven dimensions. }，
-而无法推广到其它维度\footnote{为此编一句顺口溜：不管三七二十一，
-    只管三七向量积。}。
-按下面的方法定义的向量乘法适用于任意维度，
-\begin{gather}\label{向量逐位乘法}
-    \vec{a}*\vec{b}=(a_1a_2,b_1b_2,\cdots,a_nb_n)
-\end{gather}
-乘出的结果也是同样维数的向量，这种运算法则是使用MATLAB软件所必须理解的。
-为了避免和(\ref{三维向量叉乘})式定义的向量积混淆，(\ref{向量逐位乘法})
-式定义的向量乘法一般不称为向量积，而是称为逐元乘法
-(element-wise multiplication). 
 
 \item 对于二维向量，$ \vec{a}=(a_1,a_2),\ \vec{b}=(b_1,b_2) $，有
 %\renewcommand{\arraystretch}{1}
@@ -87,11 +47,10 @@ $ \vec{F}=I\vec{L}\times \vec{B} $.
 这正是以$ \vec{a},\vec{b} $为邻边的平行四边形的面积，乘上
 $ \dfrac{1}{2} $便能得到以$ \vec{a},\vec{b} $为邻边的三角形
 的面积。严格来讲，二维向量没有叉乘，应该表述成$ z $坐标为0的
-三维向量的叉乘。很多高中教辅上有此类错误写法
+三维向量的叉乘。某些教辅上可能有此类错误写法
 $ |\vec{a}\times\vec{b}|=|(a_1,a_2)\times (b_1,b_2)|=
 |a_1b_2-a_2b_1| $，应该修改成
-$ |(a_1,a_2,0)\times (b_1,b_2,0)|=|a_1b_2-a_2b_1| $ . \\
-%\renewcommand{\arraystretch}{1}
+$ |(a_1,a_2,0)\times (b_1,b_2,0)|=|a_1b_2-a_2b_1| $ . 
 
 \item $^*$ (\ref{三角形面积公式x1y2-x2y1})式也可写成
 \begin{align} 
@@ -104,14 +63,77 @@ $ |(a_1,a_2,0)\times (b_1,b_2,0)|=|a_1b_2-a_2b_1| $ . \\
 实际上，$ (a_1+a_2 \i)(b_1+b_2 \i)=(a_1b_1-a_2b_2)+(a_1b_2+
 a_2b_1)\i $，其中$ \i $是虚数单位。
 请读者通过以上两式体会平面向量与复数的联系。
-如果定义向量$ \vec{a},\vec{b} $之间的
-新的数量积为$ \vec{a} \circ \vec{b}=a_1b_1-a_2b_2 $，
-或者$ \vec{a} \circ \vec{b}=a_1b_2+a_2b_1 $，
-请读者思考，这两种新数量积是否满足交换律$ \vec{a}\circ\vec{b}
-= \vec{b} \circ \vec{a} $和分配律
-$ (\vec{a} + \vec{b})\circ \vec{c}=
-\vec{a} \circ \vec{c}+\vec{b} \circ
-\vec{c} $\ ？
+%如果定义向量$ \vec{a},\vec{b} $之间的
+%新的数量积为$ \vec{a} \circ \vec{b}=a_1b_1-a_2b_2 $，
+%或者$ \vec{a} \circ \vec{b}=a_1b_2+a_2b_1 $，
+%请读者思考，这两种新数量积是否满足交换律$ \vec{a}\circ\vec{b}
+%= \vec{b} \circ \vec{a} $和分配律
+%$ (\vec{a} + \vec{b})\circ \vec{c}=
+%\vec{a} \circ \vec{c}+\vec{b} \circ
+%\vec{c} $\ ？
+
+\item $^*$ 三维向量满足以下恒等式：
+\begin{align*}
+    &\ (a_1^2+a_2^2+a_3^2)(b_1^2+b_2^2+b_3^2)\\
+    =&\  (a_1b_1+a_2b_2+a_3b_3)^2+
+    (a_2b_3-a_3b_2)^2+(a_3b_1-a_1b_3)^2+(a_1b_2-a_2b_1)^2 \\
+    =&\ (\vec{a}\cdot \vec{b})^2+(\vec{a}\times\vec{b})^2 \\
+    =&\ |\vec{a}|^2|\vec{b}|^2\cos^2\langle\vec{a},\vec{b}\rangle 
+    +|\vec{a}|^2|\vec{b}|^2\sin^2\langle\vec{a},\vec{b}\rangle
+\end{align*} 
+$ \vec{a}\times\vec{b} $同时垂直于$ \vec{a} $和$ \vec{b} $，
+方向由右手法则\footnote{
+    假设已经将$ \vec{a},\vec{b} $的起点重合。
+    伸出右手，(除大拇指外的)四根手指从$ \vec{a} $转向$ \vec{b} $，
+    且转过的角度小于$ 180^{\circ} $，此时，竖起的大拇指所指
+    的方向就是$ \vec{a}\times\vec{b} $的方向。}确定。
+而$ |\vec{a}\times\vec{b}|=|\vec{a}||\vec{b}|\sin\langle\vec{a},
+\vec{b}\rangle $. 高中阶段，向量积最大的用处就是在
+立体解析几何中计算平面的法向量，以及理解物理学中的
+洛伦兹力$ \vec{F}=q\vec{v}\times \vec{B} $和安培力
+$ \vec{F}=I\vec{L}\times \vec{B} $. 
+
+以上恒等式其实是$ n $维拉格朗日恒等式的特例：
+\begin{gather}\label{拉格朗日恒等式}
+    \left(\sum_{k=1}^{n}a_k^2 \right) \left(\sum_{k=1}^{n}b_k^2 \right)=\left( 
+    \sum_{k=1}^{n}a_kb_k\right)^2 +\sum_{1\leq k<l\leq n }\left( 
+    a_kb_l-a_lb_k\right)^2 \geq 0  
+\end{gather}
+
+\item 在拉格朗日恒等式\eqref{拉格朗日恒等式}中令$ n=4 $，那么等号右侧去掉
+$ \left( \sum\limits_{k=1}^{n}a_kb_k\right)^2 $后，剩下的
+$ \left( a_kb_l-a_lb_k\right)^2 $一共有$ C_n^2=C_4^2=6 $项，并不等于$ n $，
+那么能否对这6项进行一些恒等变换，使它们变成地位平等的4项，
+从而实现将三维向量积的定义推广到四维呢？答案是做不到。
+感兴趣的读者可自行尝试。不过对于四维情形，有另一种恒等式：
+\begin{align*}
+    &(a_1^2+a_2^2+a_3^2+a_4^2)(b_1^2+b_2^2+b_3^2+b_4^2) \\
+    =\ &(a_1b_1-a_2b_2-a_3b_3-a_4b_4)^2+\\
+    &(a_1b_2+a_2b_1+a_3b_4-a_4b_3)^2+\\
+    &(a_1b_3+a_3b_1-a_2b_4+a_4b_2)^2+\\
+    &(a_2b_3-a_3b_2+a_1b_4+a_4b_1)^2
+\end{align*}
+这一恒等式实际上来源于四元数乘法的定义。
+\footnote{ 类似于(\ref{三维向量叉乘})式定义的向量积还能适用于七维，
+    而无法推广到其它维度。
+参见 \\
+https://www.zhihu.com/question/31549458   \\
+https://en.wikipedia.org/wiki/Seven-dimensional\_{}cross\_{}product 
+%\hspace{4mm} Given the properties of bilinearity, orthogonality and magnitude, a nonzero cross product exists only in three and seven dimensions. This can be shown by postulating the properties required for the cross product, then deducing an equation which is only satisfied when the dimension is 0, 1, 3 or 7. In zero dimensions there is only the zero vector, while in one dimension all vectors are parallel, so in both these cases the product must be identically zero.
+%
+%\hspace{4mm} The restriction to 0, 1, 3 and 7 dimensions is related to Hurwitz's theorem, that normed division algebras are only possible in 1, 2, 4 and 8 dimensions. The cross product is formed from the product of the normed division algebra by restricting it to the 0, 1, 3, or 7 imaginary dimensions of the algebra, giving nonzero products in only three and seven dimensions. 
+%
+%\hspace{4mm} In contrast to the three-dimensional cross product, which is unique (apart from sign), there are many possible binary cross products in seven dimensions. 
+}
+
+\item 按下面的方法定义的向量乘法适用于任意维度，
+\begin{gather}\label{向量逐位乘法}
+    \vec{a}*\vec{b}=(a_1a_2,b_1b_2,\cdots,a_nb_n)
+\end{gather}
+乘出的结果也是同样维数的向量，这种运算法则是使用MATLAB软件所必须理解的。
+为了避免和(\ref{三维向量叉乘})式定义的向量积混淆，(\ref{向量逐位乘法})
+式定义的向量乘法一般不称为向量积，而是称为逐元乘法
+(element-wise multiplication). 
 
 \item 向量不论是点乘还是叉乘，都没有对应的除法，
 主要是因为除法的结果有无穷多种，这就失去了除法的意义。
