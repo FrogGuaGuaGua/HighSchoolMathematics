@@ -447,21 +447,22 @@ $ T_0(u)=1,\ T_1(u)=u,\ T_2(u)=2u^2-1,\ T_3(u)=4u^3-3u,\ T_4(u)=8u^4-8u^2+1,\cdo
 该递推公式实际上就是：$ \cos(n+1)\theta=2\cos\theta\cos n\theta-
 \cos(n-1)\theta $，这是容易验证的。 
 
-\item 在$ n $倍角公式中，令$ x=\dfrac{2\pi}{n} $，可得到
-$\sin(\dfrac{2\pi}{n}),\cos(\dfrac{2\pi}{n}) $所满足的代数方程(被称为分圆方程)。
-考虑五等分圆，$ \cos(5\cdot \dfrac{2\pi}{5})=16\cos^5(\dfrac{2\pi}{5})- 20\cos^3 (\dfrac{2\pi}{5})+
-5\cos \dfrac{2\pi}{5}=1 $，令$ u=\cos \dfrac{2\pi}{5} $，则
-\begin{align*}
-    16u^5-20u^3+5u-1=(u-1)(4u^2+2u-1)^2=0
-\end{align*}
-所以，$ \cos \dfrac{2\pi}{5} $是方程$ 4u^2+2u-1=0 $的一个根。
-
-另外，根据$ T_3(u)-T_2(u)=4u^3-3u-(2u^2-1)=(u-1)(4u^2+2u-1) $，有
-\begin{align*}
-    \cos3x-\cos2x=(\cos x-1)(4\cos^2x+2\cos x-1)=0
-\end{align*}
-显然，$ \dfrac{2\pi}{5} $是方程$ \cos3x-\cos2x=0 $的一个根。解二次方程
-$ 4u^2+2u-1=0 $可得：$ \cos\dfrac{2\pi}{5}=u=\dfrac{\sqrt{5}-1}{4} $. 
+% 这个方法把方程的次数弄得太高，放弃。
+%\item 在$ n $倍角公式中，令$ x=\dfrac{2\pi}{n} $，可得到
+%$\sin(\dfrac{2\pi}{n}),\cos(\dfrac{2\pi}{n}) $所满足的代数方程(被称为分圆方程)。
+%考虑五等分圆，$ \cos(5\cdot \dfrac{2\pi}{5})=16\cos^5(\dfrac{2\pi}{5})- 20\cos^3 (\dfrac{2\pi}{5})+
+%5\cos \dfrac{2\pi}{5}=1 $，令$ u=\cos \dfrac{2\pi}{5} $，则
+%\begin{align*}
+%    16u^5-20u^3+5u-1=(u-1)(4u^2+2u-1)^2=0
+%\end{align*}
+%所以，$ \cos \dfrac{2\pi}{5} $是方程$ 4u^2+2u-1=0 $的一个根。
+%
+%另外，根据$ T_3(u)-T_2(u)=4u^3-3u-(2u^2-1)=(u-1)(4u^2+2u-1) $，有
+%\begin{align*}
+%    \cos3x-\cos2x=(\cos x-1)(4\cos^2x+2\cos x-1)=0
+%\end{align*}
+%显然，$ \dfrac{2\pi}{5} $是方程$ \cos3x-\cos2x=0 $的一个根。解二次方程
+%$ 4u^2+2u-1=0 $可得：$ \cos\dfrac{2\pi}{5}=u=\dfrac{\sqrt{5}-1}{4} $. 
 
 \item 考虑5次单位根：
 \begin{align*}
@@ -474,13 +475,55 @@ $ 4u^2+2u-1=0 $可得：$ \cos\dfrac{2\pi}{5}=u=\dfrac{\sqrt{5}-1}{4} $.
 解方程$  x^2-\dfrac{\sqrt{5}-1}{2}x+1=0 $，可得$ x_{1,2}=\dfrac{\sqrt{5}-1}{4}
 \pm \i\dfrac{\sqrt{10+2\sqrt{5}}}{4}=\cos\dfrac{2\pi}{5}\pm \i \sin \dfrac{2\pi}{5} $. 
 
-\item 利用特殊的等腰三角形计算$ \cos\dfrac{2\pi}{5} $：在三个内角分别为$ 36^{\circ},
-72^{\circ},72^{\circ}$的等腰三角形中，连接$ 72^{\circ} $角的顶点和对边中点，可得一对相似三角形，
+\item 利用特殊的等腰三角形计算$ \cos\dfrac{2\pi}{5} $：
+在三个内角分别为$ 36^{\circ},72^{\circ},72^{\circ}$
+的等腰三角形中，连接$ 72^{\circ} $角的顶点和对边中点，
+可得一对相似三角形，根据对应边成比例的性质可以得到一个二次方程，
 从而求得$ 36^{\circ},72^{\circ},18^{\circ} $的正、余弦值。
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.2\linewidth]{36度72度三角形}
 \end{figure}
+
+\item 当$ n $是奇数时有
+\begin{gather}\label{两个互补的角的余弦之和为零}
+    \cos\dfrac{(n+1)\pi}{2n}+\cos\dfrac{(n-1)\pi}{2n}=0
+\end{gather}
+上式中令$ n=5 $，有
+\begin{gather*}
+    \cos\dfrac{3\pi}{5}+\cos\dfrac{2\pi}{5}=0
+\end{gather*}
+设$ \cos\dfrac{\pi}{5}=x $，利用三倍角和二倍角公式，有
+\begin{gather*}
+    (4x^3-3x)+(2x^2-1)=0
+\end{gather*}
+观察到$ x=-1 $是以上3次方程的一个根，故可以因式分解：
+\begin{gather*}
+    (x+1)(4x^2-2x-1)=0
+\end{gather*}
+$ \cos\dfrac{\pi}{5}=\dfrac{1+\sqrt{5}}{4} $就是方程
+$ 4 x^2-2x-1=0 $的正根。因为$ \cos\dfrac{\pi}{5} $的表达式
+只含有二次根式，所以尺规作图可以作出正五边形。\\
+类似地，在\eqref{两个互补的角的余弦之和为零}中令$ n=7 $，
+设$ \cos\dfrac{\pi}{7}=x $，利用四倍角和三倍角公式，有
+\begin{gather*}
+    (8x^4-8x^2+1)+(4x^3-3x)=0 \\
+    (x+1)(8x^3-4x^2-4x+1)=0
+\end{gather*}
+利用三次方程的求根公式，就能写出$ \cos\dfrac{\pi}{7} $
+的根式表达式。该表达式含有三次根式，所以尺规作图无法作出正七边形。\\
+在\eqref{两个互补的角的余弦之和为零}中令$ n=17 $，则
+\begin{gather*}
+    (256x^9-576x^7+432x^5-120x^3+9x)+(128x^8-256x^6+160x^4-32x^2+1)=0\\
+    (x+1)(256x^8-128x^7-448x^6+192x^5+240x^4-80x^3-40x^2+8x+1)=0
+\end{gather*}
+只要能解出上面的8次方程，就能写出$ \cos\dfrac{\pi}{17} $
+的根式表达式。高斯找出了尺寸作图画正17边形的方法\footnote{参见
+    https://www.zhihu.com/question/26096850}，本质上就是
+找到了这个8次方程的根式解，而且这些解都只含有二次根式，
+但高斯的解法的出发点并不是
+$ \cos\dfrac{9\pi}{17}+\cos\dfrac{8\pi}{17}=0 $，
+而是利用了17次单位根的乘法的周期性。
 
 \item 利用$ \cos x=\dfrac{\e^{\i x}+\e^{-\i x}}{2},
 \sin x=\dfrac{\e^{\i x}-\e^{-\i x}}{2\i} $可得：$
