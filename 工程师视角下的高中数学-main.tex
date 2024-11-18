@@ -47,8 +47,8 @@
 % \everymath{\displaystyle} % 全文的行内公式都显示行间公式效果
 % \setCJKmainfont[BoldFont=SimHei]{SimSun}
 %\setCJKmainfont[BoldFont=SourceHanSansCN-Bold]{SourceHanSerifCN-Regular}
-%\setCJKmainfont[BoldFont=OPPOSans-B]{SourceHanSerifCN-Regular}
-%\newCJKfontfamily\KaiTifont{gkai00mp.ttf}
+\setCJKmainfont[BoldFont=OPPOSans-B]{SourceHanSerifCN-Regular}
+\newCJKfontfamily\KaiTifont{gkai00mp.ttf}
 %\newCJKfontfamily\KaiTifont{楷体}
 
 % \usepackage{diagbox} % 表头斜线
@@ -217,7 +217,7 @@
 \newcommand{\myitemitempsep}{6}
 \newcommand{\myitemtopsep}{3}
 
-
+\graphicspath{ {./PDF_Picture/} }
 %\includeonly{教案-前言}
 %\includeonly{教案-函数}
 %\includeonly{教案-排列组合}
@@ -247,14 +247,16 @@
         \setcounter{page}{1}
     \include{教案-函数}
     \include{教案-排列组合}
-    \include{教案-概率论}
+    
     \include{教案-复数与三角函数}
     \include{教案-解三角形与向量}
     \include{教案-导数与积分}
+    %%%%%%%%%%%
     \include{教案-不等式}
     \include{教案-数列}  % 包含\lstset
     \include{教案-解析几何}
     \include{教案-矩阵和行列式}
+    \include{教案-概率论}
     \include{教案-小考点}
     \include{教案-进一步探索}
 %   \include{教案-Latex排版入门}
