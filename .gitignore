@@ -1,0 +1,10 @@
+
+*.aux
+*.log
+*.gz
+*.toc
+*.out
+工程师视角下的高中数学-main.pdf
+test.pdf
+*.asv
+*.synctex(busy)
