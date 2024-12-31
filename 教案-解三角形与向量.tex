@@ -1217,9 +1217,42 @@ $ 2bc=31 $，$ b^{2}+c^{2}=2a^2=50 $，$ (b+c)^2=50+31=81 $，$ b+c=9 $，
 上面的计算使用了(\ref{线束交比正弦1})$ \sim $(\ref{线束交比正弦4})式的中间一列，
 当然也可以使用最右边的列，请读者自行完成。
 
-\item 设平面$ \alpha $为复平面，$ O $为坐标原点，以$ O $为球心作一个
+\item 设圆$ O $是单位圆，$ A,B,C $为圆周上不同的三点，且$ C $点位于劣弧
+$ AB $上(弧长小于半圆)，$ \vec{OA},\vec{OB} $的夹角为
+$ \theta\ (0<\theta<\pi) $，向量$\vec{OC}$与$ \vec{OA},
+\vec{OB} $的夹角分别为$ t\theta,(1-t)\theta $，其中$ 0<t<1 $，
+设$ \vec{OC}=\lambda\vec{OA}+\mu\vec{OB} $，求$ \lambda,\mu $.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.3\linewidth]{单位圆上3个向量v1v2合成v四元数背景}
+\end{figure} \\
+\textbf{解}\ 过$ C $ 点作$ OB $的平行线，与$ OA $交于$ D $点，
+则$ \vec{OC}=\vec{OD}+\vec{DC}=\lambda\vec{OA}+\mu\vec{OB} $，
+在$ \Delta ODC $中应用正弦定理，
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.3\linewidth]{单位圆上3个向量v1v2合成v四元数背景-含辅助线}
+    \label{单位圆上3个向量v1v2合成v}
+\end{figure}
+\begin{gather*}
+    \dfrac{|OC|}{\sin\angle ODC}=\dfrac{|OD|}{\sin\angle OCD}
+    =\dfrac{|DC|}{\sin\angle COD} \\
+    \dfrac{1}{\sin(\pi-\theta)}=
+    \dfrac{\lambda}{\sin((1-t)\theta)}=
+    \dfrac{\mu}{\sin(t\theta)}
+\end{gather*}
+所以，$ \lambda=\dfrac{\sin((1-t)\theta)}{\sin(\theta)},\ 
+\mu=\dfrac{\sin(t\theta)}{\sin(\theta)} $. \\
+\textbf{注}\ 如果读者以后学习四元数(Quaternion)插值，就会遇到公式
+\begin{gather*}\label{四元数插值}
+    \vec{OC}=\dfrac{\sin((1-t)\theta)}{\sin(\theta)}
+    \vec{OA}+\dfrac{\sin(t\theta)}{\sin(\theta)}\vec{OB} 
+\end{gather*}
+
+\item $^*$ 设平面$ \alpha $为复平面，$ O $为坐标原点，以$ O $为球心作一个
 半径为1的球面。复平面$ \alpha $上有两点$ A,B $，这两点对应的复数
-分别为$ z_1,z_2 $. 线段$ ON\perp\alpha $且$ N $点位于球面上，
+分别为$ z_1,z_2 $. 线段$ ON\perp\alpha $且$ N $点位于球面
+($ N $为球的北极点)，
 $ N,A $所在直线交球面于$ A' $点，$ N,B $所在直线交球面于$ B' $点。
 求线段$ |A'B'| $的长度(用含$ z_1,z_2 $的式子表示。) 
 \begin{figure}[!ht]
