@@ -560,7 +560,7 @@ $ \ln 5 $的估算：(假设已知$ \ln 2 $)
     \ln\dfrac{1+\frac{1}{9}}{1-\frac{1}{9}}\approx 
     1.3862+2\times\dfrac{1}{9}\approx 1.6084
 \end{align*}
-$ \ln 3 $的估算：\\
+$ \ln 7 $的估算：\\
 方法一：
 \begin{align*}
     \ln 7 =\ln(7.29-0.29)=\ln7.29+\ln\Big(1-\frac{0.29}{7.29}\Big)
@@ -1999,7 +1999,7 @@ $ \log_{x+1} (x+2) $的大小。\\
 或者求导，$ f'(x)=\dfrac{\dfrac{\ln x}{x+1}-\dfrac{\ln(x+1)}{x}}
 {\ln^2 x}  <0 $.导数的分子小于0是显然的。 
 
-\item 比较$ 999^{998} $与$ 998^{999} $的大小。\\
+\item\label{比大小问题999_998} 比较$ 999^{998} $与$ 998^{999} $的大小。\\
 \textbf{解}\ $ \left( \dfrac{\ln x}{x} \right)'=\dfrac{1-\ln x}{x^2}  $，所以$ 
 \dfrac{\ln x}{x} $在$ [\e,+\infty) $上递减，故$ \dfrac{\ln 999}{999} < \dfrac{\ln 998}{998}$, $ 998\ln999 < 999\ln 998 $, $ 999^{998} < 998^{999} $. 
 
@@ -2029,33 +2029,25 @@ $ \diamond $ Carl Pomerance, Chris Spicer, Proof of the Sheldon Conjecture, The 
 更好近似值：$ 8+\dfrac{73-64}{2\times 8+0.5}=8+\dfrac{9}{16.5}\approx 8.545454 $ \\
 迭代近似值：$ a_1=8,a_2=8.562500,a_3\approx 8.544024,a_4\approx8.544004  $ 
 
-\item 已知$ \ln2\approx 0.693147,\ \ln3\approx 1.098612 $，
-估算$ \ln 73 $的近似值，要求精确到小数点后两位。\\
-\textbf{解}\ 
-\begin{align*}
-    \ln 73 &=\ln72+\ln\left(1+\frac{1}{72}\right) \\
-    & \approx 3\ln 2+2\ln 3+\frac{1}{72} \\
-    & \approx 3\times 0.6931+2\times 1.0986+0.0138=4.2903  
-\end{align*}
-也可以用$ \ln\dfrac{73}{72}=\ln\dfrac{1+\frac{1}{145}}{1-\frac{1}{145}}\approx
-\dfrac{2}{145} $. 如果题目只提供了$ \ln 2 $的数值，那么
+\item 已知$ \ln2\approx 0.693147 $，估算$ \ln 73 $的近似值，
+要求精确到小数点后一位。\\
+\textbf{解}\ 遇到73这种比1大得多的数字，而且题目只提供了$ \ln2 $的数值，
+那就寻找73最靠近2的哪一个整数次幂，显然，$ 2^6=64<73<2^7=128 $，
+那么与73最接近的就是64，
 \begin{align*}
     \ln 73=6\ln 2+\ln \dfrac{73}{64}\approx 6\times0.6931+
     \ln\dfrac{1+\frac{9}{137}}{1-\frac{9}{137}} 
     \approx 4.1586+2\times \dfrac{9}{137}\approx 4.2899   
 \end{align*}
-$ \ln 73 $的精确值是$ 4.290459\cdots $. 
-如果按照(\ref{lnt近似-泰勒取两项})式计算，结果为$ 2.5600\cdots $，
-如果按照(\ref{lnt帕德近似3_3})式计算，结果为$ 3.3674\cdots $，
-都差得很远，而且计算量很大。这两个公式只适合估算自变量在$ 1 $附近
-的对数值，不能用于估算$ 73 $这种远大于$ 1 $的数的对数值。\\
+$ \ln 73 $的精确值是$ 4.290459\cdots $. 上面的估计值的精度已经足够了。\\
 \textbf{注}\ 出此类估算题目有一个两难的麻烦：如果不提精度要求，
 那么题目实际上不完整，无从解答。如果提了精度要求，但本书中没有
 讲解某个估算公式能达到什么精度，属于超范围的问题，读者也难以回答。
 希望读者能借助计算器，对各个公式的估算精度有一个大概的认识。
 或者查阅《数值分析》一类的教材，以了解误差估计的方法。
 
-\item (2022，高考全国甲卷)已知$a=\dfrac{31}{32},\ b=\cos\dfrac{1}{4},\ c=4\sin\dfrac{1}{4}$，试比较$a,b,c$的大小. \\
+\item\label{比大小问题2022全国甲} (2022，高考全国甲卷)
+已知$a=\dfrac{31}{32},\ b=\cos\dfrac{1}{4},\ c=4\sin\dfrac{1}{4}$，试比较$a,b,c$的大小. \\
 \textbf{方法一}\ 
 \begin{align*}
     a-b &=\frac{31}{32}-\cos \frac{1}{4}=\frac{31}{32}-\left(1-2 \sin ^{2} \frac{1}{8}\right)\\ &=2 \sin ^{2} \frac{1}{8}-\frac{1}{32} 
@@ -2077,7 +2069,8 @@ $ \ln 73 $的精确值是$ 4.290459\cdots $.
 $ a=f\left(\dfrac{1}{4}\right)<b=g\left(\dfrac{1}{4}\right)
 <c=h\left(\dfrac{1}{4}\right)$，故$a<b<c$. 
 
-\item (2022，新高考I卷)设$a=0.1\e^{0.1},\ b=\dfrac{1}{9},\ c=-\ln0.9 $，
+\item\label{比大小问题2022新高考I} (2022，新高考I卷)
+设$a=0.1\e^{0.1},\ b=\dfrac{1}{9},\ c=-\ln0.9 $，
 试比较$a,b,c$的大小. \\
 \textbf{方法一}\ $ c=-\ln 0.9=\ln \dfrac{10}{9}=
 \ln \left(1+\dfrac{1}{9}\right)<\dfrac{1}{9}=b $. \\
@@ -2103,6 +2096,26 @@ $x e^{x}<\dfrac{x}{1-x} $，因此$ 0.1 \e^{0.1}<
 \end{align*}
 $b=g(0.1)>a=f(0.1)>c=h(0.1)$，故$b>a>c$. 
 
+\textbf{注}\ \ref{比大小问题2022全国甲}和
+\ref{比大小问题2022新高考I}这类比大小问题是高中数学教育中
+最大的糟粕之一，应当彻底踢出考试范围。首先，在更高层次的学习和科研中，
+在工程应用领域，以及在普通人的日常生活中，都极少遇到这样的需要比较几个
+大小接近但形式各异的数字，这种题目完全可以说是脱离实际、毫无意义。
+其次，如果真遇到了此类问题，只要不在考场上，那么几乎没有人会去思考如何变形、
+用什么样的不等式去比大小，而是会直接拿起手机或用电脑算一下，省时而且准确。
+第三，这些题目的编制背景几乎都是泰勒级数，各类数学软件计算各种函数值大多也是
+利用以泰勒级数为代表的多项式逼近方法。与其花大量时间在初等数学的泥潭里打滚，
+不如直接学习更高级的、难度不算很大的泰勒级数，适用范围极广，
+可谓是性价比最高的知识点之一了。 \\
+\ref{比大小问题999_998}稍微有些意义，因为$ 998^{999}\approx
+1.35\times 10^{2996} $，大大超过了双精度浮点数可表示的
+最大值$ 2^{1024}\approx 1.80\times10^{308} $，一般的计算器和数学软件
+(比如Matlab)无法处理$ 10^{2996} $这么大的数，需要使用
+Maple、MPFR、GMP\footnote{MPFR: Multiple-Precision Floating-point computations with correct Rounding. \\
+GMP: GNU Multiple Precision Arithmetic Library}
+等相对冷门的工具。所以，掌握一些基本的转换方法，
+使得计算器能派上用场，还是有必要的。
+
 \item 已知$ A(x_1,y_1),B(x_2,y_2),P(x,0) $，且$ A,B $
 两点不重合，求$ |PA|+|PB| $的最小值。
 \begin{figure}[h]
@@ -2126,6 +2139,47 @@ $ A'(x_1,-y_1) $，那么，
 $ f(x) $取最小值$ |A'B| $.
 这实际上就是光的反射定律：光线从光源$ A $出发到达目标点$ B $，
 会走最短的路径，此时入射角等于反射角。
+
+\item 设$ b\in \textbf{R},\ E(b) $代表$ |x+b-\log_2(1+x)| $
+在$ x\in[0,1] $时的最大值，
+当$ b $为多少时，$ E(b) $取得最小值？\\
+\textbf{解}\ 考虑直线$ y=x+b $以及对数函数$ y=\log_2(1+x) $
+在$ [0,1] $上的图像，假想$ b $从$ -\infty $变化到$ +\infty $，
+那么直线与对数曲线的交点数量将会依次为0，2，1，0，显然在交点数量
+为2的时候，$ E(b) $才可能取得最小值。如下图，
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{PDF_Picture/x+b-log2(1+x)最大最小值}
+\end{figure}
+令$ f(x)=x+b-\log_2(1+x) $，则$ f(0)=b=f(1) $,
+$ f'(x)=1-\dfrac{1}{(1+x)\ln2},\ f'\left(\dfrac{1}{\ln2}-1
+\right)=0 $，
+\begin{gather*}
+    f\left(\dfrac{1}{\ln2}-1\right)=
+    \dfrac{1}{\ln2}-1+b+\dfrac{\ln(\ln2)}{\ln2}<0
+\end{gather*}
+当$ b>0 $且$ f(0)=-f\left(\dfrac{1}{\ln2}-1\right)=f(1) $时，
+$ E(b) $取得最小值，所以
+\begin{gather*}
+    -\left[\dfrac{1}{\ln2}-1+b+\dfrac{\ln(\ln2)}{\ln2}\right]=b\\
+    b=\dfrac{1}{2}-\dfrac{1+\ln(\ln2)}{2\ln2}=0.043035666027967\cdots
+\end{gather*}
+
+\textbf{注}\ 以上面的$ b $为基础，再导出2个数字，下面出现了
+23, 127, 52, 1023，这4个数字均来源于IEEE 754浮点数的规范。
+\begin{gather*}
+    \dfrac{3}{2}\times 2^{23}\times(127-b)=
+    1597488310.001508\cdots
+\end{gather*} 
+最接近这个数的整数是1597488310，用16进制表示是5F37BCB6.
+\begin{gather*}                
+    \dfrac{3}{2}\times 2^{52}\times(1023-b)=
+    6910482905085795321.358862\cdots              
+\end{gather*}
+最接近这个数的整数是6910482905085795321，
+用16进制表示是5FE6F796C00C5BF9. 
+我们将在\ref{无除法的平方根迭代算法}
+看到这两个以5F开头的16进制数的作用。
 
 \item 求证：$ \e^x-\ln x>2\ (x>0) $. \\
 \textbf{解}\ 令$ f(x)=\e^x-\ln x $，则$ f'(x)=\e^x-\dfrac{1}{x} $，
