@@ -677,6 +677,19 @@ $ x\ (cx+d\neq 0) $，都有$ f(f(x))=x $，求$ a,b,c,d $应满足的条件。\
 $ b=c=0 $，则$ f(x)=x $；\\
 (3) 若$ a=-d\neq 0,\ -a^2-bc\neq 0 $，则$ f(x)=\dfrac{ax+b}{cx-a} $.
 
+
+\item 设$a\neq 0$，考虑二次方程$ax^2+bx+c=0$，\\
+(1) 令$x=At+B$，其中$A,B$为常数且$A\neq0$，
+将原来关于$x$的二次方程转化为关于$t$的二次方程，
+求关于$ t $的方程的判别式。\\
+(2) 令$x=\dfrac{At+B}{Dt+E}$，其中$A,B,D,E$为常数且$AE-BD\neq0$，
+将原来关于$x$的二次方程转化为关于$t$的二次方程，
+求关于$ t $的方程的判别式。\\
+\textbf{解}\ (1) $aA^2t^2+(2aAB+bA)t+aB^2+bB+c=0$，
+$\Delta_1=A^2(b^2-4ac)$. \\
+(2) $ (aA^2+bAD+cD^2)t^2+[2aAB+b(AE+BD)+2cDE]t+aB^2+bBE+cE^2=0 $，
+$\Delta_2=(AE-BD)^2(b^2-4ac)$.
+
 \item 求$ f(x)=\dfrac{(x+2)(x+3)}{x+1} $和$ g(x)=\dfrac{x+1}{(x+2)(x+3)} $的值域。\\
 \textbf{方法一}\ 换元，令$ t=x+1\neq 0 $，则$ f(x)=f(t-1)=\dfrac{(t+1)(t+2)}{t}=t+
 \dfrac{2}{t}+3\in (-\infty,3-2\sqrt{2}]\cup [3+2\sqrt{2},+\infty) $. 
@@ -1005,7 +1018,7 @@ $ \left(-\infty,\dfrac{-4-\sqrt{11}}{2}\right] \cup
 
 \item (2022，上海春季高考)已知定义在\textbf{R}上的函数$ f(x) $，它在
 $ (-\infty,0) $上单调递增，且对任意$ t>0 $，满足$ |f(x+t)-2f(x)+f(x-t)|
-=|f(x+t)-f(x)|-|f(x)-f(x-t)| $，求证：$ f(x) $在\textbf{R}上单调递增。
+=|f(x+t)-f(x)|-|f(x)-f(x-t)| $，求证：$ f(x) $在\textbf{R}上单调递增。 \\
 \textbf{证}\ 取$ a=f(x+t)-f(x),\ b=f(x)-f(x-t) $，依题意，
 $ |a-b|=|a|-|b|\geq 0 $，再根据$ |a-b|\geq |a|-|b| $，所以必有 
 $ a\geq b \geq 0\ \ \mycircled{1} $或者
