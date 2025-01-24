@@ -4803,7 +4803,47 @@ $ \dfrac{1}{2^n n!}\left[(x^2-1)^n\right]^{(n)} $结果如下\footnote{
 \end{align*}
 利用数学归纳法可证明上式(略)。$ \dfrac{\sin x}{x} $与$ \dfrac{\e^x}{x} $
 的高阶导数的系数的规律是一致的，请读者利用欧拉公式$ \e^{\i x}=\cos x+\i\sin x $
-进行思考。\\
+进行思考。
+
+\item$^*$ 设$ \zeta(s) $代表黎曼zeta函数，已知如下4个等式：\\
+$(1) \q \zeta(s)=2^s\pi^{s-1}\sin\left(\dfrac{\pi s}{2}\right)\Gamma(1-s)
+\zeta(1-s) $, \\
+$(2)\q \Gamma(s+1)=s\Gamma(s) $, \\
+$(3) \q \Gamma\left(\dfrac{s}{2}\right)
+\Gamma\left(1-\dfrac{s}{2}\right)=
+\dfrac{\pi}{\sin\left(\frac{\pi s}{2}\right)} $, \\
+$(4) \q \Gamma(s)=\dfrac{2^{s-1}}{\sqrt{\pi}}
+\Gamma\left(\dfrac{s+1}{2}\right) \Gamma\left(\dfrac{s}{2}\right) $, \\
+记$\xi(s)=\Gamma\left(\dfrac{s}{2}+1\right)(s-1)\pi^{-s/2}\zeta(s) $，求证：
+$ \xi(s)=\xi(1-s) $. \\
+\textbf{证}\ 利用(1)和(2)式，
+\begin{align*}
+    \xi(s) &=\dotuline{\Gamma\left(\dfrac{s}{2}+1\right)}(s-1)\pi^{-s/2}
+    \underline{\zeta(s)} \\
+    & = \dotuline{\dfrac{s}{2}\Gamma\left(\dfrac{s}{2}\right)}(s-1)\pi^{-s/2}
+    \underline{2^s\pi^{s-1}\sin\left(\dfrac{\pi s}{2}\right)\Gamma(1-s)
+        \zeta(1-s)}  \\
+    & = 2^{s-1}s(s-1)\pi^{s/2-1}\sin\left(\dfrac{\pi s}{2}\right)
+    \Gamma\left(\dfrac{s}{2}\right)\Gamma(1-s)\zeta(1-s)\q\q\q (5)
+\end{align*}
+把(4)式中的$ s $换成$ 1-s $，有$ \Gamma(1-s)=\dfrac{2^{-s}}{\sqrt{\pi}}
+\Gamma\left(1-\dfrac{s}{2}\right)\Gamma\left(\dfrac{1-s}{2}\right) $，
+代入(5)式：
+\begin{align*}
+    \xi(s) &=  2^{s-1}s(s-1)\pi^{s/2-1}\sin\left(\dfrac{\pi s}{2}\right)
+    \Gamma\left(\dfrac{s}{2}\right)\dashuline{
+        \dfrac{2^{-s}}{\sqrt{\pi}}\Gamma\left(1-\dfrac{s}{2}\right)
+        \Gamma\left(\dfrac{1-s}{2}\right) }\zeta(1-s) \\
+    & =2^{-1}s(s-1) \pi^{s/2-3/2} \uwave{\sin\left(\dfrac{\pi s}{2}\right)
+        \Gamma\left(\dfrac{s}{2}\right)\Gamma\left(1-\dfrac{s}{2}\right)}
+    \Gamma\left(\dfrac{1-s}{2}\right)\zeta(1-s)\q (\text{利用(3)式}) \\
+    & =2^{-1}s(s-1) \pi^{s/2-3/2} \uwave{\pi} 
+    \Gamma\left(\dfrac{1-s}{2}\right)\zeta(1-s) \\
+    &= (-s)\dotuline{\left(\dfrac{1-s}{2}\right) \Gamma\left(\dfrac{1-s}{2}\right)}
+    \pi^{-(1-s)/2}\zeta(1-s)\q (\text{利用(2)式})\\
+    &= \dotuline{\Gamma\left(\dfrac{1-s}{2}+1\right)}
+    [(1-s)-1]\pi^{-(1-s)/2}\zeta(1-s)=\xi(1-s)
+\end{align*}
 \\
 有能力的读者还可以自学微分方程方面的内容，对理解高中物理的某些运动学问题有帮助，
 比如两个质量块之间用一根弹簧连接，它们一起在一个光滑表面上运动，这两者的速度-时间函数分别是怎样的。
