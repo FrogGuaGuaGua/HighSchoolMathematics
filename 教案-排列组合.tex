@@ -323,6 +323,70 @@ $ C_{2n}^1 $，$ C_{2n}^3 $，$ C_{2n}^5,\cdots $都是偶数。\\
     \underbrace{2C_{2n-2}^{2m-2}}_{\text{偶数}}
 \end{align*}
 
+\item $^*$ 观察下列等式：
+\begin{align*}
+    &(\sqrt{2} \pm 1)^{1}=\sqrt{2} \pm \sqrt{1} \\
+    &(\sqrt{2} \pm 1)^{2}=3 \pm 2\sqrt{2}=\sqrt{9} \pm \sqrt{8} \\
+    &(\sqrt{2} \pm 1)^{3}=5\sqrt{2} \pm 7=\sqrt{50} \pm \sqrt{49} \\
+    &(\sqrt{2} \pm 1)^{4}=17 \pm 12\sqrt{2}=\sqrt{289} \pm \sqrt{288} \\
+    & \q\q \vdots \\
+    &(\sqrt{3} \pm \sqrt{2})^{1}=\sqrt{3} \pm \sqrt{2} \\
+    &(\sqrt{3} \pm \sqrt{2})^{2}=5 \pm 2\sqrt{6}=\sqrt{25} \pm \sqrt{24} \\
+    &(\sqrt{3} \pm \sqrt{2})^{3}=9\sqrt{3} \pm 11\sqrt{2}=\sqrt{243} \pm 
+    \sqrt{242} \\
+    &(\sqrt{3} \pm \sqrt{2})^{4}=49 \pm 20\sqrt{6}=\sqrt{2401} \pm \sqrt{2400}    
+\end{align*}
+求证：$ (\sqrt{n}\pm\sqrt{n-1})^k=\sqrt{N}\pm\sqrt{N-1} $，
+$ n,k,N\in \textbf{N}^+ $. \\
+\textbf{证}\ 以$ (\sqrt{n}+\sqrt{n-1})^{k} $
+为例(当加号情形成立时，减号情形自动成立)，对$ k $用数学归纳法，
+假设$ (\sqrt{n}+\sqrt{n-1})^k=\sqrt{N}+\sqrt{N-1} $成立，
+当$ k $变成$ k+1 $时，
+\begin{align*}
+    (\sqrt{n}+\sqrt{n-1})^{k+1}&=(\sqrt{N}+\sqrt{N-1})(\sqrt{n}+\sqrt{n-1}) \\
+    &=\sqrt{Nn}+\sqrt{N(n-1)}+\sqrt{n(N-1)}+\sqrt{(N-1)(n-1)}
+\end{align*}
+我们希望上式具有$ \sqrt{M}+\sqrt{M-1}\ (M\in \textbf{N}^+) $的形式，
+依据上面的数值例子，有
+\begin{align}
+    \sqrt{Nn}+\sqrt{(N-1)(n-1)} &=\sqrt{M}   \label{sqrtn1} \\
+    \sqrt{N(n-1)}+\sqrt{n(N-1)} &=\sqrt{M-1} \label{sqrtn2}
+\end{align}
+两边平方，
+\begin{align}
+    Nn+2\sqrt{Nn(N-1)(n-1)}+Nn-(N+n)+1 &=M   \label{sqrtn3} \\
+    Nn-N+2\sqrt{Nn(N-1)(n-1)}+Nn-n     &=M-1 \label{sqrtn4}
+\end{align}
+可以发现(\ref{sqrtn3})式和(\ref{sqrtn4})式是等价的，那么
+只需证明$ \sqrt{Nn(N-1)(n-1)} $是整数，由二项式定理和归纳假设，
+\begin{align*}
+    \sqrt{N} &=\dfrac{1}{2}\left[(\sqrt{n}+\sqrt{n-1})^k
+    +(\sqrt{n}-\sqrt{n-1})^k\right] \\
+    \sqrt{N-1} &=\dfrac{1}{2}\left[(\sqrt{n}+\sqrt{n-1})^k
+    -(\sqrt{n}-\sqrt{n-1})^k\right] 
+\end{align*}
+所以，
+{\small \begin{align*}
+        &\ \sqrt{N(N-1)}\\
+        =&\ \dfrac{1}{2}\left[(\sqrt{n}+\sqrt{n-1})^k
+        +(\sqrt{n}-\sqrt{n-1})^k\right]\cdot
+        \dfrac{1}{2}\left[(\sqrt{n}+\sqrt{n-1})^k
+        -(\sqrt{n}-\sqrt{n-1})^k\right] \\
+        =&\ \dfrac{1}{4}\left[(\sqrt{n}+\sqrt{n-1})^{2k}-
+        (\sqrt{n}-\sqrt{n-1})^{2k}\right] \\  
+        =&\ \dfrac{1}{2}\left[C_{2k}^1(\sqrt{n})(\sqrt{n-1})^{2k-1}
+        +C_{2k}^3(\sqrt{n})^3(\sqrt{n-1})^{2k-3}+
+        C_{2k}^5(\sqrt{n})^5(\sqrt{n-1})^{2k-5}+\cdots\right] \\
+        =&\ \uwave{\dfrac{1}{2}\left[C_{2k}^1(\sqrt{n-1})^{2k-2}
+            +C_{2k}^3(\sqrt{n})^2(\sqrt{n-1})^{2k-4}+
+            C_{2k}^5(\sqrt{n})^4(\sqrt{n-1})^{2k-6}+\cdots\right]}
+        \cdot\sqrt{n(n-1)}
+\end{align*} }
+根据\ref{偶数件物品选奇数件是偶数}，
+$ C_{2k}^1,C_{2k}^3,C_{2k}^5,\cdots $都是偶数，且上式中括号内
+$ \sqrt{n},\sqrt{n-1} $的指数都是偶数，所以，划波浪线的部分必定是整数，
+$ \sqrt{N(N-1)n(n-1)} $也必然是整数，证毕。
+
 \item 用数学归纳法证明：\\
 (1) $ n\in \textbf{N}^+ $，当$ n\geq 4 $时，$ C_{2n+1}^n<2^{2n-1} $. \\
 (2)  $ n\in \textbf{N}^+ $，$ \dfrac{2^{2n-1}}{\sqrt{n}}\leq 
