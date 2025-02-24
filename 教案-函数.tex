@@ -51,7 +51,7 @@
 \begin{align*}
     \Delta=(A-y)^2-4(B-yC)=y^2+(4C-2A)y+A^2-4B\geq 0 
 \end{align*}
-\textbf{注}\ $ y=\dfrac{x+C}{x^2+Ax+B} $属于三次曲线，因为它可以变形为$ y(x^2+Ax+B)-x-C=0 $. 
+\textbf{注}：$ y=\dfrac{x+C}{x^2+Ax+B} $属于三次曲线，因为它可以变形为$ y(x^2+Ax+B)-x-C=0 $. 
 
 \item 求$ y=\dfrac{x^2+Ax+B}{x^2+Cx+D} $(属于三次曲线)的值域：
 \begin{align*}
@@ -573,9 +573,15 @@ g(x)=\dfrac{\e^x-1}{2(\e^x+1)}=\dfrac{1-\e^{-x}}{2(1+\e^{-x})}=-g(-x)
 可参看《 特殊函数概论》\footnote{
     王竹溪，郭敦仁. 特殊函数概论[M].北京大学出版社, 2012.7，第1页。}。
 
-$ g(x)+\dfrac{1}{2}=\dfrac{\e^x}{\e^x+1}\in (0,1) $被称为Sigmoid函数，
+$ g(x)+\dfrac{1}{2}=\dfrac{\e^x}{\e^x+1}=\dfrac{1}{1+\e^{-x}}
+\in (0,1) $被称为Sigmoid函数，令$ y=\dfrac{1}{1+\e^{-x}} $，则
+Sigmoid函数满足微分方程$ y'=y(1-y) $，同时，
+\begin{gather*}
+    0<y'=y(1-y)=\dfrac{1}{1+\e^{-x}}\cdot\dfrac{1}{1+\e^{x}}
+    =\dfrac{1}{2+\e^{x}+\e^{-x}}\leq\dfrac{1}{4}
+\end{gather*}
 $ \dfrac{\e^x}{\e^x+1},\ \dfrac{x\e^x}{\e^x+1},\ \ln\left(\dfrac{\e^x}{\e^x+1}\right),
-\\ \tanh(x)=\dfrac{\e^x-\e^{-x}}{\e^x+\e^{-x}},\ \dfrac{x}{1+|x|},\ 
+ \tanh(x)=\dfrac{\e^x-\e^{-x}}{\e^x+\e^{-x}},\ \dfrac{x}{1+|x|},\ 
 \ln(\e^x+1) $都是人工神经网络中常用的函数，图像如下。
 \begin{figure}[!htbp]
     \centering
@@ -607,7 +613,7 @@ $\mathbf{R}$.且$f(x+y)+f(x-y)=f(x)f(y),\ f(1)=1$，
     \sum\limits_{k=1}^{22}f(k)=f(19)+f(20)+f(21)+f(22)=
     f(1)+f(2)+f(3)+f(4)=-3
 \end{gather*}
-\textbf{注}\ 递推关系(\ref{2022II递推数列周期6})对应的特征方程为$ x^2=x-1 $，
+\textbf{注}：递推关系(\ref{2022II递推数列周期6})对应的特征方程为$ x^2=x-1 $，
 特征根为$ x_{1,2}=\dfrac{1}{2}\pm \dfrac{\sqrt{3}}{2}\i=
 \cos\dfrac{\pi}{3}\pm \i\sin\dfrac{\pi}{3} $，
 周期$ T=\dfrac{2\pi}{\pi/3}=6 $. 
@@ -688,7 +694,9 @@ $ b=c=0 $，则$ f(x)=x $；\\
 \textbf{解}\ (1) $aA^2t^2+(2aAB+bA)t+aB^2+bB+c=0$，
 $\Delta_1=A^2(b^2-4ac)$. \\
 (2) $ (aA^2+bAD+cD^2)t^2+[2aAB+b(AE+BD)+2cDE]t+aB^2+bBE+cE^2=0 $，
-$\Delta_2=(AE-BD)^2(b^2-4ac)$.
+\begin{gather}\label{二次方程分式线性变换}
+    \Delta_2=(AE-BD)^2(b^2-4ac)
+\end{gather}
 
 \item 求$ f(x)=\dfrac{(x+2)(x+3)}{x+1} $和$ g(x)=\dfrac{x+1}{(x+2)(x+3)} $的值域。\\
 \textbf{方法一}\ 换元，令$ t=x+1\neq 0 $，则$ f(x)=f(t-1)=\dfrac{(t+1)(t+2)}{t}=t+
@@ -878,83 +886,35 @@ x_1^3+x_2^3+x_3^3=3 $，求$ x_1x_2x_3 $. \\
 %\fi
 \item  已知$ x\in \textbf{R} $，求下列函数的最小值。\\
 (1)$ |x+1|+|x-3|+|x-5| $；\quad (2) $ |x-1|+|2x-4|+|4x-16| $ .
-\ifteach \\ \textbf{解}\ 
-三个绝对值里面有三个不同的零点，三个零点把数轴分成4段，每一段上都是单调的
-(都是直线)，所以最小值只可能在三个零点中的某一零点处取得，
-第(1)题当然是在中间零点处达到。
-第(2)题只需把$ x=1,2,4 $分别代入计算，即可找出最小值。\\
-(1)$ x=3 $时取得最小值6. \quad (2) $ x=4 $时取得最小值7. 
-\fi
+
 
 \item 比较$ 2^3 $与$ 3^2 $、$ 3^4 $与$ 4^3 $、$ 4^5 $
 与$ 5^4 $、$ 5^6 $与$ 6^5 $的大小，猜测一般性规律。
-\ifteach \\
-\textbf{解}\ 规律：当$ n\geq 3 $时，$ n^{n+1}>(n+1)^n $. 
-\fi
 
 \item 比较$ \log_2 3 $与$ \log_3 4 $的大小，当$ n\geq 2 $时，
 猜测$ \log_n (n+1) $与$ \log_{n+1} (n+2) $的大小的一般规律。
-\ifteach \\
-\textbf{解}\ $ \log_n (n+1) > \log_{n+1} (n+2) $. \\ 因为$ \log_n (n+1)=
-\dfrac{\ln (n+1)}{\ln n}=\dfrac{\ln n+\ln\left(1+\dfrac{1}{n}
-    \right)}{\ln n}=1+\dfrac{\ln\left(1+\dfrac{1}{n}
-    \right)}{\ln n} $随$ n $递减。
-\fi
 
 \item 证明表\ref{函数迭代列表}中的全部结果。
-\ifteach \\
-\textbf{解}\ 略
-\fi
 
 \item 定义$\ f_1(x)=f(x)=\dfrac{1+x}{1-x},\ f_{n+1}(x)=f(f_n(x)) $，
 其中$ n \in \textbf{N}^+ $，求$ f_{2021}(x) $. 
-\ifteach \\ \textbf{解}\ 
-$ k\in \textbf{N} $, $ f_{4k+1}(x)=\dfrac{1+x}{1-x} $,
-$ f_{4k+2}(x)=-\dfrac{1}{x} $, $ f_{4k+3}(x)=\dfrac{x-1}{x+1} $,
-$ f_{4k+4}(x)=x $,$ f_{2021}(x)=f_1(x)=\dfrac{1+x}{1-x} $. 
-\fi
 
 \item 定义数列$ \{a_n\}:\ a_1=2,a_{n+1}=\dfrac{1+a_n}{1-a_n} $，
 求$ a_{2022} $. 
-\ifteach \\
-\textbf{解}\ 数列的周期为4，$ a_{4k+1}=2,a_{4k+2}=-3,a_{4k+3}
-=-\dfrac{1}{2},a_{4k+4}=\dfrac{1}{3},\ a_{2022}=a_2=-3 $. 
-\fi
 
-%\item 已知$ x\geq 0 $，定义$\ f_1(x)=f(x)=x+2\sqrt{x}+1,\ f_{n+1}(x)=
-%f(f_n(x)) $，求$ f_{50}(49) $. 
-%\ifteach \\ \textbf{解}\ 3249
-%\fi
+\item 已知$ x\geq 0 $，定义$\ f_1(x)=f(x)=x+2\sqrt{x}+1,\ f_{n+1}(x)=
+f(f_n(x)) $，求$ f_{50}(49) $. 
 
 \item 定义在$ \textbf{R} $上的偶函数$ f(x) $满足$ f(x)=f(6-x) $，当$ x\in [0,3] $时，
 $ f(x)=x^3-8 $，求$ f(1)+f(2)+\cdots +f(2022) $的值。
-\ifteach \\ \textbf{解}\ 
-$ f(1)+f(2)+f(3)+f(4)+f(5)+f(6)=f(1)+f(2)+f(3)+f(2)+f(1)+f(0)=-3,\ 
-f(1)+f(2)+\cdots +f(2022)=\dfrac{2022}{6}[f(1)+f(2)+\cdots+f(6)]=-1011 $. 
-\fi
 
-\item 定义$ f(x)=\dfrac{a^x}{a^x+\sqrt{a}} \ (a>0,a\neq 1)$. 
-(1)求$ f(x)+f(1-x) $；
+\item 定义$ f(x)=\dfrac{a^x}{a^x+\sqrt{a}} \ (a>0,a\neq 1)$. \\
+(1)求$ f(x)+f(1-x) $；\\
 (2)求$ f\left(\dfrac{1}{101}\right)+f\left(\dfrac{2}{101}\right)+
 \cdots +f\left(\dfrac{100}{101}\right) $. 
-\ifteach \\ \textbf{解}\ 
-(1) $ f(x)+f(1-x)=1 $；\quad (2) 50.
-\fi
 
-\item 定义在$ \textbf{R} $上的函数$ f(x) $满足$ f(x+2)=\sqrt{2}f(x+1)-f(x) $，
-求$ f(x) $的周期。
-\ifteach 
-\begin{align*}
-    f(x+3) =&\ \sqrt{2}f(x+2)-f(x+1) \\
-    =&\  \sqrt{2}[\sqrt{2}f(x+1)-f(x)]-f(x+1) \\
-    =&\ f(x+1)-\sqrt{2}f(x) \\
-    f(x+4) =&\ \sqrt{2}f(x+3)-f(x+2) \\
-    =&\  \sqrt{2}[f(x+1)-\sqrt{2}f(x)]-[\sqrt{2}f(x+1)-f(x)] \\
-    =&\ -f(x) \\
-    f(x+8)=&\ -f(x+4)=f(x)
-\end{align*} 
-周期是8.
-\fi
+\item 定义在$ \textbf{R} $上的函数$ f(x) $满足
+$ f(x+2)=\sqrt{2}f(x+1)-f(x) $，求$ f(x) $的周期。
 
 \item 用尽可能多的方法求以下函数的值域，并手工绘制函数图像，然后用GeoGebra验证
 值域和图像。\\
@@ -963,14 +923,6 @@ f(1)+f(2)+\cdots +f(2022)=\dfrac{2022}{6}[f(1)+f(2)+\cdots+f(6)]=-1011 $.
 (3)$ y=\dfrac{x+1}{x^2-3x+2},\ x\neq 1,2 $. \\
 (4)$ y=\dfrac{2x-\sqrt{x^2+1}}{2x+\sqrt{x^2+1}},\ x\in (-\infty,0) $. \\
 (5)$ y=\dfrac{x}{(x-1)^2} $
-\ifteach \\ \textbf{解}\ 
-(1)$ \left[-\dfrac{2}{2\sqrt{5}+3},\dfrac{2}{2\sqrt{5}-3}\right] $. \\
-(2)$ \left[2-\dfrac{1}{2\sqrt{3}-1},2+\dfrac{1}{2\sqrt{3}+1}\right] $. \\
-(3)$ \left(-\infty,\dfrac{1}{2\sqrt{6}-5}\right] \cup 
-\left[-\dfrac{1}{2\sqrt{6}+5},+\infty\right) $. \\
-(4) $ \left(-\infty,-1\right) \cup \left(3,+\infty\right) $. \\
-(5) $ \left[-\dfrac{1}{4},+\infty\right) $.
-\fi
 
 \item 请写出满足以下函数方程并经过给定点的基本初等函数的解析式。\\
 (1) $ f\left(\dfrac{1}{4}x_1+\dfrac{3}{4}x_2\right)=\dfrac{1}{4}f(x_1)+
@@ -984,46 +936,106 @@ f(1)+f(2)+\cdots +f(2022)=\dfrac{2022}{6}[f(1)+f(2)+\cdots+f(6)]=-1011 $.
 则$ f(x)=\underline{\hspace{2cm}} $. \\
 (5) $ f(x_1+x_2)=f(x_1)+f(x_2)+4x_1x_2,\ f(1)=4 $，
 则$ f(x)=\underline{\hspace{2cm}} $.
-\ifteach \\
-\textbf{解}\ (1) $ 3x-1 $;\quad (2) $ 3^x $;\quad 
-(3) $ \log_5x $;\quad (4) $ x^3 $ ;\quad (5) $ 2x^2+2x $.
-\fi
 
 \item 求解以下函数方程：\\
 (1) $ 4f(x)-2f(\dfrac{1}{x})=3x^2 \quad (x\neq 0) $. \\
 (2) $ 2f(x)+f(2-x)=x $.  \\
 (3) $ 3f(x^3)+2f(-x^3)=4x $. 
-\ifteach \\ \textbf{解}\ 
-(1) $ f(x)=x^2+\dfrac{1}{2x^2} $. \\
-(2) $ f(x)=x-\dfrac{2}{3} $. \\
-(3) $ f(x)=4\sqrt[3]{x} $. 
-\fi
-%
+
 \item 因式分解：\\ (1)$ x^3-3x+2 $;\quad (2)$ x^3 + 2x^2 - x - 2 $;  \\
 (3)$ x^3 + 3x^2 + 4x + 4 $;\quad (4)$ 2x^3 + 9x^2 + 7x - 6 $ ;\\
 再对(4)式写出韦达定理的三个式子。
-\ifteach \\ \textbf{解}\ 
+
+\item 已知$ a $是实数，函数$ f(x)=ax^2+5x−20-5a $，如果$ f(x) $在区间
+$ [0,5] $上有零点，求$ a $的取值范围。
+
+\item (2022，上海春季高考)已知定义在\textbf{R}上的函数$ f(x) $，它在
+$ (-\infty,0) $上单调递增，且对任意$ t>0 $，满足$ |f(x+t)-2f(x)+f(x-t)|
+=|f(x+t)-f(x)|-|f(x)-f(x-t)| $，求证：$ f(x) $在\textbf{R}上单调递增。 
+
+\item $ ^* $定义在\textbf{R}上的函数$ f(x) $满足$ f(\sqrt{x_1^2+x_2^2})= 
+f(x_1)f(x_2) $，其中$ x_1,x_2\in \textbf{R} $，已知$ f(1)=2 $，
+求证：$ f(x)=2^{x^2} $.
+
+\end{enumerate}
+
+\section{习题答案}
+\begin{enumerate}[label={\textbf{\arabic*.}},leftmargin=
+    \inteval{\myenumleftmargin}pt]
+\item 三个绝对值里面有三个不同的零点，三个零点把数轴分成4段，每一段上都是单调的
+(都是直线)，所以最小值只可能在三个零点中的某一零点处取得，
+第(1)题当然是在中间零点处达到。
+第(2)题只需把$ x=1,2,4 $分别代入计算，即可找出最小值。\\
+(1)$ x=3 $时取得最小值6. \quad (2) $ x=4 $时取得最小值7. 
+
+\item 规律：当$ n\geq 3 $时，$ n^{n+1}>(n+1)^n $. 
+
+\item $ \log_n (n+1) > \log_{n+1} (n+2) $. \\ 因为$ \log_n (n+1)=
+\dfrac{\ln (n+1)}{\ln n}=\dfrac{\ln n+\ln\left(1+\frac{1}{n}
+    \right)}{\ln n}=1+\dfrac{\ln\left(1+\frac{1}{n}
+    \right)}{\ln n} $随$ n $递减。
+
+\item 略
+
+\item 
+$ k\in \textbf{N} $, $ f_{4k+1}(x)=\dfrac{1+x}{1-x} $,
+$ f_{4k+2}(x)=-\dfrac{1}{x} $, $ f_{4k+3}(x)=\dfrac{x-1}{x+1} $,
+$ f_{4k+4}(x)=x $,$ f_{2021}(x)=f_1(x)=\dfrac{1+x}{1-x} $. 
+
+\item 数列的周期为4，$ a_{4k+1}=2,a_{4k+2}=-3,a_{4k+3}
+=-\dfrac{1}{2},a_{4k+4}=\dfrac{1}{3},\ a_{2022}=a_2=-3 $. 
+
+\item 3249
+
+\item 
+$ f(1)+f(2)+f(3)+f(4)+f(5)+f(6)=f(1)+f(2)+f(3)+f(2)+f(1)+f(0)=-3,\ 
+f(1)+f(2)+\cdots +f(2022)=\dfrac{2022}{6}[f(1)+f(2)+\cdots+f(6)]=-1011 $. 
+
+\item 
+(1) $ f(x)+f(1-x)=1 $；\quad (2) 50.
+
+\item 
+\begin{align*}
+    f(x+3) =&\ \sqrt{2}f(x+2)-f(x+1) \\
+    =&\  \sqrt{2}[\sqrt{2}f(x+1)-f(x)]-f(x+1) \\
+    =&\ f(x+1)-\sqrt{2}f(x) \\
+    f(x+4) =&\ \sqrt{2}f(x+3)-f(x+2) \\
+    =&\  \sqrt{2}[f(x+1)-\sqrt{2}f(x)]-[\sqrt{2}f(x+1)-f(x)] \\
+    =&\ -f(x) \\
+    f(x+8)=&\ -f(x+4)=f(x)
+\end{align*} 
+周期是8.
+
+\item 
+(1)$ \left[-\dfrac{2}{2\sqrt{5}+3},\dfrac{2}{2\sqrt{5}-3}\right] $. \\
+(2)$ \left[2-\dfrac{1}{2\sqrt{3}-1},2+\dfrac{1}{2\sqrt{3}+1}\right] $. \\
+(3)$ \left(-\infty,\dfrac{1}{2\sqrt{6}-5}\right] \cup 
+\left[-\dfrac{1}{2\sqrt{6}+5},+\infty\right) $. \\
+(4) $ \left(-\infty,-1\right) \cup \left(3,+\infty\right) $. \\
+(5) $ \left[-\dfrac{1}{4},+\infty\right) $.
+
+\item (1) $ 3x-1 $;\quad (2) $ 3^x $;\quad 
+(3) $ \log_5x $;\quad (4) $ x^3 $ ;\quad (5) $ 2x^2+2x $.
+
+\item 
+(1) $ f(x)=x^2+\dfrac{1}{2x^2} $. \\
+(2) $ f(x)=x-\dfrac{2}{3} $. \\
+(3) $ f(x)=4\sqrt[3]{x} $. 
+
+\item 
 (1)$ (x-1)^2(x+2) $  \\
 (2)$ (x - 1)(x + 1)(x + 2) $ \\
 (3)$ (x^2+x+2)(x+2) $ \\
 (4)$ (2x-1)(x+2)(x+3) $ 
-\fi
 
-\item 已知$ a $是实数，函数$ f(x)=ax^2+5x−20-5a $，如果$ f(x) $在区间
-$ [0,5] $上有零点，求$ a $的取值范围。
-\ifteach \\ \textbf{解}\ 
+\item 
 $ \left(-\infty,\dfrac{-4-\sqrt{11}}{2}\right] \cup 
 \left[-\dfrac{1}{4},+\infty\right) $. 
-\fi
 
-\item (2022，上海春季高考)已知定义在\textbf{R}上的函数$ f(x) $，它在
-$ (-\infty,0) $上单调递增，且对任意$ t>0 $，满足$ |f(x+t)-2f(x)+f(x-t)|
-=|f(x+t)-f(x)|-|f(x)-f(x-t)| $，求证：$ f(x) $在\textbf{R}上单调递增。 \\
-\textbf{证}\ 取$ a=f(x+t)-f(x),\ b=f(x)-f(x-t) $，依题意，
+\item 取$ a=f(x+t)-f(x),\ b=f(x)-f(x-t) $，依题意，
 $ |a-b|=|a|-|b|\geq 0 $，再根据$ |a-b|\geq |a|-|b| $，所以必有 
 $ a\geq b \geq 0\ \ \mycircled{1} $或者
 $ a\leq b\leq 0\ \ \mycircled{2} $. 下面来说明\mycircled{2}不可能成立。
-
 因为$ f(x+t)-f(x) $始终与$ f(x)-f(x-t) $同号，那么$ f(x+t)-f(x) $
 与$ f(x-kt)-f(x-(k+1)t) $同号($ k\in \textbf{N}^+ $).如果存在
 $ 0\leq x_1<x_2 $使得$ f(x_1)\geq f(x_2) $，令$ t=x_2-x_1>0 $，
@@ -1035,10 +1047,7 @@ $ 0\leq x_1<x_2 $使得$ f(x_1)\geq f(x_2) $，令$ t=x_2-x_1>0 $，
 \end{align*}
 这两个式子符号不一样，产生了矛盾。所以只有\mycircled{1}成立。证毕。
 
-\item $ ^* $定义在\textbf{R}上的函数$ f(x) $满足$ f(\sqrt{x_1^2+x_2^2})= 
-f(x_1)f(x_2) $，其中$ x_1,x_2\in \textbf{R} $，已知$ f(1)=2 $，
-求证：$ f(x)=2^{x^2} $.
-\ifteach \\ \textbf{解}：
+\item 
 显然有$ f(x)=f(-x)=f(|x|) $，用数学归纳法可以证明：$ f(\sqrt{n}x)=[f(x)]^n $，
 设$ m,n \in \textbf{N}^+ $，
 \begin{gather*}
@@ -1048,8 +1057,7 @@ f(x_1)f(x_2) $，其中$ x_1,x_2\in \textbf{R} $，已知$ f(1)=2 $，
     f\left(\dfrac{m}{n}\right)=f\left(\left|\dfrac{m}{n}\right|\right)
     =2^{(\frac{m}{n})^2} \quad (\text{上式两边开} n^2\ \text{次方} )
 \end{gather*}
-所以题目结论对任意有理数成立，对任意的无理数，可以有函数的连续性推出同样成立。
-\fi
+所以题目结论对任意有理数成立，对任意的无理数，可以由函数的连续性推出同样成立。
 
 
 \end{enumerate}
