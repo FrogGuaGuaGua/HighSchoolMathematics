@@ -295,46 +295,6 @@ $ p $，那么在$ n $次实验中事件$ A $发生$ k $次的概率为
     (n+1)p-1\leq k \leq (n+1)p 
 \end{align*}
 
-\item 横纵坐标均为整数的点称为格点，所有顶点均在格点的多边形称为格点多边形。
-设格点多边形内部有$ N $个格点，边界上有$ B $个格点。则多边形的面积
-\begin{gather}\label{格点面积皮克公式}
-    S=N+\dfrac{B}{2}-1
-\end{gather}
-这个公式被称为皮克(Pick)公式，在此只给出部分证明
-\footnote{完整证明参见 https://www.mathed.page/geometry-labs/pick/}。
-不过，如果读者已经学过晶体化学中晶胞原子计数的知识，
-而且此时还没有把皮克公式和晶胞原子计数方法(均摊法)联系起来，
-那就说明缺乏数学上的敏锐，可能不适合从事数学研究。\\
-考虑边长分别为$ m,n\ (m,n\in \mathbf{N}^+) $的矩形，
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.7\linewidth]{PDF_Picture/格点多边形-皮克公式}
-\end{figure}
-矩形面积$ S=mn $，内部格点数$ N=(m-1)(n-1)=mn-(m+n)+1 $，
-边界格点数$ B=2(n+m) $，
-所以$ S=mn=N+\dfrac{B}{2}-1 $. 
-用晶胞原子计数方法重新叙述一遍：
-晶胞内部的原子有$ N $个，每个的贡献是1；
-晶胞边界(不含顶点)的原子有$ B-4 $个，每个的贡献是$ \dfrac{1}{2} $；
-晶胞顶点的原子有$ 4 $个，每个的贡献是$ \dfrac{1}{4} $；于是原子总数为：
-$ N+(B-4)\cdot\dfrac{1}{2}+4\cdot \dfrac{1}{4}=N+\dfrac{B}{2}-1 $.\\
-接下来考虑用一条对角线将上述矩形分割成两个全等的直角三角形，
-除去对角线的两个端点，设对角线经过了$ d $个原始矩形的内部点，
-那么，$ N_{\Delta}=\dfrac{N-d}{2} $，$ B_{\Delta}=\dfrac{B}{2}+1+d $，
-直角三角形的面积
-\begin{gather*}
-    S_{\Delta}=\dfrac{1}{2}\left(N+\dfrac{B}{2}-1\right)
-    =\dfrac{N-d}{2}+\dfrac{\frac{B}{2}+1+d}{2}-1=
-    N_{\Delta}+\dfrac{B_{\Delta}}{2}-1
-\end{gather*}
-说明皮克公式对于直角边分别平行于$ x,y $轴的直角三角形也成立。
-而其它任意形状的三角形，均可用一个两组对边分别平行于$ x,y $轴
-且面积最小的格点矩形将其包围，然后减去若干个直角三角形获得。
-如下图。同时，任意形状的多边形，均可拆分为若干个三角形，请读者自行分析。
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.65\linewidth]{PDF_Picture/任意三角形-皮克公式}
-\end{figure}
 
 \item $^*$ 一个正方形无法划分为奇数个面积相等的三角形
 \footnote{参见 Paul Monsky, On dividing a square into triangles, Amer. Math. Monthly 77 (1970), no. 2, 161–164. 或者参见 https://zhuanlan.zhihu.com/p/398055396 . }。
