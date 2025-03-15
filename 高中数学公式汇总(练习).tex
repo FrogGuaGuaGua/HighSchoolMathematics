@@ -425,6 +425,10 @@ $ C_{2n}^1 $，$ C_{2n}^3 $，$ C_{2n}^5,\cdots $都是
 \end{cases}
 \end{align*} 
 
+\item 设$ k\in \mathbf{N} $，在从$ 30k+1 $到$ 30k+30 $
+这连续30个整数中，不是2或3或5的倍数的整数一共有
+\underline{\ \ifte 8 \else \hspace{0.5 cm} \fi\ } 个。
+
 \section{概率论与数理统计}
 
 \item 给定正整数集合$ S=\{k_1,k_2,\cdots,k_n\} $，定义多项式
@@ -522,6 +526,23 @@ $ \dfrac{nD}{N} $\else \hspace{1cm} \fi\ }，
         \sqrt{n\sum\limits_{i=1}^{n}x_i^2-\Big(\sum\limits_{i=1}^{n}x_i\Big)^2}\cdot
         \sqrt{n\sum\limits_{i=1}^{n}y_i^2-\Big(\sum\limits_{i=1}^{n}y_i\Big)^2} } 
 \end{align*}
+
+\item (卡方)独立性检验，$ 2\times 2 $列联表：
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        & $ Y=0 $ & $ Y=1 $ & 合计 \\ \hline
+        $ X=0 $ & $ a $ & $ b $ & $ a+b $ \\ \hline
+        $ X=1 $ & $ c $ & $ d $ & $ c+d $ \\ \hline
+        合计    & $ a+c $ & $ b+d $ & $ n=a+b+c+d $ \\ \hline
+    \end{tabular}
+\end{table}
+\vspace{-8mm} 
+\begin{align*}
+    \chi^2 =\dfrac{n(ad-bc)^2}{(a+b)(c+d)(a+c)(b+d)}
+\end{align*} 
+$ \chi^2 $越大，说明“$ X $与$ Y $有关系”成立的可能性越大。
 
 \section{三角函数}
 \item 正余弦和角、差角公式：
@@ -834,6 +855,20 @@ $ \underline{\ \ifte \vec{a}=\lambda \vec{e_1}+
 的充要条件是$ \underline{\ \ifte \lambda+\mu=1
  \else \hspace{2cm} \fi\ } $. 
 
+\item 设圆$ O $是单位圆，$ A,B,C $为圆周上不同的三点，
+且$ C $点位于劣弧$ AB $上(弧长小于半圆)，
+$ \vec{OA},\vec{OB} $的夹角为
+$ \theta\ (0<\theta<\pi) $，向量$\vec{OC}$与$ \vec{OA},
+\vec{OB} $的夹角分别为$ t\theta,(1-t)\theta $，其中$ 0<t<1 $，
+设$ \vec{OC}=\lambda\vec{OA}+\mu\vec{OB} $，
+则$ \lambda=\underline{\ \ifte \dfrac{\sin((1-t)\theta)}{\sin(\theta)}
+    \else \hspace{2cm} \fi\ } $，
+$ \mu=\underline{\ \ifte \dfrac{\sin(t\theta)}{\sin(\theta)}
+    \else \hspace{2cm} \fi\ } $.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\linewidth]{单位圆上3个向量v1v2合成v四元数背景}
+\end{figure} 
 
 \section{解三角形}
 \item 外心：三条\underline{\ \ifte 中垂\else \hspace{1.5cm} \fi\ }线的交点；\\
@@ -974,6 +1009,11 @@ $ AD $是\underline{\ \ifte $ \angle BAC $的角平分线
     \includegraphics[width=0.3\linewidth]{三角形的内角平分线定理}
 \end{figure}
 
+\item (皮克公式)横纵坐标均为整数的点称为格点，所有顶点均在格点的
+多边形称为格点多边形。设格点多边形内部有$ N $个格点，
+边界上有$ B $个格点。则多边形的面积为
+\underline{\ \ifte $ N+\dfrac{B}{2}-1 $
+    \else \hspace{3cm} \fi\ }.
 
 \section{导数与积分}
 
@@ -1182,6 +1222,11 @@ $ B_2=\dfrac{1}{6},B_3=0 $,$ B_4=-\dfrac{1}{30},B_5=0,B_6=\dfrac{1}{42}\cdots$
 
 \item 设$ a,b,c,d $均大于0，且$ \dfrac{a}{b}<\dfrac{c}{d} $，
 那么$ \dfrac{a}{b}<\dfrac{a+c}{b+d}<\dfrac{c}{d} $. 
+
+\item $ a,b\in\mathbf{R} $，则$ \dfrac{|a+b|}{1+|a+b|} $ 
+\underline{\ \ifte $ \leq $ \else \hspace{1cm} \fi\ } 
+ $ \dfrac{|a|}{1+|a|}+\dfrac{|b|}{1+|b|} $. \\ 
+ (填$ <,>,\leq,\geq $之一。)
 
 \item 设$ a>1 $，当$ k\geq 1 $时，$ a^k-1\geq a^k-a^{k-1}=(a-1)a^{k-1}$，所以
 \begin{gather*}
@@ -1455,6 +1500,12 @@ $ X=f(X) $ \else \hspace{2cm} \fi\ }，$ X $被称为$ f(x) $的不动点。
 那么数列$ \{a_n\},\{b_n\} $的不动点均为\underline{\ \ifte 
  $ \dfrac{A+\sqrt{A^2+4B}}{2} $ \else \hspace{2cm} \fi\ }. 
 
+\item 设$a>0$且$a\neq 1$，若$a < 1$，则$x_1=a$；
+若$a>1$，则$x_1=\dfrac{1}{a}$. 定义数列
+$ x_{n+1}=\dfrac{x_n}{2}(3-ax_n^2)$，
+那么数列$ \{x_n\} $的不动点为\underline{\ \ifte 
+    $ \dfrac{1}{\sqrt{a}} $ \else \hspace{2cm} \fi\ }. 
+
 \item 对于一阶线性递推数列$ a_{n+1}=Aa_{n}+B\ (A\neq 1) $，
 先解方程\underline{\ \ifte $ x=Ax+B $\else \hspace{2cm} \fi\ }，
 然后递推公式两边减去$ x $，$ a_{n+1}-x=A(\underline{\ \ifte 
@@ -1523,7 +1574,8 @@ x+ax^p $，定义数列$ a_{n+1}=f(a_n) $，如果对任意的正整数$ n $，
        \else \hspace{4cm} \fi\ }
 \end{align*}
 
-\item $^*$ 分式非线性递推数列，$ a_{n+1}=\dfrac{1}{2}\left(a_n+\dfrac{A^2}{a_n}\right) $，
+\item $^*$ 分式非线性递推数列，
+$ a_{n+1}=\dfrac{1}{2}\left(a_n+\dfrac{A^2}{a_n}\right) $，
 假设$ a_1\neq \pm A $，
 \begin{align*}
     a_{n+1}-A =&\ \dfrac{a_n^2+A^2-2Aa_n}{2a_n}=\dfrac{(a_n-A)^2}{2a_n} \\
@@ -1531,6 +1583,7 @@ x+ax^p $，定义数列$ a_{n+1}=f(a_n) $，如果对任意的正整数$ n $，
     \dfrac{a_{n+1}-A}{a_{n+1}+A} =&\ \dfrac{(a_{n}-A)^2}{(a_{n}+A)^2}=
     \cdots = \dfrac{(a_{1}-A)^{2^n}}{(a_{1}+A)^{2^n}}
 \end{align*}
+
 
 \section{解析几何}
 
@@ -1564,6 +1617,15 @@ $ \left\{ \begin{aligned}
 \item 两条平行直线$ Ax+By+C_1=0 $和$ Ax+By+C_2=0 $的距离公式：
 \underline{\ \ifte $ \dfrac{|C_1-C_2|}{\sqrt{A^2+B^2}} $
     \else \hspace{2cm} \fi\ }.
+
+\item 两条直线$l_1:\ A_1x+B_1y+C_1=0,\ l_2:\ A_2x+B_2y+C_2=0 $，
+且$ A_1B_2-A_2B_1\neq 0 $，则过$ l_1,l_2 $的交点的任意直线都可以用\\
+\underline{\ \ifte $ \lambda(A_1x+B_1y+C_1)+\mu(A_2x+B_2y+C_2)=0 $
+    \else \hspace{5cm} \fi\ }
+表达。 $ l_1 $和$ l_2 $的两条角平分线的方程为 \\
+\underline{\ \ifte $ \dfrac{A_1x+B_1y+C_1}{\sqrt{A_1^2+B_1^2}}=
+    \pm\dfrac{A_2x+B_2y+C_2}{\sqrt{A_2^2+B_2^2}} $
+    \else \hspace{4cm} \fi\ }.
 
 \item 平面的方程：\\
 一般式方程：\underline{\ \ifte $ Ax+By+Cz+D=0 $
@@ -1646,6 +1708,10 @@ $ \begin{cases}
     x=R(\cos\theta+\theta\sin\theta) \\
     y=R(\sin\theta-\theta\cos\theta)
 \end{cases} $.
+
+\item 球的表面积$ S=\underline{\ \ifte 4\pi R^2
+    \else \hspace{1cm} \fi\ } $，球的体积$ V=\underline{\ 
+    \ifte \dfrac{4}{3}\pi R^3\else \hspace{1cm} \fi\ } $.
 
 \item 椭圆面积公式为\underline{\ \ifte $ \pi ab $
     \else \hspace{1cm} \fi\ }，而不是$ \dfrac{1}{2}\pi(a^2+b^2) $；
@@ -1900,6 +1966,10 @@ $ x_1x_2=\dfrac{y_1^2}{2p}\cdot \dfrac{y_2^2}{2p}=
 
 
 \section{零散考点}
+
+\item 集合的3个特征：\underline{\ \ifte 
+ 确定性、互异性、无序性 \else \hspace{5cm} \fi\ } 。
+
 \item $ \pi\approx 3.141592653 $的分数近似值：\\ $ \dfrac{22}{7} 
 \approx 3.142857,\ \dfrac{355}{113}\approx 3.14159292 $. 
 
@@ -1938,9 +2008,6 @@ $ S $为底面积，$ h $为锥体高度。
 \dfrac{1}{3}(S+\sqrt{SS'}+S')h\else \hspace{3cm} \fi\ } $，\\
 $ S,S' $为两个底面积，$ h $为台体高度(两个底面间的距离)。
 
-\item 球的表面积$ S=\underline{\ \ifte 4\pi R^2
-\else \hspace{1cm} \fi\ } $，球的体积$ V=\underline{\ 
-\ifte \dfrac{4}{3}\pi R^3\else \hspace{1cm} \fi\ } $.
 
 
 
