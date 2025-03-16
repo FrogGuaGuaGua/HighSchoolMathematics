@@ -1,8 +1,16 @@
-\chapter{解三角形与向量}
+\chapter{向量与解三角形}
 
 \section{向量的数量积与向量积}
 \begin{itemize}[leftmargin=\inteval{\myitemleftmargin}pt,itemsep=
    \inteval{\myitemitempsep}pt,topsep=\inteval{\myitemtopsep}pt]
+
+\item 平面向量基本定理：给定平面上两个不平行的向量，则该平面内的任意向量都可以唯一地表示为这两个向量的线性组合。换言之，平面上任意两个不平行的向量都构成了一组基。
+
+\item 给定平面上不共线的3个点 $ O $、$ A $、$ B $ ，
+对于平面上任意一点$ P $，都存在实数$ \lambda,\ \mu $，使得
+$ \vec{OP}=\lambda\vec{OA}+\mu\vec{OB} $，那么
+$ A $、$ P $、$ B $三点共线的充要条件是$ \lambda+\mu=1 $.
+
 \item 对于$ n $维向量$ \vec{a}=(a_1,a_2,\cdots,a_n) $，
 $ \vec{b}=(b_1,b_2,\cdots,b_n) $，这两者的数量积
 (也称为“标量积”，“内积”，“点乘”)定义为
@@ -529,8 +537,9 @@ $ \left\{
 \textbf{方法二}\ 面积法。
 \begin{gather*}
     \dfrac{S_{\Delta AME}+S_{\Delta ANE}}{S_{\Delta ABC}}=
-    \dfrac{S_{\Delta AMN}}{S_{\Delta ABC}}=\dfrac{AM\cdot AN\cdot\sin\angle BAC}
-    {AB\cdot AC\cdot\sin\angle BAC}=xy \\
+    \dfrac{S_{\Delta AMN}}{S_{\Delta ABC}}=\dfrac{|AM|\cdot 
+    |AN|\cdot\sin\angle BAC}
+    {|AB|\cdot |AC|\cdot\sin\angle BAC}=xy \\
     \dfrac{S_{\Delta AME}}{S_{\Delta ABC}}=\dfrac{S_{\Delta AME}}
     {S_{\Delta ABD}}\cdot \dfrac{S_{\Delta ABD}}{S_{\Delta ABC}}=x\mu_2\cdot\mu_1 \\
     \dfrac{S_{\Delta ANE}}{S_{\Delta ABC}}=y\mu_2\cdot(1-\mu_1)
@@ -1285,10 +1294,27 @@ $ \theta\ (0<\theta<\pi) $，向量$\vec{OC}$与$ \vec{OA},
 所以，$ \lambda=\dfrac{\sin((1-t)\theta)}{\sin(\theta)},\ 
 \mu=\dfrac{\sin(t\theta)}{\sin(\theta)} $. \\
 \textbf{注}\ 如果读者以后学习四元数(Quaternion)插值，就会遇到公式
-\begin{gather*}\label{四元数插值}
+\begin{gather}\label{四元数插值}
     \vec{OC}=\dfrac{\sin((1-t)\theta)}{\sin(\theta)}
     \vec{OA}+\dfrac{\sin(t\theta)}{\sin(\theta)}\vec{OB} 
+\end{gather}
+如果$ A $、$ C $、$ B $三点共线，那么
+\begin{gather}\label{三点共线系数和为1}
+    \vec{OC}=(1-\lambda)\vec{OA}+\lambda\vec{OB}
+\end{gather}
+读者是否注意到了\eqref{三点共线系数和为1}式与
+\eqref{四元数插值}式的相似之处？事实上，利用
+罗必塔法则\eqref{罗必塔法则}式，
+\begin{gather*}
+    \lim_{\theta\to 0}\dfrac{\sin((1-t)\theta)}{\sin(\theta)}=
+    \lim_{\theta\to 0}\dfrac{(1-t)\cos((1-t)\theta)}{\cos(\theta)}
+    =1-t \\
+    \lim_{\theta\to 0}\dfrac{\sin(t\theta)}{\sin(\theta)}=
+    \lim_{\theta\to 0}\dfrac{t\cos(t\theta)}{\cos(\theta)}
+    =t
 \end{gather*}
+即，\eqref{三点共线系数和为1}式就是\eqref{四元数插值}式在
+$ \theta\to 0 $时的极限，当圆弧无限短时，可以认为圆弧就是线段了。
 
 \item $^*$ 设平面$ \alpha $为复平面，$ O $为坐标原点，以$ O $为球心作一个
 半径为1的球面。复平面$ \alpha $上有两点$ A,B $，这两点对应的复数

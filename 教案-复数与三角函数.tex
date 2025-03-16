@@ -40,10 +40,14 @@ AB=&\ DC=\sin(\alpha+\beta)=DF+FC=\cos\beta\sin\alpha+\sin\beta\cos\alpha
 \cos(\alpha +\beta )=\cos \alpha \cos\beta - \sin \alpha \sin\beta 
 \end{align*}
 
-\item 两个角正、余弦的和角、差角公式：
+\item 两个角正弦、余弦、正切的和角、差角公式：
 \begin{align*} 
-\cos(\alpha\pm\beta )=&\ \cos\alpha\cos\beta \mp \sin\alpha\sin\beta \\
-\sin(\alpha\pm\beta )=&\ \sin\alpha\cos\beta \pm \cos\alpha\sin\beta 
+\sin(\alpha\pm\beta)=&\ \sin\alpha\cos\beta \pm
+ \cos\alpha\sin\beta \\
+\cos(\alpha\pm\beta)=&\ \cos\alpha\cos\beta \mp
+ \sin\alpha\sin\beta \\
+\tan(\alpha\pm\beta)=&\ \dfrac{\tan \alpha\pm\tan \beta}
+ {1\mp \tan \alpha \tan \beta} 
 \end{align*}
 
 \item 和差化积:
@@ -520,7 +524,8 @@ $ 4 x^2-2x-1=0 $的正根。因为$ \cos\dfrac{\pi}{5} $的表达式
 \end{gather*}
 利用三次方程的求根公式，就能写出$ \cos\dfrac{\pi}{7} $
 的根式表达式\footnote{我经常拿“$ \sin\frac{\pi}{7} $的精确值如何用根式表达？”去测试各个AI聊天机器人，比如ChatGPT、Claude、DeepSeek、文心一言等，几乎没有AI能够(一次性)答对，做得最好的AI，也犯了拿$ \cos\frac{\pi}{7} $的表达式当成$ \sin\frac{\pi}{7} $的表达式的错误。做得差的AI，直接说无法用根式表达，或者给一些错得离谱的等式，连同一个角的正余弦值的平方和为1这种简单公式都用不对。目前没有AI会对它自己给出的根式表达式进行数值计算，再判断是否与直接用某种编程语言的库函数计算$ \sin\frac{\pi}{7} $的值(在浮点误差范围内)相等，很容易出现自信满满地胡说八道的现象。}。该表达式含有三次根式，所以尺规作图无法作出正七边形。\\
-在\eqref{两个互补的角的余弦之和为零}中令$ n=17 $，则
+在\eqref{两个互补的角的余弦之和为零}中令$ n=17 $，
+并记$ \cos\dfrac{\pi}{17}=x $，则
 \begin{gather*}
     (256x^9-576x^7+432x^5-120x^3+9x)+(128x^8-256x^6+160x^4-32x^2+1)=0\\
     (x+1)(256x^8-128x^7-448x^6+192x^5+240x^4-80x^3-40x^2+8x+1)=0
