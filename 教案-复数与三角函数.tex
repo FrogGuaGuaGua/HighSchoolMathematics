@@ -363,7 +363,6 @@ $ x=a\e^{\i\frac{1+2k}{n}\pi} ,\ k=0,1,2\cdots ,(n-1) $.
 \sin x=x-\dfrac{x^3}{3!}+\dfrac{x^5}{5!}-\dfrac{x^7}{7!}+\cdots 
 \label{正弦泰勒展开}
 \end{gather}
-(\ref{余弦泰勒展开})式和(\ref{正弦泰勒展开})式就是计算器和计算机所采用的计算三角函数的方法。
 由$ \e^x,\sin x $的泰勒展开，可得两个重要极限：
 \begin{align}
 \lim_{x\to 0}\dfrac{\e^x-1}{x}=1  \label{(e^x-1)/x极限} \\
@@ -429,8 +428,11 @@ x'+\i y'=(x+\i y)(\cos\theta +\i\sin\theta)
 \section{$ n $ 倍角公式}
 \begin{itemize}[leftmargin=\inteval{\myitemleftmargin}pt,itemsep=
    \inteval{\myitemitempsep}pt,topsep=\inteval{\myitemtopsep}pt]
-\item 利用$ \e^{\i nx}=\cos nx +\i\sin nx=\left(
-\e^{\i x} \right)^n =(\cos x+\i\sin x)^n $，
+\item 利用
+\begin{gather}\label{欧拉公式n倍角情形}
+    \e^{\i nx}=\cos nx +\i\sin nx=\left(
+    \e^{\i x} \right)^n =(\cos x+\i\sin x)^n
+\end{gather}
 可得$ n $倍角公式。 $ 2\sim 6 $倍角公式如下：
 \begin{align*}
     & \sin 2x=2\sin x\cos x \\    
@@ -495,7 +497,10 @@ $ T_0(u)=1,\ T_1(u)=u,\ T_2(u)=2u^2-1,\ T_3(u)=4u^3-3u,\ T_4(u)=8u^4-8u^2+1,\cdo
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.2\linewidth]{36度72度三角形}
-\end{figure}
+\end{figure} \\
+因为$ 36=3\times 3 \times 2\times 2 $，所以，只要利用二倍角和三倍角公式，
+并利用二次方程和三次方程的求根公式，就能得到$ 1^{\circ} $角的
+正余弦值的根式表达式。
 
 \item 当$ n $是奇数时有
 \begin{gather}\label{两个互补的角的余弦之和为零}
@@ -1094,7 +1099,6 @@ $ \sqrt{2+\sqrt{2}} $，也无法去掉外层根号，这两者分别等于$ \sq
 \item 求无理系数二次方程$ \sqrt{3}\, x^2+4x-2=0 $的两个根。\\
 \textbf{解}\ $ \Delta=16+8\sqrt{3}=(2+2\sqrt{3})^2 $，
 $ x_1=1-\dfrac{\sqrt{3}}{3} $，$ x_2=-1-\sqrt{3} $. \\
-\\
 \textbf{注}：如果多项式$ f(x) $的所有系数均为实数，当$ a+b\i $是$ f(x)=0 $的根时，
 $ a-b\i $也是$ f(x)=0 $的根。如果多项式$ f(x) $的所有系数均为有理数，
 当$ a+b\sqrt{C} $是$ f(x)=0 $的根时，$ a-b\sqrt{C} $也是$ f(x)=0 $的根。

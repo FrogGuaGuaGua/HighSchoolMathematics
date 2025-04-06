@@ -366,11 +366,39 @@ $ y'=3ax^2+2bx+c $，该二次函数的对称轴是$ x=-\dfrac{b}{3a} $，
 (II) 在切线和三次曲线上(除对称中心外)，能作2条切线；\\
 (III) 在$ B $和$ B' $区域能作三条切线。
 
+\item $ ^* $对于3次曲线$ y=f(x)=\dfrac{x+a}{x^2+b}\ (b>0) $，有
+\begin{gather*}
+    f'(x)=\dfrac{-x^2-2ax+b}{(x^2+b)^2},\q 
+    f''(x)=\dfrac{2(x^3+3ax^2-3bx-ab)}{(x^2+b)^3}
+\end{gather*}
+令$ g(x)=x^3+3ax^2-3bx-ab $，则$ g'(x)=3(x^2+2ax-b) $，
+因为$ b>0 $，所以$ g'(x)=0 $的两个实根是
+$ r_1=-a-\sqrt{a^2+b},\ r_2=-a+\sqrt{a^2+b} $，
+\begin{gather*}
+    g(r_1)=2(a^2+b)\left(a+\sqrt{a^2+b}\right)>0 \\
+    g(r_2)=2(a^2+b)\left(a-\sqrt{a^2+b}\right)<0 
+\end{gather*}
+所以$ g(x)=0 $必有3个实根，$ f''(x)=\dfrac{2g(x)}{(x^2+b)^2}=0 $
+也有3个实根，即3次曲线$ y=f(x) $有3个拐点。设这3个拐点的坐标
+依次为$ (x_i,y_i)\ (i=1,2,3) $，那么$ g(x_i)=x_i^3+3ax_i^2-3bx_i-ab=0 $可
+变换成如下形式：
+\begin{gather*}
+    \dfrac{2x_i}{3x_i^2-b}=\dfrac{x_i+a}{x_i^2+b}=y_i \\
+    (3x_i^2-b)y_i=2x_i \\
+    (3x_i^2+3b-4b)y_i=3(x_i^2+b)y_i-4by_i=3(x_i+a)-4by_i=2x_i \\
+    x_i-4by_i+3a=0
+\end{gather*}
+这说明，$ (x_i,y_i)\ (i=1,2,3) $三点均在直线$ x-4by+3a=0 $上，
+即3次曲线$ y=f(x)=\dfrac{x+a}{x^2+b}\ (b>0) $的3个拐点正好在一条直线上。\\
+事实上还有更强的结论：三次曲线的任何两个拐点的连线，
+与曲线的第三个交点总是另一个拐点。
+
 \item $^*$ 对任意$ n $次首一多项式$ P(x) $(最高次项系数为1的多项式)，设$ M $代表
 $ |P(x)| $在区间$ [-1,1] $上的最大值，那么无论其它项的系数怎么变化(保持首一)，
 $ M $总是大于等于$ \dfrac{1}{2^{n-1}} $. 该结论可借助第一类切比雪夫多项式
 $ T_n(\cos x)=\cos nx $进行证明\footnote{证明可参见
-    https://zhuanlan.zhihu.com/p/105766114 }。例如，首一的三次多项式$ x^3+ax+b $
+    https://zhuanlan.zhihu.com/p/105766114 }。
+例如，首一的三次多项式$ |x^3+ax+b| $
 在区间$ [-1,1] $上的最大值不小于$ \dfrac{1}{4} $。\\
 
 \end{itemize}
@@ -447,131 +475,225 @@ $ (2k)!!=2k(2k-2)(2k-4)\cdots 6\cdot 4 \cdot 2,
 \noindent 其中的0就是$ x_0 $，3就是展开到$ x^{3-1} $或$ x^3 $
 (不同软件有区别)。
 
-\item $^*$ 自然对数$ \ln x $的手工计算方法 ：
-当$ |x|<1 $时，等比数列求和公式
+\item 计算各类函数值的基本方法是利用以泰勒级数为代表的多项式进行逼近，
+但是，多项式逼近均具有“局部性”，比如泰勒级数，离展开点越远，
+绝对误差就越大。本书将粗略地介绍$ \ln x,\ \e^x,\sin x,\cos x $
+的计算方法，而要让代码具有实用价值，还需要使用大量的编程技巧去提高
+计算速度和精度\footnote{想要了解这些技术细节，
+    可以去阅读一些知名开源项目的源代码。
+    微软将Windows系统自带的计算器开源了，
+    地址是https://github.com/microsoft/calculator，
+    在src\textbackslash CalcManager\textbackslash Ratpack文件夹下，
+    exp.cpp文件包括了指数函数和对数函数的C语言实现，
+    trans.cpp文件包含了三角函数$ \sin,\cos,\tan $的实现，
+    不过阅读难度较大。}。
+
+\item 计算$ \ln x $的基础公式。当$ |t|<1 $时，有等比数列求和公式
 \begin{gather*}
-    \dfrac{1}{1+x}=1-x+x^2-\cdots+(-x)^{n-1}+\cdots
+    \dfrac{1}{1+t}=1-t+t^2-\cdots+(-t)^{n-1}+\cdots
 \end{gather*}
-两边在区间$ [0,x] $上积分，可以得到$ \ln(1+x) $的泰勒级数，
-\begin{align}\label{ln(1+x)泰勒级数}
-    \ln(1+x)=x-\dfrac{x^2}{2}+\dfrac{x^3}{3}-\cdots +\dfrac{(-1)^{n-1}x^{n}}{n}+\cdots 
+两边在区间$ [0,t] $上积分，可以得到$ \ln(1+t) $的泰勒级数，
+\begin{align}\label{ln(1+t)泰勒级数}
+    \ln(1+t)=t-\dfrac{t^2}{2}+\dfrac{t^3}{3}-
+    \cdots +\dfrac{(-1)^{n-1}t^{n}}{n}+\cdots 
 \end{align}
-把上式的$ x $换成$ -x $，
-\begin{gather}\label{ln(1-x)泰勒级数}
-    \ln(1-x)=-x-\dfrac{x^2}{2}-\dfrac{x^3}{3}-\cdots -\dfrac{x^{n-1}}{n}-\cdots 
+把上式的$ t $换成$ -t $，
+\begin{gather}\label{ln(1-t)泰勒级数}
+    \ln(1-t)=-t-\dfrac{t^2}{2}-\dfrac{t^3}{3}-
+    \cdots -\dfrac{t^{n-1}}{n}-\cdots 
 \end{gather}
-用(\ref{ln(1+x)泰勒级数})式减去(\ref{ln(1-x)泰勒级数})式，
-\begin{align}\label{ln(1+x)_(1-x)幂级数}
-    \ln\dfrac{1+x}{1-x}=2\left(x+\dfrac{x^3}{3}+\dfrac{x^5}{5}+\cdots +\dfrac{x^{2k-1}}{2k-1} +\cdots \right)
+用(\ref{ln(1+t)泰勒级数})式减去(\ref{ln(1-t)泰勒级数})式，
+\begin{align}\label{ln(1+t)_(1-t)幂级数}
+    \ln\dfrac{1+t}{1-t}=2\left(t+\dfrac{t^3}{3}+\dfrac{t^5}{5}+\cdots +\dfrac{t^{2k-1}}{2k-1} +\cdots \right)
 \end{align}
-等号右侧取的项越多，则越精确。如果$ x\in (0,1) $，那么
+$ |t| $越小，等号右侧取的项越多，则越精确。
+根据上式，当$ t\in(0,1) $时，
 \begin{gather}\label{exp(2x)帕德逼近}
-    \ln\dfrac{1+x}{1-x}>2x, \quad \quad \dfrac{1+x}{1-x}>\e^{2x} 
+    \ln\dfrac{1+t}{1-t}>2t, \quad \quad \dfrac{1+t}{1-t}>\e^{2t} 
 \end{gather}
-现在估算$ \ln 5 $，令$ \dfrac{1+x}{1-x}=5 $，解得$ x=\dfrac{2}{3} $，那么
-\begin{align*}
-    \ln5\approx 2\left[\dfrac{2}{3}+\dfrac{(\frac{2}{3})^3}{3} \right]
-    =\dfrac{124}{81} \approx 1.530864
-\end{align*}
-而$ \ln 5 $的精确值是$ 1.609438\cdots $
-\footnote{2014年新课标全国II卷导数大题考察了求$ \ln2 $的近似值。}. 
-
-令$ \dfrac{1+x}{1-x}=t $，解得$ x=\dfrac{t-1}{t+1} $，在
-(\ref{ln(1+x)_(1-x)幂级数})式等号右侧只取一项，那么
+令$ \dfrac{1+t}{1-t}=x $，解得$ t=\dfrac{x-1}{x+1} $，
+在(\ref{ln(1+t)_(1-t)幂级数})式等号右侧只取一项，那么
 \begin{align} \label{lnt帕德逼近}
-    \ln t\approx \dfrac{2(t-1)}{t+1} 
+    \ln x\approx \dfrac{2(x-1)}{x+1} 
 \end{align}
-$ \dfrac{2(t-1)}{t+1} $实际上就是$ \ln t $在$ t=1 $处的$ (1,1) $阶帕德(Pade)逼近(下一节将进行介绍)，而$ \dfrac{1+x}{1-x} $就是$ \e^{2x} $在$ x=0 $处的的$ (1,1) $阶帕德逼近。
-
-在(\ref{ln(1+x)_(1-x)幂级数})式等号右侧取两项，
+$ \dfrac{2(x-1)}{x+1} $实际上就是$ \ln x $在$ x=1 $处的$ (1,1) $阶帕德(Pade)逼近(下一节将进行介绍)，而$ \dfrac{1+t}{1-t} $就是$ \e^{2t} $在$ t=0 $处的的$ (1,1) $阶帕德逼近。\\
+在(\ref{ln(1+t)_(1-t)幂级数})式等号右侧取两项，
 \begin{align}\label{lnt近似-泰勒取两项}
-    \ln t\approx 2\left[\dfrac{t-1}{t+1}+\dfrac{1}{3}\left(\dfrac{t-1}{t+1}\right)^3
-    \right]=\dfrac{8(t^3-1)}{3(t+1)^3}=\dfrac{(t-1)(8t^2+8t+8)}{3(t^3+3t^2+3t+1)}
+    \ln x\approx 2\left[\dfrac{x-1}{x+1}+\dfrac{1}{3}\left(
+    \dfrac{x-1}{x+1}\right)^3\right]=\dfrac{8(x^3-1)}{3(x+1)^3}=
+    \dfrac{(x-1)(8x^2+8x+8)}{3(x^3+3x^2+3x+1)}
 \end{align}
 
 不过，上式的精度不如以下的$ (3,3) $阶帕德逼近
 \begin{align}\label{lnt帕德近似3_3}
-    \ln t \approx&\ \dfrac{11(t-1)^3+60(t-1)^2+60(t-1)}{3(t-1)^3+36(t-1)^2
-        +90(t-1)+60} \nonumber \\ 
-    =&\ \dfrac{11t^3+27t^2-27t-11}{3(t^3+9t^2+9t+1)}=
-    \dfrac{(t-1)(11t^2+38t+11)}{3(t^3+9t^2+9t+1)}
+    \ln x \approx&\ \dfrac{11(x-1)^3+60(x-1)^2+60(x-1)}
+    {3(x-1)^3+36(x-1)^2 +90(x-1)+60} \nonumber \\ 
+    =&\ \dfrac{11x^3+27x^2-27x-11}{3(x^3+9x^2+9x+1)}=
+    \dfrac{(x-1)(11x^2+38x+11)}{3(x^3+9x^2+9x+1)}
 \end{align}
 \begin{figure}[!htbp]
     \centering
     \includegraphics[width=1\linewidth]{lnx帕德逼近}
 \end{figure}
 
-\item 在计算机软件里\footnote{微软将Windows系统自带的计算器开源了，
-地址是https://github.com/microsoft/calculator \\
-在calculator-master\textbackslash src\textbackslash 
-CalcManager\textbackslash Ratpack文件夹下，
-exp.cpp文件包括了指数函数和对数函数的C语言实现，
-trans.cpp文件包含了三角函数$ \sin,\cos,\tan $的实现，不过阅读难度较大。
-本书第\pageref{指数函数与三角函数算法}页对指数函数与三角函数的算法也作了简单介绍。}，
-是用(\ref{ln(1+x)_(1-x)幂级数})式来计算任意的对数值。
-首先使用换底公式$ \log_a t_0=\dfrac{\ln t_0}{\ln a} $，然后分别计算
-$ \ln t_0,\ \ln a $. 现假设要计算$ \ln t_0 $，如果$ t_0 $不在区间
-$ I= \Big[\dfrac{\sqrt{2}}{2},\sqrt{2}\Big] $内，
-那就除以$ 2^n\ (n\in \textbf{Z}) $，使$ \dfrac{t_0}{2^n}=t $
-位于区间$ I $内(目的就是让$ t $尽量接近1)。
-为了在区间$ I $内获得更好的精度，
-还使用了一些函数逼近的方法对(\ref{ln(1+x)_(1-x)幂级数})
-式中的系数作了轻度的修改(在此不做详细介绍)。
-令$ \dfrac{1+x}{1-x}=t $，然后反解出$ x $，
-因为$ \dfrac{\sqrt{2}}{2}\leq t\leq \sqrt{2} $，所以$ |x|\leq 
-(\sqrt{2}-1)^2=0.171572\cdots $. 将$ x $
-代入(\ref{ln(1+x)_(1-x)幂级数})式右侧，取到$ x $的15次方，精度大致可以
-达到$ 2^{-58}\approx 3.5\times10^{-18} $. 那么，
+\item 手工计算$ \ln x $的方法：选取整数$ k $\ (可正可负)，使得
+$ \dfrac{x}{2^k}=m $尽可能接近于1，令$ \dfrac{1+t}{1-t}=m $，
+那么$ t=\dfrac{m-1}{m+1} $，于是有
+\begin{align*}
+    \ln x=&\ k\ln 2+\ln m \\
+    =&\ k\ln 2+\ln\left(\dfrac{1+t}{1-t}\right) 
+    \q\q (\text{利用}\eqref{ln(1+t)_(1-t)幂级数}\text{式}) \\
+    =&\ k\ln 2+2\left(t+\dfrac{t^3}{3}+
+    \dfrac{t^5}{5}+\cdots\right) \q\q \left(t=\dfrac{m-1}{m+1}\right)
+\end{align*}
+获取$ n,m $并不困难，但需要熟悉2的整数次幂：
 \begin{gather*}
-    \ln t_0=n\ln 2+\ln t=n\ln 2+\ln\dfrac{1+x}{1-x}\approx n\ln 2+
-    2\left(x+\dfrac{x^3}{3}+\dfrac{x^5}{5}+\cdots+\dfrac{x^{15}}{15}\right)
+    2^4=16,\q 2^5=32,\q 2^6=64,\q 2^7=128,\q 2^8=256, \\
+    2^9=512,\q 2^{10}=1024,\q 2^{11}=2048,\q 2^{12}=4096
 \end{gather*}
+同时，请大家记住$ \ln 2\approx 0.693147\cdots $
+\footnote{2014年新课标全国II卷导数大题考察了求$ \ln2 $的近似值。}. \\ 
+现在以$ x=123 $为例，取$ k=7 $，
+$ m=\dfrac{123}{128}=\dfrac{1+t}{1-t} $，
+$ t=\dfrac{m-1}{m+1}=\dfrac{\frac{123}{128}-1}{\frac{123}{128}+1}
+=-\dfrac{5}{251} $，那么
+\begin{gather*}
+    \ln 123\approx 7\times 0.6931-2\times\dfrac{5}{251}
+    \approx 4.8118
+\end{gather*}
+而$ \ln 123 $的精确值是$ 4.812184\cdots $. 如果不用上面的方法，
+而是直接令$ \dfrac{1+t}{1-t}=123 $，
+那么$ t=\dfrac{61}{62} $，这个值的绝对值比刚才的
+$ -\dfrac{5}{251} $的绝对值大了不少。然后
+\begin{gather*}
+    \ln 123\approx 2\times \left[\dfrac{61}{62}+\dfrac{1}{3}\cdot 
+    \left(\dfrac{61}{62}\right)^3\right] \approx 2.6026
+\end{gather*}
+这里的计算对手算而言已经十分繁琐了，然而毫无精度可言。 \\
+对于$ 3,\ 7 $等接近e的整数次幂的整数，也有另一种估算方法：
+\begin{align}
+    \ln 3 &=\ln(2.72+0.28)=\ln 2.72+\ln\left(1+\frac{0.28}{2.72}\right)
+    \approx 1+\frac{0.28}{2.72}\approx 1.103 \\
+    \ln 7 &=\ln(7.29-0.29)=\ln7.29+\ln\Big(1-\frac{0.29}{7.29}\Big)
+    \approx 2-\frac{0.29}{7.29}\approx 1.960 \label{ln7估算方法}
+\end{align}
+下面是10以内的质数的自然对数值，读者可以感受一下以上估算的精度，
+\begin{gather*}
+    \ln2=0.693147\cdots,\q \ln3=1.098612\cdots \\
+    \ln5=1.609438\cdots,\q \ln7=1.945910\cdots
+\end{gather*}
+
+\item 编程计算$ \ln x $的方法
+\footnote{笔者写了一段简易的C语言程序可做参考
+    https://zhuanlan.zhihu.com/p/4742850738 }：
+如果$ x\notin (1,2) $，
+那就除以$ 2^k $\ ($ k $是整数，可正可负)，
+使$ \dfrac{x}{2^k}=m\in(1,2) $ .
+之所以除以$ 2^k $，是因为可以
+利用IEEE 754浮点数的格式，$ k $很容易通过浮点数的阶码获取，
+$ m $可以通过浮点数的尾数(mantissa)获取。
+尾数的范围是$ [1,2) $，所以才规定$ m\in(1,2) $.
+令$ \dfrac{1+t}{1-t}=\dfrac{\sqrt{2}}{2}m\in
+\left(\dfrac{\sqrt{2}}{2},\sqrt{2}\right) $，
+那么$ t=\dfrac{\frac{\sqrt{2}}{2}m-1}{\frac{\sqrt{2}}{2}m+1}\in
+(-(3-2\sqrt{2}), 3-2\sqrt{2}) $.
+此时的$ t $的绝对值足够小，而且是落在关于原点对称的区间内。
+如果令$ \dfrac{1+t}{1-t} $等于$ m $而不是$ \dfrac{\sqrt{2}}{2}m $，
+那么$ t=\dfrac{m-1}{m+1}\in\left(0,\dfrac{1}{3}\right) $，
+$ \dfrac{1}{3}\approx 0.3333 > 3-2\sqrt{2}\approx 0.1716 $，
+此时$ t $的绝对值不够小，而且所在区间也不是关于原点对称。所以，
+在编程时令$ \dfrac{1+t}{1-t}=\dfrac{\sqrt{2}}{2}m $\ (更精确)，
+而在手工计算时令$ \dfrac{1+t}{1-t}=m $\ (更方便).于是，
+\begin{align*}
+    \ln x=&\ k\ln 2+\ln m \\
+    =&\ k\ln 2+\ln\sqrt{2}+\ln\left(\dfrac{\sqrt{2}}{2}m\right) \\
+    =&\ (k+0.5)\ln 2+\ln\left(\dfrac{1+t}{1-t}\right) \\
+    =&\ (k+0.5)\ln 2+\left(2t+\dfrac{2t^3}{3}+
+    \dfrac{2t^5}{5}+\cdots\right) \q\q 
+    \left(t=\dfrac{\frac{\sqrt{2}}{2}m-1}{\frac{\sqrt{2}}{2}m+1}\right)
+\end{align*}
 $ \ln 2 $会事先算好存起来，在计算机程序中当常数使用。 
+多项式求值会采用秦九韶算法，并利用现代CPU中的融合乘加指令
+(Fused Multiply-Add, FMA)加速计算。
+
+以其它正实数为底的对数$ \log_a x $，可以通过换底公式
+$ \log_a x=\dfrac{\ln x}{\ln a} $转化为自然对数，
+分别计算$ \ln x,\ \ln a $，再做除法即可。
 
 \item $ f(x)=\ln\dfrac{1+x}{1-x} $满足函数方程$ f(x_1)+f(x_2)=
 f\left(\dfrac{x_1+x_2}{1+x_1x_2}\right) $，
 \begin{align*}
-  f(x_1)+f(x_2) =\ln\dfrac{(1+x_1)(1+x_2)}{(1-x_1)(1-x_2)}
+    f(x_1)+f(x_2) =\ln\dfrac{(1+x_1)(1+x_2)}{(1-x_1)(1-x_2)}
     &=\ln\dfrac{1+(x_1+x_2)+x_1x_2}{1-(x_1+x_2)+x_1x_2}\\
     &=\ln\dfrac{1+\dfrac{x_1+x_2}{1+x_1x_2}}{1-\dfrac{x_1+x_2}{1+x_1x_2}}=
     f\left(\dfrac{x_1+x_2}{1+x_1x_2}\right) 
 \end{align*}
 
-\item 10以内的质数的自然对数值：
+\item 编程计算$ \e^x $的方法
+\footnote{笔者写了一段简易的C语言程序可做参考
+    https://zhuanlan.zhihu.com/p/4721400461}：
+将$ x $写成如下形式：$ x=k_1\ln2 +b_1 $，其中$ k_1 $为整数(可正可负)，
+$ b_1\in[0,\ln2) $. 相当于将$ x $对$ \ln2 $
+进行带余除法，那么
+\begin{align*}
+    \e^x=\e^{k_1\ln2 +b_1}=\e^{\ln2^{k_1}}\cdot \e^{b_1}=
+    2^{k_1}\cdot \e^{b_1}
+\end{align*}
+因为计算机是二进制的，将一个数(不管是整数还是浮点数)
+乘以或除以2的整数次幂是十分容易的(对整数移位或者修改浮点数的阶码)。
+于是只需要计算出$ \e^{b_1} $. 因为
+$ b_1\in[0,\ln2) $，这个区间还是比较长的，
+如果直接使用某种多项式逼近：若多项式的阶数很低，
+则逼近精度天然不高。
+若多项式的阶数很高，则浮点乘法次数太多导致速度慢，
+而且会有更多的误差累积，精度仍然不理想。
+所以必须缩短使用多项式拟合的区间，我们可以把前面的
+“带余除法”再用一次，令$ b_1=k_2\cdot \dfrac{\ln2}{128}+b_2 $，
+其中$ k_2 $为正整数，$ k_2\in[0,127),\ 
+b_2\in\left[0,\dfrac{\ln2}{128}\right)$，
+$ b_2 $所在的区间就很短了，可以使用低阶的多项式实现高精度的逼近。
+\begin{align*}
+    \e^{b_1}&=\e^{k_2\cdot\frac{\ln2}{128}}\cdot \e^{b_2} \\
+    \e^{b_2}&\approx 1+b_2+\frac{b_2^2}{2!}+\frac{b_2^3}{3!}
+    +\frac{b_2^4}{4!}+\frac{b_2^5}{5!} \\
+    \e^x&\approx 2^{k_1}\cdot \e^{k_2\cdot\frac{\ln2}{128}}
+    \cdot\left(1+b_2+\frac{b_2^2}{2!}+\frac{b_2^3}{3!}
+    +\frac{b_2^4}{4!}+\frac{b_2^5}{5!} \right)
+\end{align*}
+那其中的$ \e^{k_2\cdot\frac{\ln2}{128}}=
+\left(2^{1/128}\right)^{k_2} $该怎么计算呢？
+答案是提前算好，用一张表(数组)保存起来，要用的时候去查表。
+生成这张数表是一劳永逸的操作，可以使用计算代价很大的方法，
+比如可以使用128bit的浮点数进行计算(大多数场合
+使用64bit浮点数就足够了)。\\
+以其它正实数为底的指数函数$ a^x $，可以通过
+$ a^x=\e^{x\ln a} $转化为以$ \e $为底的指数函数。\\
+因为$ 1024\ln 2=709.7827\cdots $，所以只要
+$ x $超过$ 709.7827\cdots $，那么$ \e^x $就会
+超过64bit浮点数可表示的最大值$ 2^{1024}=1.797693\times10^{308} $.
+
+\item 第二种编程计算$ \e^x $的方法，特点是编程极其简单，
+缺点是精度差，只适用于绝对值比较小的$ x $. 
+所以本方法通常用在一些低性能的单片机上。利用$ \e $的定义，
 \begin{gather*}
-    \ln2=0.693147\cdots,\q \ln3=1.098612\cdots \\
-    \ln5=1.609438\cdots,\q \ln7=1.945910\cdots
+    e^x=\lim_{n\to\infty}\left(1+ \dfrac{1}{n}\right)^{nx}\xlongequal{nx=N}
+    \lim_{N\to\infty}\left(1+\dfrac{x}{N}\right)^{N}
 \end{gather*}
-$ \ln 3 $的估算：\\
-方法一：
-\begin{align}
-    \ln 3 =\ln(2.72+0.28)=\ln 2.72+\ln\Big(1+\frac{0.28}{2.72}\Big)
-    \approx 1+\frac{0.28}{2.72}\approx 1.103  
-\end{align}
-方法二：(假设已知$ \ln 2 $)
-\begin{align*}
-    \ln 3=2\ln 2+\ln \dfrac{3}{4}\approx 2\times 0.6931+
-    \ln\dfrac{1-\frac{1}{7}}{1+\frac{1}{7}}\approx 
-    1.3862-2\times\dfrac{1}{7}\approx 1.1005
-\end{align*}
-$ \ln 5 $的估算：(假设已知$ \ln 2 $)
-\begin{align*}
-    \ln 5=2\ln 2+\ln \dfrac{5}{4}\approx 2\times 0.6931+
-    \ln\dfrac{1+\frac{1}{9}}{1-\frac{1}{9}}\approx 
-    1.3862+2\times\dfrac{1}{9}\approx 1.6084
-\end{align*}
-$ \ln 7 $的估算：\\
-方法一：
-\begin{align*}
-    \ln 7 =\ln(7.29-0.29)=\ln7.29+\ln\Big(1-\frac{0.29}{7.29}\Big)
-    \approx 2-\frac{0.29}{7.29}\approx 1.960 \label{ln7估算方法}
-\end{align*}
-方法二：(假设已知$ \ln 2 $)
-\begin{align*}
-    \ln 7=3\ln 2+\ln \dfrac{7}{8}\approx 3\times 0.6931+
-    \ln\dfrac{1-\frac{1}{15}}{1+\frac{1}{15}}\approx 
-    2.0193-2\times\dfrac{1}{15}\approx 1.9460
-\end{align*}
+可以选取较大的$ N $来做近似，而当$ N=2^r $\ ($ r $为正整数)时，
+尤其方便编程。原因如下，取$ a_1=1+\dfrac{x}{N},\ a_{k+1}=a_k^2 $
+(递推公式的含义就是反复地做平方运算)，对$ a_1 $进行$ r $次平方以后，
+\begin{gather}\label{exp(x)快速算法}
+    a_{r+1}=a_r^2=\cdots=a_1^{2^{r}}=\left(1+\dfrac{x}{2^r}\right)^{2^r}=
+    \left(1+\dfrac{x}{N}\right)^{N}\approx \e^x
+\end{gather}
+在实际编程中通常取$ r\geq 10,\ N\geq 1024 $. 以$ r=10 $为例，
+编程时只需要写a=1+x/1024，然后再把a=a*a重复写10遍即可
+(如果编译器不进行循环展开的优化，那么把a=a*a重复写10遍比使用
+for, while等循环语句的运行速度更快)，所以说编程极其简单。
+$ \e^{15} $的精确值是$ 3.269017\cdots \times 10^6 $，
+而用这里的简单算法在$ r=10 $时算出的值是
+$ 2.932007\cdots\times10^6 $，
+可以看出对于绝对值较大的$ x $的误差之大。
 
 \item 和e有关的一些数值：
 \begin{gather*}
@@ -600,7 +722,7 @@ $ \ln 7 $的估算：\\
         $ 31^2=961 $ & $ 32^2=1024 $ & $ 33^2=1089 $ & $ 34^2=1156 $ & $ 35^2=1225 $\\ \hline
     \end{tabular}
 \end{table}
-\bigskip 
+% \bigskip 
 \item 开二次方的估算方法：假设要估算$ \sqrt{a}\ (a>0) $，
 可先找出正整数$ k $，满足$ k^2<a<(k+1)^2 $. \\
 \mycircled{1}割线法：在函数$ y=\sqrt{x} $上取两点$ (k^2,k) $
@@ -616,8 +738,9 @@ $ 	\sqrt{a} \approx k+\dfrac{a-k^2}{2k}=
 结合\mycircled{1}和\mycircled{2}可以看出，
 $ k+\dfrac{a-k^2}{2k+0.5} $是更好的近似。切线法实际上是只取了泰勒级数的前两项，即$ f(x)=\sqrt{x} \approx f(x_0)+f'(x_0)(x-x_0) $，如果取更多的项，比如$ \dfrac{f''(x_0)}{2!}(x-x_0)^2,
 \dfrac{f'''(x_0)}{3!}(x-x_0)^3\cdots $，就能获得更高的精度。\\
-\mycircled{3}将切线法迭代使用。记$ \varphi(x)=\dfrac{1}{2}
-\left(x+\dfrac{a}{x}\right) $，那么$ \varphi(x) $的不动点
+\mycircled{3}将切线法迭代使用(这也是在计算机中求平方根的方法)。
+记$ \varphi(x)=\dfrac{1}{2}\left(x+\dfrac{a}{x}\right) $，
+那么$ \varphi(x) $的不动点
 \footnote{不动点就是方程$ x=\varphi(x) $的根，
 参见本书第\ref{sec数列}章“数列”的“不动点”小节。}和极小值点\footnote{
 考虑函数$ g(x)=Ax+\dfrac{B}{x}\ (A,B>0) $，其不动点是$ \sqrt{\dfrac{B}{1-A}} $，
@@ -655,9 +778,9 @@ a_n+\dfrac{a}{a_n}\right) $. 通过不断地迭代计算$ a_n $，
     \left(\sqrt{a}+\dfrac{1}{2^{n-1}} \right)+\dfrac{a}{2}\cdot \dfrac{1}{\sqrt{a}}=\sqrt{a}+\dfrac{1}{2^n}
 \end{align*}
 实际上，数列$ a_n $的通项公式是可以计算出来的，
-见本书第\ref{sec数列}章的(\ref{根式迭代序列的通项})式。 \\
-\\  %\newpage
-\noindent \item $^*$ 开三次方的估算：假设要估算$ \sqrt[3]{a} $，
+见本书第\ref{sec数列}章的(\ref{根式迭代序列的通项})式。 
+
+\item $^*$ 开三次方的估算：假设要估算$ \sqrt[3]{a} $，
 先找出正整数$ k $，满足$ k^3<a<(k+1)^3 $. \\
 \mycircled{1}割线法：$ \sqrt[3]{a}\approx k+\dfrac{a-k^3}{3k^2+3k+1} $，结果偏小。 	\\
 \mycircled{2}切线法：$ \sqrt[3]{a}\approx k+\dfrac{a-k^3}{3k^2}=\dfrac{1}{3}\left(2k+\dfrac{a}{k^2}\right) $，结果偏大。\\
@@ -1470,17 +1593,25 @@ $ (n+1)^{k+1}-n^{k+1} =(k+1)n^k+\dfrac{k(k+1)}{2}n^{k-1}+\cdots +1 $
 于是$ 3a=1,\ -3a+2b=0,\ a-b+c=0 $，解得$ a=\dfrac{1}{3},\ b=\dfrac{1}{2},\ c=
 \dfrac{1}{6} $.再由$ f(1)=a+b+c+d=1 $可得$ d=0 $. 
 
-\item 下面给出$ 1\sim 5 $次方的求和结果：
-\begin{align*}
-    & 1^1+2^1+3^1+\cdots +n^1=\dfrac{n^2}{2}+\dfrac{n}{2} =\dfrac{1}{2}n(n+1)\\
-    & 1^2+2^2+3^2+\cdots +n^2=\dfrac{n^3}{3}+\dfrac{n^2}{2}+\dfrac{n}{6}=\dfrac{1}{6}n(n+1)(2n+1)\\
-    & 1^3+2^3+3^3+\cdots +n^3=\dfrac{n^4}{4}+\dfrac{n^3}{2}+\dfrac{n^2}{4}=
-    \left[\dfrac{1}{2}n(n+1) \right]^2 \\
-    & 1^4+2^4+3^4+\cdots +n^4=\dfrac{n^5}{5}+\dfrac{n^4}{2}+\dfrac{n^3}{3}-\dfrac{n}{30}
-    =\dfrac{1}{30}n(n+1)(2n+1)(3n^2+3n-1) \\
-    & 1^5+2^5+3^5+\cdots +n^5=\dfrac{n^6}{6}+\dfrac{n^5}{2}+\dfrac{5n^4}{12}-\dfrac{n^2}{12} 
-    =\dfrac{1}{12}n^2(n+1)^2(2n^2+2n-1)
-\end{align*}
+\item 下面给出$ 1\sim 6 $次方的求和结果：
+\begin{align}
+    1^1+2^1+3^1+\cdots +n^1 &=\dfrac{n^2}{2}+\dfrac{n}{2} =\dfrac{1}{2}n(n+1)
+    \label{正整数1次方求和}\\
+    1^2+2^2+3^2+\cdots +n^2&=\dfrac{n^3}{3}+\dfrac{n^2}{2}+\dfrac{n}{6}=\dfrac{1}{6}n(n+1)(2n+1)
+    \label{正整数2次方求和} \\
+    1^3+2^3+3^3+\cdots +n^3&=\dfrac{n^4}{4}+\dfrac{n^3}{2}+\dfrac{n^2}{4}=
+    \left[\dfrac{1}{2}n(n+1) \right]^2 \label{正整数3次方求和}\\
+    1^4+2^4+3^4+\cdots +n^4&=\dfrac{n^5}{5}+\dfrac{n^4}{2}+
+    \dfrac{n^3}{3}-\dfrac{n}{30} \notag \\
+    &=\dfrac{1}{30}n(n+1)(2n+1)(3n^2+3n-1) \label{正整数4次方求和}\\
+      1^5+2^5+3^5+\cdots +n^5&=\dfrac{n^6}{6}+\dfrac{n^5}{2}+
+      \dfrac{5n^4}{12}-\dfrac{n^2}{12} \notag\\
+    &=\dfrac{1}{12}n^2(n+1)^2(2n^2+2n-1) \label{正整数5次方求和} \\
+    1^6+2^6+3^6+\cdots +n^6
+    &=\dfrac{n^7}{7}+\dfrac{n^6}{2}+\dfrac{n^5}{2}-
+    \dfrac{n^3}{6}+\dfrac{n}{42} \notag \\
+    &=\dfrac{1}{42}n(n+1)(2n+1)(3n^4+6n^3-3n+1) \label{正整数6次方求和}
+\end{align}
 规律\footnote{这个规律曾被作为2008年湖北高考理科数学的填空题。}：$ \sum\limits_{l=1}^{n} l^k \ (k\in \textbf{N}^+) $最高次项系数是
 $ \dfrac{1}{k+1} $(因为$ \disp \int_0^n x^k\d x=\dfrac{n^{k+1}}{k+1} $，
 这就是求和的主要部分)，第二高次项系数是$ \dfrac{1}{2} $，第三高次项系数是$ \dfrac{k}{12} \cdots$这些求和公式可以写成如下通式，
@@ -1499,24 +1630,25 @@ B_5=0,B_6=\dfrac{1}{42}\cdots$
 将$ S(n,k) $对变量$ n $求偏导\footnote{此时可以假想$ n $是连续变量。}，
 也能发现一些规律，比如
 \begin{align*}
-    S(n,6) =&\dfrac{n^6}{6} +\dfrac{n^5}{2}+\dfrac{5n^4}{12}-\dfrac{n^2}{12}\\
-    \dfrac{\partial S}{\partial n}(n,6)=&n^5+\dfrac{5n^4}{2}+
+    S(n,6) =&\ \dfrac{n^6}{6} +\dfrac{n^5}{2}+\dfrac{5n^4}{12}-\dfrac{n^2}{12}\\
+    \dfrac{\partial S}{\partial n}(n,6)=&\ n^5+\dfrac{5n^4}{2}+
     \dfrac{5n^3}{3}-\dfrac{n}{6}=5S(n,5)+B_5 \\
-    S(n,5) =&\dfrac{n^5}{5}+\dfrac{n^4}{2}+\dfrac{n^3}{3}-\dfrac{n}{30} \\
-    \dfrac{\partial S}{\partial n}(n,5)=&n^4+2n^3+n^2-\dfrac{1}{30}=4S(n,4)+B_4
+    S(n,5) =&\ \dfrac{n^5}{5}+\dfrac{n^4}{2}+\dfrac{n^3}{3}-\dfrac{n}{30} \\
+    \dfrac{\partial S}{\partial n}(n,5)=&\ n^4+2n^3+n^2-\dfrac{1}{30}=4S(n,4)+B_4
 \end{align*}
 该规律就是：$ \dfrac{\partial S}{\partial n}(n,k+1)=kS(n,k)+B_k $，证明如下：
 \begin{align*}
-    &\dfrac{\partial S}{\partial n}\left(\dfrac{1}{k+1}\sum_{j=0}^{k}
+    &\ \dfrac{\partial S}{\partial n}\left(\dfrac{1}{k+1}\sum_{j=0}^{k}
     C_{k+1}^{j}B_{j}n^{k+1-j}+n^{k}\right)-B_k\\
-    =&\sum_{j=0}^{k}\dfrac{k+1-j}{k+1}C_{k+1}^{j}B_{j}n^{k-j}+kn^{k-1}-B_k \\
-    =&\sum_{j=0}^{k-1}C_{k}^{j}B_{j}n^{k-j}+kn^{k-1} \\
-    =&k\left(\dfrac{1}{k}\sum_{j=0}^{k-1}C_{k}^{j}B_{j}n^{k-j}+n^{k-1} \right)  \\
-    =&kS(n,k)
+    =&\ \sum_{j=0}^{k}\dfrac{k+1-j}{k+1}C_{k+1}^{j}B_{j}n^{k-j}+kn^{k-1}-B_k \\
+    =&\ \sum_{j=0}^{k-1}C_{k}^{j}B_{j}n^{k-j}+kn^{k-1} \\
+    =&\ k\left(\dfrac{1}{k}\sum_{j=0}^{k-1}C_{k}^{j}B_{j}n^{k-j}+n^{k-1} \right)  \\
+    =&\ kS(n,k)
 \end{align*}
-上面用到了$ \dfrac{k+1-j}{k+1}C_{k+1}^j=\dfrac{k+1-j}{k+1}\cdot\dfrac{(k+1)!}{(k+1-j)!j!}
-=\dfrac{k!}{(k-j)!j!}=C_k^j $.
-\item 用数学归纳法证明(\ref{正整数k次方求和通式})式，固定$ k $，对$ n $进行归纳。\\
+上面用到了$ \dfrac{k+1-j}{k+1}C_{k+1}^j=\dfrac{k+1-j}{k+1}\cdot
+\dfrac{(k+1)!}{(k+1-j)!j!}=\dfrac{k!}{(k-j)!j!}=C_k^j $.
+\item 用数学归纳法证明(\ref{正整数k次方求和通式})式，
+固定$ k $，对$ n $进行归纳。\\
 \mycircled{1}当$ n=1 $时，利用伯努利数满足递推关系：$ 0=\sum\limits_{j=0}^{k-1}C_k^jB_j\ (n\geq 2) $，有
 \begin{align*}
     S(1,k)=\dfrac{1}{k}\sum_{j=0}^{k-1}C_{k}^{j}B_{j}+1=1
@@ -2215,17 +2347,40 @@ $x_0=-1.974614997\cdots $. \\
 \end{gather*}
 所以，三个切点的横坐标依次为$ 6-\sqrt{34},\ 0,\ 6+\sqrt{34}$.
 
-\item 若$ f(x)=x(x+1)(x^2+ax+b) $，且$ f(x) $的对称轴是$ x=
+\item \label{四次函数的轴对称性}
+若$ f(x)=x(x+1)(x^2+ax+b) $，且$ f(x) $的对称轴是$ x=
 -\dfrac{3}{2} $，\\ (1)求$ a,b $；\quad (2)求$ f(x) $在$ \textbf{R} $
 上的最小值。\\
 \textbf{解}\ (1) 因为$ f(-1)=f(0)=0 $，由对称性必有$ f(-2)=f(-3)=0 $，
 故$ x^2+ax+b=(x+2)(x+3)=x^2+5x+6,\ a=5,\ b=6 $. \\
 (2) \textbf{方法一}
-\begin{align*}
+\begin{align}\label{x(x+1)(x+2)(x+3)}
     f(x)=[x(x+3)][(x+1)(x+2)]=&(x^2+3x)(x^2+3x+2) \\
-    =&[(x^2+3x)+1]^2-1 \geq -1
-\end{align*}
-当$ x^2 + 3x + 1=0 $， 即 $ x=\dfrac{-3\pm\sqrt{5}}{2} $时，等号成立。\\
+    =&[(x^2+3x)+1]^2-1 \geq -1 
+\end{align}
+当$ x^2+3x+1=0 $，即 $ x=\dfrac{-3\pm\sqrt{5}}{2} $时，等号成立。\\
+\eqref{x(x+1)(x+2)(x+3)}式中的因式分解的技巧性较强，事实上有更一般的
+方法，即先将$ f(x) $展开成$ x^4 + 6x^3 + 11x^2 + 6x $，再令其等于
+\begin{gather}\label{四次函数配成二次函数平方加常数}
+    (x^2+cx+d)^2+g=x^4+2cx^3+(c^2+2d)x^2+2dcx+(d^2+g) 
+\end{gather}
+比较系数可得
+$ \begin{cases}
+    2c=6 \\
+    c^2+2d=11 \\
+    2dc=6 \\
+    d^2+g=0
+\end{cases} \Rightarrow 
+\begin{cases}
+    c=3 \\
+    d=1\\
+    g=-1
+\end{cases} $. 当然，不是所有的4次函数都可以进行
+\eqref{四次函数配成二次函数平方加常数}式这样的配方操作，比如
+$ (x-1)(x-2)(x-3)(x-5)=x^4-11x^3+41x^2-61x+30 $就无法进行，
+比较系数得到的方程会相互矛盾，
+只有当四次函数的图像是轴对称图形时才可以进行。
+
 \textbf{方法二}\ $ f(x)=x^4 + 6x^3 + 11x^2 + 6x,\ f'(x)=4x^3+18x^2+22x+6=
 2(2x + 3)(x^2 + 3x + 1) $. 剩余步骤略。注意：$ f'(x) $的对称中心是
 $ \left(-\dfrac{3}{2},0\right ) $，恰好在$ x $轴上。\\
@@ -2239,6 +2394,7 @@ $ \left(-\dfrac{3}{2},0\right ) $，恰好在$ x $轴上。\\
 \end{itemize}
 \textbf{推广2}：若四次函数的导函数的对称中心在$ x $轴上，
 那么这个四次函数是轴对称图形，对称轴的横坐标就是导函数对称中心的横坐标。
+从定积分的角度是很容易理解这一点的。
 
 \item $^*$ 设$ \i $是虚数单位，$ z=x+y\i $，
 对于下面定义的$ u(x,y),\ v(x,y) $，
@@ -4884,6 +5040,11 @@ $ \xi(s)=\xi(1-s) $. \\
 
 \item 手工分别绘制$ y=(x-2)^k(x-4),\ k=2,3,4 $的函数图像，然后用GeoGebra验证。
 
+\item 证明，对任意实数$ x $，都有$ 3x^4+6x^3-3x+1\geq \dfrac{1}{4} $.
+(这个4次多项式来源于$ \sum\limits_{l=1}^{n} l^6=
+\dfrac{1}{42}n(n+1)(2n+1)(3n^4+6n^3-3n+1) $\ ). 
+请分别使用求导法和配方法。
+
 \item 求$ f(x)=\sqrt{x^2+9}+\sqrt{x^2-4x+20} $的最小值。
 
 \item 
@@ -5043,6 +5204,25 @@ $ -\dfrac{2}{9}=-0.222222\cdots $十分接近。)
 \textbf{注}：$ (fg)'=f'g' $当然不可能对任意两个函数都成立，而是需要特意构造，此题的函数是通过求解微分方程找到的。
 
 \item 略
+
+\item $ f(x)=3x^4+6x^3-3x+1 $，$ f'(x)=12x^3+18x^2-3 $，
+$ f''(x)=36x^2+36x=36x(x+1) $，
+$ f''(x) $的对称轴是$ x=-\dfrac{1}{2} $，
+$ f'(x) $的对称中心是$ \left(-\dfrac{1}{2},0\right) $，
+恰好落在$ x $轴上，
+那么$ f'(x) $必定可以写成$ 3\left(x+
+\dfrac{1}{2}\right)(4x^2+ax-2) $，容易算出$ a=4 $，
+所以，$ f'(x)=3\left(x+\dfrac{1}{2}\right)(4x^2+4x-2) $，
+除了$ -\dfrac{1}{2} $，$ f'(x) $的另外两个零点是
+$ -\dfrac{1\pm \sqrt{3}}{2} $. 
+根据\ref{四次函数的轴对称性}的推广2，$ f(x) $的对称轴也是
+$ x=-\dfrac{1}{2} $，$ f(x) $的形状像w，在
+$ x=-\dfrac{1}{2} $处取得极大值$ \dfrac{31}{16} $；
+在$ x=-\dfrac{1\pm \sqrt{3}}{2} $处取得极小值$ \dfrac{1}{4} $，
+这说明$ f(x) $是没有实根的。配方法：设$ f(x)=3(x^2+bx+c)^2+d $，
+展开后比较系数可得：$ f(x)=3\left(x^2+x-
+\dfrac{1}{2}\right)^2+\dfrac{1}{4}\geq \dfrac{1}{4} $，
+这里的等号显然可以成立(因为$ x^2+x-\dfrac{1}{2}=0 $显然有实根)。
 
 \item $ f(x)=\sqrt{(x-0)^2+3^2}+\sqrt{(x-2)^2+4^2}\geq 
 \sqrt{(2-0)^2+(4+3)^2} =\sqrt{53} $.
