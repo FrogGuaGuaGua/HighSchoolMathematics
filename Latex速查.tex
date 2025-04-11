@@ -329,13 +329,16 @@ $ \lim\limits_{\substack{w\to w_0\\ x\to x_0\\ y\to y_0\\ z\to z_0}} $
 比如$ (\dfrac{3}{4})^2,[\dfrac{\pi^2}{6}],\{\dfrac{\pi^4}{90}\} $.\\
 使用\verb|\left( \right)|，则能让括号随内容增高而变高，
 比如$ \left(\dfrac{\pi^2}{6}\right)^2 $. \\
-使用\verb|\bigg( \bigg)|，\verb|\Bigg( \Bigg)|之类的，不同的命令代表不同尺寸的括号，而与括号中的内容无关。使用\verb|\left \right|时，内部不能出现换行符\verb|\\|，
-若需要较高的括号，就要改用\verb|\bigg( \bigg)|等。\\ 
+使用\verb|\bigg( \bigg)|，\verb|\Bigg( \Bigg)|之类的，不同的命令代表不同尺寸的括号，而与括号中的内容无关。
 如果只需要显示单侧的括号(最常见的情形是只显示左大括号)，现以左侧为例，\verb|\right|不能省略，必须与\verb|\left|配对出现，配对方法是要把右括号改成小数点，即输入\verb|\right.|，比如$ \left\{\dfrac{\pi^2}{6}\right. $的代码是
 \begin{lstlisting}
 \left\{\dfrac{\pi^2}{6}\right.    
 \end{lstlisting} 
-而\verb|\big|系列的括号可以直接省去一侧，无需配对出现。
+而\verb|\big|系列的括号可以直接省去一侧，无需配对出现。\\
+使用\verb|\left \right|时，内部不能出现换行符\verb|\\|，
+若需要较高的括号，可以改用\verb|\bigg( \bigg)|等。也可以在换行符之前
+加上\verb|\right.|，先与前面的\verb|\left(|配对，再在换行符
+之后加上\verb|\left.|，与后面的\verb|\right)|配对。\
 
 $ \left\| \dfrac{a}{b} \right\| $\q 
 \verb|\left\||\verb|\dfrac{a}{b}\right\|| \\
@@ -345,7 +348,6 @@ $ \left\lfloor \dfrac{a}{b} \right\rfloor $\q
 \verb|\left\lfloor\dfrac{a}{b}\right\rfloor| \\
 $ \left\lceil  \dfrac{a}{b} \right\rceil $\q 
 \verb|\left\lceil \dfrac{a}{b}\right\rceil | 
-
 
 \item 行内公式$ a^2+b^2=c^2 $使用\verb|$ a^2+b^2=c^2 $|即可。\\
 行间公式可用语法很多，比如\verb|\[  \], $$  $$|，
