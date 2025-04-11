@@ -1,5 +1,7 @@
 High school mathematics from an engineer's perspective. 《工程师视角下的高中数学》，注重联系工程实际。
 
+本书的写作动机可参看文章 https://zhuanlan.zhihu.com/p/689834716
+
 编译时注意把以下两行设置字体的命令注释掉(如果你没有对应的字体文件)
 
 \setCJKmainfont[BoldFont=OPPOSans-B]{SourceHanSerifCN-Regular}
