@@ -2,6 +2,10 @@ High school mathematics from an engineer's perspective. 《工程师视角下的
 
 本书的写作动机可参看文章 https://zhuanlan.zhihu.com/p/689834716
 
+因为国内访问github的不稳定性，所以本项目在gitee和github同步更新：
+https://gitee.com/FrogGuaGuaGua/HighSchoolMathematics
+https://github.com/FrogGuaGuaGua/HighSchoolMathematics
+
 编译时注意把以下两行设置字体的命令注释掉(如果你没有对应的字体文件)
 
 \setCJKmainfont[BoldFont=OPPOSans-B]{SourceHanSerifCN-Regular}
