@@ -6,14 +6,16 @@
 \begin{itemize}[leftmargin=\inteval{\myitemleftmargin}pt,itemsep=
    \inteval{\myitemitempsep}pt,topsep=\inteval{\myitemtopsep}pt]
 \item 零点：使$ f(x)=0 $的$ x $. 
-\item 极值点：设函数$ f(x) $在区间$ I $上有定义，$ x_0\in I $，若$ \exists\ \sigma>0,\ \forall\ x\in(x_0-\sigma,x_0+\sigma) $\footnote{$ \exists $表示存在，$ \forall $表示任意。}，有$ f(x)\leq f(x_0) $(或$ f(x)\geq f(x_0) $)，则称$ f(x_0) $是函数$ f(x) $的一个极大值(或极小值)，$ x_0 $是函数的一个极大值点(或极小值点)，但有时候也把$ (x_0,f(x_0)) $称为极大值点(或极小值点)。极大值与极小值统称为极值；极大值点与极小值点统称为极值点。高中阶段基本只考察连续、可导的函数，可以认为极值只会在$ f'(x)=0 $的位置取得。
+\item 极值点：设函数$ f(x) $在区间$ I $上有定义，$ x_0\in I $，若$ \exists\ \sigma>0,\ \forall\ x\in(x_0-\sigma,x_0+\sigma) $\footnote{$ \exists $表示存在，可以理解为Exist的首字母E左右颠倒；$ \forall $表示任意，可以理解为Any的首字母A上下颠倒。}，有$ f(x)\leq f(x_0) $(或$ f(x)\geq f(x_0) $)，则称$ f(x_0) $是函数$ f(x) $的一个极大值(或极小值)，$ x_0 $是函数的一个极大值点(或极小值点)，但有时候也把$ (x_0,f(x_0)) $称为极大值点(或极小值点)。极大值与极小值统称为极值；极大值点与极小值点统称为极值点。高中阶段基本只考察连续、可导的函数，可以认为极值只会在$ f'(x)=0 $的位置取得。
 % \item 极点(pole)$ ^* $：使$ f(x)\to +\infty $或$-\infty $的$ x $，比如$ x=0 $是$ \dfrac{1}{x^2} $的极点\footnote{可查阅https://complex-analysis.com/content/classification\_of\_singularities.html，或者\ 胡嗣柱，倪光炯. 数学物理方法[M]. 高等教育出版社，2002. }。
 
 \item 定义域主要考点：\\
 (1)分母不为0；\\
-(2)对数函数$ \log_a() $括号内的表达式大于0；\\
-(3)偶数次根式(主要是二次根式)下的表达式大于等于0；\\
-(4)正切函数$ \tan() $括号内的表达式不等于$ k\pi+\dfrac{\pi}{2} $. 
+(2)对数函数$ \log_a() $括号内的表达式大于0，$a>0$且$ a\neq 1 $；\\
+(3)指数函数$a^x$，$a>0$且$ a\neq 1 $；\\
+(4)偶数次根式(主要是二次根式)下的表达式大于等于0；\\
+(5)正切函数$ \tan() $括号内的表达式不等于$ k\pi+\dfrac{\pi}{2}\ 
+(k\in \mathbf{Z}) $. 
 
 \end{itemize}
 
@@ -491,7 +493,7 @@ $ x_1^nx_2+x_1x_2^n<x_1^{n+1}+x_2^{n+1} $，于是
 我们已经预测出了冠军是谁，你只要支付100元，就能知道预测结果，
 然后去买竞猜型足球彩票获得巨额收益”。那你是否要相信
 他们的预测能力并支付100元呢？ \\
-答案当然是否定的，之所以能保证前面的预测全部正确，是因为诈骗
+\textbf{解}\ 答案当然是否定的，之所以能保证前面的预测全部正确，是因为诈骗
 者采用了二分法。从一开始就选择足够庞大的人群，对一半的人
 预测甲队获胜，对另一半的人预测乙队获胜。下次群发预测短信，
 则只发给上次收到了正确预测结果的人，如此重复下去，
@@ -513,18 +515,32 @@ $ x_1^nx_2+x_1x_2^n<x_1^{n+1}+x_2^{n+1} $，于是
 \item 设$ f(x)=x^2+bx+c $，求证：$ |f(1)|,|f(2)|,|f(3)| $中至少有一个不小于
 $ \dfrac{1}{2} $. \\
 \textbf{证}\ 用反证法，假设$ |f(1)|,|f(2)|,|f(3)| $均小于$ \dfrac{1}{2} $，
-$ f(1)=1+b+c, f(2)=4+2b+c, f(3)=9+3b+c $，于是有$ f(1)+f(3)-2f(2)=2 $,那么
-$ 2=|f(1)+f(3)-2f(2)|\leq |f(1)|+|f(3)|+2|f(2)|<\dfrac{1}{2}+\dfrac{1}{2}+2\cdot \dfrac{1}{2}=2 $
+$ \begin{cases}
+ f(1)=1+b+c \\
+ f(2)=4+2b+c \\
+ f(3)=9+3b+c 
+\end{cases} $，
+于是有$ f(1)+f(3)-2f(2)=2 $，那么
+\begin{gather*}
+ 2=|f(1)+f(3)-2f(2)|\leq |f(1)|+|f(3)|+2|f(2)|<
+ \dfrac{1}{2}+\dfrac{1}{2}+2\cdot \dfrac{1}{2}=2
+\end{gather*}
 这就产生了矛盾，所以假设不成立。
 
 为什么$  f(1)+f(3)-2f(2) $恰好等于2呢？实际上是用待定系数法确定的系数，
-$ \lambda_1 f(1)+\lambda_2 f(2)+\lambda_3 f(3)=\lambda_1 (1+b+c)+
-\lambda_2 (4+2b+c)+\lambda_3 (9+3b+c)=(\lambda_1+4\lambda_2+9\lambda_3)+
-(\lambda_1+2 \lambda_2+ 3\lambda_3)b+(\lambda_1+\lambda_2+\lambda_3)c $，
+\begin{align*}
+ \lambda_1 f(1)+\lambda_2 f(2)+\lambda_3 f(3)=&\ \lambda_1 (1+b+c)+
+ \lambda_2 (4+2b+c)+\lambda_3 (9+3b+c)  \\
+ =&\ (\lambda_1+4\lambda_2+9\lambda_3)+
+ (\lambda_1+2 \lambda_2+ 3\lambda_3)b+(\lambda_1+\lambda_2+\lambda_3)c
+\end{align*}
 为使该式不包含$ b,c $，
-那么$ \lambda_1+2 \lambda_2+ 3\lambda_3=0,    \ \lambda_1+\lambda_2+\lambda_3=0 $，
+那么$ \begin{cases}
+ \lambda_1+2 \lambda_2+ 3\lambda_3=0 \\
+ \lambda_1+\lambda_2+\lambda_3=0
+\end{cases} $，
 解得$ \lambda_2=-2 \lambda_1,\ \lambda_3=\lambda_1 $. 
-于是$ \lambda_1+4\lambda_2+9\lambda_3=2\lambda_1.\ \lambda_1$可取任意非零值。 
+于是$ \lambda_1+4\lambda_2+9\lambda_3=2\lambda_1.\ \lambda_1$可取任意非零值。
 
 \item (2022，浙江高考)已知$a,b\in\mathbf{R}$，若对任意$x\in\mathbf{R} $， 
 $ a|x-b|+|x-4|-|2x-5|\geq 0$，则(\q ) \\
@@ -608,9 +624,8 @@ $ \dfrac{\e^x}{\e^x+1},\ \dfrac{x\e^x}{\e^x+1},\ \ln\left(\dfrac{\e^x}{\e^x+1}\r
 \begin{figure}[!htbp]
     \centering
     \includegraphics[width=0.95\linewidth]{人工智能函数}
-\end{figure} \\
+\end{figure} 
 
-%\newpage 
 \item (2022，新高考II卷)若函数$f(x)$的定义域为
 $\mathbf{R}$.且$f(x+y)+f(x-y)=f(x)f(y),\ f(1)=1$，
 求$\sum\limits_{k=1}^{22}f(k)$.\\
@@ -638,7 +653,7 @@ $\mathbf{R}$.且$f(x+y)+f(x-y)=f(x)f(y),\ f(1)=1$，
 \textbf{注}：递推关系(\ref{2022II递推数列周期6})对应的特征方程为$ x^2=x-1 $，
 特征根为$ x_{1,2}=\dfrac{1}{2}\pm \dfrac{\sqrt{3}}{2}\i=
 \cos\dfrac{\pi}{3}\pm \i\sin\dfrac{\pi}{3} $，
-周期$ T=\dfrac{2\pi}{\pi/3}=6 $. 
+周期$ T=\dfrac{2\pi}{\frac{\pi}{3}}=6 $. 
 设$ f(n)=A\cos\left(\dfrac{n\pi}{3}+\varphi\right) $，
 则$ f(0)=A\cos\varphi=2 $，
 \begin{gather*}
@@ -748,32 +763,45 @@ $ a\neq 0,\ \Delta=4+4a(6+4a)\geq 0 $，解得
 \end{gather}
 (\ref{根的分布-解集2})式和(\ref{根的分布-解集3})式求交集，然后和
 (\ref{根的分布-解集1})式求并集，可得$ a $的范围是：
-$ \Big(-\infty,\dfrac{-3-\sqrt{5}}{4}\Big]\cup 
-\Big[-\dfrac{1}{6},+\infty \Big) $. 
+$ \left(-\infty,\dfrac{-3-\sqrt{5}}{4}\right]\cup 
+\left[-\dfrac{1}{6},+\infty \right) $. 
 \\ 
 \textbf{方法二}\ 分离参数，$ a=\dfrac{6-2x}{x^2-4} $，问题转化成求函数
 $ y=\dfrac{6-2x}{x^2-4} $在$ [0,4] $上的值域，可以直接求导，也可作代换
 $ t=3-x\in[-1,3] $，则$ \dfrac{6-2x}{x^2-4}=\dfrac{2t}{(3-t)^2-4}=
 \dfrac{2t}{t^2-6t+5}=\dfrac{2}{t-6+\dfrac{5}{t}} \in 
-\Big(-\infty,\dfrac{-3-\sqrt{5}}{4}\Big]\cup 
-\Big[-\dfrac{1}{6},+\infty \Big) $. \\
-\textbf{说明}\ $ y=\dfrac{6-2x}{x^2-4} $可变形为$ y(x^2-4)+2x-6=0 $，
-属于三次曲线，它有两条垂直渐近线($ x=\pm 2 $)和一条水平渐近线($ x $轴)，其图像如下：
+\left(-\infty,\dfrac{-3-\sqrt{5}}{4}\right]\cup 
+\left[-\dfrac{1}{6},+\infty \right) $. \\
+\textbf{说明}\ 下面介绍三次曲线$y=f(x)=\dfrac{x+C}{x^2+Ax+B}$的图像该如何手工绘制。\\
+(一) 因为$y=f(x)=\dfrac{x+C}{x^2+Ax+B}$的分母是二次，分子是一次，
+当$x$充分大时，二次函数的绝对值可以远远大于一次函数的绝对值。所以当$x$趋于
+$+\infty$或$-\infty$时，$f(x)$趋于0，即曲线$y=f(x)$必然以$x$轴为渐近线。\\
+(二) 曲线$y=f(x)$在$x=-C$处必然会穿越$x$轴。\\
+(三) 当$x^2+Ax+B=0$有两个不等实根时，
+曲线$y=f(x)$在这两个实根处各有一条垂直渐近线；
+当$x^2+Ax+B=0$有两个相等实根时，曲线$y=f(x)$只在实根处有一条垂直渐近线；
+当$x^2+Ax+B=0$没有实根时，曲线$y=f(x)$不存在垂直渐近线。\\
+(四) $f(x)$的正负号与$g(x)=(x+C)(x^2+Ax+B)$的正负号一致(除了使$x^2+Ax+B=0$的点。)\\
+(五) 设$x^2+Ax+B=0$有两个不等实根$x_1,x_2\ (x_1<x_2)$，
+如果$-C$位于区间$(x_1,x_2)$外部，则曲线$y=f(x)$在区间$(x_1,x_2)$内有一个极值点，
+在$x=-C$所在的分支上有另一个极值点；
+如果$-C$位于区间$(x_1,x_2)$内部，则曲线$y=f(x)$没有极值点，在区间
+$(-\infty,x_1),(x_1,x_2),(x_2,+\infty)$上都是单调的。\\
+\\
+对于$ y=\dfrac{6-2x}{x^2-4} $，手工绘图时遵循以下步骤：
+先绘制两条垂直渐近线$ x=\pm 2 $，再标记出分子的零点$x=3$，然后根据
+三次函数$y=(x+2)(x-2)(3-x) $的正负，确定$ y=\dfrac{2(3-x)}{x^2-4} $在区间
+$ (-\infty,-2),(-2,2),(2,3),(3,+\infty) $上的正负，在垂直渐近线的左右两侧，
+要让曲线分别向$+\infty$和$-\infty$延伸。当$ |x|\to \pm\infty $时，
+要让曲线逐渐靠近$ x $轴。其图像如下：
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.55\linewidth]{三次曲线-分子零点在右侧}
+    \includegraphics[width=0.7\linewidth]{三次曲线-分子零点在右侧}
 \end{figure} \\
-若要手工粗略绘制此函数的图像，遵循以下步骤：先绘制两条垂直渐近线，再根据
-三次函数$y=(x+2)(x-2)(3-x) $的正负，确定$ y=\dfrac{2(3-x)}{x^2-4} $在区间
-$ (-\infty,-2),(-2,2),(2,3),\\ (3,+\infty) $上的正负。当$ |x|\to +\infty $时，
-$ \dfrac{2(3-x)}{x^2-4}\approx -\dfrac{2}{x} $，所以要让曲线逐渐靠近$ x $轴
-(体现水平渐近线的作用)。
-
-对于$ y=\dfrac{2(3\pm x)}{x^2-4} $，
-它们的分子的零点在分母两个零点所形成的区间的外部，
-存在两个极值点。而对于$ y=\dfrac{x-1}{x^2-4} $，它的分子的零点在分母两个零点之间，
-不存在极值点，在两条垂直渐近线所划分的三个区间中都是单调递减的，当$ |x|\to +\infty $
-时，$ \dfrac{x-1}{x^2-4}\approx \dfrac{1}{x} $，其图像如下：
+$ y=\dfrac{6-2x}{x^2-4} $的分子的零点在分母两个零点所形成的区间的外部，
+它在区间$(-2,2)$上有一个极大值点，在区间$(3,+\infty)$上有一个极小值点。\\
+而对于$ y=\dfrac{x-1}{x^2-4} $，它的分子的零点在分母两个零点之间，
+不存在极值点，在两条垂直渐近线所划分的三个区间中都是单调递减的，其图像如下：
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.45\linewidth]{三次曲线-分子零点在中间}
@@ -782,7 +810,7 @@ $ \dfrac{2(3-x)}{x^2-4}\approx -\dfrac{2}{x} $，所以要让曲线逐渐靠近$
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.84\linewidth]{三次曲线-附加三幅图}
-\end{figure} \\
+\end{figure} 
 
 \item 已知$ f(x)=x^2+\dfrac{a}{x} $，其中$ a>0 $，若$ f(x) $在
 $ [2,+\infty) $上单调递增，求$ a $的取值范围。 \\
@@ -941,10 +969,11 @@ $ f(x+2)=\sqrt{2}f(x+1)-f(x) $，求$ f(x) $的周期。
 \item 用尽可能多的方法求以下函数的值域，并手工绘制函数图像，然后用GeoGebra验证
 值域和图像。\\
 (1)$ y=\dfrac{2x+4}{x^2+x+3},\ x\in \textbf{R} $. \\
-(2)$ y=\dfrac{2x^2+x+5}{x^2+x+3},\ x\in \textbf{R} $. \\
+(2)$ y=\dfrac{x-1}{x^2-x-2},\ x\in\left[-\dfrac{1}{2},
+                            \dfrac{3}{2}\right] $. \\
 (3)$ y=\dfrac{x+1}{x^2-3x+2},\ x\neq 1,2 $. \\
 (4)$ y=\dfrac{2x-\sqrt{x^2+1}}{2x+\sqrt{x^2+1}},\ x\in (-\infty,0) $. \\
-(5)$ y=\dfrac{x}{(x-1)^2} $
+(5)$ y=\dfrac{x}{(x-1)^2},\ x\neq 1 $.
 
 \item 请写出满足以下函数方程并经过给定点的基本初等函数的解析式。\\
 (1) $ f\left(\dfrac{1}{4}x_1+\dfrac{3}{4}x_2\right)=\dfrac{1}{4}f(x_1)+
@@ -1037,8 +1066,12 @@ f(1)+f(2)+\cdots +f(2022)=\dfrac{2022}{6}[f(1)+f(2)+\cdots+f(6)]=-1011 $.
 周期是8.
 
 \item 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.95\linewidth]{PDF_Picture/第一章练习题中5个函数图像}
+\end{figure}
 (1)$ \left[-\dfrac{2}{2\sqrt{5}+3},\dfrac{2}{2\sqrt{5}-3}\right] $. \\
-(2)$ \left[2-\dfrac{1}{2\sqrt{3}-1},2+\dfrac{1}{2\sqrt{3}+1}\right] $. \\
+(2)$ \left[-\dfrac{2}{5},\dfrac{6}{5}\right] $. \\
 (3)$ \left(-\infty,\dfrac{1}{2\sqrt{6}-5}\right] \cup 
 \left[-\dfrac{1}{2\sqrt{6}+5},+\infty\right) $. \\
 (4) $ \left(-\infty,-1\right) \cup \left(3,+\infty\right) $. \\

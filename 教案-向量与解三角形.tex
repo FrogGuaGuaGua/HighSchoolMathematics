@@ -126,15 +126,7 @@ $ \left( a_kb_l-a_lb_k\right)^2 $一共有$ C_n^2=C_4^2=6 $项，并不等于$ n
 这一恒等式实际上来源于四元数乘法的定义。
 \footnote{ 类似于(\ref{三维向量叉乘})式定义的向量积还能适用于七维，
     而无法推广到其它维度。
-参见 \\
-https://www.zhihu.com/question/31549458   \\
-https://en.wikipedia.org/wiki/Seven-dimensional\_{}cross\_{}product 
-%\hspace{4mm} Given the properties of bilinearity, orthogonality and magnitude, a nonzero cross product exists only in three and seven dimensions. This can be shown by postulating the properties required for the cross product, then deducing an equation which is only satisfied when the dimension is 0, 1, 3 or 7. In zero dimensions there is only the zero vector, while in one dimension all vectors are parallel, so in both these cases the product must be identically zero.
-%
-%\hspace{4mm} The restriction to 0, 1, 3 and 7 dimensions is related to Hurwitz's theorem, that normed division algebras are only possible in 1, 2, 4 and 8 dimensions. The cross product is formed from the product of the normed division algebra by restricting it to the 0, 1, 3, or 7 imaginary dimensions of the algebra, giving nonzero products in only three and seven dimensions. 
-%
-%\hspace{4mm} In contrast to the three-dimensional cross product, which is unique (apart from sign), there are many possible binary cross products in seven dimensions. 
-}
+参见 https://zhuanlan.zhihu.com/p/24562904392 }
 
 \item 按下面的方法定义的向量乘法适用于任意维度，
 \begin{gather}\label{向量逐位乘法}
@@ -146,12 +138,15 @@ https://en.wikipedia.org/wiki/Seven-dimensional\_{}cross\_{}product
 (element-wise multiplication). 
 
 \item 向量不论是点乘还是叉乘，都没有对应的除法，
-主要是因为除法的结果有无穷多种，这就失去了除法的意义。
+因为向量的点乘和叉乘都包含一次投影的操作，
+而投影操作存在信息丢失(即有无数个不同的向量在投影后能得到一样的长度)，
+丢失了信息就无法进行逆向还原，即找不出原来的向量了。
 比如$ \vec{a}=(x,3-x),\ \vec{b}=(1,1),\ 
 \vec{a}\cdot \vec{b}=3 $，那么$ 3\div \vec{b} $的结果有无穷多种。
 又比如$ \vec{a}=(x,x+1,x+1),\ \vec{b}=(1,1,1),\ 
 \vec{a}\times\vec{b}=(0,1,-1) $，那么$ (0,1,-1) \div \vec{b} $
-的结果有无穷多种。换一种方式描述就是：由$ \vec{a}\divideontimes 
+的结果有无穷多种，这就没有意义了。
+换一种方式描述就是：由$ \vec{a}\divideontimes 
 \vec{b}=\vec{c}\divideontimes \vec{b} $不能推出
 $ \vec{a}=\vec{c} $\ (其中的$ \divideontimes $代表点乘或叉乘)，
 即使$ \vec{b} $的每一个坐标分量都不为0. 正是因为向量几乎无法定义除法，
@@ -174,8 +169,8 @@ $ \vec{a}=\vec{c} $\ (其中的$ \divideontimes $代表点乘或叉乘)，
 \end{gather*}
 
 \item 对任意三角形，“大边”是”大角”的充要条件。分析如下：\\
-\ding{192}若$ A,B,C\in(0,\dfrac{\pi}{2}] $，根据正弦定理和正弦函数的单调性，必有“大边对大角”、
-“大角对大边”。\\
+\ding{192}若$ A,B,C\in\left(0,\dfrac{\pi}{2}\right] $，
+根据正弦定理和正弦函数的单调性，必有“大边对大角”、“大角对大边”。\\
 \ding{193}若三角形有一个角是钝角，不妨设为$ C $，根据余弦定理，
 $ c^2=a^2+b^2-2ab\cos C $，$ c^2 $同时大于$ a^2 $和$ b^2 $，说明$ c $是最长的边。
 反过来，若$ c $是最长的边，$ C $一定是钝角。剩余两个锐角符合\ding{192}中的情形。
@@ -184,8 +179,8 @@ $ c^2=a^2+b^2-2ab\cos C $，$ c^2 $同时大于$ a^2 $和$ b^2 $，说明$ c $�
 
 事实上，以下4个条件是等价的，任意两者互为充要条件：
 \begin{align*}
-    a>b \Leftrightarrow A>B \Leftrightarrow \sin A>\sin B \Leftrightarrow 
-    |\tan A|>|\tan B| 
+    a>b \Leftrightarrow A>B \Leftrightarrow \sin A>\sin B 
+     \Leftrightarrow |\tan A|>|\tan B| 
 \end{align*}
 若其中出现直角，把$ \left|\tan \dfrac{\pi}{2}\right| $视为$ +\infty $即可。
 
@@ -337,6 +332,8 @@ $ n\geq 3 $时，方程$ x^n+y^n=z^n $没有$ xyz\neq 0 $的整数解(也可等�
 对于该方程的整数解，$ x,y $不可能同时是奇数。
 常见的勾股数有 $ (3,4,5)$, $(5,12,13)$, $(7,24,25)$, 
 $(8,15,17)$, $(9,40,41)$, $(11,60,61)$, $(20,21,29) $. 
+可以证明：任意一组勾股数的乘积都是60的倍数\footnote{
+参见 https://www.zhihu.com/question/1896886358745805689}。
 
 若把(\ref{勾股定理正整数解通式})式中的$ a^2,b^2 $换成$ a,b $，有
 \begin{align*}
