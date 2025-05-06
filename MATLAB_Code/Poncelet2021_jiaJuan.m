@@ -1,4 +1,7 @@
-% (2021，高考(理)，全国甲卷) 抛物线C
+% (2021，高考全国甲卷，理) 抛物线$ C $的顶点为坐标原点$ O $，
+% 焦点在$ x $轴上，直线$ l:\ x = 1 $交$ C $于$ P,Q $两点，
+% 且$ OP\perp OQ $.已知点$ M(2,0) $，且$ \odot M $与$ l $相切
+
 clc
 close all
 fimplicit(@(x,y)y.^2-x,'k','linewidth',1.2)
@@ -16,9 +19,14 @@ plot([0 3],[0 -sqrt(3)],'k--','linewidth',1.2)
 plot([-0.5 4],[0 0],'k','linewidth',0.8)
 plot([0 0],[-2.5 2.5],'k','linewidth',0.8)
 
-f1=@(x,y)4*x+3*y-13;
-f2=@(x,y)y.^2-x;
-S=solve({f1,f2})
+syms x y;  % 定义符号变量
+eq1 = 4*x + 3*y == 13;  % 符号方程1
+eq2 = y^2 - x == 0;     % 符号方程2
+S = solve([eq1, eq2], [x, y])
+
+% f1=@(x,y)4*x+3*y-13;
+% f2=@(x,y)y.^2-x;
+% S=solve({f1,f2})
 % fimplicit(f1,'k','linewidth',1.2)
 
 xxx=0.1117;

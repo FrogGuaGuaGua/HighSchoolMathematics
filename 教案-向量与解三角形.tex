@@ -388,11 +388,11 @@ $ a^2+b^2+c^2=a^2+b^2+(a^2+b^2-2ab\cos C)\geq 4\sqrt{3}\cdot
 \dfrac{1}{2}ab\sin C $，移项，
 $ 2(a^2+b^2)\geq 2ab(\cos C+\sqrt{3}\sin C)=4ab\sin(C+\dfrac{\pi}{6}) $，
 此不等式显然成立。 所以，当$ a^2+b^2+c^2=4\sqrt{3}S_{\Delta ABC}=
-\left\{\begin{aligned}
+\begin{cases}
     & 2\sqrt{3}ab\sin C \\
     & 2\sqrt{3}bc\sin A \\
     & 2\sqrt{3}ac\sin B
-\end{aligned}\right. $时，$ \Delta ABC $一定是等边三角形。
+\end{cases}$时，$ \Delta ABC $一定是等边三角形。
 
 \item 三角形面积公式汇总：
 \begin{gather}\label{三角形面积公式汇总}
@@ -528,11 +528,10 @@ $ \dfrac{(1-\mu_1)\mu_2}{x}+\dfrac{\mu_1\mu_2}{y}=1 $.
     \vec{AN}=&\ \lambda x\vec{AB}+(1-\lambda)y
     \vec{AC}
 \end{align*}
-$ \left\{ 
-\begin{aligned}
+$ \begin{cases}
     &\lambda x = (1-\mu_1)\mu_2 \\
     &(1-\lambda)y = \mu_1\mu_2
-\end{aligned} \right. $. 所以$ \dfrac{(1-\mu_1)\mu_2}{x}+\dfrac{\mu_1\mu_2}{y}
+\end{cases} $. 所以$ \dfrac{(1-\mu_1)\mu_2}{x}+\dfrac{\mu_1\mu_2}{y}
 =\lambda+1-\lambda=1 $. \\
 当$ E $是三角形的重心时，$ \mu_1=\dfrac{1}{2},\ \mu_2=\dfrac{2}{3},\ 
 \dfrac{1}{x}+\dfrac{1}{y}=3 $. \\
@@ -1628,10 +1627,14 @@ $ \tan\theta=4 $，(\ref{考虑有理数-情形3已平方})式有$ (4,-9),(9,-39
 $ \tan\theta=5 $，(\ref{考虑有理数-情形3已平方})式有
 $ (9,-24),(16,-84) $等整数解。
 
-\item 正实数$ x,y,z $满足
-$ \left\{ \begin{aligned} x^2+xy+y^2 =&\ 9  &\mycircled{1} \\
-    y^2+yz+z^2=&\ 16 &\mycircled{2} \\
-    z^2+zx+x^2=&\ 25 &\mycircled{3} \end{aligned} \right. $，求$ xy+yz+zx $的值。\\
+% FermatPoint_9_16_25_StudyAgain.m
+% 
+\item \label{三元二次非线性方程组-费马点}正实数$ x,y,z $满足
+$ \begin{cases}
+    x^2+xy+y^2=9  &\mycircled{1} \\
+    y^2+yz+z^2=6  &\mycircled{2} \\
+    z^2+zx+x^2=25 &\mycircled{3}
+\end{cases} $，求$ xy+yz+zx $的值。\\
 \textbf{解}\ $ x,y,z $可看成边长为$ 3,4,5 $的直角三角形的费马点与三个顶点连线的长度，
 直角三角形的面积等于三个小三角形面积之和：$ \dfrac{1}{2}\cdot 3\cdot 4= \dfrac{1}{2}\cdot(xy+yz+zx)\sin 120^{\circ} $，于是
 $ xy+yz+zx=8\sqrt{3} $. 如果读者第一次遇到此类较难的题目而无从下手，但题目恰好以选择题形式出现，
@@ -1688,7 +1691,7 @@ $ \left( -\dfrac{12}{\sqrt{37}},-96\right) $，极大值点为
 $ \left(\dfrac{12}{\sqrt{13}},96\right) $，$ f(y) $的图像如下，形状像一把勺子，
 并不具有任何对称性，但极大值和极小值的绝对值相同，还是令人有些诧异。
 感兴趣的读者还可尝试利用初等方法(不借助导数)寻找$ f(y) $的极值。 
-\begin{figure}[h]
+\begin{figure}[h] % xy_yz_zxFermat.m
     \centering
     \includegraphics[width=0.6\linewidth]{xy+yz+zx题目}
 \end{figure}
@@ -1867,6 +1870,7 @@ $ \Delta_m,\Delta_n $不相似，这样的选取方法显然是有无穷多的�
 \textbf{注}\ 如果从恒等式$ (n^2-1)^2+(2n)^2=(n^2+1)^2 $出发，
 推导过程基本一样。
 
+% QuZhou_LianGan.m
 \item 下图是往复式内燃机\footnote{以内燃机为动力的汽车与以电动机为动力
     的汽车将长期共存，内燃机不会退出历史的舞台，依然具有研究价值。
     160kWh的电量大致能让一般的5座电动私家车以100km/h的速度行驶800km，
@@ -2014,10 +2018,18 @@ $ \vec{a}//\vec{b} $，则$ t= $\underline{\hspace{2cm}}；
 \item 在$ \Delta ABC $中，$ \sin^2A\leq\sin^2B+\sin^2C-
 \sin B\sin C $，求$ A $的取值范围。
 
-\item $ ^* $正实数$ x,y,z $满足$ \left\{ \begin{aligned} x^2+xy+y^2 =&\ 6 \\
+\item $ ^* $正实数$ x,y,z $满足$ \begin{cases} x^2+xy+y^2 =&\ 6 \\
     y^2+yz+z^2=&\ 7  \\
-    z^2+zx+x^2=&\ 8  \end{aligned} \right. $，
+    z^2+zx+x^2=&\ 8  \end{cases} $，
 求$ xy+yz+zx $和$ x+y+z $的值。
+
+\item 
+$\begin{cases}
+    x^2+y=a \\
+    y^2+z=b \\
+    z^2+x=c 
+\end{cases}$，其中$x,y,z$是未知数，$a,b,c$是常数，
+通过消元法求出$x$所满足的8次方程。
 
 \item 在$ \Delta ABC $中，已知$ AB=7,AC=8,BC=9 $，那么它的面积为\underline{
     \hspace{1cm}}，内切圆半径为\underline{\hspace{1cm}}，外接圆半径为\underline{
@@ -2105,6 +2117,12 @@ $ x+y+z=\sqrt{\dfrac{1}{2}[w+\sqrt{3(-u+2v)}]}=
 \sqrt{\dfrac{1}{2}(21+\sqrt{429})}=4.566854\cdots $. 
 
 \item 
+\begin{gather*}
+    c-x=z^2=(b-y^2)^2=[b-(a-x^2)^2]^2 \\
+    x^8-4ax^6+(6a^2-2b)x^4+(-4a^3+4ba)x^2+x+(a^4-2a^2b+b^2-c)=0
+\end{gather*} 
+
+\item 
 面积$ S=12\sqrt{5} $，内切圆半径$ r=\sqrt{5}$，外接圆半径$ R=\dfrac{21
     \sqrt{5}}{10} $，$ \vec{AB}\cdot \vec{AC} = 16,
 AD=\dfrac{\sqrt{145}}{2} $. 
@@ -2142,8 +2160,7 @@ $ \cos\angle BHC=\dfrac{\vec{HB}\cdot \vec{HC}}
 =-\dfrac{\sqrt{21}}{7} $，所以$ \cos \angle BAC=\dfrac{\sqrt{21}}{7} $.
 
 \item 
-$ \vec{BD}=\mu_1\vec{BC}, \vec{AE} =
-\mu_2\vec{AD} $，
+$ \vec{BD}=\mu_1\vec{BC}, \vec{AE} =\mu_2\vec{AD} $，
 \begin{align*}
     \vec{AE} =\mu_2\vec{AD} =&\ \mu_2\left[
     (1-\mu_1)\vec{AB}+\mu_1\vec{AC}\right]\\
@@ -2152,11 +2169,10 @@ $ \vec{BD}=\mu_1\vec{BC}, \vec{AE} =
     \vec{AN}=&\ \lambda x\vec{AB}+(1-\lambda)y
     \vec{AC}
 \end{align*}
-$ \left\{ 
-\begin{aligned}
-    &\lambda x = (1-\mu_1)\mu_2 \\
-    &(1-\lambda)y = \mu_1\mu_2
-\end{aligned} \right. $. 所以$ \dfrac{(1-\mu_1)\mu_2}{x}+\dfrac{\mu_1\mu_2}{y}
+$ \begin{cases}
+    \lambda x = (1-\mu_1)\mu_2 \\
+    (1-\lambda)y = \mu_1\mu_2
+\end{cases} $. 所以$ \dfrac{(1-\mu_1)\mu_2}{x}+\dfrac{\mu_1\mu_2}{y}
 =\lambda+1-\lambda=1 $.  \quad $ \dfrac{8}{x}+\dfrac{2}{y}=15 $. \\
 (2) $ xy=\dfrac{1}{225}\cdot xy \left(\dfrac{8}{x}+\dfrac{2}{y}\right)^2=
 \dfrac{1}{225}\left(\dfrac{64y}{x}+32+\dfrac{4x}{y}\right)\geq\dfrac{64}{225} $. 

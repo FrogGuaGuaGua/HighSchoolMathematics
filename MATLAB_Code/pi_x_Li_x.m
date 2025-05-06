@@ -4,7 +4,7 @@ N=10^4;
 x=2:0.1:N;
 close all
 % fplot(logint(x))
-plot(x,logint(x),'k','Linewidth',1.2)
+plot(x,logint(x),'k:','Linewidth',1.2)
 grid on
 hold on
 axis([0 N+10 0 N/log(N)+10])
@@ -23,5 +23,5 @@ for n=3:N-2
     end
 end
 % figure
-plot(3:N,pix,'r','Linewidth',1.2)
+plot(3:N,pix,'k','Linewidth',1.2)
 legend('Li(x)','¦Ð(x)')

@@ -25,10 +25,10 @@ y2=-p*k1;
 x1=y1^2/2/p;
 x2=y2^2/2/p;
 
-fimplicit(@(x,y)y-y0-k1*(x-x0),'k','linewidth',1.2)
-fimplicit(@(x,y)y-y0-k2*(x-x0),'k','linewidth',1.2)
-plot([x1 x2],[y1 y2],'k','linewidth',1.2)
-plot([-p/2 p/2],[y0 0],'k','linewidth',1.2)
+fimplicit(@(x,y)y-y0-k1*(x-x0),'k','linewidth',0.8)
+fimplicit(@(x,y)y-y0-k2*(x-x0),'k','linewidth',0.8)
+plot([x1 x2],[y1 y2],'k','linewidth',0.8)
+plot([-p/2 p/2],[y0 0],'k','linewidth',0.8)
 %%%%
 x0=-p/2; y0=-2;
 k1=-y0/p+sqrt((y0/p)^2+1);

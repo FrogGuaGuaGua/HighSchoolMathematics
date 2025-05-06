@@ -3,8 +3,6 @@ clc
 close all
 syms x; 
 
-
-
 % axis off
 
 subplot(1,2,1)
@@ -18,7 +16,7 @@ plot([2 2],[-100 100],'k','Linewidth',0.5)
 axis([-0.3 2 -0.2 1.5])
 title('$\sin x>\frac{2}{\pi}x$','interpreter','latex','fontsize',12)
 % grid on
-% axis equal
+axis equal
 
 subplot(1,2,2)
 hold on
@@ -30,6 +28,7 @@ plot([-100 100],[1.5 1.5],'k','Linewidth',0.5)
 plot([2 2],[-100 100],'k','Linewidth',0.5)
 axis([-0.3 2 -0.2 1.5])
 title('$\cos x>1-\frac{2}{\pi}x$','interpreter','latex','fontsize',12)
+axis equal
 
 
 

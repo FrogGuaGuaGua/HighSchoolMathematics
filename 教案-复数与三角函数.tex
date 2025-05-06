@@ -165,8 +165,9 @@ $\cosh x=\dfrac{\e^x+\e^{-x}}{2} $，这两个函数存在与$ \sin x,\cos x $
 \section{三次方程求根公式}
 \begin{itemize}[leftmargin=\inteval{\myitemleftmargin}pt,itemsep=
    \inteval{\myitemitempsep}pt,topsep=\inteval{\myitemtopsep}pt]
-\item 奇数次多项式至少存在一个实根，实根的数量也一定是奇数。
-偶数次多项式可能没有实根，实根的数量一定是偶数(包括0个)，一定存在极大值或极小值。
+\item 奇数次多项式至少存在一个实零点，实零点的数量也一定是奇数。
+偶数次多项式可能没有实零点，实零点的数量一定是偶数(包括0个)，
+一定存在极大值或极小值。
 
 \item 对于任意三次方程$ ax^3+bx^2+cx+d=0 $，可先除以非零的$ a $，把三次项系数化为1，
 再通过平移变换$ x=t-\dfrac{b}{3a} $，消去三次方程的二次项，故只需考虑形如$ x^3+px+q=0 $的三次方程。
@@ -178,7 +179,7 @@ $\cosh x=\dfrac{\e^x+\e^{-x}}{2} $，这两个函数存在与$ \sin x,\cos x $
 比较系数可得：
 $ \begin{cases}
 -3uv = p \ \left(u^3v^3=-\dfrac{p^3}{27} \right) \\
-u^3+v^3 = -q
+-(u^3+v^3) = q
 \end{cases} \vspace{-4mm} $，于是，$ u^3,v^3 $是二次方程$ y^2+qy-\dfrac{p^3}{27}=0 $的根，二次方程的判别式除以4以后仍用
 $ \Delta $表示，$ \Delta=\dfrac{q^2}{4}+\dfrac{p^3}{27} $. 解二次方程可得：
 $ u^3=-\dfrac{q}{2} + \sqrt{\Delta},\ v^3=-\dfrac{q}{2} - \sqrt{\Delta}$.
@@ -205,6 +206,18 @@ $ \Delta=\dfrac{q^2}{2^2}+\dfrac{p^3}{3^3} $就好记了。
 \item 对于一般的四次函数$ ax^4+bx^3+cx^2+dx+e $，
 做平移$ x=t-\dfrac{b}{4a} $，可以消去三次项。
 四次方程也有求根公式，而五次及更高次的一般方程，没有求根公式。
+
+\item 形如$ ax^4+bx^3+cx^2\pm bx+a=0 $的特殊四次方程，可以通过将方程
+整体除以$ x^2 $，再作换元$ u=x\pm \dfrac{1}{x} $进行求解。
+比如$ bx $前面取“+”时，
+\begin{gather*}
+    ax^4+bx^3+cx^2+bx+a=0 \\
+    ax^2+bx+c+\dfrac{b}{x}+\dfrac{a}{x^2}=0 \\
+    a\left(x^2+\dfrac{1}{x^2}\right)+b\left(x+\dfrac{1}{x}\right)+c=0 \\
+    a\left[\left(x+\dfrac{1}{x}\right)^2-2\right]+b
+    \left(x+\dfrac{1}{x}\right)+c=0 \\
+    au^2+bu+(c-2a)=0
+\end{gather*}
 
 \item 三次函数$ y =ax^3+cx+d $上的点$ (x_0,y_0) $
 处的切线斜率计算：
@@ -378,12 +391,12 @@ $ x=a\e^{\i\frac{1+2k}{n}\pi} ,\ k=0,1,2\cdots ,(n-1) $.
 由$ \e^x,\sin x $的泰勒展开，可得两个重要极限：
 \begin{align}
 \lim_{x\to 0}\dfrac{\e^x-1}{x}=1  \label{(e^x-1)/x极限} \\
-\lim_{x\to 0}\dfrac{\sin x}{x}=1 \label{sinx/x极限}
+\lim_{x\to 0}\dfrac{\sin x}{x}=1  \label{sinx/x极限}
 \end{align}
 
 \noindent$\left( 1+\dfrac{1}{x}\right)^x,\dfrac{\e^x-1}{x},\dfrac{\sin x}{x} $
 三者的图像如下：
-\begin{figure}[h]
+\begin{figure}[h]  % TwoImportLimit.m
 \centering
 \includegraphics[width=0.8\linewidth]{两个重要极限图像.pdf}
 \end{figure}\\
@@ -401,14 +414,14 @@ z_1z_2=\ & r_1(\cos\alpha_1+\i\sin\alpha_1)\cdot r_2(\cos
 
 \item 设$ z=x+\i y=r\cos \alpha+\i r\sin \alpha $，现将$ z $绕原点逆时针旋转$ \theta $角，得到新的复数$ z'=x'+\i y' $，$ z' $的模仍然是$ r $，但幅角变成$ \alpha+\theta $，所以
 \begin{gather}\label{坐标旋转公式}
-\left\{ \begin{aligned}
-    & x'=r\cos (\alpha+\theta)=\underbrace{r\cos\alpha}_{x}
+\begin{cases}
+    x'=r\cos (\alpha+\theta)=\underbrace{r\cos\alpha}_{x}
     \cos\theta-	\underbrace{r\sin\alpha}_{y}\sin\theta	
-    =x\cos\theta-y\sin\theta\\
-    & y'=r\sin (\alpha+\theta)=\underbrace{r\sin\alpha}_{y}
+    =x\cos\theta-y\sin\theta  \\
+    y'=r\sin (\alpha+\theta)=\underbrace{r\sin\alpha}_{y}
     \cos\theta+\underbrace{r\cos\alpha}_{x}\sin\theta
     =x\sin\theta+y\cos\theta
-\end{aligned} \right. 
+\end{cases} 
 \end{gather}
 以上两式可实现坐标的旋转。可使用下面的复数乘法辅助记忆坐标旋转公式。
 \begin{gather*}
@@ -803,7 +816,7 @@ $ \forall x\in [0,\pi] $，有$ \cos x\leq -\dfrac{\sqrt{3}}{2}\Big(x-
 
 \item 当$ x\in\Big(0,\dfrac{\pi}{2}\Big) $时，
 $ \sin x>\dfrac{2}{\pi}x $，$ \cos x>1-\dfrac{2}{\pi}x $.
-\begin{figure}[!h]
+\begin{figure}[!h]  % sinx_Great_2x_pi.m
     \centering
     \includegraphics[width=0.7\linewidth]{sinx大于2x_pi}
 \end{figure} \\
@@ -960,17 +973,18 @@ $ \dfrac{n}{m} $是有理数，这就产生了矛盾。
 $\sin\left(\dfrac{1}{x^2} \cdot x\right), 
 \sin\left(\dfrac{1}{\sqrt{x}}\cdot x\right)$频率降低，曲线变得更加稀疏。
 而$ \sin(x\cdot x) $的频率提高，曲线变得更加密集。
-\begin{figure}[h]
+\begin{figure}[h] % SinNonPeriodicTrigonometricFunction.m
     \centering
     \includegraphics[width=0.7\linewidth]{三个sin括号内变化的非周期函数}
 \end{figure} 
 
 \item $ x\sin x,\dfrac{\sin x}{x},\dfrac{x}{\sin x} $均不是周期函数。 \\
-\begin{figure}[h]
+\begin{figure}[h] % SinNonPeriodicTrigonometricFunction.m
     \centering
     \includegraphics[width=0.7\linewidth]{三个乘除型非周期函数}
 \end{figure}
 
+% ShangHai2015.m
 \item (2015，上海高考)对于定义域为$ \mathbf{R} $的函数$ g(x) $，
 若存在正的常数$ T $，使得$ \cos g(x) $是以$ T $为周期的函数，
 则称$ g(x) $为余弦周期函数，且称$ T $为其余弦周期。已知 $ f(x) $
@@ -1067,18 +1081,18 @@ $ f(x) $在$ (T,2T) $上的图像是由$ f(x) $在$ (0,T) $
 
 \item 求复系数二次方程$ (1+\i)x^2+2\i x+3=0 $的两个根。\\
 \textbf{方法一}\ $ \Delta=4\i^2-12(1+\i)=-16-12\i $，设$ \Delta=(a+b\i)^2 $，那么
-$ \left\{ \begin{aligned}
+$ \begin{cases}
     a^2-b^2 =&\ -16 \\
     2ab =&\ -12
-\end{aligned} \right. $ ，解得
-$ \left\{ \begin{aligned}
+\end{cases} $ ，解得
+$ \begin{cases}
     a=&\ \sqrt{2} \\
     b=&\ -3\sqrt{2}
-\end{aligned} \right. $或
-$ \left\{ \begin{aligned}
+\end{cases} $或
+$ \begin{cases}
     a=&\ -\sqrt{2} \\
     b=&\ 3\sqrt{2}
-\end{aligned} \right. $. 
+\end{cases} $. 
 于是
 \begin{gather*}
     x_{1,2}=\dfrac{-2\i\pm (\sqrt{2}-3\sqrt{2})\i}{2(1+\i)}=-\dfrac{1}{2}
@@ -1090,10 +1104,10 @@ $ \left\{ \begin{aligned}
 的外层根号。\\
 \textbf{解}\ 设$ 6+2\sqrt{5}=(a+b\sqrt{5})^2=(a^2+5b^2)+2ab\sqrt{5}$，
 那么
-$ \left\{ \begin{aligned}
+$ \begin{cases}
     a^2+5b^2 =&\ 6 \\
     2ab =&\ 2
-\end{aligned} \right. $ ，解得
+\end{cases} $ ，解得
 $ a=\pm 1,\ b=\pm 1 $，即$ \sqrt{6+2\sqrt{5}}=1+\sqrt{5} $. \\
 设 $ 2+\sqrt{3}=(c+d\sqrt{3})^2=(c^2+3d^2)+
 2cd\sqrt{3} $，解得$ c=\pm \dfrac{\sqrt{6}}{2},\ d=\pm \dfrac{\sqrt{6}}{6} $，
@@ -1146,10 +1160,10 @@ $ (2\pm\sqrt{3})^4=97\pm 56\sqrt{3} $，
 $ (2\pm \sqrt{3})^5=362\pm 209\sqrt{3} $. 
 根据二项式定理，
 \begin{gather*}
-    \left\{ \begin{aligned}
+    \begin{cases}
         m_k &=\dfrac{1}{2}[(2+\sqrt{3})^k+(2-\sqrt{3})^k] \\ 
         n_k &=\dfrac{1}{2\sqrt{3}}[(2+\sqrt{3})^k-(2-\sqrt{3})^k]    
-    \end{aligned} \right. , \q  k\in \textbf{N}^+
+    \end{cases} , \q  k\in \textbf{N}^+
 \end{gather*}
 便是方程$ m^2-3n^2=1 $的通解
 \footnote{形如$ m^2-dn^2=\pm 1 $ 的方程被称为佩尔(Pell)方程
@@ -1404,11 +1418,10 @@ $ z_2 $的轨迹与$ z_1 $一样。
     =&\  \dfrac{1}{2}\cos(2x-(x_1+x_2))+\dfrac{1}{2}\cos(x_1-x_2)
 \end{align*}
 
-\item 已知$ \left\{ \begin{aligned}
+\item 已知$ \begin{cases}
     x=A\cos(\omega t+a) \\
     y=B\cos(\omega t+b)
-\end{aligned}
-\right. , AB\neq 0 $，求证：
+\end{cases}, AB\neq 0 $，求证：
 \begin{align}\label{斜椭圆消参例题}
     \dfrac{x^2}{A^2}+\dfrac{y^2}{B^2}-2\dfrac{xy}{AB}\cos(a-b)=\sin^2(a-b)
 \end{align}
@@ -1445,11 +1458,11 @@ $ (x\sin\theta+y\cos\theta) $替换$ y $，展开后，$ xy $的系数为
 \end{align*}
 让分母取极值的角度，就是长轴或短轴所在的角度。$ \tan2\theta $表达式同上。 
 
-\item $^*$ 参数曲线$ \left\{ \begin{aligned}
+% LiSaRu.m
+\item $^*$ 参数曲线$ \begin{cases}
     & x=A\cos(\omega_1 t+a) \\
     & y=B\sin(\omega_2 t+b)
-\end{aligned}
-\right. $对应的图形被称为李萨如(Lissajous)图形，大学的理工科学生基本上都会在
+\end{cases} $ 对应的图形被称为李萨如(Lissajous)图形，大学的理工科学生基本上都会在
 基础物理实验或者电子学实验中接触到李萨如图形。
 选取不同的$ A,B $,$ \omega_1 $,$ \omega_2 $,$ a,b $，可以得到无穷无尽的形状。
 下面固定$ A=B=1 $,$ a=b=0 $，让$ \omega_1 $,$ \omega_2 $
@@ -1459,12 +1472,12 @@ $ (x\sin\theta+y\cos\theta) $替换$ y $，展开后，$ xy $的系数为
     \includegraphics[width=0.95\linewidth]{李萨如图形}
 \end{figure}
 
+% ShangHai_2021GaoKao.m
 \item 
-(2021，上海高考)已知参数方程$ \left\{ \begin{aligned}
+(2021，上海高考)已知参数方程$ \begin{cases}
     & x=3t-4t^3 \\
     & y=2t\sqrt{1-t^2}
-\end{aligned}
-\right.,\ t\in [-1,1] $，下列选项的图中，符合该方程的是哪一个？
+\end{cases} ,\ t\in [-1,1] $，下列选项的图中，符合该方程的是哪一个？
 \begin{figure}[!htbp]
     \centering
     \includegraphics[width=1\linewidth]{2021上海高考参数曲线-李萨如}
@@ -1477,10 +1490,10 @@ $ (x\sin\theta+y\cos\theta) $替换$ y $，展开后，$ xy $的系数为
 
 事实上，A对应的曲线大致是$ x^4+y^4=1 $. B对应的曲线是
 \begin{align*}
-    \left\{ \begin{aligned}
+    \begin{cases}
         & x=3t-4t^3=3\sin\theta-4\sin^3\theta=\sin3\theta \\
         & y=2t\sqrt{1-t^2}=2\sin\theta\cos\theta=\sin2\theta
-    \end{aligned}  \right.,\ t=\sin\theta\in [-1,1],\ 
+    \end{cases},\ t=\sin\theta\in [-1,1],\ 
     \theta\in[-\dfrac{\pi}{2},\dfrac{\pi}{2}]
 \end{align*}
 这正是李萨如图形。如果让$ \theta $取值的区间长度达到$ 2\pi $，使曲线首尾相连变得完整，
@@ -1604,6 +1617,7 @@ $ \displaystyle{ \int\dfrac{(4-\sin x)}{3-\cos x}\d x } $
 \end{align*}
 以上运算过程会在使用“特征线”方法研究非线性超声速流动中遇到。
 
+% XieJiBo_ShockWave.m
 \item $ ^* $ 
 已知$ M_1>1,\ 0<\beta<\dfrac{\pi}{2},\ \gamma>1,\ 0<\theta<\beta $，
 又有
@@ -1734,8 +1748,7 @@ $ \sum\limits_{k=1}^{n}k\sin kx $和$ \sum\limits_{k=1}^{n}k\cos kx $.
 
 
 \item 求证：在$ \Delta ABC $中，\\ $ \sin (nA) +\sin (nB) +\sin (nC)=
-\left\{
-\begin{aligned}
+\begin{cases}
     -& 4\sin(\dfrac{nA}{2})\sin(\dfrac{nB}{2})\sin(\dfrac{nC}{2}),\quad 
     n=4k \\
     & 4\cos(\dfrac{nA}{2})\cos(\dfrac{nB}{2})\cos(\dfrac{nC}{2}),\quad 
@@ -1744,7 +1757,7 @@ $ \sum\limits_{k=1}^{n}k\sin kx $和$ \sum\limits_{k=1}^{n}k\cos kx $.
     n=4k+2 \\
     -& 4\cos(\dfrac{nA}{2})\cos(\dfrac{nB}{2})\cos(\dfrac{nC}{2}),\quad 
     n=4k+3
-\end{aligned} \right. $
+\end{cases} $
 
 \item $ \i $是虚数单位，求$ 1+3\i+5\i^2+7\i^3+\cdots +4039\i^{2019} $的值。
 
@@ -1786,6 +1799,7 @@ ContourPlot[Sin[x^2]+Sin[y^2]==1, {x, -10, 10}, {y, -10, 10}]
 \begin{enumerate}[label={\textbf{\arabic*.}},leftmargin=
     \inteval{\myenumleftmargin}pt]
 
+% cos_x2_PingYi.m
 \item 不能。两者图像如下：
 \begin{figure}[h]
     \centering

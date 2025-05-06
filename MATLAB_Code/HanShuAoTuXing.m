@@ -5,7 +5,9 @@ syms x f(x) Zbx(x) Zby(x)
 fig=figure;
 set(gcf,'unit','centimeters','position',[2,2,20,8])
 
-subplot(1,2,1)
+h=subplot(1,2,1);
+% hAxes = axes(h);
+
 hold on
 f(x)=@(x)exp(x/2);
 
@@ -46,8 +48,9 @@ text(-0.28,2.05,'$\frac{f(x_1)+f(x_2)}{2}$','interpreter','latex','fontsize',12)
 text(-0.28,1.5,'$f(\frac{x_1+x_2}{2})$','interpreter','latex','fontsize',12)
 
 axis([xleft xright ybottom yup])
-set(gca,'ytick',[])
-set(gca,'xtick',[])
+set(h,'ytick',[])
+set(h,'xtick',[])
+
 %%%%%%%%%%%%%%%%%
 subplot(1,2,2)
 hold on

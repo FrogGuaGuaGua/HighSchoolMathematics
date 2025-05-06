@@ -1,5 +1,7 @@
 clc
 close all
+clear all
+
 syms x g(x)
 g(x)=(x-2)*exp(x)/(x-1)^2;
 f1(x)=(x-2)*exp(x)+(x-1)^2;

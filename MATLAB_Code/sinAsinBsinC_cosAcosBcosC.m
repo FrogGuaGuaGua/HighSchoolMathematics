@@ -1,7 +1,7 @@
 clc
 close all
 [X,Y]=meshgrid(0:0.01:pi/2,0:0.01:pi/2);
-% Z=(sin(X)+sin(Y)+sin(X+Y))./(cos(X)+cos(Y)-cos(X+Y));
+Z=(sin(X)+sin(Y)+sin(X+Y))./(cos(X)+cos(Y)-cos(X+Y));
 plot3(X,Y,Z)
 N=size(X,1);
 

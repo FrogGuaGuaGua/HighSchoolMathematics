@@ -99,18 +99,16 @@ $ \dfrac{\sqrt{2}}{2} $倍。即在一个周期内，大小为$ \dfrac{\sqrt{2}}
 其中$ A $是没有单位的常数，$ T $的单位为秒(s)，$ m $的单位为千克(kg)，
 $ l $的单位为米(m)，$ g $的单位为米/秒$ ^2 $(m/s$ ^2 $)，等式两端的
 单位应该相同，即s=(kg)$ ^\alpha $m$ ^\beta $(m/s$ ^2 $)$ ^\gamma $，于是
-$ \left\{ 
-\begin{aligned}
+$ \begin{cases}
     \alpha=0 \\
     \beta+\gamma =0 \\
     -2\gamma =1
-\end{aligned} \right. $. 解得
-$ \left\{ 
-\begin{aligned}
+\end{cases} $. 解得
+$ \begin{cases}
     \alpha=&\ 0 \\
     \beta=&\ \dfrac{1}{2} \\
     \gamma =&\ -\dfrac{1}{2}
-\end{aligned} \right. $，所以$ T=A\sqrt{\dfrac{l}{g}} $. 事实上，通过其它研究手段，
+\end{cases} $，所以$ T=A\sqrt{\dfrac{l}{g}} $. 事实上，通过其它研究手段，
 可得到$ T=2\pi \sqrt{\dfrac{l}{g}} $. 量纲分析法原理十分简单，但在物理学研究中具有
 相当重要的作用。谁在这方面进行深入的思考，谁就能做出很多聪明的研究工作来。
 
@@ -285,11 +283,11 @@ I.若$ f'(\dfrac{1}{2})=\ln2-2a\geq 0 $，那么$ f(x) $在$ (0,+\infty) $上单
 $ f(x)_{\min}=\lim\limits_{x\to 0}f(x)=k=0 $，与题目中的$ k>0 $矛盾。\\
 II.若$ \ln2-2a < 0 $，于是存在$ 0<x_1<\dfrac{1}{2}<x_2 $，满足$ f'(x_1)=f'(x_2)=0 $，
 显然，$ x_1 $是$ f(x) $的极大值点，$ x_2 $是$ f(x) $的极小值点，同时有$ f(x_2)=0 $，
-\begin{align*} \left\{
-    \begin{aligned}
+\begin{align*}
+    \begin{cases}
         & f'(x_2)=-\ln x_2-1+2x_2-2a=0  \quad\mycircled{1} \\
         & f(x_2)=-x_2\ln x_2+x_2^2-2ax_2+k=0 \quad\mycircled{2}
-    \end{aligned} \right.
+    \end{cases}
 \end{align*}
 由\mycircled{1}得：$ 2a=-\ln x_2-1+2x_2 $，代入\mycircled{2}可得：
 $ k=x_2^2-x_2 $，所以$ k-4a=x_2^2-5x_2+2\ln x_2+2 $，容易算出$ g(x)=x^2-5x+

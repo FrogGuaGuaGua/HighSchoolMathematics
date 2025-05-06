@@ -59,10 +59,10 @@
 \begin{align*}
     \dfrac{x^2+Ax+B}{x^2+Cx+D} =&\  \dfrac{x^2+Cx+D+(A-C)x+(B-D)}{x^2+Cx+D} \\
     =&\ 1+\dfrac{(A-C)x+(B-D)}{x^2+Cx+D}  \\
-    =&\ \left\{\begin{aligned}
-        & 1+\dfrac{B-D}{x^2+Cx+D} & (A = C) \\
-        & 1+(A-C)\dfrac{x+\dfrac{B-D}{A-C}}{x^2+Cx+D} \ \  & (A\neq C)
-    \end{aligned} \right.
+    =&\ \begin{cases}
+         1+\dfrac{B-D}{x^2+Cx+D} & (A = C) \\
+         1+(A-C)\dfrac{x+\dfrac{B-D}{A-C}}{x^2+Cx+D} & (A\neq C)
+    \end{cases}
 \end{align*}
 再做代换$ t=x+\dfrac{B-D}{A-C} $即可。当然也可以直接使用判别式法。
 
@@ -107,6 +107,7 @@ $ A $前面的正负号取决于$ x $的正负。\\
 \end{gather*}
 先求解方程$ (B-A^2)y^2+2(B+A^2)y+(B-A^2)=0 $，然后根据$ C $的正负决定区间。
 
+% ABS_Plot.m
 \item 函数$ y=|x-b_1|+|x-b_2| $的最小值在区间$ [b_1,b_2] $内取得(假设$ b_1<
 b_2 $)，在此区间内，函数值为常数$ b_2-b_1 $. 函数$ y=|x-b_1|+|x-b_2|+|x-b_3| $
 的最小值在$ x=b_2 $处取得(假设$ b_1<b_2<b_3 $)，最小值为$ b_3-b_1 $. 
@@ -394,6 +395,8 @@ $ \sqrt[3]{a},\sqrt[3]{b},\sqrt[3]{c} $，有$ a+b+c \geq 3 \sqrt[3]{abc}$.
 \section{凹凸性}
 \begin{itemize}[leftmargin=\inteval{\myitemleftmargin}pt,itemsep=
    \inteval{\myitemitempsep}pt,topsep=\inteval{\myitemtopsep}pt]
+
+% HanShuAoTuXing.m
 \item 函数的凹凸性是指$ \dfrac{f(x_1)+f(x_2)}{2} $与
 $ f(\dfrac{x_1+x_2}{2}) $的相对大小，本小节均默认$ x_1 \neq x_2 $. 
 更一般地，是比较$ \lambda f(x_1)+(1-\lambda)f(x_2) $ 
@@ -505,11 +508,11 @@ $ x_1^nx_2+x_1x_2^n<x_1^{n+1}+x_2^{n+1} $，于是
 下一次的预测只面向上次预测正确的群体。经过若干次正确预测后，
 引诱他人付费购买预测结果的成功率便能大大提升。
 
-\item Dirichlet(狄利克雷)函数：$ D(x)=\left\{
-\begin{aligned}
+\item Dirichlet(狄利克雷)函数：$ D(x)=
+\begin{cases}
     1,\ x\text{为有理数} \\
     0,\ x\text{为无理数} \\
-\end{aligned} \right. $. \\
+\end{cases} $. \\
 它是偶函数，值域为$ \{0,1\} $，无法绘制函数图像，任何正有理数都是它的周期，但无最小正周期。2012年福建高考理科数学选择题第7题考了此函数。
 
 \item 设$ f(x)=x^2+bx+c $，求证：$ |f(1)|,|f(2)|,|f(3)| $中至少有一个不小于
@@ -621,7 +624,7 @@ Sigmoid函数满足微分方程$ y'=y(1-y) $，同时，
 $ \dfrac{\e^x}{\e^x+1},\ \dfrac{x\e^x}{\e^x+1},\ \ln\left(\dfrac{\e^x}{\e^x+1}\right),
  \tanh(x)=\dfrac{\e^x-\e^{-x}}{\e^x+\e^{-x}},\ \dfrac{x}{1+|x|},\ 
 \ln(\e^x+1) $都是人工神经网络中常用的函数，图像如下。
-\begin{figure}[!htbp]
+\begin{figure}[!htbp]   % AI_Function.m
     \centering
     \includegraphics[width=0.95\linewidth]{人工智能函数}
 \end{figure} 
@@ -720,6 +723,7 @@ $ x\ (cx+d\neq 0) $，都有$ f(f(x))=x $，求$ a,b,c,d $应满足的条件。\
 $ b=c=0 $，则$ f(x)=x $；\\
 (3) 若$ a=-d\neq 0,\ -a^2-bc\neq 0 $，则$ f(x)=\dfrac{ax+b}{cx-a} $.
 
+% QuadraticFractionalLinearTransformation.m
 \item 设$a\neq 0$，考虑二次方程$ax^2+bx+c=0$，\\
 (1) 令$x=At+B$，其中$A,B$为常数且$A\neq0$，
 将原来关于$x$的二次方程转化为关于$t$的二次方程，
@@ -794,7 +798,7 @@ $(-\infty,x_1),(x_1,x_2),(x_2,+\infty)$上都是单调的。\\
 $ (-\infty,-2),(-2,2),(2,3),(3,+\infty) $上的正负，在垂直渐近线的左右两侧，
 要让曲线分别向$+\infty$和$-\infty$延伸。当$ |x|\to \pm\infty $时，
 要让曲线逐渐靠近$ x $轴。其图像如下：
-\begin{figure}[h]
+\begin{figure}[h] % cubicCurve_2x3_x_x2_4.m
     \centering
     \includegraphics[width=0.7\linewidth]{三次曲线-分子零点在右侧}
 \end{figure} \\
@@ -802,12 +806,12 @@ $ y=\dfrac{6-2x}{x^2-4} $的分子的零点在分母两个零点所形成的区�
 它在区间$(-2,2)$上有一个极大值点，在区间$(3,+\infty)$上有一个极小值点。\\
 而对于$ y=\dfrac{x-1}{x^2-4} $，它的分子的零点在分母两个零点之间，
 不存在极值点，在两条垂直渐近线所划分的三个区间中都是单调递减的，其图像如下：
-\begin{figure}[h]
+\begin{figure}[h] % cubicCurve_x_1_x2_4.m
     \centering
     \includegraphics[width=0.45\linewidth]{三次曲线-分子零点在中间}
 \end{figure} \\
 再展示几种三次曲线的图像如下：
-\begin{figure}[h]
+\begin{figure}[h] % CubicCurve3type.m
     \centering
     \includegraphics[width=0.84\linewidth]{三次曲线-附加三幅图}
 \end{figure} 
@@ -827,14 +831,14 @@ $ x_1x_2(x_1+x_2)>2\cdot 2 \cdot(2+2)=16 $，所以$ 0<a\leq 16 $. \\
 \geq 3\sqrt[3]{x^2\cdot\dfrac{a}{2x}\cdot\dfrac{a}{2x}}=
 3\sqrt[3]{\dfrac{a^2}{4}} $. 当$ x^2=\dfrac{a}{2x} $时，等号成立，
 剩余步骤同方法二。 \\
-\textbf{说明}\ $ y=x^2+\dfrac{a}{x}\ (a\neq 0) $可变形为$ x^3-xy+a=0 $，
-属于三次曲线，它有两条渐近线，一条是$ y=x^2 $，另一条是$ x=0 $. 
+\textbf{说明}\ $ y=x^2+\dfrac{a}{x}\ (a\neq 0) $可变形为$ x^3-xy+a=0 $，属于三次曲线，
 取$ a=4 $，则$ y=x^2+\dfrac{4}{x} $的图像如下：\\
-\begin{figure}[h]
+\begin{figure}[h] % cubicCurve_x2T4_x.m
     \centering
     \includegraphics[width=0.5\linewidth]{三次曲线x2y-xy+4}
 \end{figure} 
 
+% FenShiHanshu_SanCiQuXian.m
 \item 已知$ f(x)=x+\dfrac{a}{x^2} $，其中$ a>0 $，若$ f(x) $在
 $ [2,+\infty) $上单调递增，求$ a $的取值范围。 \\
 \textbf{方法一}\ 任取$ x_1,x_2 $，满足$ 2\leq x_1<x_2 $，那么$ f(x_1)<f(x_2) $，
@@ -896,6 +900,36 @@ x=\left(\dfrac{na}{m}\right)^{\frac{1}{n+m}} $时，等号成立。\\
     f(3)=f(1+2)=f(1)+f(2)+4=f(1)+[f(1)+f(1)+2]+4=3f(1)+6=12
 \end{gather*}
 所以，$ f(-3)=18-f(3)=6 $. 
+
+\item 设$ n $为大于1的正整数，求$ f(x)=\sin^{2n}x+\cos^{2n}x $的值域。\\
+\textbf{解}\ 
+\begin{align*}
+    \sin^{4}x+\cos^{4}x =&\ (\sin^{2}x+\cos^{2}x)^2-2\sin^{2}x\cos^{2}x\\
+    =&\ 1-\dfrac{1}{2}\sin^2 2x\in\left[\dfrac{1}{2},1\right] \\
+    \sin^{6}x+\cos^{6}x =&\ (\sin^{2}x+\cos^{2}x)^3
+    -3\sin^{2}x\cos^{2}x (\sin^{2}x+\cos^{2}x) \\
+    =&\ 1-\dfrac{3}{4}\sin^2 2x\in\left[\dfrac{1}{4},1\right] \\
+    \sin^{8}x+\cos^{8}x =&\ (\sin^{2}x+\cos^{2}x)^4
+    -4\sin^{2}x\cos^{2}x (\sin^{4}x+\cos^{4}x)-6\sin^{4}x\cos^{4}x\\
+    =&\ 1-\sin^2 2x\left(1-\dfrac{1}{2}\sin^2 2x\right)
+    -\dfrac{3}{8}\sin^4 2x \\
+    =&\ \dfrac{1}{8}\sin^4 2x-\sin^2 2x+1 
+    \in\left[\dfrac{1}{8},1\right]
+\end{align*}
+可以猜想：$ f(x)=\sin^{2n}x+\cos^{2n}x $的值域是
+$ \left[\dfrac{1}{2^{n-1}},1\right] $. \\
+因为$ \sin^2 x,\cos^2 x\in[0,1] $，所以
+\begin{gather*}
+    \sin^{2n}x\leq \sin^2 x ,\q \cos^{2n}x\leq \cos^2 x  \\ \sin^{2n}x+\cos^{2n}x\leq \sin^{2}x+\cos^{2}x=1
+\end{gather*}
+当$ \sin^2 x=0 $或1时，以上等号成立。\\
+再利用幂函数$ g(x)=x^n $的凹凸性，那么
+\begin{gather*}
+    \dfrac{g(\sin^2 x)+g(\cos^2 x)}{2}\geq g\left(
+    \dfrac{\sin^2 x+\cos^2 x}{2}\right)=\dfrac{1}{2^n} \\
+    f(x)=g(\sin^2 x)+g(\cos^2 x)\geq \dfrac{1}{2^{n-1}}
+\end{gather*}
+当$ |\sin x|=|\cos x|=\dfrac{\sqrt{2}}{2} $时，以上等号成立。
 
 \item $ ^* $ $ x_1+x_2+x_3=1,\ x_1^2+x_2^2+x_3^2=2,\ 
 x_1^3+x_2^3+x_3^3=3 $，求$ x_1x_2x_3 $. \\
@@ -1065,7 +1099,7 @@ f(1)+f(2)+\cdots +f(2022)=\dfrac{2022}{6}[f(1)+f(2)+\cdots+f(6)]=-1011 $.
 \end{align*} 
 周期是8.
 
-\item 
+\item  %ExciseAnswerFunctionFigure.m
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.95\linewidth]{PDF_Picture/第一章练习题中5个函数图像}

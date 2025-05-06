@@ -1,4 +1,4 @@
-%  2015，上海
+%  2015，上海，$ \cos g(x) $是以$ T $为周期的函数
 clc
 close all
 % syms x f(x)
