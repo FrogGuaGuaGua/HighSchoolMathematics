@@ -280,20 +280,16 @@ $ D_n=(n-1)(D_{n-1}+D_{n-2}),\ D_1=0,\ D_2=1. $
 $ T_{r+1}=C_n^ra^{n-r}b^rx^{(n-r)\alpha+r\beta} $，
 设$ C_n^m a^{n-m}b^m $是最大的系数，则
 \begin{align}\label{二项式系数最大值不等式组-首次出现}
-    \left\{
-    \begin{aligned}
-        & C_n^m a^{n-m}b^m\geq C_n^{m-1} a^{n-m+1}b^{m-1} \\
-        & C_n^m a^{n-m}b^m\geq C_n^{m+1} a^{n-m-1}b^{m+1}
-    \end{aligned}
-    \right.
+    \begin{cases}
+        C_n^m a^{n-m}b^m\geq C_n^{m-1} a^{n-m+1}b^{m-1} \\
+        C_n^m a^{n-m}b^m\geq C_n^{m+1} a^{n-m-1}b^{m+1}
+    \end{cases}
 \end{align} 
 \begin{align*}
-    \left\{
-    \begin{aligned}
+    \begin{cases}
         \dfrac{b}{m}   \geq &\ \dfrac{a}{n-m+1} \\
         \dfrac{a}{n-m} \geq &\ \dfrac{b}{m+1}
-    \end{aligned}
-    \right. \quad \Rightarrow \quad 
+    \end{cases} \quad \Rightarrow \quad 
     \dfrac{bn-a}{a+b} \leq m \leq \dfrac{bn+b}{a+b}
 \end{align*} 
 因为$ \dfrac{bn-a}{a+b}+1=\dfrac{bn+b}{a+b} $，所以不等式组一定有解。

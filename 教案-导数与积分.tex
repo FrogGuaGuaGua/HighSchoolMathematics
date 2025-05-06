@@ -179,12 +179,10 @@ $ \partial $符号的英文读法是“partial”，中文读法是“偏”。
 $ \vec{PQ}=(x_2-x_1,g(x_2)-f(x_1)) $，$ P $点的切向量为
 $ \vec{t_1}=(1,f'(x_1)) $，$ Q $点的切向量为$ \vec{t_2}=(1,g'(x_2)) $，
 (\ref{两函数图像距离最小1})、(\ref{两函数图像距离最小2})式意味着
-$  \left\{ 
-\begin{aligned}
+$  \begin{cases}
     & \vec{PQ}\cdot \vec{t_1} =0 \\
     & \vec{PQ}\cdot \vec{t_2} =0
-\end{aligned}
-\right. $，即$ \vec{PQ}\perp\vec{t_1},\ \vec{PQ}\perp\vec{t_2} $，
+\end{cases} $，即$ \vec{PQ}\perp\vec{t_1},\ \vec{PQ}\perp\vec{t_2} $，
 $ \vec{t_1}//\vec{t_2} $，这就是$ |PQ| $取得最小值的必要(不充分)条件。
 
 \item 设$ \Delta ABC $的三个顶点的坐标分别为$ (x_i,y_i)\ (i=1,2,3) $，
@@ -1836,16 +1834,15 @@ l^{1/2} $为例，下面将证明数列$ \{f_n\} $单调递增且有界。
 所以$ \{f_n\} $单调递增且不超过$ 0.221091\cdots $.其中，$ \zeta(s) $
 代表黎曼zeta函数，定义如下，
 \begin{align*}
-    \zeta(s)=\left\{
-    \begin{aligned}
-        & \sum\limits_{n=1}^{\infty} \dfrac{1}{n^s}
-        =\prod_{p\text{取遍所有质数}}\dfrac{1}{1-\frac{1}{p^s}}  & \Re s>1  \\
-        & \dfrac{1}{1-2^{1-s}}\sum_{n=1}^{\infty}
-        \dfrac{(-1)^{n+1}}{n^s}  & 0\leq \Re s\leq 1,\ s\neq 1   \\
-        & 2^s\pi^{s-1}\sin\left(\dfrac{\pi s}{2}\right)\Gamma(1-s)
-        \zeta(1-s) & \Re s<0 
-    \end{aligned} 
-    \right.
+\zeta(s)=
+\begin{cases}
+    \sum\limits_{n=1}^{\infty} \dfrac{1}{n^s}
+    =\prod_{p\text{取遍所有质数}}\dfrac{1}{1-\frac{1}{p^s}}  & (\Re s>1)  \\
+    \dfrac{1}{1-2^{1-s}}\sum_{n=1}^{\infty}
+    \dfrac{(-1)^{n+1}}{n^s}  & (0\leq \Re s\leq 1,\ s\neq 1)   \\
+    2^s\pi^{s-1}\sin\left(\dfrac{\pi s}{2}\right)\Gamma(1-s)
+    \zeta(1-s) & (\Re s<0) 
+\end{cases} 
 \end{align*}
 
 其中$ \disp \Gamma(s)=\int_{0}^{\infty}\e^{-t}t^{s-1}\d t $，代表伽玛函数，
@@ -2877,12 +2874,10 @@ $ (\dfrac{1}{2},-\dfrac{1}{4}+c) $和$ (-\dfrac{1}{2},\dfrac{1}{4}+c) $是$ f(x)
 平移后如果变成一个实根和两个复根，实根的绝对值必然大于1，不符合题目要求，
 所以$ -\dfrac{1}{4}\leq c \leq \dfrac{1}{4} $，% 此时的三个实根绝对值明显都小于1.
 设$ u $是$ f(x) $的一个实根，那么$ -\dfrac{1}{4}\leq c=-u^3+\dfrac{3}{4}u \leq \dfrac{1}{4} $, 
-$ \left\{ 
-\begin{aligned}
+$ \begin{cases}
     u^3-\dfrac{3}{4}u-\dfrac{1}{4}=(u-1)(u+\dfrac{1}{2})^2 \leq 0 \\
     u^3-\dfrac{3}{4}u+\dfrac{1}{4}=(u+1)(u-\dfrac{1}{2})^2 \geq 0 
-\end{aligned}
-\right.  $，$ -1 \leq u \leq 1 $，即实根的绝对值不大于1.\\
+\end{cases} $，$ -1 \leq u \leq 1 $，即实根的绝对值不大于1.\\
 \\
 \textbf{方法二}$ ^* $使用韦达定理：$ x_1+x_2+x_3=0,x_1x_2+x_1x_3+x_2x_3=-\dfrac{3}{4} $,
 \begin{align*}
