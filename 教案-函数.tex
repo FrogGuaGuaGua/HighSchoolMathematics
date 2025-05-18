@@ -9,6 +9,10 @@
 \item 极值点：设函数$ f(x) $在区间$ I $上有定义，$ x_0\in I $，若$ \exists\ \sigma>0,\ \forall\ x\in(x_0-\sigma,x_0+\sigma) $\footnote{$ \exists $表示存在，可以理解为Exist的首字母E左右颠倒；$ \forall $表示任意，可以理解为Any的首字母A上下颠倒。}，有$ f(x)\leq f(x_0) $(或$ f(x)\geq f(x_0) $)，则称$ f(x_0) $是函数$ f(x) $的一个极大值(或极小值)，$ x_0 $是函数的一个极大值点(或极小值点)，但有时候也把$ (x_0,f(x_0)) $称为极大值点(或极小值点)。极大值与极小值统称为极值；极大值点与极小值点统称为极值点。高中阶段基本只考察连续、可导的函数，可以认为极值只会在$ f'(x)=0 $的位置取得。
 % \item 极点(pole)$ ^* $：使$ f(x)\to +\infty $或$-\infty $的$ x $，比如$ x=0 $是$ \dfrac{1}{x^2} $的极点\footnote{可查阅https://complex-analysis.com/content/classification\_of\_singularities.html，或者\ 胡嗣柱，倪光炯. 数学物理方法[M]. 高等教育出版社，2002. }。
 
+\item 偶函数：$ f(x)=f(-x) $，函数图像为轴对称图形；\\
+奇函数：$ f(-x)=-f(x) $，函数图像为中心对称图形，
+若奇函数$ f(x) $在$ x=0 $处有定义，则必有$ f(0)=0 $.
+
 \item 定义域主要考点：\\
 (1)分母不为0；\\
 (2)对数函数$ \log_a() $括号内的表达式大于0，$a>0$且$ a\neq 1 $；\\
@@ -16,6 +20,15 @@
 (4)偶数次根式(主要是二次根式)下的表达式大于等于0；\\
 (5)正切函数$ \tan() $括号内的表达式不等于$ k\pi+\dfrac{\pi}{2}\ 
 (k\in \mathbf{Z}) $. 
+
+\item 对于函数$ y=f(x) $，交换$ x $和$ y $，即可得到其反函数$ x=f(y) $.
+一个函数和其反函数的图像关于一三象限角平分线$ y=x $对称。
+
+\item 对于函数$ y=f(x) $，把$ x $换成$ -y $，把$ y $换成$ -x $，
+这样得到的函数的图像与原来函数的图像关于二四象限角平分线
+$ y=-x $对称。比如$ y=\ln(x) $，
+替换以后得到$ -x=\ln(-y) $，即$ y=-\e^{-x} $，该函数与$ y=\ln(x) $
+的图像关于直线$ y=-x $对称.
 
 \end{itemize}
 
@@ -295,8 +308,11 @@ $ f(f(x)),f(f(f(x))) \cdots $称为函数的迭代。
 \label{函数迭代列表}
 \end{table} 
 
-表中最后3个函数只需看成三角函数的二倍角公式，即$ 2\sin \theta\cos \theta $，
-$ 2\cos^2 \theta-1 $，$ \dfrac{2\tan \theta}{1-\tan^2 \theta} $. 
+表中最后3个函数只需看成三角函数的二倍角公式，即
+\begin{gather*}
+    2\sin \theta\cos \theta,\q  2\cos^2 \theta-1,\q 
+    \dfrac{2\tan \theta}{1-\tan^2 \theta}
+\end{gather*}
 表中的结果用数学归纳法是容易证明的。
 
 \item 函数的迭代也可看成数列的递推，有些数列是周期数列，
@@ -304,8 +320,9 @@ $ 2\cos^2 \theta-1 $，$ \dfrac{2\tan \theta}{1-\tan^2 \theta} $.
 满足$ f_{n+T}(x)=f_n(x) $，则$ T $称为$ f(x) $
 的迭代周期，$ f_{n+T}(x)=f_n(x) $等价于$ f_T(x)=f_0(x)=x $. 
 比如$ f(x)=\sqrt[3]{\dfrac{x^3-1}{x^3+1}} $的迭代周期是4.
-$ f(x)=\dfrac{(\cos \dfrac{2\pi}{n})x-\sin \dfrac{2\pi}{n}}
-{(\sin\dfrac{2\pi}{n})x+\cos \dfrac{2\pi}{n}} $的迭代周期是$ n $. 
+$ f(x)=\dfrac{\left(\cos \frac{2\pi}{n}\right)x-\sin \frac{2\pi}{n}}
+{\left(\sin\frac{2\pi}{n}\right)x+\cos \frac{2\pi}{n}} $
+的迭代周期是$ n $. 
 
 
 \end{itemize}
@@ -322,8 +339,12 @@ $ f(x)=\dfrac{(\cos \dfrac{2\pi}{n})x-\sin \dfrac{2\pi}{n}}
 \begin{align}\label{三次方程韦达定理}
     x_1+x_2+x_3=-\dfrac{b}{a},\ x_1x_2+x_1x_3+x_2x_3=\dfrac{c}{a},\ x_1x_2x_3=-\dfrac{d}{a}
 \end{align}
-可以从量纲的角度来进行理解和记忆，假设$ x $代表长度，那么$ x^3 $就代表体积，
-因为只有单位相同的物理量才能相加减，所以$ \dfrac{b}{a} $代表长度，$ \dfrac{c}{a} $代表面积，
+可以从量纲的角度来进行理解和记忆，假设$ x $代表长度，那么$ x^3 $
+就代表体积，因为只有单位相同的物理量才能相加减
+\footnote{1平方厘米的白纸+1立方厘米的铁块，能等于2吗？显然不能！
+如果你认为这里的加号表示把这两个物体放在一起，那么请问
+“1平方厘米的白纸 $ - $ 1立方厘米的铁块”代表什么？}，
+所以$ \dfrac{b}{a} $代表长度，$ \dfrac{c}{a} $代表面积，
 $ \dfrac{d}{a} $代表体积。而$ x_1+x_2+x_3 $代表长度，$ x_1x_2+x_1x_3+x_2x_3 $代表面积，
 $ x_1x_2x_3 $代表体积。单位相同的物理量才能相等。
 
@@ -346,8 +367,9 @@ $ x_1x_2x_3 $代表体积。单位相同的物理量才能相等。
     =&\  2[(x_1+x_2+x_3)^2-3(x_1x_2+x_1x_3+x_2x_3)] \\
     =&\  \dfrac{2(b^2-3ac)}{a^2}
 \end{align*}
-以上等式说明，如果$ x_1,x_2,x_3 $均为实数，那么必有$ c^2-2bd\geq 0,\ b^2-2ac \geq 0,\ 
-b^2-3ac \geq 0 $. \\
+以上等式说明，如果$ x_1,x_2,x_3 $均为实数，那么必有
+$ c^2-2bd\geq 0,\ b^2-2ac \geq 0,\ b^2-3ac \geq 0 $. 
+
 %令$ s_k=x_1^k+x_2^k+\cdots+ x_n^k(k\geq 1);s_0=n.$
 %\begin{align*}
 %	&\sigma_1=x_1+x_2+\cdots+x_n \\
@@ -374,21 +396,6 @@ b^2-3ac \geq 0 $. \\
 \end{align*}
 \item 如果$ a,b,c $均为非负数，那么$ a^3+b^3+c^3 \geq 3abc $，把$ a,b,c $分别换成
 $ \sqrt[3]{a},\sqrt[3]{b},\sqrt[3]{c} $，有$ a+b+c \geq 3 \sqrt[3]{abc}$. 
-
-\item 因式分解练习：
-\begin{align*}
-    &  2x^3+3x^2-1=(2x^3+2x^2)+(x^2-1)=2x^2(x+1)+(x-1)(x+1)=(2x-1)(x+1)^2 \\
-    &  2x^3-3x^2+1=(2x^3-2x^2)-(x^2-1)=2x^2(x-1)-(x-1)(x+1)=(2x+1)(x-1)^2 \\
-    &  x^3-2x+1=x(x^2-1)-(x-1)=(x^2+x-1)(x-1) \\
-    &  x^3-2x-1=x(x^2-1)-(x+1)=(x^2-x-1)(x+1) \\
-    &  x^3+2x^2-2x-1=(x-1)(x^2+3x+1)
-    %&a^3-2a^2-5a+6=(a-1)(a+2)(a-3)\\
-    %&2a^3-a^2-5a-2=(a+1)(2a+1)(a-2)\\
-    %&3a^4-4a^3-57a^2-14a+120=(a+2)(a+3)(3a-4)(a-5)\\
-    %&5a^3+7a^2b-15a^2+2ab^2-21ab-6b^2=(a+b)(5a+2b)(a-3)\\
-    %&2a^4-7a^3b+a^2b^2+7ab^3-3b^4=(a+b)(a-b)(a-3b)(2a-b)\\
-    %&18a^4+39a^3b+23a^2b^2+ab^3-b^4=(a+b)^2(6a-b)(3a+b)
-\end{align*}
 
 \end{itemize}
 
@@ -543,7 +550,39 @@ $ \begin{cases}
  \lambda_1+\lambda_2+\lambda_3=0
 \end{cases} $，
 解得$ \lambda_2=-2 \lambda_1,\ \lambda_3=\lambda_1 $. 
-于是$ \lambda_1+4\lambda_2+9\lambda_3=2\lambda_1.\ \lambda_1$可取任意非零值。
+于是$ \lambda_1+4\lambda_2+9\lambda_3=2\lambda_1.\ \lambda_1$
+可取任意非零值。
+
+\item 对以下多项式进行因式分解：
+\begin{flalign*}
+    &  2x^3+3x^2-1 &\\
+    &  2x^3-3x^2+1 \\
+    &  x^3-2x+1 \\
+    &  x^3-2x-1 \\
+    &  x^3+2x^2-2x-1 \\
+    & a^3-2a^2-5a+6 \\ 
+    & 2a^3-a^2-5a-2 \\
+    & 3a^4-4a^3-57a^2-14a+120 \\
+    & 5a^3+7a^2b-15a^2+2ab^2-21ab-6b^2  \\
+    & 2a^4-7a^3b+a^2b^2+7ab^3-3b^4  \\
+    & 18a^4+39a^3b+23a^2b^2+ab^3-b^4  
+\end{flalign*}
+\textbf{解}\ 
+\begin{align*}
+    &  2x^3+3x^2-1=(2x^3+2x^2)+(x^2-1)=2x^2(x+1)+(x-1)(x+1)=
+    (2x-1)(x+1)^2 \\
+    &  2x^3-3x^2+1=(2x^3-2x^2)-(x^2-1)=2x^2(x-1)-(x-1)(x+1)=
+    (2x+1)(x-1)^2 \\
+    &  x^3-2x+1=x(x^2-1)-(x-1)=(x^2+x-1)(x-1) \\
+    &  x^3-2x-1=x(x^2-1)-(x+1)=(x^2-x-1)(x+1) \\
+    &  x^3+2x^2-2x-1=(x-1)(x^2+3x+1)
+    &a^3-2a^2-5a+6=(a-1)(a+2)(a-3)\\
+    &2a^3-a^2-5a-2=(a+1)(2a+1)(a-2)\\
+    &3a^4-4a^3-57a^2-14a+120=(a+2)(a+3)(3a-4)(a-5)\\
+    &5a^3+7a^2b-15a^2+2ab^2-21ab-6b^2=(a+b)(5a+2b)(a-3)\\
+    &2a^4-7a^3b+a^2b^2+7ab^3-3b^4=(a+b)(a-b)(a-3b)(2a-b)\\
+    &18a^4+39a^3b+23a^2b^2+ab^3-b^4=(a+b)^2(6a-b)(3a+b)
+\end{align*}
 
 \item (2022，浙江高考)已知$a,b\in\mathbf{R}$，若对任意$x\in\mathbf{R} $， 
 $ a|x-b|+|x-4|-|2x-5|\geq 0$，则(\q ) \\
