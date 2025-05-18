@@ -407,7 +407,6 @@ $ T_n(\cos x)=\cos nx $进行证明\footnote{证明可参见
 \begin{itemize}[leftmargin=\inteval{\myitemleftmargin}pt,itemsep=
    \inteval{\myitemitempsep}pt,topsep=\inteval{\myitemtopsep}pt]
 \item $^*$ 函数$ f(x) $在$ x=x_0 $处的泰勒(Taylor)级数
-(也被称为幂级数)
 \begin{align*}
     f(x)=&\ f(x_0)+\dfrac{f'(x_0)}{1!}(x-x_0)+\dfrac{f''(x_0)}{2!}
     (x-x_0)^2\\ &\ + \dfrac{f'''(x_0)}{3!}(x-x_0)^3+\cdots+
@@ -577,10 +576,9 @@ $ -\dfrac{5}{251} $的绝对值大了不少。然后
     \ln 7 &=\ln(7.29-0.29)=\ln7.29+\ln\Big(1-\frac{0.29}{7.29}\Big)
     \approx 2-\frac{0.29}{7.29}\approx 1.960 \label{ln7估算方法}
 \end{align}
-下面是10以内的质数的自然对数值，读者可以感受一下以上估算的精度，
+下面是3、5、7的自然对数值，读者可以感受一下以上估算的精度，
 \begin{gather*}
-    \ln2=0.693147\cdots,\q \ln3=1.098612\cdots \\
-    \ln5=1.609438\cdots,\q \ln7=1.945910\cdots
+   \ln3=1.098612\cdots,\q \ln5=1.609438\cdots,\q \ln7=1.945910\cdots
 \end{gather*}
 
 \item 编程计算$ \ln x $的方法
@@ -673,7 +671,7 @@ $ x $超过$ 709.7827\cdots $，那么$ \e^x $就会
 超过64bit浮点数可表示的最大值$ 2^{1024}=1.797693\times10^{308} $.
 
 \item 第二种编程计算$ \e^x $的方法，特点是编程极其简单，
-缺点是精度差，只适用于绝对值比较小的$ x $. 
+缺点是精度差，只适用于绝对值比较小的$ x $，
 所以本方法通常用在一些低性能的单片机上。利用$ \e $的定义，
 \begin{gather*}
     e^x=\lim_{n\to\infty}\left(1+ \dfrac{1}{n}\right)^{nx}\xlongequal{nx=N}
@@ -2325,6 +2323,26 @@ $ E(b) $取得最小值，所以
 用16进制表示是5fe6f796c00c5bf9. 
 我们将在\ref{无除法的平方根迭代算法}
 看到这两个以5f开头的16进制数的作用。
+
+\item 设$ a>0,b>0 $，函数$ f(x)=\e^{-ax} $与函数
+$ g(x)=\e^{-ax}\cos(bx) $的交点的横坐标是多少？
+这两个函数在交点处的导数值是否相等？\\
+\textbf{解}\ 令$ f(x)=g(x) $，则$ \e^{-ax}=\e^{-ax}\cos(bx)
+\Rightarrow \cos(bx)=1 $，$ bx=2k\pi\ (k\in\textbf{Z}) $，
+$ x=\dfrac{2k\pi}{b} $，这就是交点的横坐标。 \\
+$ f'(x)=-a\e^{-ax} $，$ g'(x)=-\e^{-ax}[a\cos(bx)+b\sin(bx)] $. \\ 
+当$ \cos(bx)=1 $时，$ \sin(bx)=0 $，此时
+$ f'(x)=g'(x)=-a\e^{-2ak\pi/b} $，两个函数在交点处的导数值相等，
+这说明交点恰好是切点，但不是$ g(x) $的极值点(因为此时
+$ a\cos(bx)+b\sin(bx)\neq 0 $.) \\
+取$ a=0.1,\ b=1 $，此时$ f(x) $和$ g(x) $的图像如下：
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{PDF_Picture/有阻尼自由振荡函数图像}
+\end{figure}
+$ g(x) $经常被用来描述一些振幅随时间衰减的振荡现象，
+比如一个弹簧挂着一个重物在空气中上下振荡，如果没有外界能量输入，
+则空气阻力会导致振幅越来越小。
 
 \item 求证：$ \e^x-\ln x>2\ (x>0) $. \\
 \textbf{解}\ 令$ f(x)=\e^x-\ln x $，则$ f'(x)=\e^x-\dfrac{1}{x} $，
