@@ -31,7 +31,7 @@
 	& \left[f(x)\cdot x^n \right]'= x^n f'(x)+nx^{n-1}f(x) \\
 	& \left[ \dfrac{f(x)}{x^n}\right]' =\dfrac{xf'(x)-nf(x)}{x^{n+1}}
 \end{align*}
-若以上两式中的$ n=1 $，则$ [xf(x)]'=xf'(x)+f(x),\ \left[ \dfrac{f(x)}{x}\right]'=\dfrac{xf'(x)-f(x)}{x^{2}} $.\\ 
+若以上两式中的$ n=1 $，则$ [xf(x)]'=xf'(x)+f(x),\ \left[ \dfrac{f(x)}{x}\right]'=\dfrac{xf'(x)-f(x)}{x^{2}} $.
 
 \item 复合函数求导法则：$ [g(f(x))]'=g'(u)f'(x) $，再将$ u $换回$ f(x) $. 比如$ [\ln f(x)]'=\dfrac{f'(x)}{f(x)} $.\\
 设$ f(x)=(x-x_0)^ng(x) $，则
@@ -180,8 +180,8 @@ $ \vec{PQ}=(x_2-x_1,g(x_2)-f(x_1)) $，$ P $点的切向量为
 $ \vec{t_1}=(1,f'(x_1)) $，$ Q $点的切向量为$ \vec{t_2}=(1,g'(x_2)) $，
 (\ref{两函数图像距离最小1})、(\ref{两函数图像距离最小2})式意味着
 $  \begin{cases}
-    & \vec{PQ}\cdot \vec{t_1} =0 \\
-    & \vec{PQ}\cdot \vec{t_2} =0
+    \vec{PQ}\cdot \vec{t_1} =0 \\
+    \vec{PQ}\cdot \vec{t_2} =0
 \end{cases} $，即$ \vec{PQ}\perp\vec{t_1},\ \vec{PQ}\perp\vec{t_2} $，
 $ \vec{t_1}//\vec{t_2} $，这就是$ |PQ| $取得最小值的必要(不充分)条件。
 
@@ -2336,7 +2336,7 @@ $ f'(x)=g'(x)=-a\e^{-2ak\pi/b} $，两个函数在交点处的导数值相等，
 这说明交点恰好是切点，但不是$ g(x) $的极值点(因为此时
 $ a\cos(bx)+b\sin(bx)\neq 0 $.) \\
 取$ a=0.1,\ b=1 $，此时$ f(x) $和$ g(x) $的图像如下：
-\begin{figure}[H]
+\begin{figure}[H] % DampedFreeOscillation.m
     \centering
     \includegraphics[width=0.8\linewidth]{PDF_Picture/有阻尼自由振荡函数图像}
 \end{figure}
@@ -2619,7 +2619,7 @@ k\ln k<\dfrac{1}{2}(n+1)^2\Big[\ln(n+1)-\dfrac{1}{2} \Big]-1 $. \\
 (1)\ $ n\in \textbf{N}^+,\ n\geq 2 $，$ \sum\limits_{k=2}^{n}
 \dfrac{1}{k\ln k}<\ln(\ln (n+1))+0.8 $.\\ 
 (2)\ $ n\in \textbf{N}^+,\ n\geq 2 $，$ \sum\limits_{k=2}^{n}
-\dfrac{\ln k}{k}<\dfrac{1}{2}[\ln(n+1)]^2 $.\\ 
+\dfrac{\ln k}{k}<\dfrac{1}{2}[\ln(n+1)]^2 $.
 
 \item (2022，新高考II卷)已知函数$f(x)=x\mathrm{e}^{ax}-\mathrm{e}^{x}$. \\
 (I)当$a=1$时，讨论$f(x)$的单调性；\\
@@ -3102,8 +3102,8 @@ $ R_{2,1}(x)=\dfrac{-3x^2+2x-6}{2x-6} $，图像如下：
 \end{gather*} 
 
 可惜，是$ x_1^2>a^2-1 $，而不是$ x_1^2<a^2-1 $，否则，把$ \begin{cases}
-    & x_1^2<a^2-1 \\
-    & x_2^2<2(a-1)
+    x_1^2<a^2-1 \\
+    x_2^2<2(a-1)
 \end{cases}$两式相加就能得到$ x_1^2+x_2^2<a^2+2a-3=(a+3)(a-1) $.
 
 (II)和(III)问的困难之处在于，方程$ \e^x-x=a $(或$ X-\ln X=a $)
@@ -4116,8 +4116,8 @@ A\alpha \e^{\alpha x}|_{x=1}=&2x|_{x=1}\
 	(\text{导数值相等})
 \end{cases}$，解得$ A=\e^{-2},\ \alpha=2 $，
 即$ x^2\leq \e^{2x-2}\ (x>0) $，这个不等式其实可以从最常见的不等式$ \e^x\geq 1+x $衍生而来(把$ x $换成$ x-1 $，再两边平方)。于是$ \dfrac{1}{a}=\underbrace{x_0^2\e^{x_0}< (\e^{2x_0-2})\e^{x_0}}_{x_0>1,\ \text{“=”取不到}}=\e^{3x_0-2}\ \Rightarrow\ -\ln a< 3x_0-2 $，将$ \begin{cases}
-	 3x_0 & > 2-\ln a	\\
-	 -x_1 & >\ln a
+	 3x_0 > 2-\ln a	\\
+	 -x_1 >\ln a
 \end{cases}$两式相加即得$ 3x_0-x_1>2 $.
 
 \item (2020，天津高考)已知函数 $ f(x)=x^{3}+k\ln x\ (k\in\mathbf{R}),f'(x) $ 为 $ f(x) $ 的导函数. \\
@@ -5568,9 +5568,9 @@ $ f(x) $在$ (-\infty,0) $上单调递增，在$ (0,+\infty) $上单调递减。
 第\pageref{证明e^2x<(1+x)/(1-x)}页的\ref{证明e^2x<(1+x)/(1-x)}
 已经证明过(考试时需证明)，$ \e^{2x}-\dfrac{1+x}{1-x}
 \begin{cases}
-    & \geq 0\ (x\leq 0) \\
-    & < 0\ (0<x<1) \\
-    & > 0\ (x>1)
+    \geq 0\ (x\leq 0) \\
+    < 0\ (0<x<1) \\
+    > 0\ (x>1)
 \end{cases}$，所以
 \begin{gather*}
     f(x)-f(-x) \begin{cases}

@@ -93,19 +93,19 @@ $ y=-x $对称。比如$ y=\ln(x) $，
 \item 求$ y= \dfrac{Ax-\sqrt{Bx^2+C}}{Ax+\sqrt{Bx^2+C}} $的值域：\\
 \textbf{方法一}
 \begin{align*}
-    \dfrac{Ax-\sqrt{Bx^2+C}}{Ax+\sqrt{Bx^2+C}} =&\  
+    &\ \dfrac{Ax-\sqrt{Bx^2+C}}{Ax+\sqrt{Bx^2+C}} = 
     \dfrac{Ax+\sqrt{Bx^2+C}-2\sqrt{Bx^2+C}}{Ax+\sqrt{Bx^2+C}} \\
-    =&\  1-\dfrac{2\sqrt{Bx^2+C}}{Ax+\sqrt{Bx^2+C}} \\
-    =&\  1-\dfrac{2}{\dfrac{Ax}{\sqrt{Bx^2+C}}+1} \\
-    =&\  1-\dfrac{2}{\dfrac{\pm A}{\sqrt{B+\dfrac{C}{x^2}}}+1} 
+    =&\  1-\dfrac{2\sqrt{Bx^2+C}}{Ax+\sqrt{Bx^2+C}} 
+    =1-\dfrac{2}{\dfrac{Ax}{\sqrt{Bx^2+C}}+1} 
+    =1-\dfrac{2}{\dfrac{\pm A}{\sqrt{B+\dfrac{C}{x^2}}}+1} 
 \end{align*}
 $ A $前面的正负号取决于$ x $的正负。\\
 \textbf{方法二}
 \begin{align*}
     y+\dfrac{1}{y}=&\ \dfrac{Ax-\sqrt{Bx^2+C}}{Ax+\sqrt{Bx^2+C}}+
     \dfrac{Ax+\sqrt{Bx^2+C}}{Ax-\sqrt{Bx^2+C}}   \\
-    =&\ \dfrac{2(A^2+B^2)x^2+2C}{(A^2-B^2)x^2+C} \\
-    =&\ \dfrac{2(A^2+B^2)}{A^2-B^2}\cdot
+    =&\ \dfrac{2(A^2+B^2)x^2+2C}{(A^2-B^2)x^2+C} 
+    =   \dfrac{2(A^2+B^2)}{A^2-B^2}\cdot
     \dfrac{x^2+\dfrac{C}{A^2+B^2}}{x^2+\dfrac{C}{A^2-B^2}} \\
     =&\ \dfrac{2(A^2+B^2)}{A^2-B^2}\cdot \left(1+
     \dfrac{\dfrac{C}{A^2+B^2}-\dfrac{C}{A^2-B^2}}{x^2+\dfrac{C}{A^2-B^2}} \right)
@@ -731,8 +731,8 @@ $ y_i=\dfrac{ax_i+b}{cx_i+d} $，$ (ad-bc\neq 0,\ i=1,2,3,4) $，求证：
     \dfrac{\dfrac{(ad-bc)(x_1-x_3)}{(cx_1+d)(cx_3+d)}\cdot
         \dfrac{(ad-bc)(x_2-x_4)}{(cx_2+d)(cx_4+d)}}{
         \dfrac{(ad-bc)(x_1-x_4)}{(cx_1+d)(cx_4+d)}\cdot
-        \dfrac{(ad-bc)(x_2-x_3)}{(cx_2+d)(cx_3+d)} } \\
-    &=\dfrac{(x_1-x_3)(x_2-x_4)}{(x_1-x_4)(x_2-x_3)}
+        \dfrac{(ad-bc)(x_2-x_3)}{(cx_2+d)(cx_3+d)} }
+    =\dfrac{(x_1-x_3)(x_2-x_4)}{(x_1-x_4)(x_2-x_3)}
 \end{align*}
 
 \item 设$ f(x)=\dfrac{ax+b}{cx+d},\ (ad-bc\neq 0) $，若对任意实数
@@ -919,8 +919,8 @@ x=\left(\dfrac{na}{m}\right)^{\frac{1}{n+m}} $时，等号成立。\\
 \textbf{解}\ 
 \begin{align*}
     \begin{cases}
-        & 3f(x)+2f\left(\frac{1}{x}\right)=x \\
-        & 3f\left(\frac{1}{x}\right)+2f(x)=\frac{1}{x}\quad 
+        3f(x)+2f\left(\frac{1}{x}\right)=x \\
+        3f\left(\frac{1}{x}\right)+2f(x)=\frac{1}{x}\quad 
         (\text{把上式的$ x $换成$ \frac{1}{x} $})
     \end{cases}
 \end{align*}

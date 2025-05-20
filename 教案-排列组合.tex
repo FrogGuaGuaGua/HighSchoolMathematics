@@ -23,8 +23,8 @@ $ 171!\approx 1.241\times 10^{309} >2^{1024} \approx  1.798\times 10^{308}$
 的存储空间，就能满足64bit计算的需求。不仅速度快，而且没有多次浮点乘法带来
 的累积误差，是一般的编程场景下的最优方案。
 
-\item 对于排列数$P_n^k$和组合数$C_n^k$，在编程计算的时候，最好按$k$和$n$的大小分段实现：
-当$k$很小时(比如$k<10$)，直接用循环语句实现；当$k$稍大一些时，若$n<171$，使用查询
+\item 对于排列数$P_n^k$和组合数$C_n^k$，在编程计算的时候，
+最好按$n$的大小分段实现：若$n<171$，使用查询
 存储阶乘值的数组的方法实现；若$n\geq 171$，使用先求对数再求指数的方法，即
 \begin{gather*}
     P_n^k=\exp{\left(\ln \dfrac{n!}{(n-k)!}\right)}=\exp{(\ln(n!)-\ln((n-k)!))} \\
@@ -287,8 +287,8 @@ $ T_{r+1}=C_n^ra^{n-r}b^rx^{(n-r)\alpha+r\beta} $，
 \end{align} 
 \begin{align*}
     \begin{cases}
-        \dfrac{b}{m}   \geq &\ \dfrac{a}{n-m+1} \\
-        \dfrac{a}{n-m} \geq &\ \dfrac{b}{m+1}
+        \dfrac{b}{m}   \geq \dfrac{a}{n-m+1} \\
+        \dfrac{a}{n-m} \geq \dfrac{b}{m+1}
     \end{cases} \quad \Rightarrow \quad 
     \dfrac{bn-a}{a+b} \leq m \leq \dfrac{bn+b}{a+b}
 \end{align*} 

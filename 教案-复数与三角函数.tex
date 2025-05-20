@@ -156,7 +156,6 @@ $\cosh x=\dfrac{\e^x+\e^{-x}}{2} $，这两个函数存在与$ \sin x,\cos x $
 & \cosh x+\cosh y   =2\cosh\left(\dfrac{x+y}{2}\right)
 \cosh\left(\dfrac{x-y}{2}\right) 
 \end{align*}
-
 双曲正弦$ y=\sinh x $的反函数为$ y=\ln(x+\sqrt{x^2+1})\ (x\in\textbf{R}) $；\\
 双曲余弦$ y=\cosh x\ (x\geq 0) $的反函数为$ y=\ln(x+\sqrt{x^2-1})\ (x\geq 1) $.
 
@@ -184,7 +183,8 @@ $ \begin{cases}
 $ \Delta $表示，$ \Delta=\dfrac{q^2}{4}+\dfrac{p^3}{27} $. 解二次方程可得：
 $ u^3=-\dfrac{q}{2} + \sqrt{\Delta},\ v^3=-\dfrac{q}{2} - \sqrt{\Delta}$.
 再令$ \omega=-\dfrac{1}{2}+\dfrac{\sqrt{3}}{2}\i =
-\cos(\dfrac{2\pi}{3})+\i\sin(\dfrac{2\pi}{3})=\e^{\i\frac{2\pi}{3}}$，则$ \omega^3=1 $， 那么三次方程$ x^3+px+q=0 $的求根公式可表达如下：
+\cos\left(\dfrac{2\pi}{3}\right)+\i\sin\left(\dfrac{2\pi}{3}\right)
+=\e^{\i\frac{2\pi}{3}}$，则$ \omega^3=1 $， 那么三次方程$ x^3+px+q=0 $的求根公式可表达如下：
 \begin{align*}
 \begin{cases}
     x_1= \sqrt[3]{-\dfrac{q}{2} + \sqrt{\Delta}}+
@@ -223,8 +223,8 @@ $ \Delta=\dfrac{q^2}{2^2}+\dfrac{p^3}{3^3} $就好记了。
 处的切线斜率计算：
 \begin{align*}
 \begin{cases}
-    y =&\ k(x-x_0)+y_0  \\
-    y =&\ ax^3+cx+d
+    y = k(x-x_0)+y_0  \\
+    y = ax^3+cx+d
 \end{cases}
 \end{align*}
 其中，$ y_0=ax_0^3+cx_0+d $，消去$ y $可得：
@@ -1080,16 +1080,16 @@ $ f(x) $在$ (T,2T) $上的图像是由$ f(x) $在$ (0,T) $
 \item 求复系数二次方程$ (1+\i)x^2+2\i x+3=0 $的两个根。\\
 \textbf{方法一}\ $ \Delta=4\i^2-12(1+\i)=-16-12\i $，设$ \Delta=(a+b\i)^2 $，那么
 $ \begin{cases}
-    a^2-b^2 =&\ -16 \\
-    2ab =&\ -12
+    a^2-b^2 =-16 \\
+    2ab =-12
 \end{cases} $ ，解得
 $ \begin{cases}
-    a=&\ \sqrt{2} \\
-    b=&\ -3\sqrt{2}
+    a=\sqrt{2} \\
+    b=-3\sqrt{2}
 \end{cases} $或
 $ \begin{cases}
-    a=&\ -\sqrt{2} \\
-    b=&\ 3\sqrt{2}
+    a=-\sqrt{2} \\
+    b=3\sqrt{2}
 \end{cases} $. 
 于是
 \begin{gather*}
@@ -1103,8 +1103,8 @@ $ \begin{cases}
 \textbf{解}\ 设$ 6+2\sqrt{5}=(a+b\sqrt{5})^2=(a^2+5b^2)+2ab\sqrt{5}$，
 那么
 $ \begin{cases}
-    a^2+5b^2 =&\ 6 \\
-    2ab =&\ 2
+    a^2+5b^2 = 6 \\
+    2ab = 2
 \end{cases} $ ，解得
 $ a=\pm 1,\ b=\pm 1 $，即$ \sqrt{6+2\sqrt{5}}=1+\sqrt{5} $. \\
 设 $ 2+\sqrt{3}=(c+d\sqrt{3})^2=(c^2+3d^2)+
@@ -1127,7 +1127,7 @@ $ x_1=1-\dfrac{\sqrt{3}}{3} $，$ x_2=-1-\sqrt{3} $. \\
 $ a-b\i $也是$ f(x)=0 $的根。如果多项式$ f(x) $的所有系数均为有理数，
 当$ a+b\sqrt{C} $是$ f(x)=0 $的根时，$ a-b\sqrt{C} $也是$ f(x)=0 $的根。
 
-\item 定义集合$ S=\{m+n\sqrt{3}|m^2-3n^2=1,m,n\in \textbf{Z}\} $，
+\item\label{m+nsqrt3} 定义集合$ S=\{m+n\sqrt{3}|m^2-3n^2=1,m,n\in \textbf{Z}\} $，
 求证：若$ x,\ y\in S $，则$ \dfrac{1}{x}\in S,\ xy \in　S,\ x+y\notin S $. \\
 \textbf{证}\ 设$ x=a+b\sqrt{3},\ y=c+d\sqrt{3},\ a,b,c,d\in \textbf{Z} $，
 则$ \dfrac{1}{x}=\dfrac{1}{a+b\sqrt{3}}=a-b\sqrt{3} $，因为$ a^2-3(-b)^2=1 $，
@@ -1149,7 +1149,7 @@ $ a-b\i $也是$ f(x)=0 $的根。如果多项式$ f(x) $的所有系数均为�
 那么$ m^2-3n^2=3(3K^2-n^2)=1 $，这显然是不可能的。
 在$ |m|<1000 $的范围内，只有如下五组：
 \begin{gather*}
-    2^2-3\cdot 1^2=1,\quad  7^2-3\cdot 4^2=1,\quad  26^2-3\cdot 15^2=1, \\
+   2^2-3\cdot 1^2=1,\quad 7^2-3\cdot 4^2=1,\quad 26^2-3\cdot 15^2=1,\\
     97^2-3\cdot 56^2=1,\quad 362^2-3\cdot 209^2=1
 \end{gather*}
 事实上，$ (2\pm\sqrt{3})^2=7\pm 4\sqrt{3} $，
@@ -1159,8 +1159,8 @@ $ (2\pm \sqrt{3})^5=362\pm 209\sqrt{3} $.
 根据二项式定理，
 \begin{gather*}
     \begin{cases}
-        m_k &=\dfrac{1}{2}[(2+\sqrt{3})^k+(2-\sqrt{3})^k] \\ 
-        n_k &=\dfrac{1}{2\sqrt{3}}[(2+\sqrt{3})^k-(2-\sqrt{3})^k]    
+        m_k =\dfrac{1}{2}[(2+\sqrt{3})^k+(2-\sqrt{3})^k] \\ 
+        n_k =\dfrac{1}{2\sqrt{3}}[(2+\sqrt{3})^k-(2-\sqrt{3})^k]    
     \end{cases} , \q  k\in \textbf{N}^+
 \end{gather*}
 便是方程$ m^2-3n^2=1 $的通解
@@ -1221,7 +1221,15 @@ $ 3K-1 $和$ 3K+1 $型的数交替出现($ K\in \textbf{N}^+ $).
 分母中的根号，与消去$ \dfrac{1}{A+B\i} $分母中的$ \i $，方法是一样的。对于复数
 $ z_1,z_2 $，有$ |z_1z_2|=|z_1||z_2| $，但对于本例中的$ x $，不论是定义
 $ |x|=\sqrt{a^2+b^2} $还是定义$ |x|=\sqrt{a^2+3b^2} $，
-$ |xy| $与$ |x||y| $都不相等。
+$ |xy| $与$ |x||y| $都不相等。不过有以下恒等式：
+\begin{equation}\label{a2+kb2恒等式}
+\begin{aligned}
+        (a^2+kb^2)(c^2+kd^2)=&\ a^2c^2+k^2b^2d^2+k(a^2d^2+b^2c^2) \\
+    =&\ a^2c^2-2kabcd+k^2b^2d^2+k(a^2d^2+2abcd+b^2c^2) \\
+    =&\ (ac-kbd)^2+k(ad+bc)^2 \\
+    =&\ (ac+kbd)^2+k(ad-bc)^2 
+\end{aligned}
+\end{equation}
 
 \item 定义数列$ \{a_n\}:\ a_1=1,\ a_{n+1}=a_n+\sqrt{2a_n+n} $，求$ a_n $的通项公式。\\
 \textbf{解}\ 
@@ -1235,7 +1243,8 @@ $ |xy| $与$ |x||y| $都不相等。
 \end{align*}
 容易看出，$ a_n=\left[\dfrac{1}{2}(n-1)(n-2)+1\right]+(n-1)\sqrt{3} $.
 
-\item 求一个次数最低的整系数多项式，使$ x=\sqrt{2}+\sqrt{3} $是该多项式的零点。\\
+\item\label{sqrt2+sqrt3极小多项式} 求一个次数最低的整系数多项式，
+使$ x=\sqrt{2}+\sqrt{3} $是该多项式的零点。\\
 \textbf{方法一}\ 
 \begin{align*}
     &\left[(x-\sqrt{2}-\sqrt{3})(x-\sqrt{2}+\sqrt{3})\right]
@@ -1255,33 +1264,6 @@ $ |xy| $与$ |x||y| $都不相等。
     & (x^2-5)^2=(2\sqrt{6})^2=24 \\
     & x^4 - 10x^2 + 1= 0
 \end{align*}
-
-\item 找出以$ x=\sqrt{2}+\sqrt{3}+\sqrt{5} $为零点的、次数最低的整系数多项式。\\
-\textbf{方法一}\ 
-\begin{gather*}
-    x= \sqrt{2}+\sqrt{3}+\sqrt{5} \\
-    (x-\sqrt{2})^2=x^2-2\sqrt{2}x+2= (\sqrt{3}+\sqrt{5})^2= 8+2\sqrt{15} \\
-    x^2-6=2\sqrt{15}+2\sqrt{2}x
-\end{gather*}
-剩余步骤同上，最终可得
-\begin{align}\label{x8-40x6+352x4}
-    x^8-40x^6+352x^4-960x^2+576=0
-\end{align}
-\textbf{方法二}\ 把(\ref{x4-10x2+1})式中的$ x $换成$ (x-\sqrt{5}) $，即
-\begin{gather*}
-    (x-\sqrt{5})^4-10(x-\sqrt{5})^2+1=x^4-4\sqrt{5}x^3+20x^2-24=0\\
-    (x^4+20x^2-24)^2=(4\sqrt{5}x^3)^2=80x^6
-\end{gather*}
-化简后同样可得(\ref{x8-40x6+352x4})式。
-
-\item 找出以$ x=\sqrt{2}+\sqrt[3]{2} $为零点的、次数最低的整系数多项式。\\
-\textbf{解}\ 
-\begin{gather*}
-    (x-\sqrt{2})^3=x^3-3x^2\sqrt{2}+3x\cdot 2-2\sqrt{2}=(\sqrt[3]{2})^3=2 \\
-    x^6-6x^4-4x^3+12x^2-24x-4=0
-\end{gather*}
-\\
-以上众多和根式有关的内容多数具有“群论”(Group Theory)的背景。
 
 \item 定义集合$ S=\{a|a=m^2-n^2,m,n\in \textbf{Z}\} $，求证：\\
 (1)$ \ 2k-1\in S,\ k\in \textbf{Z} $. \\
@@ -1546,9 +1528,10 @@ $ \cos\theta=-\dfrac{\sqrt{5}}{5} $，原式=$ \dfrac{2\sqrt{5}}{5}\Big(
 \end{gather*}
 \textbf{方法三}\ 解二次方程：$ 1-\cos^2\alpha=\sin^2\alpha=
 \left(\dfrac{\sqrt{10}}{2}-2\cos\alpha \right)^2 $，
-得到$ \cos\alpha=\dfrac{3}{\sqrt{10}} $,$ \sin\alpha=-\dfrac{1}{\sqrt{10}} $, $\tan\alpha=-\dfrac{1}{3} $，或者$ \cos\alpha=\dfrac{1}{\sqrt{10}}$, $\sin\alpha=\dfrac{3}{\sqrt{10}}$, $\tan\alpha=3 $，两种情况下都有$ \tan2\alpha=-\dfrac{3}{4} $. 
+得到$ \cos\alpha=\dfrac{3}{\sqrt{10}} $，\\
+$ \sin\alpha=-\dfrac{1}{\sqrt{10}} $，$\tan\alpha=-\dfrac{1}{3} $，或者$ \cos\alpha=\dfrac{1}{\sqrt{10}}$，$\sin\alpha=\dfrac{3}{\sqrt{10}}$， $\tan\alpha=3 $，两种情况下都有$ \tan2\alpha=-\dfrac{3}{4} $. 
 
-\item 对于已知$ \lambda_1\sin\alpha+\lambda_2\cos\alpha=\lambda_3 $的题目，
+\textbf{注}\ 对于已知$ \lambda_1\sin\alpha+\lambda_2\cos\alpha=\lambda_3 $的题目，
 可设$ \lambda_1\cos\alpha-\lambda_2\sin\alpha=\lambda_4 $，
 (注意不是$ \lambda_1\sin\alpha-\lambda_2\cos\alpha=\lambda_4 $)，
 将两式$ \begin{cases}
@@ -1559,11 +1542,7 @@ $ \cos\theta=-\dfrac{\sqrt{5}}{5} $，原式=$ \dfrac{2\sqrt{5}}{5}\Big(
     \lambda_1^2+\lambda_2^2=\lambda_3^2+\lambda_4^2 
 \end{gather*}
 于是$ \lambda_4=\pm \sqrt{\lambda_1^2+\lambda_2^2-\lambda_3^2} $. 
-在得到$ \lambda_4 $之后，可使用加减消元法解出$ \cos\alpha$ 和 $\sin\alpha $. \\
-%利用 $ \dfrac{ \lambda_1\sin\alpha+\lambda_2\cos\alpha}{\lambda_1\cos\alpha-\lambda_2\sin\alpha} 
-%    =\dfrac{\lambda_1\tan\alpha+\lambda_2}{\lambda_1-\lambda_2\tan\alpha} =\dfrac{\lambda_3}{\lambda_4}$，
-%    可得到$ \tan\alpha $的值，也
-% 这样更加方便，能避免解二次方程。
+在得到$ \lambda_4 $之后，可使用加减消元法解出$ \cos\alpha$ 和 $\sin\alpha $. 
 
 \item \label{分式三角求值域} 求$ k=\dfrac{4-\sin x}{3-\cos x} $的最值。\\
 \textbf{方法一}\ 直接求导，令$ \left(\dfrac{4-\sin x}{3-\cos x}\right)'
@@ -1747,22 +1726,22 @@ $ \sum\limits_{k=1}^{n}k\sin kx $和$ \sum\limits_{k=1}^{n}k\cos kx $.
 
 \item 求证：在$ \Delta ABC $中，\\ $ \sin (nA) +\sin (nB) +\sin (nC)=
 \begin{cases}
-    -& 4\sin(\dfrac{nA}{2})\sin(\dfrac{nB}{2})\sin(\dfrac{nC}{2}),\quad 
-    n=4k \\
-    & 4\cos(\dfrac{nA}{2})\cos(\dfrac{nB}{2})\cos(\dfrac{nC}{2}),\quad 
-    n=4k+1 \\
-    & 4\sin(\dfrac{nA}{2})\sin(\dfrac{nB}{2})\sin(\dfrac{nC}{2}),\quad 
-    n=4k+2 \\
-    -& 4\cos(\dfrac{nA}{2})\cos(\dfrac{nB}{2})\cos(\dfrac{nC}{2}),\quad 
-    n=4k+3
+- 4\sin\left(\dfrac{nA}{2}\right)\sin\left(\dfrac{nB}{2}\right)
+\sin\left(\dfrac{nC}{2}\right),& n=4k \\
+4\cos\left(\dfrac{nA}{2}\right)\cos\left(\dfrac{nB}{2}\right)
+\cos\left(\dfrac{nC}{2}\right),& n=4k+1 \\
+4\sin\left(\dfrac{nA}{2}\right)\sin\left(\dfrac{nB}{2}\right)
+\sin\left(\dfrac{nC}{2}\right),& n=4k+2 \\
+- 4\cos\left(\dfrac{nA}{2}\right)\cos\left(\dfrac{nB}{2}\right)
+\cos\left(\dfrac{nC}{2}\right),& n=4k+3
 \end{cases} $
 
 \item $ \i $是虚数单位，求$ 1+3\i+5\i^2+7\i^3+\cdots +4039\i^{2019} $的值。
 
-
 \item 找出以下列数值为根的整系数方程(要求方程的次数尽量低)。\\
-(1)\ $ \sqrt{2}+\sqrt{5} $ \quad (2) $ 1+\sqrt{3}+\sqrt{5} $ \quad (3) 
-$ \sqrt{3}+\sqrt[3]{3} $ 
+(1) $ \sqrt{2}+\sqrt{5} $ \quad 
+(2) $ \sqrt{2}+\sqrt{3}+\sqrt{5} $ \quad 
+(3) $ \sqrt{2}+\sqrt[3]{2} $ 
 
 \item$^*$  用只含$ \cos x $或$ \cos x $的幂的式子表达
 $ \cos 7x,\cos 8x,\cos 9x $. 
@@ -1812,10 +1791,12 @@ ContourPlot[Sin[x^2]+Sin[y^2]==1, {x, -10, 10}, {y, -10, 10}]
 \item 略
 
 \item \begin{align*}
-    &\sum_{k=1}^{n}k\sin kx=\dfrac{-n\cos(n+\dfrac{1}{2})x\sin\dfrac{x}{2}+
-        \dfrac{1}{2}\sin nx}{2\sin^2 \dfrac{x}{2}} \\
-    &\sum_{k=1}^{n}k\cos kx=\dfrac{n\sin(n+\dfrac{1}{2})x\sin\dfrac{x}{2}+
-        \dfrac{1}{2}\cos nx - \dfrac{1}{2}}{2\sin^2 \dfrac{x}{2}} 
+    &\sum_{k=1}^{n}k\sin kx=
+    \dfrac{-n\cos\left(\left(n+\dfrac{1}{2}\right)x\right)
+        \sin\dfrac{x}{2}+\dfrac{1}{2}\sin nx}{2\sin^2 \dfrac{x}{2}} \\
+    &\sum_{k=1}^{n}k\cos kx=
+   \dfrac{n\sin\left(\left(n+\dfrac{1}{2}\right)x\right)\sin\dfrac{x}{2}
+       +\dfrac{1}{2}\cos nx-\dfrac{1}{2}}{2\sin^2\dfrac{x}{2}} 
 \end{align*}
 数学归纳法过程略。
 
@@ -1910,8 +1891,28 @@ $ A=B=C=\dfrac{\pi}{3} $时，等号成立。
 
 \item $ (-4-4\i)\times \dfrac{2020}{4}=-2020-2020\i $. 
 
-\item (1)$ x^4-14x^2+9 $\quad (2) $ x^4-4x^3-10x^2+28x-11 $ \\
-(3) $ x^6-9x^4-6x^3+27x^2-54x-18 $
+\item (1)$ x^4-14x^2+9 $ .\\
+(2) \textbf{方法一}\ 
+\begin{gather*}
+    x= \sqrt{2}+\sqrt{3}+\sqrt{5} \\
+    (x-\sqrt{2})^2=x^2-2\sqrt{2}x+2= (\sqrt{3}+\sqrt{5})^2= 8+2\sqrt{15} \\
+    x^2-6=2\sqrt{15}+2\sqrt{2}x
+\end{gather*}
+剩余步骤同\ref{sqrt2+sqrt3极小多项式}，最终可得
+\begin{align}\label{x8-40x6+352x4}
+    x^8-40x^6+352x^4-960x^2+576=0
+\end{align}
+\textbf{方法二}\ 把(\ref{x4-10x2+1})式中的$ x $换成$ (x-\sqrt{5}) $，即
+\begin{gather*}
+    (x-\sqrt{5})^4-10(x-\sqrt{5})^2+1=x^4-4\sqrt{5}x^3+20x^2-24=0\\
+    (x^4+20x^2-24)^2=(4\sqrt{5}x^3)^2=80x^6
+\end{gather*}
+化简后同样可得(\ref{x8-40x6+352x4})式。 \\
+(3)
+\begin{gather*}
+    (x-\sqrt{2})^3=x^3-3x^2\sqrt{2}+3x\cdot 2-2\sqrt{2}=(\sqrt[3]{2})^3=2 \\
+    x^6-6x^4-4x^3+12x^2-24x-4=0
+\end{gather*}
 
 \item
 \begin{align*}
