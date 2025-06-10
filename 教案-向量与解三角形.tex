@@ -153,6 +153,12 @@ $ \vec{a}=\vec{c} $\ (其中的$ \divideontimes $代表点乘或叉乘)，
 即使$ \vec{b} $的每一个坐标分量都不为0. 正是因为向量几乎无法定义除法，
 所以无法用二维的向量代替复数，尽管两者有很多相似之处。
 
+\item PhysX是NVIDIA公司开发的一款开源物理引擎，用于模拟游戏和虚拟环境
+中的物理效果，知名游戏引擎Unity 3D就采用了PhysX作为物理引擎
+\footnote{Unreal Engine 4(简称UE 4)采用了PhysX和Chaos作为物理引擎，但UE 5放弃了PhysX，只采用Chaos.}，
+PhysX的源代码中有一个名为PxVec3.h的文件\footnote{https://github.com/NVIDIA-Omniverse/PhysX/blob/main/physx/include/foundation/PxVec3.h}，
+包含了向量的加减、点乘、叉乘、求长度、归一化、找最大或最小分量等基础运算的实现，熟悉C++编程语言的读者可以去阅读PxVec3.h的内容。
+
 \end{itemize}
 
 \section{正余弦定理和三角形面积公式}
@@ -230,16 +236,24 @@ b\cos B $，此不等式等价于\\ $ (a-b)(\cos B-\cos A)\geq 0 $，
 \begin{gather*}
     \left(\dfrac{1}{2}l_1\right)^2=\dfrac{2(a^2+b^2)-l_2^2}{4}
 \end{gather*}
-此式可用于计算三角形的中线长。 
+此式可用于计算三角形的中线长。在下面的$\Delta ABC$中，$D$是$BC$的中点，
+$|CD|=m$，那么$m^2=\dfrac{1}{2}(a^2+b^2)-\dfrac{1}{4}c^2$，
+现在让$A,B$两点固定($c$是定值)，$C$点运动起来，如果$a^2+b^2$是定值，
+即动点$C$到定点$A,B$的距离的平方和为定值，那么$m$为定值，
+说明$C$点的轨迹是以$D$为圆心，以$m$为半径的圆。
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\linewidth]{PDF_Picture/三角形中线长公式}
+\end{figure}
 
 \item 对于任意四边形$ ABCD $，求证：$ \vec{AC}\perp
 \vec{BD} $是$ BC^2+AD^2=BA^2+CD^2 $的充要条件。
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.26\linewidth]{对角线垂直的四边形}
     \caption{四边形$ ABCD $}
     \label{图8-1四边形ABCD}
-\end{figure} \\
+\end{figure} 
 \textbf{方法一}
 \begin{align*}
     \vec{BC}\cdot\vec{BD}=\dfrac{BC^2+BD^2-CD^2}{2} \\
@@ -859,6 +873,169 @@ $ \Delta ABC $有相交区域的方位(或者说向内部作等边三角形)，
 \end{figure}
 \newpage
 
+\end{itemize}
+
+\section{三角形中的等式与不等式}
+\begin{itemize}[leftmargin=\inteval{\myitemleftmargin}pt,itemsep=
+    \inteval{\myitemitempsep}pt,topsep=\inteval{\myitemtopsep}pt]
+    \item $ \Delta ABC $中的恒等式($ A+B+C=\pi $)
+    \begin{align} 
+        &\sin A +\sin B +\sin C =4\cos\Big(\dfrac{A}{2}\Big)
+        \cos\Big(\dfrac{B}{2}\Big)\cos\Big(\dfrac{C}{2}\Big) \label{三角恒等式1} \\
+        &\sin2A +\sin2B +\sin2C =4\sin A  \sin B \sin C \label{三角恒等式2}\\
+        &\cos A +\cos B +\cos C =1+4\sin\Big(\dfrac{A}{2}\Big)
+        \sin\Big(\dfrac{B}{2}\Big)\sin\Big(\dfrac{C}{2}\Big) \label{三角恒等式3} \\
+        &\cos2A +\cos2B +\cos2C =-1-4\cos A\cos B \cos C \label{三角恒等式4} \\	
+        &\cos^2A+\cos^2B+\cos^2C =1-2\cos A\cos B\cos C \label{三角恒等式5} \\ 
+        &\sin^2A+\sin^2B+\sin^2C =2+2\cos A\cos B\cos C \label{三角恒等式6} \\
+        &\tan A+\tan B +\tan C =\tan A \tan B\tan C \label{三角恒等式7}\\
+        &\cot A\cot B+\cot B \cot C+\cot A\cot C=1 \label{三角恒等式8}\\
+        &\tan\Big(\dfrac{A}{2}\Big)\tan\Big(\dfrac{B}{2}\Big)+
+        \tan\Big(\dfrac{B}{2}\Big)\tan\Big(\dfrac{C}{2}\Big)+
+        \tan\Big(\dfrac{A}{2}\Big)\tan\Big(\dfrac{C}{2}\Big)=1 \label{三角恒等式-最后}
+    \end{align}
+    
+    \item 从左到右证明(\ref{三角恒等式1})式，使用和差化积公式：
+    \begin{align*}
+        & (\sin A +\sin B) +\sin C  \\
+        =&\  2\sin\left(\dfrac{A+B}{2}\right)\cos\left(\dfrac{A-B}{2}\right)+\sin(A+B) \\    
+        =&\  2\sin\left(\dfrac{A+B}{2}\right)\cos\left(\dfrac{A-B}{2}\right)+
+        2\sin\left(\dfrac{A+B}{2}\right)\cos\left(\dfrac{A+B}{2}\right) \\
+        =&\  2\sin\left(\dfrac{A+B}{2}\right)\cdot 2\cos\left(\dfrac{A}{2}\right)\cos\left(\dfrac{B}{2}\right) \\
+        =&\  4\cos\left(\dfrac{C}{2}\right)\cos\left(\dfrac{A}{2}\right)\cos\left(\dfrac{B}{2}\right)
+    \end{align*}
+    \item 从右到左证明(\ref{三角恒等式1})式，
+    \begin{align*}
+        & 4\cos\left(\dfrac{A}{2}\right)\cos\left(\dfrac{B}{2}\right)\sin\left(\dfrac{A+B}{2}\right) \\
+        =&\  4\cos\left(\dfrac{A}{2}\right)\cos\left(\dfrac{B}{2}\right) \left[\sin\left(\dfrac{A}{2}\right) \cos\left(\dfrac{B}{2}\right)+\cos\left(\dfrac{A}{2}\right) \sin\left(\dfrac{B}{2}\right) \right] \\
+        =&\  4\cos\left(\dfrac{A}{2}\right)\sin\left(\dfrac{A}{2}\right)\cos^2\left(\dfrac{B}{2}\right)+
+        4\cos\left(\dfrac{B}{2}\right)\sin\left(\dfrac{B}{2}\right)\cos^2\left(\dfrac{A}{2}\right)\\
+        =&\  \sin A (\cos B+1)+\sin B(\cos A +1) \\
+        =&\  \sin A +\sin B + \sin(A+B)
+    \end{align*}
+    以上方法同样适用于(\ref{三角恒等式2})，(\ref{三角恒等式3})，(\ref{三角恒等式4}).
+    由(\ref{三角恒等式4})式可以导出(\ref{三角恒等式5})式，
+    由(\ref{三角恒等式5})式可以导出(\ref{三角恒等式6})式。
+    由(\ref{三角恒等式6})式可知$ \cos A\cos B\cos C >-1 $，
+    由(\ref{三角恒等式3})式可知$ \cos A+\cos B+\cos C >1 $.  
+    
+    \item 由$ \tan(A+B)=\dfrac{\tan A+\tan B}{1-\tan A\tan B}=
+    \tan(\pi-C)=-\tan C $可得到(\ref{三角恒等式7})式，
+    (\ref{三角恒等式7})式两边同除$ \tan A \tan B\tan C $可得到(\ref{三角恒等式8})式。
+    由$ \tan\Big(\dfrac{A}{2}+\dfrac{B}{2}\Big)=\dfrac{\tan \dfrac{A}{2}+
+        \tan \dfrac{B}{2}}{1-\tan \dfrac{A}{2}\tan \dfrac{B}{2}}
+    =\tan\Big(\dfrac{\pi}{2}-\dfrac{C}{2}\Big)=\dfrac{1}{\tan \dfrac{C}{2}} $
+    可得到(\ref{三角恒等式-最后})式。
+    
+    \item 对任意$ \Delta ABC $，有如下不等式成立：
+    \begin{gather}
+        0<\sin A +\sin B +\sin C \leq \frac{3\sqrt{3}}{2} \label{sinA+sinB+sinC}\\    
+        0<\sin A \sin B \sin C \leq \frac{3\sqrt{3}}{8} \label{sinAsinBsinC}\\
+        1<\cos A +\cos B +\cos C \leq \frac{3}{2} \label{cosA+cosB+cosC}\\
+        -1<\cos A\cos B\cos C \leq \frac{1}{8} \label{cosAcosBcosC}
+    \end{gather}
+    右侧不等号中的等号均在$ A=B=C=\dfrac{\pi}{3} $时取得，左侧则是至少一个角趋于0时的极限
+    (剩余两个角可能趋于$ 0 $和$ \pi $，也可能都趋于$ \dfrac{\pi}{2} $).
+    
+    \item (\ref{sinA+sinB+sinC})式左侧不等式显然成立，现证明右侧。\\
+    \textbf{方法一}\ 利用正弦函数$ y=\sin x $在$ [0,\pi] $上的凹凸性
+    (不等式(\ref{琴森不等式}))：
+    \begin{gather*}
+        \sin A +\sin B +\sin C \leq 3\sin \dfrac{A+B+C}{3}=\dfrac{3\sqrt{3}}{2}
+    \end{gather*}
+    \textbf{方法二}\ 考虑$ y=\sin x $在$ \Big(\dfrac{\pi}{3},\dfrac{\sqrt{3}}{2}
+    \Big) $处的切线$ y=\dfrac{1}{2}\Big(x-\dfrac{\pi}{3}\Big)+\dfrac{\sqrt{3}}{2} $，
+    $ \forall x\in [0,\pi] $，有$ \sin x\leq \dfrac{1}{2}\Big(x-\dfrac{\pi}{3}\Big)
+    +\dfrac{\sqrt{3}}{2} $，所以，
+    \begin{gather*}
+        \sin A +\sin B +\sin C \leq \dfrac{1}{2}\Big(A+B+C-3\cdot\dfrac{\pi}{3}\Big)
+        +3\cdot\dfrac{\sqrt{3}}{2}=\dfrac{3\sqrt{3}}{2}
+    \end{gather*}
+    \textbf{方法三}\ 利用均值不等式(\ref{完整的均值不等式})、(\ref{三角恒等式6})式、
+    (\ref{cosAcosBcosC})式：
+    \begin{align*}
+        \sin A +\sin B +\sin C \leq &\ \sqrt{3(\sin^2A+\sin^2B+\sin^2C)} \\
+        =&\ \sqrt{3(2+2\cos A\cos B\cos C)}\leq \sqrt{3\left(2+2\cdot 
+            \dfrac{1}{8}\right)}=\dfrac{3\sqrt{3}}{2}
+    \end{align*}
+    
+    \item (\ref{sinAsinBsinC})式左侧不等式显然成立，现证明右侧。利用均值不等式
+    (\ref{完整的均值不等式})：
+    \begin{gather}
+        \sin A \sin B \sin C \leq \left(\dfrac{\sin A +\sin B +\sin C}{3} \right)^3
+        \leq \left(\dfrac{\sqrt{3}}{2}\right)^3=\dfrac{3\sqrt{3}}{8}
+        \label{三个正弦和不等式-小于}
+    \end{gather}
+    
+    \item 证明(\ref{cosA+cosB+cosC})式。\\
+    \textbf{方法一}\ 利用(\ref{三角恒等式3})式、均值不等式和正弦函数的凹凸性：
+    \begin{align}
+        \cos A +\cos B +\cos C =&\ 1+4\sin\Big(\dfrac{A}{2}\Big)
+        \sin\Big(\dfrac{B}{2}\Big)\sin\Big(\dfrac{C}{2}\Big)\qquad (>1) \nonumber \\
+        \leq &\ 1+4\left[\dfrac{\sin(\frac{A}{2})+
+            \sin(\frac{B}{2})+\sin(\frac{C}{2})}{3}\right]^3 \nonumber \\
+        \leq &\ 1+ 4\left(\sin \dfrac{\frac{A}{2}+\frac{B}{2}+\frac{C}{2}}{3}\right)^3=
+        1+4\left(\dfrac{1}{2}\right)^3=\dfrac{3}{2} \label{三个余弦和不等式-小于}
+    \end{align}
+    \textbf{方法二}\ 考虑$ y=\cos x $在$ \Big(\dfrac{\pi}{3},\dfrac{1}{2}
+    \Big) $处的切线$ y=-\dfrac{\sqrt{3}}{2}\Big(x-\dfrac{\pi}{3}\Big)+\dfrac{1}{2} $，
+    $ \forall x\in [0,\pi] $，有$ \cos x\leq -\dfrac{\sqrt{3}}{2}\Big(x-
+    \dfrac{\pi}{3}\Big)+\dfrac{1}{2} $，所以，
+    \begin{gather*}
+        \cos A +\cos B +\cos C \leq -\dfrac{\sqrt{3}}{2}\Big(A+B+C-3\cdot
+        \dfrac{\pi}{3}\Big)+3\cdot\dfrac{1}{2}=\dfrac{3}{2}
+    \end{gather*}
+    
+    \item 对于(\ref{cosAcosBcosC})式，因为$ |\cos A\cos B\cos C|<1 $，
+    所以$ \cos A\cos B\cos C>-1 $，左侧成立。现证明(\ref{cosAcosBcosC})式右侧成立。\\
+    \textbf{方法一}\ 利用均值不等式：
+    \begin{gather*}
+        \cos A \cos B \cos C \leq \left(\dfrac{\cos A +\cos B +\cos C}{3} \right)^3
+        \leq \left(\dfrac{1}{2}\right)^3=\dfrac{1}{8}
+    \end{gather*}
+    \textbf{方法二}\ 利用(\ref{三角恒等式5})式和均值不等式，
+    \begin{align*}
+        1-2\cos A\cos B\cos C=\cos^2A+\cos^2B+\cos^2C \geq 3(\cos A\cos B\cos C)^{2/3}
+    \end{align*}
+    记$ t=(\cos A\cos B\cos C)^{1/3} $，那么 $ 2t^3+3t^2-1= (2t-1)(t+1)^2 \leq 0 $，
+    于是$ t\leq \dfrac{1}{2} $，$ \cos A\cos B \cos C=t^3\leq \dfrac{1}{8} $.  
+    
+    \item 当$ x\in\Big(0,\dfrac{\pi}{2}\Big) $时，
+    $ \sin x>\dfrac{2}{\pi}x $，$ \cos x>1-\dfrac{2}{\pi}x $.
+    \begin{figure}[!h]  % sinx_Great_2x_pi.m
+        \centering
+        \includegraphics[width=0.7\linewidth]{sinx大于2x_pi}
+    \end{figure} \\
+    对于锐角三角形$ ABC $，有
+    \begin{align*}
+        \sin A +\sin B +\sin C &>\dfrac{2}{\pi}(A+B+C)=2 \\
+        \cos A +\cos B +\cos C &>3-\dfrac{2}{\pi}(A+B+C)=1
+    \end{align*}
+    
+    \item 若$ \Delta ABC $是钝角三角形，那么$ \tan A+\tan B +\tan C =
+    \tan A \tan B\tan C <0 $.\\
+    若$ \Delta ABC $是锐角三角形，那么
+    \begin{gather*}
+        \tan A+\tan B +\tan C =\tan A \tan B\tan C \leq \left(
+        \dfrac{\tan A+\tan B +\tan C}{3}\right)^3
+    \end{gather*}
+    于是
+    \begin{gather*}
+        \tan A+\tan B +\tan C\geq 3\sqrt{3}
+    \end{gather*}
+    也可以从正切函数的凹凸性来理解上式，
+    \begin{gather*}
+        \tan A+\tan B +\tan C\geq 3\tan\dfrac{A+B+C}{3}=3\sqrt{3}
+    \end{gather*}
+    或者考虑$ y=\tan x $在$ \Big(\dfrac{\pi}{3},\sqrt{3}\Big) $
+    处的切线$ y=4\Big(x-\dfrac{\pi}{3}\Big)+\sqrt{3} $，
+    $ \forall x\in \Big[0,\dfrac{\pi}{2}\Big) $，有$ \tan x\geq 
+    4\Big(x-\dfrac{\pi}{3}\Big)+\sqrt{3} $，所以，
+    \begin{gather*}
+        \tan A +\tan B +\tan C \geq 4\Big(A+B+C-3\cdot\dfrac{\pi}{3}\Big)
+        +3\sqrt{3}=3\sqrt{3}
+    \end{gather*}
+    
 \end{itemize}
 
 \section{一些平面几何的定理}
@@ -1515,26 +1692,29 @@ $ A',B',ON $定义同上，那么$ |A'B'| $表达式会怎样变化？\footnote{
 \textbf{方法一}\ 向量法：\\
 \begin{gather*}
     \vec{AP}=\lambda \left(\dfrac{1}{3}\vec{AC} 
-    \right) +(1-\lambda)
-    \vec{AB}=k_1\vec{AD}=k_1\left[
-    \dfrac{2}{3}\vec{AC}+
-    \dfrac{1}{3}\vec{AB}\right] \\
-    \dfrac{\dfrac{1}{3}\lambda}{1-\lambda}=\dfrac{2}{1},
-    \lambda=\dfrac{6}{7},k_1=\dfrac{3}{7} \\
+    \right) +(1-\lambda)\vec{AB}=k_1\vec{AD}=k_1\left[
+    \dfrac{2}{3}\vec{AC}+\dfrac{1}{3}\vec{AB}\right] \\
+    \dfrac{\frac{1}{3}\lambda}{1-\lambda}=\dfrac{2}{1},\ 
+    \lambda=\dfrac{6}{7},\ k_1=\dfrac{3}{7} \\
     \vec{AR}=\mu \left(\dfrac{2}{3}\vec{AB} \right) +(1-\mu)\vec{AC}=k_2\vec{AD}=k_2\left[ \dfrac{2}{3}\vec{AC}+
     \dfrac{1}{3}\vec{AB} \right] \\
-    \dfrac{\dfrac{2}{3}\mu}{1-\mu}=\dfrac{1}{2},\mu=\dfrac{3}{7},
-    k_2=\dfrac{6}{7} 
+    \dfrac{\frac{2}{3}\mu}{1-\mu}=\dfrac{1}{2},\ 
+    \mu=\dfrac{3}{7},\  k_2=\dfrac{6}{7} 
 \end{gather*}
 所以，$ P $是$ AR $的中点，同理可得，$ Q $是$ BP $的中点，$ R $是$ CQ $的中点，于是
 \begin{gather*}
-    \dfrac{S_{\Delta PQR}}{S_{\Delta ABC}} =\dfrac{|BD|}{|BC|}\cdot
+    \dfrac{S_{\Delta PQR}}{S_{\Delta ABC}} =
+    \dfrac{S_{\Delta ABD}}{S_{\Delta ABC}}\cdot 
+    \dfrac{S_{\Delta PBR}}{S_{\Delta ABD}}\cdot
+    \dfrac{S_{\Delta PQR}}{S_{\Delta PBR}}=
+    \dfrac{|BD|}{|BC|}\cdot
     \dfrac{|PR|}{|AD|}\cdot \dfrac{|PQ|}{|PB|}=\dfrac{2}{3}\cdot \dfrac{3}{7}\cdot
     \dfrac{1}{2} =\dfrac{1}{7}
 \end{gather*}
 \\
-\textbf{方法二}\ 相似三角形法：过$ D $作$ CF $的平行线交$ AB $于$ J $点，过$ R,D $作$ BE $的平行线，
-交$ AC $于$ K,L $两点，
+\textbf{方法二}\ 相似三角形法：过$ D $作$ CF $的平行线交
+$ AB $于$ J $点，过$ R,D $作$ BE $的平行线，交$ AC $于$ K,L $两点，
+$ \Delta CLD \sim \Delta CEB $，$ \Delta BJD\sim \Delta BFC $，
 \begin{gather*}
     |CL|:|LE|=|CD|:|DB|=1:2,\ |EL|=\dfrac{2}{3}|EC|=
     \dfrac{2}{3}\left(\dfrac{2}{3} |AC|\right) =\dfrac{4}{9}|AC|,\\
@@ -1696,7 +1876,7 @@ $ \left(\dfrac{12}{\sqrt{13}},96\right) $，$ f(y) $的图像如下，形状像�
 \end{figure}
 
 下面介绍由\mycircled{1}、\mycircled{2}、\mycircled{3}
-组成的方程组的直接求解方法\footnote{作者的好友Kimmo提供了一些帮助。}，
+组成的方程组的直接求解方法，
 将$ 9,16,25 $换成一般性的常数$ a^2,b^2,c^2 $，(不要求$ a^2+b^2=c^2 $，
 只要求以$ |a|,|b|,|c| $为边长能构成三角形。)
 分别用$ \mycircled{1}-\mycircled{2},
@@ -1739,7 +1919,7 @@ $ \left(\dfrac{12}{\sqrt{13}},96\right) $，$ f(y) $的图像如下，形状像�
 解得：
 \begin{align*}
     \begin{cases}
-        s_2 = \dfrac{1}{2}\left[w \pm \sqrt{\dfrac{-u+2v}{3}}\right] \\
+        s_2 = \dfrac{1}{2}\left[w \mp \sqrt{\dfrac{-u+2v}{3}}\right] \\
         \sigma_2= \pm \sqrt{\dfrac{-u+2v}{3}}=
         \pm \dfrac{4}{\sqrt{3}}\sqrt{\dfrac{-u+2v}{16}}=
         \pm\dfrac{4}{\sqrt{3}}S_{\Delta ABC} 
@@ -2011,12 +2191,33 @@ $ \vec{a}//\vec{b} $，则$ t= $\underline{\hspace{2cm}}；
 \item 在$ \Delta ABC $中，$ \sin^2A\leq\sin^2B+\sin^2C-
 \sin B\sin C $，求$ A $的取值范围。
 
-\item $ ^* $正实数$ x,y,z $满足
+\item 证明恒等式(\ref{三角恒等式2})$ \sim $ (\ref{三角恒等式-最后}).
+
+\item 求证：在$ \Delta ABC $中，\\ $ \sin (nA) +\sin (nB) +\sin (nC)=
+\begin{cases}
+    - 4\sin\left(\dfrac{nA}{2}\right)\sin\left(\dfrac{nB}{2}\right)
+    \sin\left(\dfrac{nC}{2}\right),& n=4k \\
+    4\cos\left(\dfrac{nA}{2}\right)\cos\left(\dfrac{nB}{2}\right)
+    \cos\left(\dfrac{nC}{2}\right),& n=4k+1 \\
+    4\sin\left(\dfrac{nA}{2}\right)\sin\left(\dfrac{nB}{2}\right)
+    \sin\left(\dfrac{nC}{2}\right),& n=4k+2 \\
+    - 4\cos\left(\dfrac{nA}{2}\right)\cos\left(\dfrac{nB}{2}\right)
+    \cos\left(\dfrac{nC}{2}\right),& n=4k+3
+\end{cases} $
+
+\item 求证：在锐角$ \Delta ABC $中，\\
+(I) $ \sin A +\sin B +\sin C > \dfrac{4}{3} (\cos A +\cos B +\cos C) $. \\
+(II) $ \tan^2 A+\tan^2 B +\tan^2 C \geq 9 $.
+
+\item 正实数$ x,y,z,a,b,c $满足
 $ \begin{cases} 
-    x^2+xy+y^2= 6 \\
-    y^2+yz+z^2= 7 \\
-    z^2+zx+x^2= 8  \end{cases} $，
-求$ xy+yz+zx $和$ x+y+z $的值。
+    x^2+xy+y^2= a^2 \\
+    y^2+yz+z^2= b^2 \\
+    z^2+zx+x^2= c^2  
+\end{cases} $，\\
+(I) 若$ a^2=6,\ b^2=7,\ c^2=8 $，
+求$ xy+yz+zx,\ x+y+z $以及$x,y,z$. \\
+(II) 若$a^2+c^2=2b^2$，求证：$ y+z=2x $.
 
 \item 
 $\begin{cases}
@@ -2039,13 +2240,14 @@ $ \pm 1 $时，求\\ $|\lambda_1\vec{AB}+\lambda_2\vec{BC}+\lambda_3
 \vec{CD}+\lambda_4\vec{DA}+\lambda_5 \vec{AC}+\lambda_6\vec{BD}| 
 $的最小值和最大值.
 
-\item 下图中，$ AB=4,BC \perp AB $，以$ AB $为直径作一个圆，$ BD $是$ \angle ABC $的平分线，$ P $是$ BD $上任意一点，$ EF $是圆$ O $的任意一条直径，求$ \vec{PE}\cdot \vec{PF} $的最小值。
+\item \label{以AB为直径作圆习题} 下图中，$ AB=4,BC \perp AB $，以$ AB $为直径作一个圆，$ BD $是$ \angle ABC $的平分线，$ P $是$ BD $上任意一点，$ EF $是圆$ O $的任意一条直径，求$ \vec{PE}\cdot \vec{PF} $的最小值。
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.25\linewidth]{PAxPB最值问题}
+    \caption*{\ref{以AB为直径作圆习题}题图}
 \end{figure}
 
-\item 在$ \Delta ABC $中，已知$ \vec{AE}=\dfrac{4}{5}
+\item \label{AE=4_5AB+1_5AC习题}在$ \Delta ABC $中，已知$ \vec{AE}=\dfrac{4}{5}
 \vec{AB}+\dfrac{1}{5}\vec{AC},\ \vec{BD}=
 \dfrac{1}{3}\vec{BC}+\dfrac{2}{3}\vec{BA} $，
 $ AE $与$ BD $交于点$ F $，设$ \vec{BF}=\lambda 
@@ -2053,6 +2255,7 @@ $ AE $与$ BD $交于点$ F $，设$ \vec{BF}=\lambda
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.3\linewidth]{长度占比习题2}
+    \caption*{\ref{AE=4_5AB+1_5AC习题}题图}
 \end{figure}
 
 \item 设$ H $为$ \Delta ABC $的垂心，且有$ \vec{AH}=
@@ -2064,7 +2267,7 @@ $ AE $与$ BD $交于点$ F $，设$ \vec{BF}=\lambda
 \dfrac{2}{3}\vec{AD} $. 过$ E $点的直线与$ AB,AC $所在的直线分别交于
 $ M,N $两点，设$ \vec{AM}=x\vec{AB},\vec{AN}=
 y\vec{AC} $，且$ x>0,y>0 $. \\
-(1)求$ \dfrac{8}{x}+\dfrac{2}{y} $的值；(2)求$ xy $的最小值。
+(1)求$ \dfrac{8}{x}+\dfrac{2}{y} $的值；\q  (2)求$ xy $的最小值。
 \begin{figure}[!htbp]
     \centering
     \includegraphics[width=0.3\linewidth]{系数倒数相加为定值}
@@ -2104,12 +2307,72 @@ $ \vec{AB}=\vec{DC}=(3,-4),
 \end{gather*}
 剩余略。此法计算量较大，不推荐。
 
-\item 
-$ a^2=6,b^2=7,c^2=8 $，\\
-$ u=a^4+b^4+c^4=149,\ v=a^2b^2+b^2c^2+c^2a^2=146 ,\ w=a^2+b^2+c^2=21 $，\\
-$ xy+yz+zx=\sqrt{\dfrac{-u+2v}{3}}=\sqrt{\dfrac{143}{3}}=6.904105\cdots $ \\
-$ x+y+z=\sqrt{\dfrac{1}{2}[w+\sqrt{3(-u+2v)}]}=
+\item 略
+
+\item 略
+
+\item (1) 当$ x\in\Big(0,\dfrac{\pi}{2}\Big) $时，
+$ \sin x>\dfrac{2}{\pi}x $，所以
+\begin{gather*}
+    \sin A +\sin B +\sin C>\dfrac{2}{\pi}(A+B+C)=2
+\end{gather*}
+根据(\ref{三个余弦和不等式-小于})式，$ \cos A +\cos B +\cos C\leq \dfrac{3}{2} $，
+所以，
+\begin{gather*}
+    \sin A +\sin B +\sin C>2 \geq \dfrac{4}{3} (\cos A +\cos B +\cos C)
+\end{gather*}
+事实上有更强的不等式：
+\begin{gather*}
+    \sin A +\sin B +\sin C>\Big(1+\dfrac{\sqrt{2}}{2}\Big)(\cos A +\cos B +\cos C)
+\end{gather*}
+只有当三角形为等腰直角三角形时，上面的不等号才能变成等号；对于钝角三角形，上式不成立。\\
+(2)
+\begin{align*}
+    &\ \tan^2 A+\tan^2 B +\tan^2 C \\
+    \geq &\ \dfrac{1}{3}(\tan A+\tan B +\tan C)^2\q (\text{柯西不等式}) \\
+    \geq &\ \dfrac{1}{3}\Big(3\tan\dfrac{A+B+C}{3}\Big)^2\q 
+    (\text{正切函数的凹凸性}) \\
+    = &\ 9
+\end{align*}
+$ A=B=C=\dfrac{\pi}{3} $时，等号成立。
+
+\item  % FermatPoint_6_7_8.m
+(I) $ a^2=6,b^2=7,c^2=8 $，\\
+$ u=a^4+b^4+c^4=149,\ v=a^2b^2+b^2c^2+c^2a^2=146 ,
+\ w=a^2+b^2+c^2=21 $，\\
+$ \sigma_2=xy+yz+zx=\sqrt{\dfrac{-u+2v}{3}}=
+\sqrt{\dfrac{143}{3}}=6.904105\cdots $, \\
+$s_2=\dfrac{1}{2}\left(w-\sqrt{\dfrac{-u+2v}{3}}\right)
+=\dfrac{1}{2}\left(21-\sqrt{\dfrac{143}{3}}\right)
+=7.047947\cdots$,\\
+$ s_1=x+y+z=\sqrt{\dfrac{1}{2}[w+\sqrt{3(-u+2v)}]}=
 \sqrt{\dfrac{1}{2}(21+\sqrt{429})}=4.566854\cdots $. 
+\begin{gather*}
+\begin{cases}
+    x=\dfrac{1}{3}\left(s_1+\dfrac{a^2+c^2-2b^2}{s_1}\right)=
+    \dfrac{1}{3}\sqrt{\dfrac{1}{2}(21+\sqrt{429})}
+    =1.522284\cdots\\[5mm]
+    y=\dfrac{1}{3}\left(s_1+\dfrac{a^2+b^2-2c^2}{s_1}\right)=
+    \dfrac{1}{3}\left[\sqrt{\tfrac{1}{2}(21+\sqrt{429})}-
+    \dfrac{3}{\sqrt{\frac{1}{2}(21+\sqrt{429})}}\right]
+    =1.303315\cdots\\[5mm]
+    z=\dfrac{1}{3}\left(s_1+\dfrac{b^2+c^2-2a^2}{s_1}\right)
+    =\dfrac{1}{3}\left[\sqrt{\tfrac{1}{2}(21+\sqrt{429})}+
+    \dfrac{3}{\sqrt{\frac{1}{2}(21+\sqrt{429})}}\right]
+    =1.741253\cdots
+\end{cases} 
+\end{gather*}
+(II) 当然可以用求根公式证明，不过有更简单的方法，
+毕竟求根公式并不好记，也没必要记，
+\begin{gather*}
+    (x^2+xy+y^2)+(z^2+zx+x^2)=2(y^2+yz+z^2) \\
+    2x^2+x(y+z)-(y+z)^2=0 \\
+    4x^2+x(y+z-2x)-(y+z)^2=0 \\
+    (2x+y+z)[2x-(y+z)]+x(y+z-2x)=0 \\
+    (x+y+z)[2x-(y+z)]=0   
+\end{gather*}
+因为$x,y,z$都是正实数，所以$2x-(y+z)=0$.
+
 
 \item 
 \begin{gather*}

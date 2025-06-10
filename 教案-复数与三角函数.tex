@@ -159,6 +159,15 @@ $\cosh x=\dfrac{\e^x+\e^{-x}}{2} $，这两个函数存在与$ \sin x,\cos x $
 双曲正弦$ y=\sinh x $的反函数为$ y=\ln(x+\sqrt{x^2+1})\ (x\in\textbf{R}) $；\\
 双曲余弦$ y=\cosh x\ (x\geq 0) $的反函数为$ y=\ln(x+\sqrt{x^2-1})\ (x\geq 1) $.
 
+\item 函数$z=A_1\sin(k_1x+\omega t)+A_2\sin(k_2y+\omega t)$
+在一些画质要求不高或硬件性能较差的场合可被用来模拟水面的波纹，
+其中$x,y,z$为三维空间的坐标，$t$代表时间。
+比如$ z=\sin(x)+\sin(y) $的图像如下：
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{PDF_Picture/曲面z=sinx+siny}
+\end{figure}
+
 \end{itemize}
 
 \section{三次方程求根公式}
@@ -687,169 +696,6 @@ $ 1+z+z^2+\cdots +z^{n-1}=0 $的$ n-1 $个根，所以，
 
 \end{itemize}
 
-\section{三角形中的等式与不等式}
-\begin{itemize}[leftmargin=\inteval{\myitemleftmargin}pt,itemsep=
-   \inteval{\myitemitempsep}pt,topsep=\inteval{\myitemtopsep}pt]
-\item $ \Delta ABC $中的恒等式($ A+B+C=\pi $)
-\begin{align} 
-    &\sin A +\sin B +\sin C =4\cos\Big(\dfrac{A}{2}\Big)
-    \cos\Big(\dfrac{B}{2}\Big)\cos\Big(\dfrac{C}{2}\Big) \label{三角恒等式1} \\
-    &\sin2A +\sin2B +\sin2C =4\sin A  \sin B \sin C \label{三角恒等式2}\\
-    &\cos A +\cos B +\cos C =1+4\sin\Big(\dfrac{A}{2}\Big)
-    \sin\Big(\dfrac{B}{2}\Big)\sin\Big(\dfrac{C}{2}\Big) \label{三角恒等式3} \\
-    &\cos2A +\cos2B +\cos2C =-1-4\cos A\cos B \cos C \label{三角恒等式4} \\	
-    &\cos^2A+\cos^2B+\cos^2C =1-2\cos A\cos B\cos C \label{三角恒等式5} \\ 
-    &\sin^2A+\sin^2B+\sin^2C =2+2\cos A\cos B\cos C \label{三角恒等式6} \\
-    &\tan A+\tan B +\tan C =\tan A \tan B\tan C \label{三角恒等式7}\\
-    &\cot A\cot B+\cot B \cot C+\cot A\cot C=1 \label{三角恒等式8}\\
-    &\tan\Big(\dfrac{A}{2}\Big)\tan\Big(\dfrac{B}{2}\Big)+
-    \tan\Big(\dfrac{B}{2}\Big)\tan\Big(\dfrac{C}{2}\Big)+
-    \tan\Big(\dfrac{A}{2}\Big)\tan\Big(\dfrac{C}{2}\Big)=1 \label{三角恒等式-最后}
-\end{align}
-
-\item 从左到右证明(\ref{三角恒等式1})式，使用和差化积公式：
-\begin{align*}
-    & (\sin A +\sin B) +\sin C  \\
-    =&\  2\sin\left(\dfrac{A+B}{2}\right)\cos\left(\dfrac{A-B}{2}\right)+\sin(A+B) \\    
-    =&\  2\sin\left(\dfrac{A+B}{2}\right)\cos\left(\dfrac{A-B}{2}\right)+
-    2\sin\left(\dfrac{A+B}{2}\right)\cos\left(\dfrac{A+B}{2}\right) \\
-    =&\  2\sin\left(\dfrac{A+B}{2}\right)\cdot 2\cos\left(\dfrac{A}{2}\right)\cos\left(\dfrac{B}{2}\right) \\
-    =&\  4\cos\left(\dfrac{C}{2}\right)\cos\left(\dfrac{A}{2}\right)\cos\left(\dfrac{B}{2}\right)
-\end{align*}
-\item 从右到左证明(\ref{三角恒等式1})式，
-\begin{align*}
-    & 4\cos\left(\dfrac{A}{2}\right)\cos\left(\dfrac{B}{2}\right)\sin\left(\dfrac{A+B}{2}\right) \\
-    =&\  4\cos\left(\dfrac{A}{2}\right)\cos\left(\dfrac{B}{2}\right) \left[\sin\left(\dfrac{A}{2}\right) \cos\left(\dfrac{B}{2}\right)+\cos\left(\dfrac{A}{2}\right) \sin\left(\dfrac{B}{2}\right) \right] \\
-    =&\  4\cos\left(\dfrac{A}{2}\right)\sin\left(\dfrac{A}{2}\right)\cos^2\left(\dfrac{B}{2}\right)+
-    4\cos\left(\dfrac{B}{2}\right)\sin\left(\dfrac{B}{2}\right)\cos^2\left(\dfrac{A}{2}\right)\\
-    =&\  \sin A (\cos B+1)+\sin B(\cos A +1) \\
-    =&\  \sin A +\sin B + \sin(A+B)
-\end{align*}
-以上方法同样适用于(\ref{三角恒等式2})，(\ref{三角恒等式3})，(\ref{三角恒等式4}).
-由(\ref{三角恒等式4})式可以导出(\ref{三角恒等式5})式，
-由(\ref{三角恒等式5})式可以导出(\ref{三角恒等式6})式。
-由(\ref{三角恒等式6})式可知$ \cos A\cos B\cos C >-1 $，
-由(\ref{三角恒等式3})式可知$ \cos A+\cos B+\cos C >1 $.  
-
-\item 由$ \tan(A+B)=\dfrac{\tan A+\tan B}{1-\tan A\tan B}=
-\tan(\pi-C)=-\tan C $可得到(\ref{三角恒等式7})式，
-(\ref{三角恒等式7})式两边同除$ \tan A \tan B\tan C $可得到(\ref{三角恒等式8})式。
-由$ \tan\Big(\dfrac{A}{2}+\dfrac{B}{2}\Big)=\dfrac{\tan \dfrac{A}{2}+
-    \tan \dfrac{B}{2}}{1-\tan \dfrac{A}{2}\tan \dfrac{B}{2}}
-=\tan\Big(\dfrac{\pi}{2}-\dfrac{C}{2}\Big)=\dfrac{1}{\tan \dfrac{C}{2}} $
-可得到(\ref{三角恒等式-最后})式。
-
-\item 对任意$ \Delta ABC $，有如下不等式成立：
-\begin{gather}
-    0<\sin A +\sin B +\sin C \leq \frac{3\sqrt{3}}{2} \label{sinA+sinB+sinC}\\    
-    0<\sin A \sin B \sin C \leq \frac{3\sqrt{3}}{8} \label{sinAsinBsinC}\\
-    1<\cos A +\cos B +\cos C \leq \frac{3}{2} \label{cosA+cosB+cosC}\\
-    -1<\cos A\cos B\cos C \leq \frac{1}{8} \label{cosAcosBcosC}
-\end{gather}
-右侧不等号中的等号均在$ A=B=C=\dfrac{\pi}{3} $时取得，左侧则是至少一个角趋于0时的极限
-(剩余两个角可能趋于$ 0 $和$ \pi $，也可能都趋于$ \dfrac{\pi}{2} $).
-
-\item (\ref{sinA+sinB+sinC})式左侧不等式显然成立，现证明右侧。\\
-\textbf{方法一}\ 利用正弦函数$ y=\sin x $在$ [0,\pi] $上的凹凸性
-(不等式(\ref{琴森不等式}))：
-\begin{gather*}
-    \sin A +\sin B +\sin C \leq 3\sin \dfrac{A+B+C}{3}=\dfrac{3\sqrt{3}}{2}
-\end{gather*}
-\textbf{方法二}\ 考虑$ y=\sin x $在$ \Big(\dfrac{\pi}{3},\dfrac{\sqrt{3}}{2}
-\Big) $处的切线$ y=\dfrac{1}{2}\Big(x-\dfrac{\pi}{3}\Big)+\dfrac{\sqrt{3}}{2} $，
-$ \forall x\in [0,\pi] $，有$ \sin x\leq \dfrac{1}{2}\Big(x-\dfrac{\pi}{3}\Big)
-+\dfrac{\sqrt{3}}{2} $，所以，
-\begin{gather*}
-    \sin A +\sin B +\sin C \leq \dfrac{1}{2}\Big(A+B+C-3\cdot\dfrac{\pi}{3}\Big)
-    +3\cdot\dfrac{\sqrt{3}}{2}=\dfrac{3\sqrt{3}}{2}
-\end{gather*}
-\textbf{方法三}\ 利用均值不等式(\ref{完整的均值不等式})、(\ref{三角恒等式6})式、
-(\ref{cosAcosBcosC})式：
-\begin{align*}
-    \sin A +\sin B +\sin C \leq &\ \sqrt{3(\sin^2A+\sin^2B+\sin^2C)} \\
-    =&\ \sqrt{3(2+2\cos A\cos B\cos C)}\leq \sqrt{3\left(2+2\cdot 
-        \dfrac{1}{8}\right)}=\dfrac{3\sqrt{3}}{2}
-\end{align*}
-
-\item (\ref{sinAsinBsinC})式左侧不等式显然成立，现证明右侧。利用均值不等式
-(\ref{完整的均值不等式})：
-\begin{gather}
-    \sin A \sin B \sin C \leq \left(\dfrac{\sin A +\sin B +\sin C}{3} \right)^3
-    \leq \left(\dfrac{\sqrt{3}}{2}\right)^3=\dfrac{3\sqrt{3}}{8}
-    \label{三个正弦和不等式-小于}
-\end{gather}
-
-\item 证明(\ref{cosA+cosB+cosC})式。\\
-\textbf{方法一}\ 利用(\ref{三角恒等式3})式、均值不等式和正弦函数的凹凸性：
-\begin{align}
-    \cos A +\cos B +\cos C =&\ 1+4\sin\Big(\dfrac{A}{2}\Big)
-    \sin\Big(\dfrac{B}{2}\Big)\sin\Big(\dfrac{C}{2}\Big)\qquad (>1) \nonumber \\
-    \leq &\ 1+4\left[\dfrac{\sin(\frac{A}{2})+
-        \sin(\frac{B}{2})+\sin(\frac{C}{2})}{3}\right]^3 \nonumber \\
-    \leq &\ 1+ 4\left(\sin \dfrac{\frac{A}{2}+\frac{B}{2}+\frac{C}{2}}{3}\right)^3=
-    1+4\left(\dfrac{1}{2}\right)^3=\dfrac{3}{2} \label{三个余弦和不等式-小于}
-\end{align}
-\textbf{方法二}\ 考虑$ y=\cos x $在$ \Big(\dfrac{\pi}{3},\dfrac{1}{2}
-\Big) $处的切线$ y=-\dfrac{\sqrt{3}}{2}\Big(x-\dfrac{\pi}{3}\Big)+\dfrac{1}{2} $，
-$ \forall x\in [0,\pi] $，有$ \cos x\leq -\dfrac{\sqrt{3}}{2}\Big(x-
-\dfrac{\pi}{3}\Big)+\dfrac{1}{2} $，所以，
-\begin{gather*}
-    \cos A +\cos B +\cos C \leq -\dfrac{\sqrt{3}}{2}\Big(A+B+C-3\cdot
-    \dfrac{\pi}{3}\Big)+3\cdot\dfrac{1}{2}=\dfrac{3}{2}
-\end{gather*}
-
-\item 对于(\ref{cosAcosBcosC})式，因为$ |\cos A\cos B\cos C|<1 $，
-所以$ \cos A\cos B\cos C>-1 $，左侧成立。现证明(\ref{cosAcosBcosC})式右侧成立。\\
-\textbf{方法一}\ 利用均值不等式：
-\begin{gather*}
-    \cos A \cos B \cos C \leq \left(\dfrac{\cos A +\cos B +\cos C}{3} \right)^3
-    \leq \left(\dfrac{1}{2}\right)^3=\dfrac{1}{8}
-\end{gather*}
-\textbf{方法二}\ 利用(\ref{三角恒等式5})式和均值不等式，
-\begin{align*}
-    1-2\cos A\cos B\cos C=\cos^2A+\cos^2B+\cos^2C \geq 3(\cos A\cos B\cos C)^{2/3}
-\end{align*}
-记$ t=(\cos A\cos B\cos C)^{1/3} $，那么 $ 2t^3+3t^2-1= (2t-1)(t+1)^2 \leq 0 $，
-于是$ t\leq \dfrac{1}{2} $，$ \cos A\cos B \cos C=t^3\leq \dfrac{1}{8} $.  
-
-\item 当$ x\in\Big(0,\dfrac{\pi}{2}\Big) $时，
-$ \sin x>\dfrac{2}{\pi}x $，$ \cos x>1-\dfrac{2}{\pi}x $.
-\begin{figure}[!h]  % sinx_Great_2x_pi.m
-    \centering
-    \includegraphics[width=0.7\linewidth]{sinx大于2x_pi}
-\end{figure} \\
-对于锐角三角形$ ABC $，有
-\begin{align*}
-    \sin A +\sin B +\sin C &>\dfrac{2}{\pi}(A+B+C)=2 \\
-    \cos A +\cos B +\cos C &>3-\dfrac{2}{\pi}(A+B+C)=1
-\end{align*}
-
-\item 若$ \Delta ABC $是钝角三角形，那么$ \tan A+\tan B +\tan C =
-\tan A \tan B\tan C <0 $.\\
-若$ \Delta ABC $是锐角三角形，那么
-\begin{gather*}
-    \tan A+\tan B +\tan C =\tan A \tan B\tan C \leq \left(
-    \dfrac{\tan A+\tan B +\tan C}{3}\right)^3
-\end{gather*}
-于是
-\begin{gather*}
-    \tan A+\tan B +\tan C\geq 3\sqrt{3}
-\end{gather*}
-也可以从正切函数的凹凸性来理解上式，
-\begin{gather*}
-    \tan A+\tan B +\tan C\geq 3\tan\dfrac{A+B+C}{3}=3\sqrt{3}
-\end{gather*}
-或者考虑$ y=\tan x $在$ \Big(\dfrac{\pi}{3},\sqrt{3}\Big) $
-处的切线$ y=4\Big(x-\dfrac{\pi}{3}\Big)+\sqrt{3} $，
-$ \forall x\in \Big[0,\dfrac{\pi}{2}\Big) $，有$ \tan x\geq 
-4\Big(x-\dfrac{\pi}{3}\Big)+\sqrt{3} $，所以，
-\begin{gather*}
-    \tan A +\tan B +\tan C \geq 4\Big(A+B+C-3\cdot\dfrac{\pi}{3}\Big)
-    +3\sqrt{3}=3\sqrt{3}
-\end{gather*}
-
-
-\end{itemize}
 
 \section{例题}
 \begin{enumerate}[label={【\textbf{例\thechapter.\arabic*}】},
@@ -963,7 +809,7 @@ $ \sqrt{2}=\dfrac{n}{m} $，这与$ \sqrt{2} $是无理数相矛盾。
 于是$ (3+2\sqrt{2})m\pi=n\pi,\ 3+2\sqrt{2}=\dfrac{n}{m} $，$ 3+2\sqrt{2} $是无理数，
 $ \dfrac{n}{m} $是有理数，这就产生了矛盾。
 
-\item $ \sin\Big(\dfrac{1}{x}\Big),\sin(\sqrt{x}),\sin(x^2)$均不是周期函数，
+\textbf{注}\  $ \sin\Big(\dfrac{1}{x}\Big),\sin(\sqrt{x}),\sin(x^2)$均不是周期函数，
 它们的零点都不是等间距分布的。这3个函数可分别看成$\sin\left(\dfrac{1}{x^2}
 \cdot x\right),\sin\left(\dfrac{1}{\sqrt{x}}\cdot x\right), 
 \sin\left(x\cdot x\right)$，其中的$ \dfrac{1}{x^2},\dfrac{1}{\sqrt{x}},x $
@@ -973,13 +819,14 @@ $\sin\left(\dfrac{1}{x^2} \cdot x\right),
 而$ \sin(x\cdot x) $的频率提高，曲线变得更加密集。
 \begin{figure}[h] % SinNonPeriodicTrigonometricFunction.m
     \centering
-    \includegraphics[width=0.7\linewidth]{三个sin括号内变化的非周期函数}
+    \includegraphics[width=0.9\linewidth]{三个sin括号内变化的非周期函数}
 \end{figure} 
 
-\item $ x\sin x,\dfrac{\sin x}{x},\dfrac{x}{\sin x} $均不是周期函数。 \\
+ $ x\sin x,\dfrac{\sin x}{x},\dfrac{x}{\sin x} $
+ 也都不是周期函数。 \\
 \begin{figure}[h] % SinNonPeriodicTrigonometricFunction.m
     \centering
-    \includegraphics[width=0.7\linewidth]{三个乘除型非周期函数}
+    \includegraphics[width=0.9\linewidth]{三个乘除型非周期函数}
 \end{figure}
 
 % ShangHai2015.m
@@ -1068,6 +915,14 @@ $ f(x) $在$ (T,2T) $上的图像是由$ f(x) $在$ (0,T) $
     \includegraphics[width=0.4\linewidth]{2015上海高考}
 \end{figure}
 
+\textbf{注}\ 上海高考数学允许使用CASIO fx-991CN X
+型号的计算器，该计算器存在一些漏洞，可利用漏洞可获得一些
+无法直接使用的功能，比如求最大公约数和最小公倍数等
+\footnote{
+    https://zhuanlan.zhihu.com/p/261156688\\
+    https://zhuanlan.zhihu.com/p/464012892\\
+    https://zhuanlan.zhihu.com/p/618704031}。
+
 \item 用求根公式计算$ x^3-3x^2+4x-6=0 $的实根，然后借助计算器用二分法求实根。\\
 \textbf{解}\ 作变换$ x=t+1 $，则原方程变为$ t^3+t-4=0,\ p=1,\ q=-4,\ 
 \Delta=\dfrac{q^2}{4}+\dfrac{p^3}{27}=\dfrac{109}{27} $，原方程实根为：
@@ -1126,6 +981,20 @@ $ x_1=1-\dfrac{\sqrt{3}}{3} $，$ x_2=-1-\sqrt{3} $. \\
 \textbf{注}：如果多项式$ f(x) $的所有系数均为实数，当$ a+b\i $是$ f(x)=0 $的根时，
 $ a-b\i $也是$ f(x)=0 $的根。如果多项式$ f(x) $的所有系数均为有理数，
 当$ a+b\sqrt{C} $是$ f(x)=0 $的根时，$ a-b\sqrt{C} $也是$ f(x)=0 $的根。
+
+\item 设$a,b,c,d$都是实数，且$ad-bc=1$，若$z$是一个虚部
+大于0的复数，求证：$f(z)=\dfrac{az+b}{cz+d}$的虚部也大于0. \\
+\textbf{解}\ 
+\begin{align*}
+    f(z) =&\ \dfrac{az+b}{cz+d}=
+    \dfrac{(az+b)(c\bar{z}+d)}{(cz+d)(c\bar{z}+d)} \\
+    =&\ \dfrac{acz\bar{z}+adz+bc\bar{z}+bd}{|cz+d|^2} \\
+    =&\ \dfrac{ac|z|^2+(ad-bc)z+bc(\bar{z}+z)+bd}{|cz+d|^2} \\
+    =&\ \underbrace{\dfrac{ac|z|^2+bc(\bar{z}+z)+bd}
+        {|cz+d|^2}}_{\text{实数}} +
+    \underbrace{\dfrac{z}{|cz+d|^2}}_{\text{复数}}    
+\end{align*}
+所以，若$z$的虚部大于0，则$f(z)$的虚部也大于0.
 
 \item\label{m+nsqrt3} 定义集合$ S=\{m+n\sqrt{3}|m^2-3n^2=1,m,n\in \textbf{Z}\} $，
 求证：若$ x,\ y\in S $，则$ \dfrac{1}{x}\in S,\ xy \in　S,\ x+y\notin S $. \\
@@ -1425,8 +1294,8 @@ $ z_2 $的轨迹与$ z_1 $一样。
 然后两边同时平方即可证明。
 
 \item 一般而言，(\ref{斜椭圆消参例题})式表示一个倾斜的椭圆，
-下面计算需要旋转多少角度才能变成正椭圆。
-根据$ (x+\i y)(\cos\theta +\i\sin \theta)=(x\cos\theta-y\sin\theta)+
+下面计算需要旋转多少角度才能变成正椭圆。\\
+\textbf{方法一}\ 根据$ (x+\i y)(\cos\theta +\i\sin \theta)=(x\cos\theta-y\sin\theta)+
 \i(x\sin\theta+y\cos\theta) $，
 用$ (x\cos\theta-y\sin\theta) $替换(\ref{斜椭圆消参例题})式中$ x $，
 $ (x\sin\theta+y\cos\theta) $替换$ y $，展开后，$ xy $的系数为
@@ -1434,7 +1303,7 @@ $ (x\sin\theta+y\cos\theta) $替换$ y $，展开后，$ xy $的系数为
     -\left[\sin2\theta\left(\dfrac{1}{A^2}-\dfrac{1}{B^2} \right) + \dfrac{2\cos(a-b)\cos2\theta }{AB}\right] 
 \end{align*}
 使之为0，可得：$ \tan2\theta =\dfrac{2AB\cos(a-b)}{A^2-B^2} $. 
-\item 还可以使用中心极坐标法：令$ x=r\cos\theta,\ y=r\sin\theta $，则
+\textbf{方法二}\ 令$ x=r\cos\theta,\ y=r\sin\theta $，则
 \begin{align*}
     r^2=\dfrac{\sin^2(a-b)}{\dfrac{\cos^2\theta}{A^2}+
         \dfrac{ \sin^2\theta}{B^2}-\dfrac{\sin2\theta}{AB}\cos(a-b)}
@@ -1443,8 +1312,8 @@ $ (x\sin\theta+y\cos\theta) $替换$ y $，展开后，$ xy $的系数为
 
 % LiSaRu.m
 \item $^*$ 参数曲线$ \begin{cases}
-    & x=A\cos(\omega_1 t+a) \\
-    & y=B\sin(\omega_2 t+b)
+    x=A\cos(\omega_1 t+a) \\
+    y=B\sin(\omega_2 t+b)
 \end{cases} $ 对应的图形被称为李萨如(Lissajous)图形，大学的理工科学生基本上都会在
 基础物理实验或者电子学实验中接触到李萨如图形。
 选取不同的$ A,B $,$ \omega_1 $,$ \omega_2 $,$ a,b $，可以得到无穷无尽的形状。
@@ -1458,8 +1327,8 @@ $ (x\sin\theta+y\cos\theta) $替换$ y $，展开后，$ xy $的系数为
 % ShangHai_2021GaoKao.m
 \item 
 (2021，上海高考)已知参数方程$ \begin{cases}
-    & x=3t-4t^3 \\
-    & y=2t\sqrt{1-t^2}
+    x=3t-4t^3 \\
+    y=2t\sqrt{1-t^2}
 \end{cases} ,\ t\in [-1,1] $，下列选项的图中，符合该方程的是哪一个？
 \begin{figure}[!htbp]
     \centering
@@ -1474,8 +1343,8 @@ $ (x\sin\theta+y\cos\theta) $替换$ y $，展开后，$ xy $的系数为
 事实上，A对应的曲线大致是$ x^4+y^4=1 $. B对应的曲线是
 \begin{align*}
     \begin{cases}
-        & x=3t-4t^3=3\sin\theta-4\sin^3\theta=\sin3\theta \\
-        & y=2t\sqrt{1-t^2}=2\sin\theta\cos\theta=\sin2\theta
+        x=3t-4t^3=3\sin\theta-4\sin^3\theta=\sin3\theta \\
+        y=2t\sqrt{1-t^2}=2\sin\theta\cos\theta=\sin2\theta
     \end{cases},\ t=\sin\theta\in [-1,1],\ 
     \theta\in[-\dfrac{\pi}{2},\dfrac{\pi}{2}]
 \end{align*}
@@ -1680,16 +1549,14 @@ $ M_2^2=\dfrac{M_{n2}^2}{\sin^2(\beta-\theta)}\approx 3.306351 $，那么
 \section{习题}
 \begin{enumerate}[label={\textbf{\arabic*.}},leftmargin=
     \inteval{\myenumleftmargin}pt]
-\item $ y=\cos(x^2) $与$ y=\cos(x^2+1) $，将其中一个函数的图像进行平移，
-能否得到另外一个函数图像？
+\item $ y=\cos(x^2) $与$ y=\cos(x^2+1) $，
+将其中一个函数的图像进行平移，能否得到另外一个函数图像？
 
 \item 用数学归纳法证明(\ref{余弦等差连加})和(\ref{正弦等差连加}).   
 
 \item $ ^* $对(\ref{余弦等差连加})和(\ref{正弦等差连加})求导，计算
 $ \sum\limits_{k=1}^{n}k\sin kx $和$ \sum\limits_{k=1}^{n}k\cos kx $. 
 然后再利用数学归纳法证明。
-
-\item 证明恒等式(\ref{三角恒等式2})$ \sim $ (\ref{三角恒等式-最后}).
 
 \item 已知$ 2\sin\alpha+3\cos\alpha=\dfrac{\sqrt{26}}{2} $，求$ \tan2\alpha $.
 (要求使用三种方法。)
@@ -1720,24 +1587,6 @@ $ \sum\limits_{k=1}^{n}k\sin kx $和$ \sum\limits_{k=1}^{n}k\cos kx $.
 
 \item 求$ 15^{\circ},18^{\circ},22.5^{\circ},36^{\circ} $
 的正弦、余弦、正切的根式表达式，如果结果包含二重根式，请尝试去掉外层根式。
-
-
-\item 求证：在锐角$ \Delta ABC $中，\\
-(I) $ \sin A +\sin B +\sin C > \dfrac{4}{3} (\cos A +\cos B +\cos C) $. \\
-(II) $ \tan^2 A+\tan^2 B +\tan^2 C \geq 9 $.
-
-
-\item 求证：在$ \Delta ABC $中，\\ $ \sin (nA) +\sin (nB) +\sin (nC)=
-\begin{cases}
-- 4\sin\left(\dfrac{nA}{2}\right)\sin\left(\dfrac{nB}{2}\right)
-\sin\left(\dfrac{nC}{2}\right),& n=4k \\
-4\cos\left(\dfrac{nA}{2}\right)\cos\left(\dfrac{nB}{2}\right)
-\cos\left(\dfrac{nC}{2}\right),& n=4k+1 \\
-4\sin\left(\dfrac{nA}{2}\right)\sin\left(\dfrac{nB}{2}\right)
-\sin\left(\dfrac{nC}{2}\right),& n=4k+2 \\
-- 4\cos\left(\dfrac{nA}{2}\right)\cos\left(\dfrac{nB}{2}\right)
-\cos\left(\dfrac{nC}{2}\right),& n=4k+3
-\end{cases} $
 
 \item $ \i $是虚数单位，求$ 1+3\i+5\i^2+7\i^3+\cdots +4039\i^{2019} $的值。
 
@@ -1790,8 +1639,6 @@ ContourPlot[Sin[x^2]+Sin[y^2]==1, {x, -10, 10}, {y, -10, 10}]
 \begin{gather*}
     \sqrt{2k\pi}-\sqrt{2k\pi-1}=\dfrac{1}{\sqrt{2k\pi}+\sqrt{2k\pi-1}}\to 0
 \end{gather*}
-
-\item 略
 
 \item \begin{align*}
     &\sum_{k=1}^{n}k\sin kx=
@@ -1864,33 +1711,6 @@ $ \dfrac{\sin\dfrac{16\pi}{17}}{16\sin\dfrac{\pi}{17}}=\dfrac{1}{16} $. \\
             \sqrt{10-2\sqrt{5}}}{4} $ \\ [9pt]
     \end{tabular} 
 \end{table}
-
-\item (1) 当$ x\in\Big(0,\dfrac{\pi}{2}\Big) $时，
-$ \sin x>\dfrac{2}{\pi}x $，所以
-\begin{gather*}
-    \sin A +\sin B +\sin C>\dfrac{2}{\pi}(A+B+C)=2
-\end{gather*}
-根据(\ref{三个余弦和不等式-小于})式，$ \cos A +\cos B +\cos C\leq \dfrac{3}{2} $，
-所以，
-\begin{gather*}
-    \sin A +\sin B +\sin C>2 \geq \dfrac{4}{3} (\cos A +\cos B +\cos C)
-\end{gather*}
-事实上有更强的不等式：
-\begin{gather*}
-    \sin A +\sin B +\sin C>\Big(1+\dfrac{\sqrt{2}}{2}\Big)(\cos A +\cos B +\cos C)
-\end{gather*}
-只有当三角形为等腰直角三角形时，上面的不等号才能变成等号；对于钝角三角形，上式不成立。\\
-(2)
-\begin{align*}
-    &\ \tan^2 A+\tan^2 B +\tan^2 C \\
-    \geq &\ \dfrac{1}{3}(\tan A+\tan B +\tan C)^2\q (\text{柯西不等式}) \\
-    \geq &\ \dfrac{1}{3}\Big(3\tan\dfrac{A+B+C}{3}\Big)^2\q 
-    (\text{正切函数的凹凸性}) \\
-    = &\ 9
-\end{align*}
-$ A=B=C=\dfrac{\pi}{3} $时，等号成立。
-
-\item 略
 
 \item $ (-4-4\i)\times \dfrac{2020}{4}=-2020-2020\i $. 
 

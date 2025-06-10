@@ -647,7 +647,7 @@ $ b_1\in[0,\ln2) $，这个区间还是比较长的，
 而且会有更多的误差累积，精度仍然不理想。
 所以必须缩短使用多项式拟合的区间，我们可以把前面的
 “带余除法”再用一次，令$ b_1=k_2\cdot \dfrac{\ln2}{128}+b_2 $，
-其中$ k_2 $为正整数，$ k_2\in[0,127),\ 
+其中$ k_2 $为正整数，$ k_2\in[0,127],\ 
 b_2\in\left[0,\dfrac{\ln2}{128}\right)$，
 $ b_2 $所在的区间就很短了，可以使用低阶的多项式实现高精度的逼近。
 \begin{align*}
@@ -701,6 +701,84 @@ $ 2.932007\cdots\times10^6 $，
     \q \e^4\approx 54.598150\approx 50.6, \\
     \dfrac{1}{2}\ln(2\pi)\approx 0.918938
 \end{gather*}
+
+\item 编程计算$\sin(x),\cos(x)$的方法：首先，$\sin(x)$是奇函数，
+$\cos(x)$是偶函数，那么只需要考虑$x>0$时的函数值。
+其次，对于任意正实数$x$，
+$\sin(x),\cos(x)$的值都可以通过这两者在区间$\left[0,
+\dfrac{\pi}{4}\right]$内的值得到。
+所以，第一步就是将正实数$x$
+对$ \dfrac{\pi}{4} $进行带余除法，即
+$ x=k_1\cdot\dfrac{\pi}{4}+b_1 $，其中$ k_1 $为满足
+$ k_1\cdot\dfrac{\pi}{4}\leq x $的最大正整数，
+$ b_1\in\left[0,\dfrac{\pi}{4}\right) $，根据$k_1$除以8的余数
+\footnote{在C,C++,C\# 等编程语言中，正整数$k_1$除以$2^n$的余数
+    可以通过$k_1$和$2^n-1$进行“位与运算”(\&)高效得到，
+    比如$k_1$除以8的余数，可以由$ k_1\ \& \ 7 $得到。}
+来选择使用8个公式中的哪一个进行计算：
+\begin{align*}
+    \sin(x)=\sin\left(b_1+k_1\cdot \dfrac{\pi}{4}\right) & =
+    \begin{cases}
+        \sin(b_1),  &  k_1=8n \\
+        \cos\left(\dfrac{\pi}{4}-b_1\right), & k_1=8n+1 \\
+        \cos(b_1),  & k_1=8n+2 \\
+        \sin\left(\dfrac{\pi}{4}-b_1\right), & k_1=8n+3 \\
+        -\sin(b_1),  & k_1=8n+4 \\
+        -\cos\left(\dfrac{\pi}{4}-b_1\right), & k_1=8n+5 \\
+        -\cos(b_1),  & k_1=8n+6 \\
+        -\sin\left(\dfrac{\pi}{4}-b_1\right), & k_1=8n+7 \\
+    \end{cases} \\
+    \cos(x)=\cos\left(b_1+k_1\cdot \dfrac{\pi}{4}\right) & =
+    \begin{cases}
+        \cos(b_1),  &  k_1=8n \\
+        \sin\left(\dfrac{\pi}{4}-b_1\right), & k_1=8n+1 \\
+        -\sin(b_1),  & k_1=8n+2 \\
+        -\cos\left(\dfrac{\pi}{4}-b_1\right), & k_1=8n+3 \\
+        -\cos(b_1),  & k_1=8n+4 \\
+        -\sin\left(\dfrac{\pi}{4}-b_1\right), & k_1=8n+5 \\
+        \sin(b_1),  & k_1=8n+6 \\
+        \cos\left(\dfrac{\pi}{4}-b_1\right), & k_1=8n+7 \\
+    \end{cases}
+\end{align*}
+再将$b_1$对$\dfrac{\pi}{128}$进行带余除法，
+$ b_1=k_2\cdot \dfrac{\pi}{128}+b_2 $，其中$ k_2 $为正整数，
+$ k_2\in[0,31] $，$b_2\in\left[0,\dfrac{\pi}{128}\right) $，
+$b_2$所在的区间就很短了，可以使用低阶的泰勒级数进行逼近。于是，
+\begin{align*}
+    \sin(b_1) =&\ \sin\left(k_2\cdot \dfrac{\pi}{128}+b_2\right)
+    =\sin\left(k_2\cdot \dfrac{\pi}{128}\right)\cos(b_2)+
+    \cos\left(k_2\cdot \dfrac{\pi}{128}\right)\sin(b_2)  \\
+    \cos(b_1) =&\ \cos\left(k_2\cdot \dfrac{\pi}{128}+b_2\right)
+    =\cos\left(k_2\cdot \dfrac{\pi}{128}\right)\cos(b_2)-
+    \sin\left(k_2\cdot \dfrac{\pi}{128}\right)\sin(b_2)  \\   
+    \sin(b_2) \approx &\ b_2-\dfrac{b_2^3}{3!}+\dfrac{b_2^5}{5!} \\
+    \cos(b_2) \approx &\ 1-\dfrac{b_2^2}{2!}+\dfrac{b_2^4}{4!}-
+    \dfrac{b_2^{6}}{6!}
+\end{align*}
+其中的$ \sin\left(k_2\cdot\dfrac{\pi}{128}\right) $，
+$\cos\left(k_2\cdot\dfrac{\pi}{128}\right)$也是事先计算好，
+用数组保存起来，要用的时候去查表。\\
+手工计算依然只需考虑$\left[0,\dfrac{\pi}{4}\right]$内的角
+$ \left(\dfrac{\pi}{4}\approx 0.785\right) $，然后直接使用泰勒级数
+的至少两项：
+\begin{align}
+    \sin(x) \approx &\ x-\dfrac{x^3}{3!} \label{sinx=x-x^3_6}\\
+    \cos(x) \approx &\ 1-\dfrac{x^2}{2!} \label{cosx=1-x^2_2}
+\end{align}
+比如估算$\sin(0.6)$和$\cos(0.6)$，
+\begin{align*}
+    \sin(0.6) \approx &\ 0.6-\dfrac{0.6^3}{3!}=0.564 
+    \q (\text{精确值为} 0.564642\cdots)   \\
+    \cos(0.6) \approx &\ 1-\dfrac{0.6^2}{2!}=0.82   
+    \q (\text{精确值为} 0.825335\cdots)   
+\end{align*}
+估算$\sin(0.76)$和$\cos(0.76)$，
+\begin{align*}
+    \sin(0.76) \approx &\ 0.76-\dfrac{0.76^3}{3!}\approx 0.687 
+    \q (\text{精确值为} 0.688921 \cdots)   \\
+    \cos(0.76) \approx &\ 1-\dfrac{0.76^2}{2!}=0.7112  
+    \q (\text{精确值为} 0.724836 \cdots)     
+\end{align*}
 
 \item 常用平方根：
 \begin{gather*}
@@ -1124,6 +1202,37 @@ $ \dfrac{n}{m}=-1 $时，
     -\dfrac{1}{x_1^2}<\dfrac{\frac{1}{x_2}-\frac{1}{x_1}}{x_2-x_1}=-\dfrac{1}{x_1x_2}<
     -\dfrac{1}{x_2^2}
 \end{align*}
+
+\item 狄利克雷逼近定理：对任意实数 $\alpha$，正整数 $N>1$，
+都存在整数 $p$ 和 $q$，其中 $1\leq q\leq N$，使得
+$\left|\alpha-\dfrac{p}{q}\right|<\dfrac{1}{qN}$成立。  \\
+\textbf{证}\ 
+定义$\{x\}=x-\lfloor x\rfloor$，其中 $ \lfloor x\rfloor $ 
+是向下取整函数(不超过$x$的最大整数)，
+比如$ \lfloor 2.1\rfloor=\lfloor 2.7\rfloor=2 $，
+$\lfloor -4.2\rfloor=\lfloor -4.9\rfloor=-5 $. 
+显然有$ 0\leq \{x\}<1 $.  \\
+现在考虑 $\{\alpha\},\{2\alpha\},\cdots,\{(N+1)\alpha\}$
+共$N+1$个落在区间$[0,1)$内的小数。
+现在把区间$[0,1)$等分成$N$个子区间，如下
+\begin{gather*}
+    \left[0,\frac{1}{N}\right),
+    \left[\frac{2}{N},\frac{3}{N}\right),
+    \left[\frac{3}{N},\frac{4}{N}\right),\cdots,
+    \left[\frac{N-1}{N},1\right)
+\end{gather*}
+根据抽屉原理，必然有两个不同的正整数$i,j$(不妨设$i<j$)满足 $\{i\alpha\},\{j\alpha\}$ 同时落在某个子区间内。
+即$|\{i\alpha\}-\{j\alpha\}|<\dfrac{1}{N}$，
+又因为$1\leq i<j\leq N+1$，那么有$1\leq j-i\leq N$.
+再利用$\{x\}=x-\lfloor x\rfloor$，得到
+\begin{gather*}
+    \left|\{j\alpha\}-\{i\alpha\}\right|=\left|
+    (j-i)\alpha-(\lfloor j\alpha\rfloor
+    -\lfloor i\alpha\rfloor)\right|<\frac{1}{N}
+\end{gather*}
+令$q=j-i,\ p=\lfloor j\alpha\rfloor-\lfloor i\alpha\rfloor$，显然 $1\leq q\leq N$. 
+将$p,q$代入上式，有 $|q\alpha-p|<\dfrac{1}{N}$，
+也就是 $\left|\alpha-\dfrac{p}{q}\right|<\dfrac{1}{qN}$，证毕。
 
 \item $^*$ 刘维尔(Liouville)逼近定理\footnote{2017年天津高考考察了刘维尔逼近定理。}：设$ f(x)=a_nx^n+a_{n-1}x^{n-1}+
 \cdots+a_1x+a_0 $，其中$ a_n\neq 0,\ a_j\in \textbf{Z}\ 
@@ -1605,20 +1714,23 @@ $ (n+1)^{k+1}-n^{k+1} =(k+1)n^k+\dfrac{k(k+1)}{2}n^{k-1}+\cdots +1 $
 \begin{align}
     1^1+2^1+3^1+\cdots +n^1 &=\dfrac{n^2}{2}+\dfrac{n}{2} =\dfrac{1}{2}n(n+1)
     \label{正整数1次方求和}\\
-    1^2+2^2+3^2+\cdots +n^2&=\dfrac{n^3}{3}+\dfrac{n^2}{2}+\dfrac{n}{6}=\dfrac{1}{6}n(n+1)(2n+1)
+    1^2+2^2+3^2+\cdots +n^2&=\dfrac{n^3}{3}+\dfrac{n^2}{2}+\dfrac{n}{6}
+    =\dfrac{1}{6}n(n+1)(2n+1)
     \label{正整数2次方求和} \\
     1^3+2^3+3^3+\cdots +n^3&=\dfrac{n^4}{4}+\dfrac{n^3}{2}+\dfrac{n^2}{4}=
     \left[\dfrac{1}{2}n(n+1) \right]^2 \label{正整数3次方求和}\\
     1^4+2^4+3^4+\cdots +n^4&=\dfrac{n^5}{5}+\dfrac{n^4}{2}+
-    \dfrac{n^3}{3}-\dfrac{n}{30} \notag \\
-    &=\dfrac{1}{30}n(n+1)(2n+1)(3n^2+3n-1) \label{正整数4次方求和}\\
+    \dfrac{n^3}{3}-\dfrac{n}{30} 
+            \label{正整数4次方求和} \\
+    &=\dfrac{1}{30}n(n+1)(2n+1)(3n^2+3n-1) \notag\\
       1^5+2^5+3^5+\cdots +n^5&=\dfrac{n^6}{6}+\dfrac{n^5}{2}+
-      \dfrac{5n^4}{12}-\dfrac{n^2}{12} \notag\\
-    &=\dfrac{1}{12}n^2(n+1)^2(2n^2+2n-1) \label{正整数5次方求和} \\
+      \dfrac{5n^4}{12}-\dfrac{n^2}{12} \label{正整数5次方求和}\\
+    &=\dfrac{1}{12}n^2(n+1)^2(2n^2+2n-1) \notag\\
     1^6+2^6+3^6+\cdots +n^6
     &=\dfrac{n^7}{7}+\dfrac{n^6}{2}+\dfrac{n^5}{2}-
-    \dfrac{n^3}{6}+\dfrac{n}{42} \notag \\
-    &=\dfrac{1}{42}n(n+1)(2n+1)(3n^4+6n^3-3n+1) \label{正整数6次方求和}
+    \dfrac{n^3}{6}+\dfrac{n}{42}
+     \label{正整数6次方求和} \\
+    &=\dfrac{1}{42}n(n+1)(2n+1)(3n^4+6n^3-3n+1)\notag 
 \end{align}
 规律\footnote{这个规律曾被作为2008年湖北高考理科数学的填空题。}：$ \sum\limits_{l=1}^{n} l^k \ (k\in \textbf{N}^+) $最高次项系数是
 $ \dfrac{1}{k+1} $(因为$ \disp \int_0^n x^k\d x=\dfrac{n^{k+1}}{k+1} $，
@@ -1634,7 +1746,10 @@ B_5=0,B_6=\dfrac{1}{42}\cdots$
 伯努利数满足递推关系：$ 0=\sum\limits_{j=0}^{n-1}C_n^jB_j\ (n\geq 2) $.\ 
 (\ref{正整数k次方求和通式})式实际上是欧拉-麦克劳林公式\footnote{可参看《特殊函数概论》第6页。}的一个特例。
 将(\ref{正整数k次方求和通式})式右侧的$ k+1 $次多项式定义为$ S(n,k+1) $，
-那么当$ k\geq 2 $时，$ S(n,k) $经过因式分解后总会包含$ n(n+1) $.
+那么当$ k\geq 2 $时，若$k$是偶数，
+则$ S(n,k) $经过因式分解后总会包含$ \left[\dfrac{1}{2}n(n+1)\right]^2 $；
+若$k$是奇数，则$ S(n,k) $经过因式分解后总会包含
+$ \dfrac{1}{6}n(n+1)(2n+1) $.
 将$ S(n,k) $对变量$ n $求偏导\footnote{此时可以假想$ n $是连续变量。}，
 也能发现一些规律，比如
 \begin{align*}
@@ -2343,6 +2458,27 @@ $ a\cos(bx)+b\sin(bx)\neq 0 $.) \\
 $ g(x) $经常被用来描述一些振幅随时间衰减的振荡现象，
 比如一个弹簧挂着一个重物在空气中上下振荡，如果没有外界能量输入，
 则空气阻力会导致振幅越来越小。
+
+\item 曲线$y=f(x)$的曲率半径定义为
+$\rho=\dfrac{(1+y'^2)^{3/2}}{|y''|}$，其中$y''$代表二阶导数，
+或者说求两次导数。
+那么指数函数$y=C\e^{ax}\ (C>0, a\neq 0)$的曲率半径在何处取最小值？\\
+\textbf{解}\ $y'=Ca\e^{ax},\ y''=Ca^2\e^{ax}$，
+\begin{align*}
+    r =&\ \dfrac{(1+C^2a^2\e^{2ax})^{3/2}}{Ca^2\e^{ax}}  \\
+    =&\ \left(\dfrac{1+C^2a^2\e^{2ax}}{C^{2/3}a^{4/3}\e^{2ax/3}}\right)^{3/2} \\
+    =&\ \left(\dfrac{1}{2C^{2/3}a^{4/3}\e^{2ax/3}}+
+    \dfrac{1}{2C^{2/3}a^{4/3}\e^{2ax/3}}+
+    C^{4/3}a^{2/3}\e^{4ax/3}\right)^{3/2} \\
+    \geq&\ \left[3\left(\dfrac{C^{4/3}a^{2/3}\e^{4ax/3}}{
+        2C^{2/3}a^{4/3}\e^{2ax/3}\cdot 2C^{2/3}a^{4/3}\e^{2ax/3}}
+    \right)^{1/3}\right]^{3/2} \\
+    =&\ \left[3\left(\dfrac{1}{4a^2}\right)^{1/3}\right]^{3/2}
+    =\dfrac{3\sqrt{3}}{2|a|}
+\end{align*}
+等号成立条件为$ \dfrac{1}{2C^{2/3}a^{4/3}\e^{2ax/3}}=
+C^{4/3}a^{2/3}\e^{4ax/3} $，\\ 
+即$2C^2a^2\e^{2ax}=1$，$x=-\dfrac{1}{a}\ln(\sqrt{2}Ca)$. 
 
 \item 求证：$ \e^x-\ln x>2\ (x>0) $. \\
 \textbf{解}\ 令$ f(x)=\e^x-\ln x $，则$ f'(x)=\e^x-\dfrac{1}{x} $，
