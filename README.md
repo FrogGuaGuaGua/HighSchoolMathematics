@@ -1,5 +1,7 @@
 High school mathematics from an engineer's perspective. 《工程师视角下的高中数学》，注重联系工程实际。
 
+全书的PDF参见右侧的Release.
+
 本书的写作动机可参看文章 https://zhuanlan.zhihu.com/p/689834716
 
 因为国内访问github的不稳定性，所以本项目在gitee和github同步更新：  
