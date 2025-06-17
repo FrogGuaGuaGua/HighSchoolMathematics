@@ -185,24 +185,24 @@ $\cosh x=\dfrac{\e^x+\e^{-x}}{2} $，这两个函数存在与$ \sin x,\cos x $
      x^3-3uvx-(u^3+v^3)=0
 \end{gather*}
 比较系数可得：
-$ \begin{cases}
+$ \begin{dcases}
 -3uv = p \ \left(u^3v^3=-\dfrac{p^3}{27} \right) \\
 -(u^3+v^3) = q
-\end{cases} \vspace{-4mm} $，于是，$ u^3,v^3 $是二次方程$ y^2+qy-\dfrac{p^3}{27}=0 $的根，二次方程的判别式除以4以后仍用
+\end{dcases} \vspace{-4mm} $，于是，$ u^3,v^3 $是二次方程$ y^2+qy-\dfrac{p^3}{27}=0 $的根，二次方程的判别式除以4以后仍用
 $ \Delta $表示，$ \Delta=\dfrac{q^2}{4}+\dfrac{p^3}{27} $. 解二次方程可得：
 $ u^3=-\dfrac{q}{2} + \sqrt{\Delta},\ v^3=-\dfrac{q}{2} - \sqrt{\Delta}$.
 再令$ \omega=-\dfrac{1}{2}+\dfrac{\sqrt{3}}{2}\i =
 \cos\left(\dfrac{2\pi}{3}\right)+\i\sin\left(\dfrac{2\pi}{3}\right)
 =\e^{\i\frac{2\pi}{3}}$，则$ \omega^3=1 $， 那么三次方程$ x^3+px+q=0 $的求根公式可表达如下：
 \begin{align*}
-\begin{cases}
+\begin{dcases}
     x_1= \sqrt[3]{-\dfrac{q}{2} + \sqrt{\Delta}}+
     \sqrt[3]{-\dfrac{q}{2} - \sqrt{\Delta}} \\
     x_2= \omega\sqrt[3]{-\dfrac{q}{2} + \sqrt{\Delta}}+
     \omega^2\sqrt[3]{-\dfrac{q}{2} - \sqrt{\Delta}} \\
     x_3= \omega^2\sqrt[3]{-\dfrac{q}{2} + \sqrt{\Delta}}+
     \omega\sqrt[3]{-\dfrac{q}{2} - \sqrt{\Delta}} 
-\end{cases} 
+\end{dcases} 
 \end{align*}
 大家可能觉得$ \Delta=\dfrac{q^2}{4}+\dfrac{p^3}{27} $难以记忆，
 其实，只要使用量纲分析，就不算困难。对于三次方程$ x^3+px+q=0 $，
@@ -231,10 +231,10 @@ $ \Delta=\dfrac{q^2}{2^2}+\dfrac{p^3}{3^3} $就好记了。
 \item 三次函数$ y =ax^3+cx+d $上的点$ (x_0,y_0) $
 处的切线斜率计算：
 \begin{align*}
-\begin{cases}
+\begin{dcases}
     y = k(x-x_0)+y_0  \\
     y = ax^3+cx+d
-\end{cases}
+\end{dcases}
 \end{align*}
 其中，$ y_0=ax_0^3+cx_0+d $，消去$ y $可得：
 \begin{gather*}
@@ -421,14 +421,14 @@ z_1z_2=\ & r_1(\cos\alpha_1+\i\sin\alpha_1)\cdot r_2(\cos
 
 \item 设$ z=x+\i y=r\cos \alpha+\i r\sin \alpha $，现将$ z $绕原点逆时针旋转$ \theta $角，得到新的复数$ z'=x'+\i y' $，$ z' $的模仍然是$ r $，但幅角变成$ \alpha+\theta $，所以
 \begin{gather}\label{坐标旋转公式}
-\begin{cases}
+\begin{dcases}
     x'=r\cos (\alpha+\theta)=\underbrace{r\cos\alpha}_{x}
     \cos\theta-	\underbrace{r\sin\alpha}_{y}\sin\theta	
     =x\cos\theta-y\sin\theta  \\
     y'=r\sin (\alpha+\theta)=\underbrace{r\sin\alpha}_{y}
     \cos\theta+\underbrace{r\cos\alpha}_{x}\sin\theta
     =x\sin\theta+y\cos\theta
-\end{cases} 
+\end{dcases} 
 \end{gather}
 以上两式可实现坐标的旋转。可使用下面的复数乘法辅助记忆坐标旋转公式。
 \begin{gather*}
@@ -596,8 +596,8 @@ $ \cos\dfrac{9\pi}{17}+\cos\dfrac{8\pi}{17}=0 $，
 \item 利用如下两个恒等式可计算$ \sum\limits_{k=1}^{n}\cos kx $
 和$ \sum\limits_{k=1}^{n}\sin kx $. 
 \begin{align*}
-    &\sin\left( n+\dfrac{1}{2}\right) x-\sin\left( n-\dfrac{1}{2}\right) x=2\cos nx\sin \dfrac{x}{2} \\
-    &\cos\left( n-\dfrac{1}{2}\right) x-\cos\left( n+\dfrac{1}{2}\right) x=2\sin nx\sin \dfrac{x}{2} 	 		
+    &\sin\left(k+\dfrac{1}{2}\right) x-\sin\left(k-\dfrac{1}{2}\right) x=2\cos kx\sin \dfrac{x}{2} \\
+    &\cos\left(k-\dfrac{1}{2}\right) x-\cos\left(k+\dfrac{1}{2}\right) x=2\sin kx\sin \dfrac{x}{2} 	 		
 \end{align*}
 将$ n $个这样的式子相加可得：
 \begin{align}
@@ -932,20 +932,46 @@ $ f(x) $在$ (T,2T) $上的图像是由$ f(x) $在$ (0,T) $
     =&\  \dfrac{\sqrt[3]{54+3\sqrt{327}}}{3}-\dfrac{1}{\sqrt[3]{54+3\sqrt{327}}}+1
 \end{align*}
 
+\item $ ^* $ $ x_1+x_2+x_3=1,\ x_1^2+x_2^2+x_3^2=2,\ 
+x_1^3+x_2^3+x_3^3=3 $，求$ x_1x_2x_3 $. \\
+\textbf{解}\ 
+\begin{align*}
+    (x_1+x_2+x_3)^2-(x_1^2+x_2^2+x_3^2)=&\ 2(x_1x_2+x_2x_3+x_1x_3)=1-2=-1\\
+    x_1x_2+x_2x_3+x_1x_3=&\ -\frac{1}{2} 
+\end{align*}
+\begin{align*}
+    &\ (x_1+x_2+x_3)^3-(x_1^3+x_2^3+x_3^3)=1-3=-2 \\
+    =&\ 3(x_1^2x_2+x_1x_2^2+x_1^2x_3+x_1x_3^2+x_2^2x_3+x_2x_3^2)+6x_1x_2x_3\\
+    =&\ 3(x_1x_2+x_1x_3+x_2x_3)(x_1+x_2+x_3)-3x_1x_2x_3
+    =-\frac{3}{2}-3x_1x_2x_3
+\end{align*}
+或者
+\begin{align*}
+    & x_1^3+x_2^3+x_3^3-3x_1x_2x_3=3-3x_1x_2x_3  \\
+    =&\  (x_1+x_2+x_3)(x_1^2+x_2^2+x_3^2-x_1x_2-x_2x_3-x_3x_1)\\
+    =&\  1\cdot\left(2+\dfrac{1}{2}\right)=\frac{5}{2}
+\end{align*}
+于是$ x_1x_2x_3=\dfrac{1}{6} $. 
+
+根据韦达定理，$ x_1,x_2,x_3 $实际上是三次方程$ x^3-x^2-\dfrac{1}{2}x-
+\dfrac{1}{6}=0 $的三个根，
+借助求根公式可算出：$ x_1 \approx 1.430849566,x_{2,3}\approx -0.215424783 
+\pm 0.2647131993 i $. 
+
 \item 求复系数二次方程$ (1+\i)x^2+2\i x+3=0 $的两个根。\\
 \textbf{方法一}\ $ \Delta=4\i^2-12(1+\i)=-16-12\i $，设$ \Delta=(a+b\i)^2 $，那么
-$ \begin{cases}
+$ \begin{dcases}
     a^2-b^2 =-16 \\
     2ab =-12
-\end{cases} $ ，解得
-$ \begin{cases}
+\end{dcases} $ ，解得
+$ \begin{dcases}
     a=\sqrt{2} \\
     b=-3\sqrt{2}
-\end{cases} $或
-$ \begin{cases}
+\end{dcases} $或
+$ \begin{dcases}
     a=-\sqrt{2} \\
     b=3\sqrt{2}
-\end{cases} $. 
+\end{dcases} $. 
 于是
 \begin{gather*}
     x_{1,2}=\dfrac{-2\i\pm (\sqrt{2}-3\sqrt{2})\i}{2(1+\i)}=-\dfrac{1}{2}
@@ -957,10 +983,10 @@ $ \begin{cases}
 的外层根号。\\
 \textbf{解}\ 设$ 6+2\sqrt{5}=(a+b\sqrt{5})^2=(a^2+5b^2)+2ab\sqrt{5}$，
 那么
-$ \begin{cases}
+$ \begin{dcases}
     a^2+5b^2 = 6 \\
     2ab = 2
-\end{cases} $ ，解得
+\end{dcases} $ ，解得
 $ a=\pm 1,\ b=\pm 1 $，即$ \sqrt{6+2\sqrt{5}}=1+\sqrt{5} $. \\
 设 $ 2+\sqrt{3}=(c+d\sqrt{3})^2=(c^2+3d^2)+
 2cd\sqrt{3} $，解得$ c=\pm \dfrac{\sqrt{6}}{2},\ d=\pm \dfrac{\sqrt{6}}{6} $，
@@ -1027,10 +1053,10 @@ $ (2\pm\sqrt{3})^4=97\pm 56\sqrt{3} $，
 $ (2\pm \sqrt{3})^5=362\pm 209\sqrt{3} $. 
 根据二项式定理，
 \begin{gather*}
-    \begin{cases}
+    \begin{dcases}
         m_k =\dfrac{1}{2}[(2+\sqrt{3})^k+(2-\sqrt{3})^k] \\ 
         n_k =\dfrac{1}{2\sqrt{3}}[(2+\sqrt{3})^k-(2-\sqrt{3})^k]    
-    \end{cases} , \q  k\in \textbf{N}^+
+    \end{dcases} , \q  k\in \textbf{N}^+
 \end{gather*}
 便是方程$ m^2-3n^2=1 $的通解
 \footnote{形如$ m^2-dn^2=\pm 1 $ 的方程被称为佩尔(Pell)方程
@@ -1222,12 +1248,12 @@ $ \beta+\dfrac{\pi}{3}=\dfrac{\pi}{6},\ \beta=-\dfrac{\pi}{6},
 可得$ \beta=\dfrac{\pi}{2},\ \alpha=\dfrac{11\pi}{6} $，$ z_1,z_2 $结果同上。\\
 \textbf{方法三}\ 设$ z_1=a+b\i,\ z_2=c+d\i $，那么
 \begin{align*}
-    \begin{cases}
+    \begin{dcases}
         a^2+b^2=1 & \mycircled{1}\\ 
         c^2+d^2=1 & \mycircled{2}\\
         a+c=\dfrac{1}{2} &\mycircled{3}\\ 
         b+d=\dfrac{\sqrt{3}}{2} & \mycircled{4}
-    \end{cases}
+    \end{dcases}
 \end{align*}
 用\mycircled{1}$ - $\mycircled{2}可得：
 \begin{align*}
@@ -1270,10 +1296,10 @@ $ z_2 $的轨迹与$ z_1 $一样。
     =&\  \dfrac{1}{2}\cos(2x-(x_1+x_2))+\dfrac{1}{2}\cos(x_1-x_2)
 \end{align*}
 
-\item 已知$ \begin{cases}
+\item 已知$ \begin{dcases}
     x=A\cos(\omega t+a) \\
     y=B\cos(\omega t+b)
-\end{cases}, AB\neq 0 $，求证：
+\end{dcases}, AB\neq 0 $，求证：
 \begin{align}\label{斜椭圆消参例题}
     \dfrac{x^2}{A^2}+\dfrac{y^2}{B^2}-2\dfrac{xy}{AB}\cos(a-b)=\sin^2(a-b)
 \end{align}
@@ -1311,10 +1337,10 @@ $ (x\sin\theta+y\cos\theta) $替换$ y $，展开后，$ xy $的系数为
 让分母取极值的角度，就是长轴或短轴所在的角度。$ \tan2\theta $表达式同上。 
 
 % LiSaRu.m
-\item $^*$ 参数曲线$ \begin{cases}
+\item $^*$ 参数曲线$ \begin{dcases}
     x=A\cos(\omega_1 t+a) \\
     y=B\sin(\omega_2 t+b)
-\end{cases} $ 对应的图形被称为李萨如(Lissajous)图形，大学的理工科学生基本上都会在
+\end{dcases} $ 对应的图形被称为李萨如(Lissajous)图形，大学的理工科学生基本上都会在
 基础物理实验或者电子学实验中接触到李萨如图形。
 选取不同的$ A,B $,$ \omega_1 $,$ \omega_2 $,$ a,b $，可以得到无穷无尽的形状。
 下面固定$ A=B=1 $,$ a=b=0 $，让$ \omega_1 $,$ \omega_2 $
@@ -1326,10 +1352,10 @@ $ (x\sin\theta+y\cos\theta) $替换$ y $，展开后，$ xy $的系数为
 
 % ShangHai_2021GaoKao.m
 \item 
-(2021，上海高考)已知参数方程$ \begin{cases}
+(2021，上海高考)已知参数方程$ \begin{dcases}
     x=3t-4t^3 \\
     y=2t\sqrt{1-t^2}
-\end{cases} ,\ t\in [-1,1] $，下列选项的图中，符合该方程的是哪一个？
+\end{dcases} ,\ t\in [-1,1] $，下列选项的图中，符合该方程的是哪一个？
 \begin{figure}[!htbp]
     \centering
     \includegraphics[width=1\linewidth]{2021上海高考参数曲线-李萨如}
@@ -1342,10 +1368,10 @@ $ (x\sin\theta+y\cos\theta) $替换$ y $，展开后，$ xy $的系数为
 
 事实上，A对应的曲线大致是$ x^4+y^4=1 $. B对应的曲线是
 \begin{align*}
-    \begin{cases}
+    \begin{dcases}
         x=3t-4t^3=3\sin\theta-4\sin^3\theta=\sin3\theta \\
         y=2t\sqrt{1-t^2}=2\sin\theta\cos\theta=\sin2\theta
-    \end{cases},\ t=\sin\theta\in [-1,1],\ 
+    \end{dcases},\ t=\sin\theta\in [-1,1],\ 
     \theta\in[-\dfrac{\pi}{2},\dfrac{\pi}{2}]
 \end{align*}
 这正是李萨如图形。如果让$ \theta $取值的区间长度达到$ 2\pi $，使曲线首尾相连变得完整，
@@ -1406,10 +1432,10 @@ $ \sin\alpha=-\dfrac{1}{\sqrt{10}} $，$\tan\alpha=-\dfrac{1}{3} $，或者$ \co
 \textbf{注}\ 对于已知$ \lambda_1\sin\alpha+\lambda_2\cos\alpha=\lambda_3 $的题目，
 可设$ \lambda_1\cos\alpha-\lambda_2\sin\alpha=\lambda_4 $，
 (注意不是$ \lambda_1\sin\alpha-\lambda_2\cos\alpha=\lambda_4 $)，
-将两式$ \begin{cases}
+将两式$ \begin{dcases}
     \lambda_1\sin\alpha+\lambda_2\cos\alpha=\lambda_3 \\
     \lambda_1\cos\alpha-\lambda_2\sin\alpha=\lambda_4
-\end{cases} $平方后相加可得：
+\end{dcases} $平方后相加可得：
 \begin{gather*}
     \lambda_1^2+\lambda_2^2=\lambda_3^2+\lambda_4^2 
 \end{gather*}
@@ -1549,14 +1575,19 @@ $ M_2^2=\dfrac{M_{n2}^2}{\sin^2(\beta-\theta)}\approx 3.306351 $，那么
 \section{习题}
 \begin{enumerate}[label={\textbf{\arabic*.}},leftmargin=
     \inteval{\myenumleftmargin}pt]
-\item $ y=\cos(x^2) $与$ y=\cos(x^2+1) $，
-将其中一个函数的图像进行平移，能否得到另外一个函数图像？
 
 \item 用数学归纳法证明(\ref{余弦等差连加})和(\ref{正弦等差连加}).   
 
 \item $ ^* $对(\ref{余弦等差连加})和(\ref{正弦等差连加})求导，计算
 $ \sum\limits_{k=1}^{n}k\sin kx $和$ \sum\limits_{k=1}^{n}k\cos kx $. 
 然后再利用数学归纳法证明。
+
+\item 用与得到(\ref{余弦等差连加})和(\ref{正弦等差连加})类似的方法，计算
+$ \sum\limits_{k=1}^{n}\sin(kx+\varphi) $和
+$ \sum\limits_{k=1}^{n}\cos(kx+\varphi) $. 
+
+\item (2025，全国I卷，有改编) 求$f(x)=5\cos x-\cos5x$在
+$\left[0,\dfrac{\pi}{2}\right]$上的最大值。
 
 \item 已知$ 2\sin\alpha+3\cos\alpha=\dfrac{\sqrt{26}}{2} $，求$ \tan2\alpha $.
 (要求使用三种方法。)
@@ -1595,7 +1626,7 @@ $ \sum\limits_{k=1}^{n}k\sin kx $和$ \sum\limits_{k=1}^{n}k\cos kx $.
 (2) $ \sqrt{2}+\sqrt{3}+\sqrt{5} $ \quad 
 (3) $ \sqrt{2}+\sqrt[3]{2} $ 
 
-\item$^*$  用只含$ \cos x $或$ \cos x $的幂的式子表达
+\item$^*$  借助软件，用只含$ \cos x $或$ \cos x $的幂的式子表达
 $ \cos 7x,\cos 8x,\cos 9x $. 
 
 \item$ ^* $ 用软件绘制$ \sin(x^2)+\sin(y^2)=1 $的图像。\\
@@ -1628,17 +1659,7 @@ ContourPlot[Sin[x^2]+Sin[y^2]==1, {x, -10, 10}, {y, -10, 10}]
 \begin{enumerate}[label={\textbf{\arabic*.}},leftmargin=
     \inteval{\myenumleftmargin}pt]
 
-% cos_x2_PingYi.m
-\item 不能。两者图像如下：
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.9\linewidth]{cos(x2)与cos(x2+1)}
-\end{figure} \\
-两者都是偶函数，所以只需考虑$ x>0 $的部分。可以这样思考：
-两个函数从左到右第$ k $个极大值点的横坐标之差不是常数，即
-\begin{gather*}
-    \sqrt{2k\pi}-\sqrt{2k\pi-1}=\dfrac{1}{\sqrt{2k\pi}+\sqrt{2k\pi-1}}\to 0
-\end{gather*}
+\item 略
 
 \item \begin{align*}
     &\sum_{k=1}^{n}k\sin kx=
@@ -1650,7 +1671,46 @@ ContourPlot[Sin[x^2]+Sin[y^2]==1, {x, -10, 10}, {y, -10, 10}]
 \end{align*}
 数学归纳法过程略。
 
-\item 略
+\item 
+\begin{align*}
+    &\sin\left(kx+\varphi+\dfrac{x}{2}\right)-
+    \sin\left(kx+\varphi-\dfrac{x}{2}\right)=
+    2\cos\left(kx+\varphi\right)\sin \dfrac{x}{2} \\
+    &\cos\left(kx+\varphi-\dfrac{x}{2}\right)-
+    \cos\left(kx+\varphi+\dfrac{x}{2}\right)=
+    2\sin\left(kx+\varphi\right)\sin \dfrac{x}{2} 	
+\end{align*}
+将$ n $个这样的式子相加可得：
+\begin{align}
+    \sum_{k=1}^{n}\cos(kx+\varphi)=
+    \dfrac{\sin\left(nx+\varphi+\dfrac{x}{2}\right)-\sin 
+        \left(\varphi+\dfrac{x}{2}\right)}{2\sin \dfrac{x}{2}} 
+        \label{余弦kx+phi求和}  \\
+    \sum_{k=1}^{n}\sin(kx+\varphi)=
+    \dfrac{-\cos\left(nx+\varphi+\dfrac{x}{2}\right)+\cos 
+        \left(\varphi+\dfrac{x}{2}\right)}{2\sin \dfrac{x}{2}}
+        \label{正弦kx+phi求和}
+\end{align}
+
+\item \textbf{方法一}\ $f'(x)=5(\sin5x-\sin x)$，用和差化积公式，
+\begin{gather*}
+    \sin5x-\sin x=\sin(3x+2x)-\sin(3x-2x)=2\cos(3x)\sin(2x) 
+\end{gather*}
+那么$f'(x)$的零点为$0,\ \dfrac{\pi}{6},\ \dfrac{\pi}{2} $，
+\begin{align*}
+    f(0)=5-1=4,\q 
+    f\left(\dfrac{\pi}{6}\right)=3\sqrt{3}, \q
+    f\left(\dfrac{\pi}{2}\right)=0 
+\end{align*}
+所以，$f(x)$最大值为$3\sqrt{3}$. \\
+\textbf{方法二}\ 利用5倍角公式，
+\begin{align*}
+    \cos 5x=\cos(2x+2x+x)=16\cos^5 x- 20\cos^3 x+5\cos x 
+\end{align*}
+那么，$f(x)=-16\cos^5 x+20\cos^3 x $，令$t=\cos x\in[0,1]$，
+$g(t)=-16t^5+20t^3$，则$g'(t)=-80t^4+60t^2=-80t^2\left(t^2-\dfrac{3}{4}\right)$，
+它的零点为$ 0, \dfrac{\sqrt{3}}{2} $，$g(0)=0,\ 
+g\left(\dfrac{\sqrt{3}}{2}\right)=3\sqrt{3} $，后者即为$f(x)$的最大值。
 
 \item 模仿\ref{求tan2a例题}即可，
 $ \tan\alpha=-\dfrac{1}{5},5,\ \tan2\alpha=-\dfrac{5}{12} $.  

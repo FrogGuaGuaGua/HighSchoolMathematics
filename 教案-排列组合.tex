@@ -150,10 +150,13 @@ $ n_i $叫做该分拆的分部量。如果将各个$ n_i $任意交换位置后
 间隔中插入$ k-1 $块隔板，将物品分成$ k $组，所以有序分拆的方法数为$ C_{n-1}^{k-1} $. 
 无序分拆比较复杂，可查阅许胤龙、孙淑玲编著的《组合数学引论》。
 
-\item\label{容斥原理} 容斥原理：以两种性质A和B为例，
-在一个集合中，假设具有性质A的元素的个数为$ n_A $，
-具有性质B的元素的个数为$ n_B $，同时具有性质$ A $和$ B $的元素的
-个数为$ n_{AB} $，那么具有性质A或B的元素个数是$ n_A+n_B-n_{AB} $.
+\item 容斥原理：集合$A,\ B,\ A\cup B,\ A\cap B$中的
+元素个数依次记为$ \mathrm{card}(A) $，$\mathrm{card}(B) $，
+$\mathrm{card}(A\cup B)$，$\mathrm{card}(A\cap B) $，那么有
+\begin{gather}\label{容斥原理公式}
+    \mathrm{card}(A\cup B)=\mathrm{card}(A)+\mathrm{card}(B) 
+    -\mathrm{card}(A\cap B)
+\end{gather}
 请结合下图理解：
 \begin{figure}[H]
     \centering
@@ -173,7 +176,7 @@ $ n_i $叫做该分拆的分部量。如果将各个$ n_i $任意交换位置后
 个数就是$ 28-16=12 $，这12个数依次是1，3，5，9，11，13，15，17，
 19，23，25，27. 请读者按上面的方法说明，小于等于30且与30互质的
 数的个数是8\footnote{这8个数依次是$ 1,7,11,13,17,19,23,29 $.\q 
-    8又恰好是一个字节对应的bit数，这个性质可以用来实现一个巧妙的算法，
+    8又恰好是一个字节包含的bit数，这个性质可以用来实现一个巧妙的算法，
     参见本书作者写的文章《30个整数映射到1个字节，
     查表法实现小范围内常数时间素性判定》\\
     https://zhuanlan.zhihu.com/p/19939334005 }.
@@ -280,16 +283,16 @@ $ D_n=(n-1)(D_{n-1}+D_{n-2}),\ D_1=0,\ D_2=1. $
 $ T_{r+1}=C_n^ra^{n-r}b^rx^{(n-r)\alpha+r\beta} $，
 设$ C_n^m a^{n-m}b^m $是最大的系数，则
 \begin{align}\label{二项式系数最大值不等式组-首次出现}
-    \begin{cases}
+    \begin{dcases}
         C_n^m a^{n-m}b^m\geq C_n^{m-1} a^{n-m+1}b^{m-1} \\
         C_n^m a^{n-m}b^m\geq C_n^{m+1} a^{n-m-1}b^{m+1}
-    \end{cases}
+    \end{dcases}
 \end{align} 
 \begin{align*}
-    \begin{cases}
+    \begin{dcases}
         \dfrac{b}{m}   \geq \dfrac{a}{n-m+1} \\
         \dfrac{a}{n-m} \geq \dfrac{b}{m+1}
-    \end{cases} \quad \Rightarrow \quad 
+    \end{dcases} \quad \Rightarrow \quad 
     \dfrac{bn-a}{a+b} \leq m \leq \dfrac{bn+b}{a+b}
 \end{align*} 
 因为$ \dfrac{bn-a}{a+b}+1=\dfrac{bn+b}{a+b} $，所以不等式组一定有解。

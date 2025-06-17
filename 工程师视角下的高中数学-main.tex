@@ -3,28 +3,18 @@
 %\geometry{b5paper,left=1cm,right=1cm,top=1.5cm,bottom=1.5cm}
 \geometry{b5paper,top=1.5cm,bottom=1.5cm}
 
-\newif\ifteach
-
 \newif\ifte
-\newif\ifChuBanbook
+%\newif\ifChuBanbook
 
-
-\teachtrue
-\tetrue
-%\teachfalse
-\usepackage{amsthm}
 \usepackage{ctex}
 \usepackage{amsmath}
-\usepackage{isomath}
-\usepackage{yhmath}
-\usepackage{amssymb}
+\usepackage{yhmath}    %\wideparen 圆弧符号
+\usepackage{amssymb}   %\leqslant, \geqslant
 \usepackage{extarrows}
 \usepackage{enumerate}
 \usepackage{enumitem}
-
 \usepackage{bm} % 黑体 斜体
-%\usepackage{paralist}
-\usepackage{fancyhdr}
+\usepackage{fancyhdr} % 页眉页脚
 \usepackage{datetime} 
 \usepackage{graphicx}
 \usepackage{wrapfig}
@@ -32,17 +22,21 @@
 \usepackage{fontspec}
 \usepackage{listings} % 代码高亮
 \usepackage{diagbox} % 表格斜线
-\usepackage{esint} % 
-\usepackage{bigints}
 \usepackage{tcolorbox}
-\usepackage{ulem}
-\usepackage[all]{xy}
-\usepackage{mathrsfs}
-\usepackage{float}
-\usepackage{hyperref}
-\usepackage{xfp}
-\usepackage{cases}
+\usepackage{ulem}  % \uline,\uuline, \uwave
+\usepackage{float}  % \begin{figure}[H]
+\usepackage{hyperref}   % 点击跳转超链接
+\usepackage{cases}   % 为了使用numcases
+\usepackage[thicklines]{cancel}   %删除线
+\usepackage{mathtools} % 为了使用dcases
+\usepackage{subcaption}  % \begin{subfigure}
+\usepackage[hang,flushmargin,perpage]{footmisc} % perpage 为每一页脚注单独排序
+\usepackage{tikz}
+\usetikzlibrary{calc,matrix}
+\usepackage{tocloft} 
 
+%\usepackage{fontawesome5}
+    
 \special{dvipdfmx:config z 0}
 
 % \everymath{\displaystyle} % 全文的行内公式都显示行间公式效果
@@ -52,50 +46,27 @@
 %\newCJKfontfamily\KaiTifont{gkai00mp.ttf}
 \newCJKfontfamily\KaiTifont{楷体}
 
-% \usepackage{diagbox} % 表头斜线
-\usepackage[hang,flushmargin,perpage]{footmisc}
-\usepackage{tikz}
-\usetikzlibrary{calc,matrix}
-\usepackage{fontawesome5}
-%\usepackage{upgreek} % \uptau
-%\usepackage{dashrule} %     &\hdashrule{5cm}{1pt}{1pt} \\
 \newcommand*{\mycircled}[1]{\lower.7ex\hbox{\tikz\draw (0pt, 0pt)%
         circle (.4em) node {\makebox[0.5em][c]{\small #1}};}}
 
-% \usepackage{color}
-% \usepackage{draftwatermark}
-%\let\itemize\compactitem
-%\let\enditemize\endcompactitem
-%\let\enumerate\compactenum
-%\let\endenumerate\endcompactenum
-%\let\description\compactdesc
-%\let\enddescription\endcompactdesc
-
 %\setlength{\parindent}{0pt}
 %\setlength{\headheight}{15pt} % 非必须
-
 
 \renewcommand{\thetable}{\thesection{}.\arabic{table}}
 \renewcommand{\thefigure}{\thesection{}.\arabic{table}}
 %\renewcommand{\thefootnote}{} 脚注全没编号了
 %\usepackage{setspace}  %导致行距膨胀
 
-%\usepackage{subfig}
-\usepackage{subcaption}
-
-%\usepackage{subfigure}
-
-\usepackage{tocloft} 
+% 以下3行，依赖 tocloft
 \renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}} %目录 章后面有黑点
-\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}} %目录 节后面有黑点
-% 依赖 tocloft
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}  %目录 节后面有黑点
+\renewcommand{\cftaftertoctitle}{\thispagestyle{empty}} % 目录页不带有页码
 
 %\renewcommand{\today}{\number\year 年 \number\month 月 \number\day 日}
 \renewcommand{\today}{\number\year-\number\month-\number\day}
 
 % 脚注数字带圈
 \renewcommand{\thefootnote}{\ding{\numexpr171+\value{footnote}}}
-%\renewcommand{\thefootnote}{\textcircled{\@arabic\c@footnote}}
 
 \newcommand{\myfootnote}[1]{
     \renewcommand{\thefootnote}{}
@@ -110,59 +81,42 @@
     -- ++(0.2em, 1.2ex) -- ++(-0.8em, 0ex)
     -- cycle;} } }
         
-%%%%%%%%%%%
 \renewcommand{\chaptermark}[1]{\markboth{第\,\thechapter\,章\quad #1}{}}
 \renewcommand{\sectionmark}[1]{\markright{\thesection\ \ #1}{}}
-%\pagestyle{fancy}
+
 \pagestyle{empty}
-\fancyhead{} % clear all fields 
+\fancyhead{}    % 清空页眉
 \fancyhead[LO]{\small \Bookname}
 \fancyhead[RE]{\small \Bookname}
-
-%\fancyhead[C]{\small \rightmark}
-\fancyhead[CO]{\small \rightmark}
-\fancyhead[CE]{\small \leftmark}
-%\fancyhead[CE]{\Bookname}
-%\fancyhead[CO]{\rightmark}
+\fancyhead[CO]{\small \rightmark}  % \rightmark 节标题
+\fancyhead[CE]{\small \leftmark}   % \leftmark  章标题
 \fancyhead[RO]{\textbf{\thepage}}
 \fancyhead[LE]{\textbf{\thepage}}
-%\fancyfoot{}
-\fancyfoot[L]{\scriptsize 本PDF文件免费，请经常上https://github.com/FrogGuaGuaGua/HighSchoolMathematics
-    下载最新版本，网址中的github也能换成gitee，访问更加稳定。}
-\fancyfoot[C]{}
-%\fancyfoot[C]{\rightmark}
-%\lhead{}
-%\lfoot{{\small }}
-%\chead{}
-%\rhead{工程师视角下的高中数学 \quad 作者：蒋力夫\quad 修订日期：\today} 
-%\rhead{\quad 作者：蒋力夫\quad 修订日期：\today} 
-%\rfoot{{\scriptsize \quad 作者：蒋力夫\quad 修订日期：\today}} 
 
-
-%\let\itemize\compactitem
-%\let\enditemize\endcompactitem
-%\let\enumerate\compactenum
-%\let\endenumerate\endcompactenum
-%\let\description\compactdesc
-%\let\enddescription\endcompactdesc
-
-
-\newcommand{\q}{\quad}
-\renewcommand{\vec}{\overrightarrow}
-
-\renewcommand{\Re}{\mathrm{Re}}
-\renewcommand{\Im}{\mathrm{Im}}
-  \newcommand{\e}{\mathrm{e}}
-\renewcommand{\d}{\mathrm{d}}
-\renewcommand{\i}{\mathrm{i}}
-\renewcommand{\mod}{\ \mathrm{mod}\ } 
-\newcommand{\disp}{\displaystyle}
+\fancyfoot[C]{}  % 清空页脚
+\fancyfoot[LO]{
+ \scriptsize
+ 本PDF文件免费，请经常上https://github.com/FrogGuaGuaGua/HighSchoolMathematics
+ 下载最新版本，网址中的github也能换成gitee，访问更加稳定。}
+\renewcommand{\footrulewidth}{0.4pt} % 线宽
+\renewcommand{\footrule}{\ifodd\value{page}\hrule width\headwidth height
+    \footrulewidth \vskip+\footrulewidth \fi}  % 给\fancyfoot上加横线
 
 \let\leqstore\leq
 \let\geqstore\geq
 
-\renewcommand\leq\leqslant
-\renewcommand\geq\geqslant
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\vec}{\overrightarrow}
+\renewcommand{\Re}{\mathrm{Re}}
+\renewcommand{\Im}{\mathrm{Im}}
+\renewcommand{\d}{\mathrm{d}}
+\renewcommand{\i}{\mathrm{i}}
+\renewcommand{\mod}{\ \mathrm{mod}\ } 
+
+\newcommand{\q}{\quad}
+\newcommand{\e}{\mathrm{e}}
+\newcommand{\disp}{\displaystyle}
 
 \usepackage[center]{titlesec} %chapter1修改为第1章
 \titleformat{\chapter}{\raggedright\Huge\bfseries}{第\,\thechapter\,章}{1em}{}
@@ -181,16 +135,12 @@
 \setlength{\textfloatsep}{5pt plus 2pt minus 2pt}
 \setlength{\intextsep}{5pt plus 2pt minus 2pt}
 
-%\numberwithin{equation}{section}​
 \allowdisplaybreaks
-%\maketitle
+
 \columnseprule=0.5pt 
 
 \newcommand{\Bookname}{工程师视角下的高中数学}
 \newcommand{\CopyrightStatementChap}{当前版本：\today.\quad 蒋力夫版权所有，销售电子版或复印版将被追究法律责任！}
-
-\title{\Bookname}
-\author{蒋力夫}
 
 \lstset{
     backgroundcolor = \color{gray!15},    % 背景色：灰色
@@ -233,19 +183,27 @@
 %\includeonly{教案-解析几何}
 %\includeonly{教案-矩阵和行列式}
 %\includeonly{教案-小考点}
-%%\includeonly{教案-进一步探索}
+%\includeonly{教案-进一步探索}
 %\includeonly{教案-Latex排版入门}
+
 \begin{document}
 \numberwithin{equation}{chapter}​
+%\numberwithin{equation}{section}​
 \columnseprule=0.5pt 
 
-编译日期：\today
-    
+\title{\Bookname}
+\author{蒋力夫}
+\date{编译日期：\today}
+\maketitle
+\cleardoublepage 
+ 
 \tableofcontents
-\thispagestyle{empty}
+
+\newpage 
+
 
 %    \include{教案-前言} 
-        \pagestyle{fancy} 
+     \pagestyle{fancy} 
         \setcounter{page}{1}
     \include{教案-函数}
     \include{教案-排列组合}
@@ -253,13 +211,24 @@
     \include{教案-复数与三角函数}
     \include{教案-向量与解三角形}
     \include{教案-导数与积分}
-    %%%%%%%%%%%
     \include{教案-不等式}
-    \include{教案-数列}  % 包含\lstset
+    \include{教案-数列} 
     \include{教案-解析几何}
     \include{教案-矩阵和行列式}   
     \include{教案-小考点}
     \include{教案-进一步探索}
+    
+    \newgeometry{inner=1.2cm,outer=0.8cm,top=1.5cm,bottom=1.5cm}
+    \chapter{全书知识点汇总}
+    \tefalse
+    \section{空白自测版}
+    \input{教案-全书知识点汇总}
+    \clearpage
+    \tetrue
+    \section{带答案版}
+    \input{教案-全书知识点汇总}
+    \restoregeometry
+    
 %   \include{教案-Latex排版入门}
 %    \include{教案-杂谈}
 %    \include{教案-感谢名单}

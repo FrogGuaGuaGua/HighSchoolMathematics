@@ -1,163 +1,27 @@
-\documentclass{article}
-\usepackage{geometry}
-\geometry{a4paper,left=8mm,right=1cm,top=1.5cm,bottom=1.5cm}
 
-\newif\ifte
+%\columnseprule=0.5pt 
+%\columnsep=8pt
 
-%\tetrue
-\tefalse
-% \tetrue会显示答案，\tefalse则会隐藏答案。
-
-\usepackage{amsthm}
-\usepackage{ctex}
-\usepackage{amsmath}
-\usepackage{yhmath}
-\usepackage{amssymb}
-\usepackage{extarrows}
-\usepackage{enumerate}
-\usepackage{enumitem}
-
-\usepackage{bm} % 黑体 斜体
-\usepackage{fancyhdr}
-\usepackage{datetime} 
-\usepackage{graphicx}
-\usepackage{wrapfig}
-\usepackage{pifont} %脚注改带圈数字必须
-\usepackage{fontspec}
-\usepackage{listings} % 代码高亮
-\usepackage{diagbox} % 表格斜线
-\usepackage{esint} % 
-\usepackage{bigints}
-\usepackage{tcolorbox}
-\usepackage{ulem}
-\usepackage[all]{xy}
-\usepackage{mathrsfs}
-\usepackage{float}
-\usepackage{hyperref}
-\usepackage{xfp}
-\usepackage{multicol}
-
-\special{dvipdfmx:config z 0}
-
-% \everymath{\displaystyle} % 全文的行内公式都显示行间公式效果
-% \setCJKmainfont[BoldFont=SimHei]{SimSun}
-%\setCJKmainfont[BoldFont=SourceHanSansCN-Bold]{SourceHanSerifCN-Regular}
-%\setCJKmainfont[BoldFont=OPPOSans-B]{SourceHanSerifCN-Regular}
-%\newCJKfontfamily\KaiTifont{gkai00mp.ttf}
-%\newCJKfontfamily\KaiTifont{楷体}
-
-% \usepackage{diagbox} % 表头斜线
-\usepackage[hang,flushmargin,perpage]{footmisc}
-\usepackage{tikz}
-\usetikzlibrary{calc,matrix}
-
-\renewcommand{\today}{\number\year-\number\month-\number\day}
-
-% 脚注数字带圈
-\renewcommand{\thefootnote}{\ding{\numexpr171+\value{footnote}}}
-%\renewcommand{\thefootnote}{\textcircled{\@arabic\c@footnote}}
-
-\newcommand{\myfootnote}[1]{
-    \renewcommand{\thefootnote}{}
-    \footnotetext{\scriptsize#1}
-    %    \renewcommand{\thefootnote}{\arabic{footnote}}
-    \renewcommand{\thefootnote}{\ding{\numexpr171+\value{footnote}}}
-}
-\newcommand\parallelogram
-{\mathord{\text{
-            \tikz[baseline] 
-            \draw (0em, .1ex) -- ++(0.8em, 0ex) 
-            -- ++(0.2em, 1.2ex) -- ++(-0.8em, 0ex)
-            -- cycle;} } }
-
-%%%%%%%%%%%
-\pagestyle{fancy}
-%\pagestyle{empty}
-%\fancyhead{} % clear all fields 
-%%\fancyhead[LO]{\small \Bookname}
-%%\fancyhead[RE]{\small \Bookname}
-%
-%%\fancyhead[C]{\small \rightmark}
-%\fancyhead[CO]{\small \rightmark}
-%\fancyhead[CE]{\small \leftmark}
-%%\fancyhead[CE]{\Bookname}
-%%\fancyhead[CO]{\rightmark}
-%\fancyhead[RO]{\textbf{\thepage}}
-%\fancyhead[LE]{\textbf{\thepage}}
-%\fancyfoot{}
-%\fancyfoot[C]{\rightmark}
-%\lhead{}
-%\lfoot{{\small }}
-\chead{\scriptsize《工程师视角下的高中数学》知识点汇总，PDF文件免费下载地址 \\
- https://github.com/FrogGuaGuaGua/HighSchoolMathematics}
-\rhead{}
-%\rhead{\quad 作者：蒋力夫\quad 修订日期：\today} 
-%\lfoot{{\scriptsize \quad 作者：蒋力夫\quad 修订日期：\today}} 
-\lfoot{ {\footnotesize \quad 作者：蒋力夫\quad 修订日期：\today}}
-
-
-\newcommand{\q}{\quad}
-\renewcommand{\vec}{\overrightarrow}
-
-\renewcommand{\Re}{\mathrm{Re}}
-\renewcommand{\Im}{\mathrm{Im}}
-\newcommand{\e}{\mathrm{e}}
-\renewcommand{\d}{\mathrm{d}}
-\renewcommand{\i}{\mathrm{i}}
-\renewcommand{\mod}{\ \mathrm{mod}\ } 
-\newcommand{\disp}{\displaystyle}
-
-\let\leqstore\leq
-\let\geqstore\geq
-
-\renewcommand\leq\leqslant
-\renewcommand\geq\geqslant
-
-\AtBeginDocument{
-    \addtolength{\abovedisplayskip}{-1ex}
-    \addtolength{\abovedisplayshortskip}{-1ex}
-    \addtolength{\belowdisplayskip}{-1ex}
-    \addtolength{\belowdisplayshortskip}{-1ex}
-}
-\linespread{1.4}
-\setlength{\floatsep}{5pt plus 2pt minus 2pt}
-\setlength{\textfloatsep}{5pt plus 2pt minus 2pt}
-\setlength{\intextsep}{5pt plus 2pt minus 2pt}
-
-%\numberwithin{equation}{section}​
-\allowdisplaybreaks
-%\maketitle
-\columnseprule=0.5pt 
-\columnsep=8pt
-\graphicspath{ {./PDF_Picture/} }
-
-\begin{document}
 \begin{multicols}{2}    
-
-\noindent 带*表示难度较大或者不方便设置待填空白的知识点。\\
-\\
-网页版数学工具：\\
-WolframAlpha\ (https://www.wolframalpha.com/) \\
-GeoGebra\ (https://www.geogebra.org/) \\
-Desmos\ (https://www.desmos.com).\\
-
 
 \begin{enumerate}[leftmargin=20pt]
 
-\section{函数}
+{\small
+\subsection{函数}
 \item 求$ y=\dfrac{Ax+B}{Cx+D}\ (AD-BC\neq 0) $的值域 
     \ifte \else (只需写出计算方法，无需具体结果) \fi：\\
-\ifte  \underline{\ $ y=\dfrac{A}{C}\cdot\dfrac{x+
-\dfrac{D}{C}-\dfrac{D}{C}+ \dfrac{B}{A}}{x+\dfrac{D}{C}}
+\ifte  \underline{ {\scriptsize $
+y= \dfrac{A}{C}\cdot\dfrac{x+
+    \dfrac{D}{C}-\dfrac{D}{C}+ \dfrac{B}{A}}{x+\dfrac{D}{C}} \\
 =\dfrac{A}{C}\cdot\left(
-1+\dfrac{-\dfrac{D}{C}+\dfrac{B}{A}}{x+\dfrac{D}{C}}\right)
- $ } \else \\ \underline{\  \hspace{8cm}\ } \fi .
+1+\dfrac{-\dfrac{D}{C}+\dfrac{B}{A}}{x+\dfrac{D}{C}}\right)$} }
+ \else \\ \underline{\  \hspace{6cm}\ } \fi .
 
 \item 设$ k>0,\ b>0 $，则$ y=kx+\dfrac{b}{x} $与
 $ y=kx-\dfrac{b}{x} $的图像如下，这两种函数都是双曲线，
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\linewidth]{两种双曲线_双钩与递增}
+    \includegraphics[width=0.5\linewidth]{两种双曲线_双钩与递增}
 \end{figure}
 当$ x>0 $时，
 $ y=kx+\dfrac{b}{x} $在$ x=\underline{\ \ifte \sqrt{\dfrac{b}{k}}
@@ -177,10 +41,11 @@ $ y=\dfrac{x+C}{x^2+Ax+B} $\ \ding{173}的值域
     x^2+(A-y)x+B-yC=0 \\
     \Delta=(A-y)^2-4(B-yC) \geq 0
 \end{gather*}
-\else \vspace{1.5cm} \fi  
-要绘制\ding{172}或\ding{173}的图像，可以先绘制
-$ y=(x^2+Ax+B)(x+C) $的图像，因为这个三次函数的正负号
-与\ding{172}或\ding{173}式的正负号是一致的。
+\else \vspace{1cm} \fi  
+
+要绘制\ding{172}或\ding{173}的图像，
+可以先绘制$ y=(x^2+Ax+B)(x+C) $的图像，
+因为这个三次函数的正负号与\ding{172}或\ding{173}式的正负号是一致的。
 
 \item 求$ y=\dfrac{\sqrt{Ax^2+B}}{Cx^2+D} $的值域，先提取系数，\\
 $ y=\dfrac{\sqrt{A}}{C}\cdot\dfrac{\sqrt{x^2+\frac{B}{A}}}{
@@ -231,25 +96,25 @@ $ \log_{a^n} M= $\underline{\ \ifte
 换底公式：$ \log_a M= $\underline{\ \ifte 
     $ \dfrac{\log_b M}{\log_b a} $ \else \hspace{2cm} \fi\ }.
 
-\item 常见函数方程\ifte \else (写出符合以下等式的函数) \fi：
-\begin{align*}
+\item 写出符合以下函数方程的函数：
+{\footnotesize \begin{align*}
 &f(x_1+x_2)=f(x_1)+f(x_2)   	
-    &\underline{\ \ifte kx\else \hspace{1cm} \fi\ } \\
+    &\underline{\ \ifte kx\else \hspace{0.7cm} \fi\ } \\
 &f\left(\dfrac{x_1+x_2}{2}\right) =\dfrac{f(x_1)+f(x_2)}{2}  
-    &\underline{\ \ifte kx+b\else \hspace{1cm} \fi\ }\\
+    &\underline{\ \ifte kx+b\else \hspace{0.7cm} \fi\ }\\
 &f(x_1x_2)=f(x_1)f(x_2)   	
-    & \underline{\ \ifte x^{\alpha}\else \hspace{1cm} \fi\ }\\
+    & \underline{\ \ifte x^{\alpha}\else \hspace{0.7cm} \fi\ }\\
 &f(x_1+x_2)=f(x_1)f(x_2)   	
-    &\underline{\ \ifte a^x\else \hspace{1cm} \fi\ }\\
+    &\underline{\ \ifte a^x\else \hspace{0.7cm} \fi\ }\\
 &f(x_1x_2)=f(x_1)+f(x_2)   	
-    &\underline{\ \ifte \log_{a}x\else \hspace{1cm} \fi\ } \\
+    &\underline{\ \ifte \log_{a}x\else \hspace{0.7cm} \fi\ } \\
 &f(x_1x_2)=x_2f(x_1)+x_1f(x_2)   	
-    &\underline{\ \ifte x\log_{a}x\else \hspace{1cm} \fi\ } \\
+    &\underline{\ \ifte x\log_{a}x\else \hspace{0.7cm} \fi\ } \\
 & f(x_1+x_2)+f(x_1-x_2)=2\lambda f(x_1)f(x_2)
-    &\underline{\ \ifte \dfrac{1}{\lambda}\cos x \else \hspace{1cm} \fi\ } \\
+    &\underline{\ \ifte \dfrac{1}{\lambda}\cos x \else \hspace{0.7cm} \fi\ } \\
 & f(x_1+x_2)= f(x_1)+f(x_2)+2\lambda x_1x_2
-    &\underline{\ \ifte \lambda x^2+\mu x \else \hspace{1cm} \fi\ } 
-\end{align*}
+    &\underline{\ \ifte \lambda x^2+\mu x \else \hspace{0.7cm} \fi\ } 
+\end{align*} }
 
 \item $^*$ $ f(x)=\ln \dfrac{1+x}{1-x} $或$ f(x)=\ln \dfrac{1-x}{1+x} $，则
 \begin{gather*}
@@ -340,7 +205,7 @@ $ ax+\dfrac{b}{x^2}=\dfrac{1}{2}ax+\dfrac{1}{2}ax+\dfrac{b}{x^2} \geq
 
 \item $\ f_1(x)=f(x)=\dfrac{1+x}{1-x},\ f_{n+1}(x)=f(f_n(x)) $，
 $ n\in \textbf{N}^+ $，$ k\in \textbf{N} $，
-则 $ f_{4k+1}(x)=\underline{\ \ifte 
+则\\ $ f_{4k+1}(x)=\underline{\ \ifte 
 \dfrac{1+x}{1-x} \else \hspace{1cm} \fi\ } $,
 $ f_{4k+2}(x)=\underline{\ \ifte -\dfrac{1}{x}
 \else \hspace{1cm} \fi\ } $, \\ $ f_{4k+3}(x)=\underline{\ \ifte 
@@ -348,7 +213,7 @@ $ f_{4k+2}(x)=\underline{\ \ifte -\dfrac{1}{x}
 $ f_{4k+4}(x)=\underline{\ \ifte x\else \hspace{1cm} \fi\ } $.
 
 
-\section{排列、组合与二项式定理}
+\subsection{排列、组合与二项式定理}
 \item 排列数：$ P_n^k= $\underline{\ \ifte $ \dfrac{n!}{(n-k)!} $
      \else \hspace{2cm} \fi\ }，或者写成$ A_n^k $. 
 
@@ -361,7 +226,7 @@ $ \dfrac{n!}{k!(n-k)!} $ \else \hspace{2cm} \fi\ }. \\
 $ \sum\limits_{k=0}^nC_n^ka^kb^{n-k} $ \else \hspace{2cm} \fi\ }.
 
 \item $ (a+b+c)^2 = $\underline{\ \ifte 
-    $ a^2+b^2+c^2+2(ab+ac+bc) $ \else \hspace{5cm} \fi\ }. \\
+    $ a^2+b^2+c^2+2(ab+ac+bc) $ \else \hspace{4.5cm} \fi\ }. \\
 $ (\vec{a}+\vec{b}+\vec{c})^2 $的结果类似。
 
 \item 杨辉三角：
@@ -385,20 +250,19 @@ $ (\vec{a}+\vec{b}+\vec{c})^2 $的结果类似。
 第$ n+1 $行的系数之和为$ \sum\limits_{k=0}^{n} C_n^k=
 \underline{\ \ifte 2^{n} \else \hspace{2cm} \fi\ } $.
 
-\item $^*$ 偶数件不同物品中选出奇数件物品的方法数
-$ C_{2n}^1 $，$ C_{2n}^3 $，$ C_{2n}^5,\cdots $都是
-\underline{\ \ifte 偶\else \hspace{0.5 cm} \fi\ }数。
+\item $^*$ $ C_{2n}^1 $，$ C_{2n}^3 $，$ C_{2n}^5,\cdots,C_{2n}^{2m-1}\ (1\leq m\leq n) $
+都是\underline{\ \ifte 偶\else \hspace{0.5 cm} \fi\ }数。
 (填“奇”或“偶”)
 
 \item $^*$ 组合恒等式：
 \begin{align*}
 &\sum_{k=r}^{n} C_k^r=\underline{\ \ifte C_{n+1}^{r+1}
-     \else \hspace{1.5cm} \fi\ },\q
-\sum_{k=0}^{r}C_m^kC_n^{r-k}=\underline{\ \ifte 
+     \else \hspace{2cm} \fi\ } \\
+&\sum_{k=0}^{r}C_m^kC_n^{r-k}=\underline{\ \ifte 
     C_{n+m}^r \else \hspace{2cm} \fi\ }  \\
 &\sum_{k=1}^{n} kC_n^k=\underline{\ \ifte n\cdot2^{n-1} 
-     \else \hspace{1.5cm} \fi\ },\q 
-\sum_{k=1}^{n} k^2C_n^k=\underline{\ \ifte 
+     \else \hspace{2cm} \fi\ } \\ 
+&\sum_{k=1}^{n} k^2C_n^k=\underline{\ \ifte 
     n(n+1)\cdot2^{n-2} \else \hspace{2cm} \fi\ } 
 \end{align*}
 
@@ -417,19 +281,20 @@ $ C_{2n}^1 $，$ C_{2n}^3 $，$ C_{2n}^5,\cdots $都是
 \end{gather*}
 设$ C_n^m a^{n-m}b^m $是最大的系数，则
 \begin{align*}
-\begin{cases}
+\begin{dcases}
     C_n^m a^{n-m}b^m\geq \underline{\ \ifte 
       C_n^{m-1} a^{n-m+1}b^{m-1} \else \hspace{3cm} \fi\ } \\
     C_n^m a^{n-m}b^m\geq \underline{\ \ifte 
       C_n^{m+1} a^{n-m-1}b^{m+1}\else \hspace{3cm} \fi\ }
-\end{cases}
+\end{dcases}
 \end{align*} 
 
-\item 设$ k\in \mathbf{N} $，在从$ 30k+1 $到$ 30k+30 $
+\item 设$ k\in \mathbf{N} $，在$ 30k+1 $到$ 30k+30 $
 这连续30个整数中，不是2或3或5的倍数的整数一共有
-\underline{\ \ifte 8 \else \hspace{0.5 cm} \fi\ } 个。
+\underline{\ \ifte 8 \else \hspace{0.5 cm} \fi\ } 个
+\ifte (恰好是一个字节包含的bit数) \else \fi。
 
-\section{概率论与数理统计}
+\subsection{概率论与数理统计}
 
 \item 给定正整数集合$ S=\{k_1,k_2,\cdots,k_n\} $，定义多项式
 $ f(x)=(1+x^{k_1})(1+x^{k_2})\cdots (1+x^{k_n}) $，则
@@ -441,7 +306,7 @@ $ m\ (m\in \textbf{N}) $的子集的方法数。
 \sum\limits_{i=1}^{n}x_ip_i \else \hspace{2cm} \fi\ } $，\\ 
 性质：$ E(aX+b)=\underline{\ \ifte
 aE(X)+b \else \hspace{2cm} \fi\ } $. \\
-方差：$ D(X)=E\{[X-E(X)]^2\}=\underline{\ \ifte E(X^2)-[E(X)]^2
+方差：$ D(X)=E\{[X-E(X)]^2\}=\\ \underline{\ \ifte E(X^2)-[E(X)]^2
 \else \hspace{2cm} \fi\ } $，\\ 性质：$ D(aX+b)=\underline{\ \ifte
 a^2D(X) \else \hspace{2cm} \fi\ } $. 
 
@@ -544,7 +409,7 @@ $ \dfrac{nD}{N} $\else \hspace{1cm} \fi\ }，
 \end{align*} 
 $ \chi^2 $越大，说明“$ X $与$ Y $有关系”成立的可能性越大。
 
-\section{三角函数}
+\subsection{三角函数}
 \item 正余弦和角、差角公式：
 \begin{align*} 
     \cos(\alpha\pm\beta )=&\ \underline{\ \ifte 
@@ -556,12 +421,12 @@ $ \chi^2 $越大，说明“$ X $与$ Y $有关系”成立的可能性越大。
 \end{align*}
 
 \item 二倍角公式：
-\begin{align*}
+{\footnotesize \begin{align*}
     & \sin 2x=\underline{\ \ifte 2\sin x\cos x
         \else \hspace{3cm} \fi\ } \\    
-    & \cos 2x=\underline{\ \ifte 2\cos^2 x-1=1-2
+    & \cos 2x=\underline{\ \ifte  2\cos^2 x-1=1-2
      \sin^2 x=\cos^2 x- \sin^2 x\else \hspace{5cm} \fi\ }
-\end{align*}
+\end{align*} }
 \ifte \else (余弦二倍角需写出三种形式) \fi
 
 \item $^*$ 三倍角公式：
@@ -633,11 +498,11 @@ $ \chi^2 $越大，说明“$ X $与$ Y $有关系”成立的可能性越大。
     &\sum_{k=1}^{n}\cos kx=\underline{\ \ifte 
     \dfrac{\sin\left( n+\dfrac{1}{2}\right) x-\sin 
         \dfrac{x}{2}}{2\sin \dfrac{x}{2}}    
-        \else \hspace{5cm} \fi\ }  \\
+        \else \hspace{4.5cm} \fi\ }  \\
     &\sum_{k=1}^{n}\sin kx=\underline{\ \ifte 
         \dfrac{-\cos\left( n+\dfrac{1}{2}\right) x+\cos 
         \dfrac{x}{2}}{2\sin \dfrac{x}{2}}
-        \else \hspace{5cm} \fi\ }
+        \else \hspace{4.5cm} \fi\ }
 \end{align*}
 
 \item $^*$ $ \cos\dfrac{x}{2} \cos\dfrac{x}{4}\cdots\cos\dfrac{x}{2^n}
@@ -648,12 +513,12 @@ $ \chi^2 $越大，说明“$ X $与$ Y $有关系”成立的可能性越大。
 \begin{align*} 
     &\sin A +\sin B +\sin C =\underline{\ \ifte 
         4\cos\left(\tfrac{A}{2}\right)\cos\left(\tfrac{B}{2}\right)
-        \cos\left(\tfrac{C}{2}\right)\else \hspace{4cm} \fi\ }  \\
+        \cos\left(\tfrac{C}{2}\right)\else \hspace{3cm} \fi\ }  \\
     &\cos A +\cos B +\cos C =\underline{\ \ifte 
         1+4\sin\left(\tfrac{A}{2}\right)\sin\left(\tfrac{B}{2}\right)
-        \sin\left(\tfrac{C}{2}\right)\else \hspace{4cm} \fi\ }  \\
+        \sin\left(\tfrac{C}{2}\right)\else \hspace{3cm} \fi\ }  \\
     &\tan A+\tan B +\tan C =\underline{\ \ifte 
-        \tan A \tan B\tan C \else \hspace{4cm} \fi\ } \\
+        \tan A \tan B\tan C \else \hspace{3cm} \fi\ } \\
     &\tan\left(\tfrac{A}{2}\right)\tan\left(\tfrac{B}{2}\right)+
     \tan\left(\tfrac{B}{2}\right)\tan\left(\tfrac{C}{2}\right)+\\
     &\tan\left(\tfrac{A}{2}\right)\tan\left(\tfrac{C}{2}\right)=
@@ -717,7 +582,7 @@ $ (\mathrm{arccosh} x)'=\underline{\ \ifte \dfrac{1}{\sqrt{x^2-1}}
 平方差关系：$ (\cosh x)^2-(\sinh x)^2=\underline{\ \ifte 1
     \else \hspace{0.5cm} \fi\ } $.
 
-\section{复数}
+\subsection{复数}
 \item 虚数单位$ \i $的整数次幂的周期性：\\
 $ \i^{4n}=\underline{\ \ifte 1\else \hspace{0.4cm} \fi\ } $，\  
 $ \i^{4n+1}=\underline{\ \ifte \i\else \hspace{0.4cm} \fi\ } $，\  
@@ -758,7 +623,7 @@ $ |z_1+z_2|^2+|z_1-z_2|^2=\underline{\ \ifte
 \underline{\ \ifte $ a=x^2-y^2,\ b=2xy $\else \hspace{4cm} \fi\ }.
 
 \item 欧拉公式$ \e^{\i x}=\underline{\ \ifte 
-    \cos x+\i\sin x\else \hspace{2cm} \fi\ } $.
+    \cos x+\i\sin x\else \hspace{3cm} \fi\ } $.
 
 \item $^*$ 自然对数的底数$ \e=2.718281828 \cdots $的定义：
 \begin{align*}
@@ -780,7 +645,7 @@ $ n $次单位根，复数范围内，$ x $共有$ n $个不同的值，分别�
 =\underline{\ \ifte $ (x\cos\theta-y\sin\theta)+
 \i(x\sin\theta+y\cos\theta) $\else \hspace{5cm} \fi\ }(坐标旋转公式).
 
-\section{向量}
+\subsection{向量}
 
 \item 零向量具有任意方向。
 
@@ -789,7 +654,7 @@ $ n $次单位根，复数范围内，$ x $共有$ n $个不同的值，分别�
 \begin{gather*}
     \vec{a}\cdot\vec{b}=|\vec{a}||\vec{b}|
     \cos \langle\vec{a},\vec{b}\rangle=\underline{\ \ifte 
-     a_1b_1+a_2b_2+a_3b_3\else \hspace{3cm} \fi\ }
+     a_1b_1+a_2b_2+a_3b_3\else \hspace{2.5cm} \fi\ }
 \end{gather*}
 $ \vec{a},\vec{b} $的夹角的余弦为
 \begin{gather*}
@@ -870,7 +735,7 @@ $ \mu=\underline{\ \ifte \dfrac{\sin(t\theta)}{\sin(\theta)}
     \includegraphics[width=0.4\linewidth]{单位圆上3个向量v1v2合成v四元数背景}
 \end{figure} 
 
-\section{解三角形}
+\subsection{解三角形}
 \item 外心：三条\underline{\ \ifte 中垂\else \hspace{1.5cm} \fi\ }线的交点；\\
 内心：三条\underline{\ \ifte 角平分\else \hspace{1.5cm} \fi\ }线的交点；\\
 重心：三条\underline{\ \ifte 中\else \hspace{1.5cm} \fi\ }线的交点；\\
@@ -916,14 +781,14 @@ $ R $为三角形外接圆半径。
 同时保持$ A+B+C=\pi $，那么有嵌入不等式
 \begin{align*}
     x^2+y^2+z^2 \geq \underline{\ \ifte 2yz\cos A+
-    2zx\cos B + 2xy\cos C\else \hspace{5cm} \fi\ }
+    2zx\cos B + 2xy\cos C\else \hspace{4cm} \fi\ }
 \end{align*}
 
 \item $ (a^2-b^2)^2+(2ab)^2=(\underline{\ \ifte a^2+b^2
     \else \hspace{1cm} \fi\ })^2 $，具有勾股定理的形式。
-让$ a,b (a\neq b) $取正整数，就能得到勾股数，比如 \\ 
-$ (3,4,5) $, $ (5,12,13) $, $ (7,24,25) $, $ (8,15,17) $, 
-$ (9,40,41) $, $ (11,60,61) $, $ (20,21,29) $.
+让$ a,b (a\neq b) $取正整数，就能得到勾股数，比如 
+ (3,4,5), (5,12,13), (7,24,25), (8,15,17), 
+ (9,40,41), (11,60,61), (20,21,29).
 
 \item 把上一条中的$ a^2 $换成$ \vec{a} $，$ b^2 $换成$ \vec{b} $，
 实数乘法换成向量点乘，就得到向量的极化恒等式：
@@ -935,7 +800,7 @@ $ (9,40,41) $, $ (11,60,61) $, $ (20,21,29) $.
 \item 对于$ \Delta ABC $，$ R $为外接圆半径，$ r $为内切圆半径，
 $ p=\dfrac{a+b+c}{2} $为三角形周长的一半，三角形的面积公式有：\\
 两边夹角：\underline{\ \ifte $ \dfrac{1}{2}ab\sin C=\dfrac{1}{2}
-bc\sin A=\dfrac{1}{2}ac\sin B $\else \hspace{6cm} \fi\ }. \\
+bc\sin A=\dfrac{1}{2}ac\sin B $\else \hspace{4.5cm} \fi\ }. \\
 只含$ R,A,B,C $：\underline{\ \ifte 
 $ 2R^2\sin A\sin B\sin C $\else \hspace{2cm} \fi\ }. \\
 只含$ R,a,b,c $：\underline{\ \ifte 
@@ -945,7 +810,7 @@ $ \dfrac{abc}{4R} $\else \hspace{2cm} \fi\ }. \\
 $ \sqrt{p(p-a)(p-b)(p-c)} $\else \hspace{4cm} \fi\ }. 
 
 \item $ r $为内切圆半径，则$ r=\underline{\ \ifte 
-    \sqrt{\dfrac{(p-a)(p-b)(p-c)}{p}}\else \hspace{2cm} \fi\ } $
+    \sqrt{\frac{(p-a)(p-b)(p-c)}{p}}\else \hspace{2cm} \fi\ } $
 \ifte \else (用$ p,a,b,c $表示)\fi.
 
 \item $^*$ 对于$ \Delta ABC $，外森比克不等式：
@@ -1006,7 +871,7 @@ $ AD $是\underline{\ \ifte $ \angle BAC $的角平分线
     \else \hspace{4cm} \fi\ }。
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.3\linewidth]{三角形的内角平分线定理}
+    \includegraphics[width=0.4\linewidth]{三角形的内角平分线定理}
 \end{figure}
 
 \item (皮克公式)横纵坐标均为整数的点称为格点，所有顶点均在格点的
@@ -1015,16 +880,16 @@ $ AD $是\underline{\ \ifte $ \angle BAC $的角平分线
 \underline{\ \ifte $ N+\dfrac{B}{2}-1 $
     \else \hspace{3cm} \fi\ }.
 
-\section{导数与积分}
+\subsection{导数与积分}
 
 \item 基本初等函数的导数公式：\\
 $ (x^{\alpha})'=\underline{\ \ifte \alpha x^{\alpha-1}
-    \else \hspace{2cm} \fi\ } $，
-$ (\ln x)'=\underline{\ \ifte \frac{1}{x}\else \hspace{2cm} \fi\ } $，\\
-$ (a^x)'=\underline{\ \ifte (\ln a) a^x\else \hspace{2cm} \fi\ } $，
+    \else \hspace{2cm} \fi\ } $，\\
+$ (\ln x)'=\underline{\ \ifte \dfrac{1}{x}\else \hspace{2cm} \fi\ } $，\\
+$ (a^x)'=\underline{\ \ifte (\ln a) a^x\else \hspace{2cm} \fi\ } $，\\
 $ (\e^x)'=\underline{\ \ifte \e^x\else \hspace{2cm} \fi\ } $，\\
-$ (\sin x)'=\underline{\ \ifte \cos  x\else \hspace{2cm} \fi\ } $，
-$ (\cos  x)'=\underline{\ \ifte -\sin x\else \hspace{2cm} \fi\ } $，\\
+$ (\sin x)'=\underline{\ \ifte \cos  x\else \hspace{2cm} \fi\ } $，\\
+$ (\cos x)'=\underline{\ \ifte -\sin x\else \hspace{2cm} \fi\ } $，\\
 $ (\tan x)'=\underline{\ \ifte \dfrac{1}{\cos ^2 x}
     \else \hspace{2cm} \fi\ } $.
 
@@ -1130,16 +995,16 @@ $ M $总是大于等于\underline{\ \ifte $ \dfrac{1}{2^{n-1}} $
     \cdots (-1)^{n-1}\dfrac{x^n}{n}+ \cdots \\
     \ln\dfrac{1+x}{1-x}=&\ 2\left(\underline{\ \ifte 
     x+\dfrac{x^3}{3}+\dfrac{x^5}{5}+\cdots +
-    \dfrac{x^{2n-1}}{2n-1}\else \hspace{5cm} \fi\ } +\cdots \right)
+    \dfrac{x^{2n-1}}{2n-1}\else \hspace{3cm} \fi\ } +\cdots \right)
 \end{align*} 
 
 \item 当$ |x| < 0.2 $时，$ \sqrt{1+x}\approx 1+\dfrac{1}{2}x $\ ($ x $可正可负).
 而且$ |x| $越小，这个估算公式越精确。\\
 $ \sqrt{1.1}=1.048808\cdots \approx 1+\dfrac{1}{2}\times 0.1=1.05 $，\\
-$ \sqrt{73}=8.544003\cdots=\sqrt{64+9}=\sqrt{64\left(1+\dfrac{9}{64}\right)}=$
-\ifte \underline{\ $ 8\sqrt{1+\dfrac{9}{64}}\approx 8\left(1+
-\dfrac{9}{2\times 64}\right)=8+\dfrac{9}{2\times 8}=8\dfrac{9}{16} $}
-\else\\ \\ \underline{\ \hspace{8cm} }\fi .
+$ \sqrt{73}=8.544003\cdots=\sqrt{64+9}=\sqrt{64\left(1+\dfrac{9}{64}\right)}=$\\ 
+\ifte \underline{ {\footnotesize $ 8\sqrt{1+\dfrac{9}{64}}\approx 8\left(1+
+\dfrac{9}{2\times 64}\right)=8+\dfrac{9}{2\times 8}=8\dfrac{9}{16} $} }
+\else\\ \underline{\ \hspace{6cm} }\fi .
 
 \item 拉格朗日中值定理： 如果函数$ f(x) $满足：
 (1)在闭区间$ [x_1,x_2] $上连续；
@@ -1153,11 +1018,12 @@ $ f(x) $在区间$ [a,b] $上连续且可积，$ \forall x_1,x_2\in [a,b],\
 x_1<x_2 $，如果$ f\Big(\dfrac{x_1+x_2}{2}\Big)<
 \dfrac{1}{2}[f(x_1)+f(x_2)] $(等价于$ f''(x)>0 $)，那么有 
 \begin{align*}
-    f\left(\dfrac{x_1+x_2}{2}\right)<\dfrac{1}{x_2-x_1}
-    \int_{x_1}^{x_2}f(x)\d x< \dfrac{f(x_1)+f(x_2)}{2}
+    f\left(\dfrac{x_1+x_2}{2}\right) &<\dfrac{1}{x_2-x_1}
+    \int_{x_1}^{x_2}f(x)\d x \\ 
+    &< \dfrac{f(x_1)+f(x_2)}{2}
 \end{align*}
 
-\item $^*$ \label{正整数k次方求和}小于等于$ n $的全部正整数的$ 1\sim 5 $次方的求和结果：
+\item $^*$ 小于等于$ n $的全部正整数的$ 1\sim 5 $次方的求和结果：
 \begin{align*}
     & 1^1+2^1+3^1+\cdots +n^1=\dfrac{n^2}{2}+\dfrac{n}{2}\\
     & 1^2+2^2+3^2+\cdots +n^2=\dfrac{n^3}{3}+
@@ -1176,17 +1042,15 @@ $ 1\sim n $的$ k $次方求和结果是关于$ n $的$ k+1 $次多项式，
     \ -\dfrac{k(k-1)(k-2)}{720},\cdots
 \end{gather*}
 以上这些求和公式可以写成如下通式，
-\begin{align}
-    &\ 1^k+2^k+3^k+\cdots +n^k \nonumber \\=&\ \dfrac{1}{k+1}
-    \sum_{j=0}^{k}C_{k+1}^{j}B_{j}n^{k+1-j}+n^{k}
-    \label{正整数k次方求和通式1} \\
+\begin{align*}
+    &\ 1^k+2^k+3^k+\cdots +n^k  \\=&\ \dfrac{1}{k+1}
+    \sum_{j=0}^{k}C_{k+1}^{j}B_{j}n^{k+1-j}+n^{k} \\
     =&\ \dfrac{1}{k+1}n^{k+1}+\dfrac{1}{2}n^k+\dfrac{k}{12}n^{k-1}+\cdots
-    \label{正整数k次方求和通式2}
-\end{align}
-$ B_j $为伯努利数，$ B_0=1,B_1=-\dfrac{1}{2} $,
-$ B_2=\dfrac{1}{6},B_3=0 $,$ B_4=-\dfrac{1}{30},B_5=0,B_6=\dfrac{1}{42}\cdots$
-伯努利数满足递推关系：$ 0=\sum\limits_{j=0}^{n-1}C_n^jB_j\ (n\geq 2) $.\ 
-(\ref{正整数k次方求和通式1})式实际上是欧拉-麦克劳林求和公式的一个特例。
+\end{align*}
+$ B_j $为伯努利数，$ B_0=1 $,\ $ B_1=-\dfrac{1}{2} $,\ 
+$ B_2=\dfrac{1}{6}$,\ $B_3=0 $,\ $ B_4=-\dfrac{1}{30}$,\ $B_5=0$,\ $B_6=\dfrac{1}{42}\cdots$
+伯努利数满足递推关系：$ 0=\sum\limits_{j=0}^{n-1}C_n^jB_j\ (n\geq 2) $.
+以上求和公式实际上是欧拉-麦克劳林求和公式的一个特例。
 
 \item 黎曼zeta函数：$ \zeta(s)=\sum\limits_{n=1}^{\infty} 
 \dfrac{1}{n^s}\ (s>1) $，\\ $ \zeta(2)=\sum\limits_{n=1}^{\infty}
@@ -1206,24 +1070,21 @@ $ B_2=\dfrac{1}{6},B_3=0 $,$ B_4=-\dfrac{1}{30},B_5=0,B_6=\dfrac{1}{42}\cdots$
         \dfrac{2}{3}n^{3/2} +\dfrac{1}{2}n^{1/2}-
         \dfrac{1}{6} \else \hspace{4cm} \fi\ }
 \end{align*}
-系数同样满足第\ref{正整数k次方求和}条中
-(\ref{正整数k次方求和通式2})式的规律，只是其中的$ k $
-不是正整数，同时不要出现\textbf{负幂项}。常数项的作用是提高
-近似公式的精度，可通过令$ n=1 $来确定常数项。
+系数的规律与整数次幂的规律相同，只是不要出现负幂项。
+常数项的作用是提高近似公式的精度，可通过令$ n=1 $来确定常数项。
 
-\section{不等式}
+\subsection{不等式}
 
-\item 糖水不等式：若$ 0<b<a,c>0 $，则$ \dfrac{b}{a}<
-\underline{\ \ifte \dfrac{b+c}{a+c}\else \hspace{1.5cm} \fi\ } $ .
-\begin{gather*}
-    \dfrac{1}{a^k-1}\leq \underline{\ \ifte 
-    \dfrac{1+1}{a^k-1+1}=\dfrac{2}{a^{k}} \else \hspace{4cm} \fi\ }
-\end{gather*}
+\item 糖水不等式：若$ 0<b<a,c>0 $，则\\
+$ \dfrac{b}{a}<
+\underline{\ \ifte \dfrac{b+c}{a+c}\else \hspace{1.5cm} \fi\ } $ .\\
+$\dfrac{1}{a^k-1}\leq \underline{\ \ifte 
+\dfrac{1+1}{a^k-1+1}=\dfrac{2}{a^{k}} \else \hspace{4cm} \fi\ } $ .
 
 \item 设$ a,b,c,d $均大于0，且$ \dfrac{a}{b}<\dfrac{c}{d} $，
-那么$ \dfrac{a}{b}<\dfrac{a+c}{b+d}<\dfrac{c}{d} $. 
+那么 \\ $ \dfrac{a}{b}<\dfrac{a+c}{b+d}<\dfrac{c}{d} $. 
 
-\item $ a,b\in\mathbf{R} $，则$ \dfrac{|a+b|}{1+|a+b|} $ 
+\item $ a,b\in\mathbf{R} $，则\\ $ \dfrac{|a+b|}{1+|a+b|} $ 
 \underline{\ \ifte $ \leq $ \else \hspace{1cm} \fi\ } 
  $ \dfrac{|a|}{1+|a|}+\dfrac{|b|}{1+|b|} $. \\ 
  (填$ <,>,\leq,\geq $之一。)
@@ -1371,14 +1232,14 @@ $ a_k\geq 0,b_k\geq 0,k=1,2\cdots n $，那么
 $ \lambda a_k=b_k $. 当$ p=q=2 $时，就变成柯西不等式。
 
 \item $^*$ 闵可夫斯基(Minkowski)不等式：$ r>0,r\neq 1,a_k>0,b_k>0 $，那么
-\begin{align*}
+{\scriptsize \begin{align*}
     \left[\sum_{k=1}^{n}(a_k+b_k)^r\right]^{\frac{1}{r}}\leq
     \left(\sum_{k=1}^{n}a_k^r\right)^{\frac{1}{r}}+
     \left(\sum_{k=1}^{n}b_k^r\right)^{\frac{1}{r}} \quad(r>1) \\
     \left[\sum_{k=1}^{n}(a_k+b_k)^r\right]^{\frac{1}{r}}\geq
     \left(\sum_{k=1}^{n}a_k^r\right)^{\frac{1}{r}}+
     \left(\sum_{k=1}^{n}b_k^r\right)^{\frac{1}{r}} \quad(r<1)
-\end{align*}
+\end{align*} }
 以上两式等号成立的条件都是：存在非0实数$ \lambda $，对任意$ k=1,2\cdots n $都有
 $ \lambda a_k=b_k $. 
 
@@ -1404,12 +1265,12 @@ $ \lambda a_k=b_k $.
 
 \item 正整数倒数求和缩放：
 \begin{gather*}
-    \underline{\ \ifte \ln(n+1)\else \hspace{2cm} \fi\ }
+    \underline{\ \ifte \ln(n+1)\else \hspace{1.6cm} \fi\ }
     <\dfrac{1}{1}+\dfrac{1}{2}+\cdots +\dfrac{1}{n}
-    <\underline{\ \ifte 1+\ln n\else \hspace{2cm} \fi\ }
+    <\underline{\ \ifte 1+\ln n\else \hspace{1.6cm} \fi\ }
 \end{gather*}
 
-\section{数列}
+\subsection{数列}
 \item 设$ \{a_n \} $ 是公差为$ d $的等差数列，$ S_n $是其前$ n $项和，
 \begin{itemize}[leftmargin=-4pt]
 \item 若$ m+n=s+t $，则$ a_m+a_n=\underline{\ \ifte 
@@ -1423,12 +1284,14 @@ $ \lambda a_k=b_k $.
     \else \hspace{2cm} \fi\ } $；
 \item $ S_n,S_{2n}-S_n,S_{3n}-S_{2n} \cdots $是公差为
 \underline{\ \ifte $ n^2d $\else \hspace{0.5cm} \fi\ }的等差数列；
-\item 在前$ 2n $项中，$ \dfrac{\text{奇数项之和}}{\text{偶数项之和}}=
-\dfrac{a_1+a_3+\cdots+a_{2n-1}}{a_2+a_4+\cdots+a_{2n}}=
-\underline{\ \ifte \dfrac{a_n}{a_{n+1}} \else \hspace{2cm} \fi\ } $；
-\item 在前$ 2n+1 $项中，$ \dfrac{\text{奇数项之和}}{\text{偶数项之和}}=
+
+\item 在前$ 2n $项中，\\ $ \dfrac{\text{奇数项之和}}{\text{偶数项之和}} = 
+\dfrac{a_1+a_3+\cdots+a_{2n-1}}{a_2+a_4+\cdots+a_{2n}} 
+=\underline{\ \ifte \dfrac{a_n}{a_{n+1}} \else \hspace{1cm} \fi\ } $；
+
+\item 在前$ 2n+1 $项中，\\ $ \dfrac{\text{奇数项之和}}{\text{偶数项之和}}= 
 \dfrac{a_1+a_3+\cdots+a_{2n+1}}{a_2+a_4+\cdots+a_{2n}}=
-\underline{\ \ifte \dfrac{n+1}{n} \else \hspace{2cm} \fi\ } $；
+\underline{\ \ifte \dfrac{n+1}{n} \else \hspace{1cm} \fi\ } $；
 \end{itemize}
 
 \item 等比数列$ a_n=a_1x^{n-1} $的求和公式：当$ x\neq 1 $时，$ S_n=
@@ -1460,7 +1323,7 @@ $ \sum\limits_{k=0}^{\infty} x^{k}=\underline{\ \ifte
 \end{align*}
 
 \item 常见裂项方法：
-\begin{align*}
+{\footnotesize \begin{align*}
     &\dfrac{1}{n(n+k)}=\underline{\ \ifte 
         \dfrac{1}{k}\left(\dfrac{1}{n}-\dfrac{1}{n+k} \right)
         \else \hspace{4cm} \fi\ } \\
@@ -1475,8 +1338,8 @@ $ \sum\limits_{k=0}^{\infty} x^{k}=\underline{\ \ifte
         \else \hspace{4cm} \fi\ } \\ 
     &\dfrac{a^n}{(a^n+1)(a^{n+1}+1)}=\underline{\ \ifte 
         \dfrac{1}{a-1}\left(\dfrac{1}{a^n+1}-
-        \dfrac{1}{a^{n+1}+1}\right)\else \hspace{4cm} \fi\ }
-\end{align*}
+        \dfrac{1}{a^{n+1}+1}\right)\else \hspace{3.5cm} \fi\ }
+\end{align*} }
 
 \item $^*$ 阿贝尔(Abel)求和公式：数列$ \{a_n\},\{b_n\} $
 的前$ n $项和分别为$ A_n,B_n $，那么
@@ -1585,7 +1448,7 @@ $ a_{n+1}=\dfrac{1}{2}\left(a_n+\dfrac{A^2}{a_n}\right) $，
 \end{align*}
 
 
-\section{解析几何}
+\subsection{解析几何}
 
 \item 直线的方程：\\
 一般式方程：\underline{\ \ifte $ Ax+By+C=0 $\else \hspace{4cm} \fi\ }；\\
@@ -1622,18 +1485,18 @@ $ \left\{ \begin{aligned}
 且$ A_1B_2-A_2B_1\neq 0 $，则过$ l_1,l_2 $的交点的任意直线都可以用\\
 \underline{\ \ifte $ \lambda(A_1x+B_1y+C_1)+\mu(A_2x+B_2y+C_2)=0 $
     \else \hspace{5cm} \fi\ }
-表达。 $ l_1 $和$ l_2 $的两条角平分线的方程为 \\
+表达。\\ $ l_1 $和$ l_2 $的两条角平分线的方程为 \\
 \underline{\ \ifte $ \dfrac{A_1x+B_1y+C_1}{\sqrt{A_1^2+B_1^2}}=
     \pm\dfrac{A_2x+B_2y+C_2}{\sqrt{A_2^2+B_2^2}} $
     \else \hspace{4cm} \fi\ }.
 
 \item 平面的方程：\\
-一般式方程：\underline{\ \ifte $ Ax+By+Cz+D=0 $
+{\footnotesize 一般式方程：\underline{\ \ifte $ Ax+By+Cz+D=0 $
     \else \hspace{4cm} \fi\ }；\\
 点法式方程：\underline{\ \ifte $ A(x-x_0)+B(y-y_0)+C(z-z_0)=0 $
     \else \hspace{4cm} \fi\ }；\\
 截距式方程：\underline{\ \ifte $ \dfrac{x}{a}+\dfrac{y}{b}+
-    \dfrac{z}{c}=1 $\else \hspace{4cm} \fi\ }.
+    \dfrac{z}{c}=1 $\else \hspace{4cm} \fi\ }. }
 
 \item 点$ (x_0,y_0,z_0) $到平面$ Ax+By+Cz+D=0 $的距离公式：
 \underline{\ \ifte $ \dfrac{|Ax_0+By_0+Cz_0+D|}{\sqrt{A^2+B^2+C^2}} $
@@ -1667,7 +1530,7 @@ $ e $是离心率。椭圆：$ 0<e<1 $；抛物线：$ e=1 $；双曲线：$ e>1
 过焦点且倾斜角为$ \theta $的弦的长度为\underline{\ \ifte 
 $ \dfrac{2ep}{1-e^2\cos^2 \theta} $\else \hspace{2cm} \fi\ }.
 
-\item 椭圆$ \dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=1 $的参数方程：
+\item 椭圆$ \dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=1 $的参数方程：\\
 $ \left\{ \begin{aligned}
     &x=\underline{\ \ifte a\cos \theta \else \hspace{2cm} \fi\ } \\
     &y=\underline{\ \ifte b\sin \theta \else \hspace{2cm} \fi\ }
@@ -1698,16 +1561,16 @@ $ \left\{ \begin{aligned}
 \end{aligned} \right.  $. 
 
 \item $^*$ 平摆线参数方程：
-$ \begin{cases}
+$ \begin{dcases}
     x=R(\theta-\sin\theta) \\
     y=R(1-\cos\theta)
-\end{cases}  $.
+\end{dcases}  $.
 
 \item $^*$ 圆的渐开线参数方程：
-$ \begin{cases}
+$ \begin{dcases}
     x=R(\cos\theta+\theta\sin\theta) \\
     y=R(\sin\theta-\theta\cos\theta)
-\end{cases} $.
+\end{dcases} $.
 
 \item 球的表面积$ S=\underline{\ \ifte 4\pi R^2
     \else \hspace{1cm} \fi\ } $，球的体积$ V=\underline{\ 
@@ -1965,19 +1828,19 @@ $ x_1x_2=\dfrac{y_1^2}{2p}\cdot \dfrac{y_2^2}{2p}=
 \end{figure}
 
 
-\section{零散考点}
+\subsection{零散考点}
 
 \item 集合的3个特征：\underline{\ \ifte 
- 确定性、互异性、无序性 \else \hspace{5cm} \fi\ } 。
+ 确定性、互异性、无序性 \else \hspace{3.5cm} \fi\ } 。
 
 \item $ \pi\approx 3.141592653 $的分数近似值：\\ $ \dfrac{22}{7} 
 \approx 3.142857,\ \dfrac{355}{113}\approx 3.14159292 $. 
 
 \item 三次方程韦达定理：$ (a\neq 0) $，
-\begin{gather*}
-    x^3+\dfrac{b}{a}x^2+\dfrac{c}{a}x+
-    \dfrac{d}{a}=(x-x_1)(x-x_2)(x-x_3)=0
-\end{gather*}
+\begin{align*}
+    &\ x^3+\dfrac{b}{a}x^2+\dfrac{c}{a}x+\dfrac{d}{a} \\
+   =&\ (x-x_1)(x-x_2)(x-x_3)=0
+\end{align*}
 $ x_1+x_2+x_3= $\underline{\ \ifte $ -\dfrac{b}{a} $\else 
     \hspace{2cm} \fi\ }；\\
 $ x_1x_2+x_1x_3+x_2x_3= $\underline{\ \ifte $ \dfrac{c}{a} $ 
@@ -2009,11 +1872,9 @@ $ S $为底面积，$ h $为锥体高度。
 $ S,S' $为两个底面积，$ h $为台体高度(两个底面间的距离)。
 
 
-
-
+}
 \end{enumerate}
 \end{multicols}   
-\end{document}
 
 
 

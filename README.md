@@ -1,6 +1,8 @@
 High school mathematics from an engineer's perspective. 《工程师视角下的高中数学》，注重联系工程实际。
 
-全书的PDF参见右侧的Release.
+知识密度巨大，可以说吊打其它所有教辅。
+
+全书的PDF参见右侧的Release，并在最后一章附带了全书的知识点总结。百度网盘上的版本比较落后，更新不及时。
 
 本书的写作动机可参看文章 https://zhuanlan.zhihu.com/p/689834716
 
@@ -14,8 +16,6 @@ https://github.com/FrogGuaGuaGua/HighSchoolMathematics
 
 \newCJKfontfamily\KaiTifont{gkai00mp.ttf}
 
-目前提供了全书一半内容的矢量PDF和全部内容的图片PDF，并附带了全书的知识点总结，文件名为“高中数学公式汇总(练习答案).pdf”。
-
 另外，请三连支持：Watch，Fork和Star.
 
-也希望你能为本项目作出贡献，帮忙找错误，提修改意见，并增加一些有趣或有意义的内容。
+也希望你能为本项目作出贡献，帮忙找错误，提修改意见，并增加一些有趣或有意义的内容。我愿意为你的贡献支付一定的报酬。
