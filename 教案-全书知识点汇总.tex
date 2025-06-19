@@ -394,6 +394,7 @@ $ \dfrac{nD}{N} $\else \hspace{1cm} \fi\ }，
 
 \item (卡方)独立性检验，$ 2\times 2 $列联表：
 \begin{table}[H]
+    \small
     \centering
     \begin{tabular}{|c|c|c|c|}
         \hline
@@ -514,7 +515,8 @@ $ \chi^2 $越大，说明“$ X $与$ Y $有关系”成立的可能性越大。
     &\sin A +\sin B +\sin C =\underline{\ \ifte 
         4\cos\left(\tfrac{A}{2}\right)\cos\left(\tfrac{B}{2}\right)
         \cos\left(\tfrac{C}{2}\right)\else \hspace{3cm} \fi\ }  \\
-    &\cos A +\cos B +\cos C =\underline{\ \ifte 
+    &\cos A +\cos B +\cos C =\\
+    &\underline{\ \ifte 
         1+4\sin\left(\tfrac{A}{2}\right)\sin\left(\tfrac{B}{2}\right)
         \sin\left(\tfrac{C}{2}\right)\else \hspace{3cm} \fi\ }  \\
     &\tan A+\tan B +\tan C =\underline{\ \ifte 
@@ -552,7 +554,7 @@ $ \sin x>\dfrac{2}{\pi}x $，$ \cos x>1-\dfrac{2}{\pi}x $.\\
     \cos A +\cos B +\cos C &>\underline{\ \ifte 
         3-\dfrac{2}{\pi}(A+B+C)=1 \else \hspace{3cm} \fi\ } \\
     \tan A+\tan B +\tan C &\geq \underline{\ \ifte 
-        3\tan\dfrac{A+B+C}{3}=3\sqrt{3} \else \hspace{3cm} \fi\ }
+        3\tan\tfrac{A+B+C}{3}=3\sqrt{3} \else \hspace{3cm} \fi\ }
 \end{align*}
 
 \item $^*$ 参数方程$ \left\{ \begin{aligned}
@@ -573,10 +575,10 @@ $ \sin x>\dfrac{2}{\pi}x $，$ \cos x>1-\dfrac{2}{\pi}x $.\\
     \else \hspace{2cm} \fi\ } $，\\
 反双曲余弦函数$ \mathrm{arccosh}\, x=\underline{\ \ifte \ln(x+\sqrt{x^2-1})
     \else \hspace{2cm} \fi\ } $.\\
-求导：$ (\sinh x)'=\underline{\ \ifte \cosh x\else \hspace{1cm} \fi\ } $；
+求导：$ (\sinh x)'=\underline{\ \ifte \cosh x\else \hspace{1cm} \fi\ } $；\\
 $ (\cosh x)'=\underline{\ \ifte \sinh x\else \hspace{1cm} \fi\ } $. \\
 $ (\mathrm{arcsinh} x)'=\underline{\ \ifte \dfrac{1}{\sqrt{x^2+1}}
-    \else \hspace{1cm} \fi\ } $；
+    \else \hspace{1cm} \fi\ } $；\\
 $ (\mathrm{arccosh} x)'=\underline{\ \ifte \dfrac{1}{\sqrt{x^2-1}}
     \else \hspace{1cm} \fi\ } $. \\
 平方差关系：$ (\cosh x)^2-(\sinh x)^2=\underline{\ \ifte 1
@@ -779,10 +781,10 @@ $ R $为三角形外接圆半径。
 \end{gather*}
 将上式中的$ a,b,c $换成任意实数$ x,y,z $，
 同时保持$ A+B+C=\pi $，那么有嵌入不等式
-\begin{align*}
+{\footnotesize \begin{align*}
     x^2+y^2+z^2 \geq \underline{\ \ifte 2yz\cos A+
     2zx\cos B + 2xy\cos C\else \hspace{4cm} \fi\ }
-\end{align*}
+\end{align*}}
 
 \item $ (a^2-b^2)^2+(2ab)^2=(\underline{\ \ifte a^2+b^2
     \else \hspace{1cm} \fi\ })^2 $，具有勾股定理的形式。
@@ -1279,8 +1281,8 @@ $ \lambda a_k=b_k $.
     \else \hspace{1cm} \fi\ } $；
 \item $ \dfrac{S_{2n-1}}{a_n}=\underline{\ \ifte 2n-1
     \else \hspace{2cm} \fi\ } $；
-\item $ m\neq n $，$ \dfrac{S_m-S_n}{m-n}=\dfrac{S_{m+n}}{m+n}=
-    \underline{\ \ifte \dfrac{d}{2}(m+n)+(a_1-\dfrac{d}{2})
+\item $ m\neq n $，$ \dfrac{S_m-S_n}{m-n}=\dfrac{S_{m+n}}{m+n}=$
+\\ $ \underline{\ \ifte \dfrac{d}{2}(m+n)+(a_1-\dfrac{d}{2})
     \else \hspace{2cm} \fi\ } $；
 \item $ S_n,S_{2n}-S_n,S_{3n}-S_{2n} \cdots $是公差为
 \underline{\ \ifte $ n^2d $\else \hspace{0.5cm} \fi\ }的等差数列；
@@ -1343,9 +1345,9 @@ $ \sum\limits_{k=0}^{\infty} x^{k}=\underline{\ \ifte
 
 \item $^*$ 阿贝尔(Abel)求和公式：数列$ \{a_n\},\{b_n\} $
 的前$ n $项和分别为$ A_n,B_n $，那么
-\begin{gather}
+\begin{gather*}
     \sum_{k=1}^{n}A_kb_k+\sum_{k=1}^{n-1}a_{k+1}B_k=A_n B_n 
-\end{gather}
+\end{gather*}
 
 \item 如果$ f(x) $在区间$ [a,b] $上满足下列2个条件，
 则称$ f(x) $为一个压缩函数。\\
