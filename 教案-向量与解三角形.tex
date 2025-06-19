@@ -37,7 +37,7 @@ $ \vec{b}=(b_1,b_2,b_3) $，这两者的向量积(也称为“矢量积”，“
 \times\vec{a} $. 
 
 \item 对于二维向量，$ \vec{a}=(a_1,a_2),\ \vec{b}=(b_1,b_2) $，有
-%\renewcommand{\arraystretch}{1}
+\renewcommand{\arraystretch}{0.7}
 \begin{align}
     |\vec{a}|^2|\vec{b}|^2-|\vec{a}|^2|\vec{b}|^2
     \cos^2\langle\vec{a},\vec{b}\rangle 
@@ -50,6 +50,11 @@ $ \vec{b}=(b_1,b_2,b_3) $，这两者的向量积(也称为“矢量积”，“
     \end{vmatrix}
     ^2 \label{三角形面积公式x1y2-x2y1}
 \end{align}
+其中，$ \begin{vmatrix}
+    a_{1} & a_{2} \\
+    b_{1} & b_{2}
+\end{vmatrix}=a_1b_2-a_2b_1 $代表二阶行列式
+(参见\eqref{二阶行列式的定义}式)，
 所以，$ |\vec{a}||\vec{b}|\sin\langle\vec{a},\vec{b}
 \rangle=|a_1b_2-a_2b_1| $，
 这正是以$ \vec{a},\vec{b} $为邻边的平行四边形的面积，乘上
@@ -68,8 +73,10 @@ $ |(a_1,a_2,0)\times (b_1,b_2,0)|=|a_1b_2-a_2b_1| $ .
     =&\  (a_1b_1-a_2b_2)^2+(a_1b_2+a_2b_1)^2 
     %    \label{复数实部虚部平方和}
 \end{align}
-实际上，$ (a_1+a_2 \i)(b_1+b_2 \i)=(a_1b_1-a_2b_2)+(a_1b_2+
-a_2b_1)\i $，其中$ \i $是虚数单位。
+实际上，$ \begin{dcases}
+   (a_1-a_2 \i)(b_1+b_2 \i)=(a_1b_1+a_2b_2)+(a_1b_2-a_2b_1)\i  \\
+   (a_1+a_2 \i)(b_1+b_2 \i)=(a_1b_1-a_2b_2)+(a_1b_2+a_2b_1)\i  
+\end{dcases} $，其中$ \i $是虚数单位。
 请读者再回到第\pageref{a2+kb2恒等式}页看看\eqref{a2+kb2恒等式}和
 \eqref{a2-kb2恒等式}式。
 %如果定义向量$ \vec{a},\vec{b} $之间的
@@ -80,6 +87,37 @@ a_2b_1)\i $，其中$ \i $是虚数单位。
 %$ (\vec{a} + \vec{b})\circ \vec{c}=
 %\vec{a} \circ \vec{c}+\vec{b} \circ
 %\vec{c} $\ ？
+
+\item 如下图，设$\begin{dcases}
+    \vec{AD}=r\vec{AB}+s\vec{AC} \\
+    \vec{AE}=t\vec{AB}+u\vec{AC} 
+\end{dcases}$，
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\linewidth]{PDF_Picture/二重积分换元公式三角形面积比}
+\end{figure}
+那么
+\begin{align*}
+    S_{\Delta ADE}=&\ \dfrac{1}{2}\left|\vec{AD}\times\vec{AE}\right|
+    =\dfrac{1}{2}\left|(r\vec{AB}+s\vec{AC})\times
+    (t\vec{AB}+u\vec{AC} )\right| \\
+    =&\ \dfrac{1}{2}\left|(ru-st)\vec{AB}\times\vec{AC}\right| 
+    =|ru-st|\cdot\dfrac{1}{2}\left|\vec{AB}\times\vec{AC}\right| \\
+    =&\ \begin{Vmatrix}
+        r & s \\
+        t & u
+    \end{Vmatrix} S_{\Delta ABC}  
+\end{align*}
+注意，向量的叉乘满足反交换律，即$ \vec{AB}\times\vec{AC}=-
+\vec{AC}\times\vec{AB} $，而且一个向量与自身进行叉乘的结果为0向量，
+即$\vec{AB}\times\vec{AB}=\vec{AC}\times\vec{AC}=\vec{0} $. 
+$\begin{Vmatrix}
+    r & s \\
+    t & u
+\end{Vmatrix} $包含了两层竖线，内层竖线的含义是二阶行列式，
+外层竖线的含义是取绝对值。
+理解$\dfrac{S_{\Delta ADE}}{S_{\Delta ABC}}=|ru-st|$，
+对于今后理解二重积分的变量代换公式至关重要。
 
 \item $^*$ 三维向量满足以下恒等式：
 \begin{align*}
@@ -243,7 +281,7 @@ $|CD|=m$，那么$m^2=\dfrac{1}{2}(a^2+b^2)-\dfrac{1}{4}c^2$，
 说明$C$点的轨迹是以$D$为圆心，以$m$为半径的圆。
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.4\linewidth]{PDF_Picture/三角形中线长公式}
+    \includegraphics[width=0.3\linewidth]{PDF_Picture/三角形中线长公式}
 \end{figure}
 
 \item 对于任意四边形$ ABCD $，求证：$ \vec{AC}\perp
@@ -311,7 +349,7 @@ $ BC^2+AD^2=BA^2+CD^2 $的充要条件。 \\
 \end{align}
 由(\ref{三组对棱垂直的连等式})式可得：$ \vec{AC}\cdot
 \vec{DB}=0 $. (\ref{三组对棱垂直的连等式})式与(\ref{OAOBOCOD})式相似，
-也与(\ref{垂心性质三个连等式})式相似。\\
+也与(\ref{垂心性质三个连等式向量形式})式相似。\\
 \textbf{方法二}\ 设$ A $在平面$ BCD $上的投影的$ H $，
 \begin{figure}[h]
     \centering
@@ -564,14 +602,31 @@ $ \begin{dcases}
 \vec{HA}\cdot (\vec{HC}-\vec{HB})=
 \vec{0},\ \vec{HA}\cdot \vec{HC}=
 \vec{HA}\cdot \vec{HB} $，采用类似方法，可以得到
-\begin{align}\label{垂心性质三个连等式}
+\begin{gather}\label{垂心性质三个连等式向量形式}
     \vec{HA}\cdot \vec{HB}=
     \vec{HA}\cdot \vec{HC}=\vec{HB}\cdot \vec{HC} 
-\end{align}
-\begin{figure}[h]
+\end{gather}
+因为$\begin{dcases}
+    \vec{HA}\cdot \vec{HB}=-|HB|\cdot |HD| \\
+    \vec{HB}\cdot \vec{HC}=-|HC|\cdot |HE| \\
+    \vec{HC}\cdot \vec{HA}=-|HA|\cdot |HF| 
+\end{dcases}$，所以\eqref{垂心性质三个连等式向量形式}式
+又能以标量形式写成
+\begin{gather}\label{垂心性质三个连等式标量形式}
+    |HA|\cdot |HF|=|HB|\cdot |HD|= |HC|\cdot |HE|
+\end{gather}
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.3\linewidth]{垂心的性质}
 \end{figure}
+设$O$为$ \Delta ABC $的外接圆圆心(外心)，连接$BO$并延长，交外接圆于$K$点，
+连接$AK, CK$. 因为$\angle EAC+\angle CAK =\pi=\angle EAC+\angle ECA $，
+所以$\angle CAK=\angle ECA $，$HC//AK$(内错角相等)。又因为
+$\angle AFC=\angle KCF=\dfrac{\pi}{2}$，所以$AH//CK$(同时垂直于$BC$)，
+四边形$AHCK$为平行四边形，设$R$代表外接圆半径，
+那么$|AH|=|KC|=2R|\cos\angle BKC|=2R|\cos A|$
+(这里的$A$代表$\angle BAC$)。同理可得：$|BH|=2R|\cos B|,\ |CH|=2R|\cos C|$.
+
 考虑$ \Delta AHB,\Delta BHC,\Delta CHA $的面积比，
 \begin{gather*}
     \dfrac{S_{\Delta AHB}}{S_{\Delta BHC}}=\dfrac{HB\cdot AD}
@@ -580,7 +635,7 @@ $ \begin{dcases}
     S_{\Delta BHC}:S_{\Delta CHA}:S_{\Delta AHB}= \tan A:\tan B:\tan C
 \end{gather*}
 四边形$ AEHD $有两个内角为直角，所以$ \angle EAD+\angle EHD=\angle EAD
-+\angle BHC =\pi $，同理可得：
++\angle BHC =\pi $($\angle BHC$和$\angle EHD$是对顶角)，同理可得：
 $ \angle BCA+\angle BHA =\pi,\ \angle ABC+\angle AHC =\pi $. 
 
 \item 设$ \Delta ABC $的内心为$ I $，若$ \vec{AI}=\lambda\vec{AB}+\mu\vec{AC} $，
@@ -645,19 +700,19 @@ $ l_1\tan\dfrac{A}{2}=l_2\tan\dfrac{B}{2}=l_3\tan\dfrac{C}{2}=r $，
 
 \item 利用正弦定理和(\ref{三角恒等式1})式，
 \begin{align*}
-    p=\frac{1}{2}(a+b+c)=R(\sin A+\sin B+\sin C)=4R\cos(\dfrac{A}{2})
-    \cos(\dfrac{B}{2})\cos(\dfrac{C}{2})
+    p=\frac{1}{2}(a+b+c)=R(\sin A+\sin B+\sin C)=4R\cos\dfrac{A}{2}
+    \cos\dfrac{B}{2}\cos\dfrac{C}{2}
 \end{align*}
-两边同乘$ 4R\sin(\dfrac{A}{2})\sin(\dfrac{B}{2})\sin(\dfrac{C}{2}) $，有
+两边同乘$ 4R\sin\dfrac{A}{2}\sin\dfrac{B}{2}\sin\dfrac{C}{2} $，有
 \begin{align*}
-    4pR\sin(\dfrac{A}{2})\sin(\dfrac{B}{2})\sin(\dfrac{C}{2})=
+    4pR\sin\dfrac{A}{2}\sin\dfrac{B}{2}\sin\dfrac{C}{2}=
     2R^2\sin A\sin B\sin C=S_{\Delta ABC}=pr
 \end{align*}
-所以，$ r=4R\sin(\dfrac{A}{2})\sin(\dfrac{B}{2})\sin(\dfrac{C}{2}) $.
+所以，$ r=4R\sin\dfrac{A}{2}\sin\dfrac{B}{2}\sin\dfrac{C}{2} $.
 设$ I $是$ \Delta ABC $的内心，则
 \begin{gather*}
-    |AI||BI||CI|=\frac{r^3}{\sin(\dfrac{A}{2})\sin(\dfrac{B}{2})
-        \sin(\dfrac{C}{2})}=4Rr^2
+    |AI||BI||CI|=\frac{r^3}{\sin\dfrac{A}{2}\sin\dfrac{B}{2}
+        \sin\dfrac{C}{2}}=4Rr^2
 \end{gather*}
 
 \item 设$ \Delta ABC $的外心为$ O $，则$ \vec{AO} \cdot \vec{BC}=
@@ -879,162 +934,162 @@ $ \Delta ABC $有相交区域的方位(或者说向内部作等边三角形)，
 \begin{itemize}[leftmargin=\inteval{\myitemleftmargin}pt,itemsep=
     \inteval{\myitemitempsep}pt,topsep=\inteval{\myitemtopsep}pt]
     \item $ \Delta ABC $中的恒等式($ A+B+C=\pi $)
-    \begin{align} 
-        &\sin A +\sin B +\sin C =4\cos\Big(\dfrac{A}{2}\Big)
-        \cos\Big(\dfrac{B}{2}\Big)\cos\Big(\dfrac{C}{2}\Big) \label{三角恒等式1} \\
-        &\sin2A +\sin2B +\sin2C =4\sin A  \sin B \sin C \label{三角恒等式2}\\
-        &\cos A +\cos B +\cos C =1+4\sin\Big(\dfrac{A}{2}\Big)
-        \sin\Big(\dfrac{B}{2}\Big)\sin\Big(\dfrac{C}{2}\Big) \label{三角恒等式3} \\
-        &\cos2A +\cos2B +\cos2C =-1-4\cos A\cos B \cos C \label{三角恒等式4} \\	
-        &\cos^2A+\cos^2B+\cos^2C =1-2\cos A\cos B\cos C \label{三角恒等式5} \\ 
-        &\sin^2A+\sin^2B+\sin^2C =2+2\cos A\cos B\cos C \label{三角恒等式6} \\
-        &\tan A+\tan B +\tan C =\tan A \tan B\tan C \label{三角恒等式7}\\
-        &\cot A\cot B+\cot B \cot C+\cot A\cot C=1 \label{三角恒等式8}\\
-        &\tan\Big(\dfrac{A}{2}\Big)\tan\Big(\dfrac{B}{2}\Big)+
-        \tan\Big(\dfrac{B}{2}\Big)\tan\Big(\dfrac{C}{2}\Big)+
-        \tan\Big(\dfrac{A}{2}\Big)\tan\Big(\dfrac{C}{2}\Big)=1 \label{三角恒等式-最后}
-    \end{align}
-    
-    \item 从左到右证明(\ref{三角恒等式1})式，使用和差化积公式：
-    \begin{align*}
-        & (\sin A +\sin B) +\sin C  \\
-        =&\  2\sin\left(\dfrac{A+B}{2}\right)\cos\left(\dfrac{A-B}{2}\right)+\sin(A+B) \\    
-        =&\  2\sin\left(\dfrac{A+B}{2}\right)\cos\left(\dfrac{A-B}{2}\right)+
-        2\sin\left(\dfrac{A+B}{2}\right)\cos\left(\dfrac{A+B}{2}\right) \\
-        =&\  2\sin\left(\dfrac{A+B}{2}\right)\cdot 2\cos\left(\dfrac{A}{2}\right)\cos\left(\dfrac{B}{2}\right) \\
-        =&\  4\cos\left(\dfrac{C}{2}\right)\cos\left(\dfrac{A}{2}\right)\cos\left(\dfrac{B}{2}\right)
-    \end{align*}
-    \item 从右到左证明(\ref{三角恒等式1})式，
-    \begin{align*}
-        & 4\cos\left(\dfrac{A}{2}\right)\cos\left(\dfrac{B}{2}\right)\sin\left(\dfrac{A+B}{2}\right) \\
-        =&\  4\cos\left(\dfrac{A}{2}\right)\cos\left(\dfrac{B}{2}\right) \left[\sin\left(\dfrac{A}{2}\right) \cos\left(\dfrac{B}{2}\right)+\cos\left(\dfrac{A}{2}\right) \sin\left(\dfrac{B}{2}\right) \right] \\
-        =&\  4\cos\left(\dfrac{A}{2}\right)\sin\left(\dfrac{A}{2}\right)\cos^2\left(\dfrac{B}{2}\right)+
-        4\cos\left(\dfrac{B}{2}\right)\sin\left(\dfrac{B}{2}\right)\cos^2\left(\dfrac{A}{2}\right)\\
-        =&\  \sin A (\cos B+1)+\sin B(\cos A +1) \\
-        =&\  \sin A +\sin B + \sin(A+B)
-    \end{align*}
-    以上方法同样适用于(\ref{三角恒等式2})，(\ref{三角恒等式3})，(\ref{三角恒等式4}).
-    由(\ref{三角恒等式4})式可以导出(\ref{三角恒等式5})式，
-    由(\ref{三角恒等式5})式可以导出(\ref{三角恒等式6})式。
-    由(\ref{三角恒等式6})式可知$ \cos A\cos B\cos C >-1 $，
-    由(\ref{三角恒等式3})式可知$ \cos A+\cos B+\cos C >1 $.  
-    
-    \item 由$ \tan(A+B)=\dfrac{\tan A+\tan B}{1-\tan A\tan B}=
-    \tan(\pi-C)=-\tan C $可得到(\ref{三角恒等式7})式，
-    (\ref{三角恒等式7})式两边同除$ \tan A \tan B\tan C $可得到(\ref{三角恒等式8})式。
-    由$ \tan\Big(\dfrac{A}{2}+\dfrac{B}{2}\Big)=\dfrac{\tan \dfrac{A}{2}+
-        \tan \dfrac{B}{2}}{1-\tan \dfrac{A}{2}\tan \dfrac{B}{2}}
-    =\tan\Big(\dfrac{\pi}{2}-\dfrac{C}{2}\Big)=\dfrac{1}{\tan \dfrac{C}{2}} $
-    可得到(\ref{三角恒等式-最后})式。
-    
-    \item 对任意$ \Delta ABC $，有如下不等式成立：
-    \begin{gather}
-        0<\sin A +\sin B +\sin C \leq \frac{3\sqrt{3}}{2} \label{sinA+sinB+sinC}\\    
-        0<\sin A \sin B \sin C \leq \frac{3\sqrt{3}}{8} \label{sinAsinBsinC}\\
-        1<\cos A +\cos B +\cos C \leq \frac{3}{2} \label{cosA+cosB+cosC}\\
-        -1<\cos A\cos B\cos C \leq \frac{1}{8} \label{cosAcosBcosC}
-    \end{gather}
-    右侧不等号中的等号均在$ A=B=C=\dfrac{\pi}{3} $时取得，左侧则是至少一个角趋于0时的极限
-    (剩余两个角可能趋于$ 0 $和$ \pi $，也可能都趋于$ \dfrac{\pi}{2} $).
-    
-    \item (\ref{sinA+sinB+sinC})式左侧不等式显然成立，现证明右侧。\\
-    \textbf{方法一}\ 利用正弦函数$ y=\sin x $在$ [0,\pi] $上的凹凸性
-    (不等式(\ref{琴森不等式}))：
-    \begin{gather*}
-        \sin A +\sin B +\sin C \leq 3\sin \dfrac{A+B+C}{3}=\dfrac{3\sqrt{3}}{2}
-    \end{gather*}
-    \textbf{方法二}\ 考虑$ y=\sin x $在$ \Big(\dfrac{\pi}{3},\dfrac{\sqrt{3}}{2}
-    \Big) $处的切线$ y=\dfrac{1}{2}\Big(x-\dfrac{\pi}{3}\Big)+\dfrac{\sqrt{3}}{2} $，
-    $ \forall x\in [0,\pi] $，有$ \sin x\leq \dfrac{1}{2}\Big(x-\dfrac{\pi}{3}\Big)
-    +\dfrac{\sqrt{3}}{2} $，所以，
-    \begin{gather*}
-        \sin A +\sin B +\sin C \leq \dfrac{1}{2}\Big(A+B+C-3\cdot\dfrac{\pi}{3}\Big)
-        +3\cdot\dfrac{\sqrt{3}}{2}=\dfrac{3\sqrt{3}}{2}
-    \end{gather*}
-    \textbf{方法三}\ 利用均值不等式(\ref{完整的均值不等式})、(\ref{三角恒等式6})式、
-    (\ref{cosAcosBcosC})式：
-    \begin{align*}
-        \sin A +\sin B +\sin C \leq &\ \sqrt{3(\sin^2A+\sin^2B+\sin^2C)} \\
-        =&\ \sqrt{3(2+2\cos A\cos B\cos C)}\leq \sqrt{3\left(2+2\cdot 
-            \dfrac{1}{8}\right)}=\dfrac{3\sqrt{3}}{2}
-    \end{align*}
-    
-    \item (\ref{sinAsinBsinC})式左侧不等式显然成立，现证明右侧。利用均值不等式
-    (\ref{完整的均值不等式})：
-    \begin{gather}
-        \sin A \sin B \sin C \leq \left(\dfrac{\sin A +\sin B +\sin C}{3} \right)^3
-        \leq \left(\dfrac{\sqrt{3}}{2}\right)^3=\dfrac{3\sqrt{3}}{8}
-        \label{三个正弦和不等式-小于}
-    \end{gather}
-    
-    \item 证明(\ref{cosA+cosB+cosC})式。\\
-    \textbf{方法一}\ 利用(\ref{三角恒等式3})式、均值不等式和正弦函数的凹凸性：
-    \begin{align}
-        \cos A +\cos B +\cos C =&\ 1+4\sin\Big(\dfrac{A}{2}\Big)
-        \sin\Big(\dfrac{B}{2}\Big)\sin\Big(\dfrac{C}{2}\Big)\qquad (>1) \nonumber \\
-        \leq &\ 1+4\left[\dfrac{\sin(\frac{A}{2})+
-            \sin(\frac{B}{2})+\sin(\frac{C}{2})}{3}\right]^3 \nonumber \\
-        \leq &\ 1+ 4\left(\sin \dfrac{\frac{A}{2}+\frac{B}{2}+\frac{C}{2}}{3}\right)^3=
-        1+4\left(\dfrac{1}{2}\right)^3=\dfrac{3}{2} \label{三个余弦和不等式-小于}
-    \end{align}
-    \textbf{方法二}\ 考虑$ y=\cos x $在$ \Big(\dfrac{\pi}{3},\dfrac{1}{2}
-    \Big) $处的切线$ y=-\dfrac{\sqrt{3}}{2}\Big(x-\dfrac{\pi}{3}\Big)+\dfrac{1}{2} $，
-    $ \forall x\in [0,\pi] $，有$ \cos x\leq -\dfrac{\sqrt{3}}{2}\Big(x-
-    \dfrac{\pi}{3}\Big)+\dfrac{1}{2} $，所以，
-    \begin{gather*}
-        \cos A +\cos B +\cos C \leq -\dfrac{\sqrt{3}}{2}\Big(A+B+C-3\cdot
-        \dfrac{\pi}{3}\Big)+3\cdot\dfrac{1}{2}=\dfrac{3}{2}
-    \end{gather*}
-    
-    \item 对于(\ref{cosAcosBcosC})式，因为$ |\cos A\cos B\cos C|<1 $，
-    所以$ \cos A\cos B\cos C>-1 $，左侧成立。现证明(\ref{cosAcosBcosC})式右侧成立。\\
-    \textbf{方法一}\ 利用均值不等式：
-    \begin{gather*}
-        \cos A \cos B \cos C \leq \left(\dfrac{\cos A +\cos B +\cos C}{3} \right)^3
-        \leq \left(\dfrac{1}{2}\right)^3=\dfrac{1}{8}
-    \end{gather*}
-    \textbf{方法二}\ 利用(\ref{三角恒等式5})式和均值不等式，
-    \begin{align*}
-        1-2\cos A\cos B\cos C=\cos^2A+\cos^2B+\cos^2C \geq 3(\cos A\cos B\cos C)^{2/3}
-    \end{align*}
-    记$ t=(\cos A\cos B\cos C)^{1/3} $，那么 $ 2t^3+3t^2-1= (2t-1)(t+1)^2 \leq 0 $，
-    于是$ t\leq \dfrac{1}{2} $，$ \cos A\cos B \cos C=t^3\leq \dfrac{1}{8} $.  
-    
-    \item 当$ x\in\Big(0,\dfrac{\pi}{2}\Big) $时，
-    $ \sin x>\dfrac{2}{\pi}x $，$ \cos x>1-\dfrac{2}{\pi}x $.
-    \begin{figure}[!h]  % sinx_Great_2x_pi.m
-        \centering
-        \includegraphics[width=0.7\linewidth]{sinx大于2x_pi}
-    \end{figure} \\
-    对于锐角三角形$ ABC $，有
-    \begin{align*}
-        \sin A +\sin B +\sin C &>\dfrac{2}{\pi}(A+B+C)=2 \\
-        \cos A +\cos B +\cos C &>3-\dfrac{2}{\pi}(A+B+C)=1
-    \end{align*}
-    
-    \item 若$ \Delta ABC $是钝角三角形，那么$ \tan A+\tan B +\tan C =
-    \tan A \tan B\tan C <0 $.\\
-    若$ \Delta ABC $是锐角三角形，那么
-    \begin{gather*}
-        \tan A+\tan B +\tan C =\tan A \tan B\tan C \leq \left(
-        \dfrac{\tan A+\tan B +\tan C}{3}\right)^3
-    \end{gather*}
-    于是
-    \begin{gather*}
-        \tan A+\tan B +\tan C\geq 3\sqrt{3}
-    \end{gather*}
-    也可以从正切函数的凹凸性来理解上式，
-    \begin{gather*}
-        \tan A+\tan B +\tan C\geq 3\tan\dfrac{A+B+C}{3}=3\sqrt{3}
-    \end{gather*}
-    或者考虑$ y=\tan x $在$ \Big(\dfrac{\pi}{3},\sqrt{3}\Big) $
-    处的切线$ y=4\Big(x-\dfrac{\pi}{3}\Big)+\sqrt{3} $，
-    $ \forall x\in \Big[0,\dfrac{\pi}{2}\Big) $，有$ \tan x\geq 
-    4\Big(x-\dfrac{\pi}{3}\Big)+\sqrt{3} $，所以，
-    \begin{gather*}
-        \tan A +\tan B +\tan C \geq 4\Big(A+B+C-3\cdot\dfrac{\pi}{3}\Big)
-        +3\sqrt{3}=3\sqrt{3}
-    \end{gather*}
+\begin{align} 
+    &\sin A +\sin B +\sin C =4\cos\Big(\dfrac{A}{2}\Big)
+    \cos\Big(\dfrac{B}{2}\Big)\cos\Big(\dfrac{C}{2}\Big) \label{三角恒等式1} \\
+    &\sin2A +\sin2B +\sin2C =4\sin A  \sin B \sin C \label{三角恒等式2}\\
+    &\cos A +\cos B +\cos C =1+4\sin\Big(\dfrac{A}{2}\Big)
+    \sin\Big(\dfrac{B}{2}\Big)\sin\Big(\dfrac{C}{2}\Big) \label{三角恒等式3} \\
+    &\cos2A +\cos2B +\cos2C =-1-4\cos A\cos B \cos C \label{三角恒等式4} \\	
+    &\cos^2A+\cos^2B+\cos^2C =1-2\cos A\cos B\cos C \label{三角恒等式5} \\ 
+    &\sin^2A+\sin^2B+\sin^2C =2+2\cos A\cos B\cos C \label{三角恒等式6} \\
+    &\tan A+\tan B +\tan C =\tan A \tan B\tan C \label{三角恒等式7}\\
+    &\cot A\cot B+\cot B \cot C+\cot A\cot C=1 \label{三角恒等式8}\\
+    &\tan\Big(\dfrac{A}{2}\Big)\tan\Big(\dfrac{B}{2}\Big)+
+    \tan\Big(\dfrac{B}{2}\Big)\tan\Big(\dfrac{C}{2}\Big)+
+    \tan\Big(\dfrac{A}{2}\Big)\tan\Big(\dfrac{C}{2}\Big)=1 \label{三角恒等式-最后}
+\end{align}
+
+\item 从左到右证明(\ref{三角恒等式1})式，使用和差化积公式：
+\begin{align*}
+    & (\sin A +\sin B) +\sin C  \\
+    =&\  2\sin\left(\dfrac{A+B}{2}\right)\cos\left(\dfrac{A-B}{2}\right)+\sin(A+B) \\    
+    =&\  2\sin\left(\dfrac{A+B}{2}\right)\cos\left(\dfrac{A-B}{2}\right)+
+    2\sin\left(\dfrac{A+B}{2}\right)\cos\left(\dfrac{A+B}{2}\right) \\
+    =&\  2\sin\left(\dfrac{A+B}{2}\right)\cdot 2\cos\left(\dfrac{A}{2}\right)\cos\left(\dfrac{B}{2}\right) \\
+    =&\  4\cos\left(\dfrac{C}{2}\right)\cos\left(\dfrac{A}{2}\right)\cos\left(\dfrac{B}{2}\right)
+\end{align*}
+\item 从右到左证明(\ref{三角恒等式1})式，
+\begin{align*}
+    & 4\cos\left(\dfrac{A}{2}\right)\cos\left(\dfrac{B}{2}\right)\sin\left(\dfrac{A+B}{2}\right) \\
+    =&\  4\cos\left(\dfrac{A}{2}\right)\cos\left(\dfrac{B}{2}\right) \left[\sin\left(\dfrac{A}{2}\right) \cos\left(\dfrac{B}{2}\right)+\cos\left(\dfrac{A}{2}\right) \sin\left(\dfrac{B}{2}\right) \right] \\
+    =&\  4\cos\left(\dfrac{A}{2}\right)\sin\left(\dfrac{A}{2}\right)\cos^2\left(\dfrac{B}{2}\right)+
+    4\cos\left(\dfrac{B}{2}\right)\sin\left(\dfrac{B}{2}\right)\cos^2\left(\dfrac{A}{2}\right)\\
+    =&\  \sin A (\cos B+1)+\sin B(\cos A +1) \\
+    =&\  \sin A +\sin B + \sin(A+B)
+\end{align*}
+以上方法同样适用于(\ref{三角恒等式2})，(\ref{三角恒等式3})，(\ref{三角恒等式4}).
+由(\ref{三角恒等式4})式可以导出(\ref{三角恒等式5})式，
+由(\ref{三角恒等式5})式可以导出(\ref{三角恒等式6})式。
+由(\ref{三角恒等式6})式可知$ \cos A\cos B\cos C >-1 $，
+由(\ref{三角恒等式3})式可知$ \cos A+\cos B+\cos C >1 $.  
+
+\item 由$ \tan(A+B)=\dfrac{\tan A+\tan B}{1-\tan A\tan B}=
+\tan(\pi-C)=-\tan C $可得到(\ref{三角恒等式7})式，
+(\ref{三角恒等式7})式两边同除$ \tan A \tan B\tan C $可得到(\ref{三角恒等式8})式。
+由$ \tan\Big(\dfrac{A}{2}+\dfrac{B}{2}\Big)=\dfrac{\tan \dfrac{A}{2}+
+    \tan \dfrac{B}{2}}{1-\tan \dfrac{A}{2}\tan \dfrac{B}{2}}
+=\tan\Big(\dfrac{\pi}{2}-\dfrac{C}{2}\Big)=\dfrac{1}{\tan \dfrac{C}{2}} $
+可得到(\ref{三角恒等式-最后})式。
+
+\item 对任意$ \Delta ABC $，有如下不等式成立：
+\begin{gather}
+    0<\sin A +\sin B +\sin C \leq \frac{3\sqrt{3}}{2} \label{sinA+sinB+sinC}\\    
+    0<\sin A \sin B \sin C \leq \frac{3\sqrt{3}}{8} \label{sinAsinBsinC}\\
+    1<\cos A +\cos B +\cos C \leq \frac{3}{2} \label{cosA+cosB+cosC}\\
+    -1<\cos A\cos B\cos C \leq \frac{1}{8} \label{cosAcosBcosC}
+\end{gather}
+右侧不等号中的等号均在$ A=B=C=\dfrac{\pi}{3} $时取得，左侧则是至少一个角趋于0时的极限
+(剩余两个角可能趋于$ 0 $和$ \pi $，也可能都趋于$ \dfrac{\pi}{2} $).
+
+\item (\ref{sinA+sinB+sinC})式左侧不等式显然成立，现证明右侧。\\
+\textbf{方法一}\ 利用正弦函数$ y=\sin x $在$ [0,\pi] $上的凹凸性
+(不等式(\ref{琴森不等式}))：
+\begin{gather*}
+    \sin A +\sin B +\sin C \leq 3\sin \dfrac{A+B+C}{3}=\dfrac{3\sqrt{3}}{2}
+\end{gather*}
+\textbf{方法二}\ 考虑$ y=\sin x $在$ \Big(\dfrac{\pi}{3},\dfrac{\sqrt{3}}{2}
+\Big) $处的切线$ y=\dfrac{1}{2}\Big(x-\dfrac{\pi}{3}\Big)+\dfrac{\sqrt{3}}{2} $，
+$ \forall x\in [0,\pi] $，有$ \sin x\leq \dfrac{1}{2}\Big(x-\dfrac{\pi}{3}\Big)
++\dfrac{\sqrt{3}}{2} $，所以，
+\begin{gather*}
+    \sin A +\sin B +\sin C \leq \dfrac{1}{2}\Big(A+B+C-3\cdot\dfrac{\pi}{3}\Big)
+    +3\cdot\dfrac{\sqrt{3}}{2}=\dfrac{3\sqrt{3}}{2}
+\end{gather*}
+\textbf{方法三}\ 利用均值不等式(\ref{完整的均值不等式})、(\ref{三角恒等式6})式、
+(\ref{cosAcosBcosC})式：
+\begin{align*}
+    \sin A +\sin B +\sin C \leq &\ \sqrt{3(\sin^2A+\sin^2B+\sin^2C)} \\
+    =&\ \sqrt{3(2+2\cos A\cos B\cos C)}\leq \sqrt{3\left(2+2\cdot 
+        \dfrac{1}{8}\right)}=\dfrac{3\sqrt{3}}{2}
+\end{align*}
+
+\item (\ref{sinAsinBsinC})式左侧不等式显然成立，现证明右侧。利用均值不等式
+(\ref{完整的均值不等式})：
+\begin{gather}
+    \sin A \sin B \sin C \leq \left(\dfrac{\sin A +\sin B +\sin C}{3} \right)^3
+    \leq \left(\dfrac{\sqrt{3}}{2}\right)^3=\dfrac{3\sqrt{3}}{8}
+    \label{三个正弦和不等式-小于}
+\end{gather}
+
+\item 证明(\ref{cosA+cosB+cosC})式。\\
+\textbf{方法一}\ 利用(\ref{三角恒等式3})式、均值不等式和正弦函数的凹凸性：
+\begin{align}
+    \cos A +\cos B +\cos C =&\ 1+4\sin\Big(\dfrac{A}{2}\Big)
+    \sin\Big(\dfrac{B}{2}\Big)\sin\Big(\dfrac{C}{2}\Big)\qquad (>1) \nonumber \\
+    \leq &\ 1+4\left[\dfrac{\sin(\frac{A}{2})+
+        \sin(\frac{B}{2})+\sin(\frac{C}{2})}{3}\right]^3 \nonumber \\
+    \leq &\ 1+ 4\left(\sin \dfrac{\frac{A}{2}+\frac{B}{2}+\frac{C}{2}}{3}\right)^3=
+    1+4\left(\dfrac{1}{2}\right)^3=\dfrac{3}{2} \label{三个余弦和不等式-小于}
+\end{align}
+\textbf{方法二}\ 考虑$ y=\cos x $在$ \Big(\dfrac{\pi}{3},\dfrac{1}{2}
+\Big) $处的切线$ y=-\dfrac{\sqrt{3}}{2}\Big(x-\dfrac{\pi}{3}\Big)+\dfrac{1}{2} $，
+$ \forall x\in [0,\pi] $，有$ \cos x\leq -\dfrac{\sqrt{3}}{2}\Big(x-
+\dfrac{\pi}{3}\Big)+\dfrac{1}{2} $，所以，
+\begin{gather*}
+    \cos A +\cos B +\cos C \leq -\dfrac{\sqrt{3}}{2}\Big(A+B+C-3\cdot
+    \dfrac{\pi}{3}\Big)+3\cdot\dfrac{1}{2}=\dfrac{3}{2}
+\end{gather*}
+
+\item 对于(\ref{cosAcosBcosC})式，因为$ |\cos A\cos B\cos C|<1 $，
+所以$ \cos A\cos B\cos C>-1 $，左侧成立。现证明(\ref{cosAcosBcosC})式右侧成立。\\
+\textbf{方法一}\ 利用均值不等式：
+\begin{gather*}
+    \cos A \cos B \cos C \leq \left(\dfrac{\cos A +\cos B +\cos C}{3} \right)^3
+    \leq \left(\dfrac{1}{2}\right)^3=\dfrac{1}{8}
+\end{gather*}
+\textbf{方法二}\ 利用(\ref{三角恒等式5})式和均值不等式，
+\begin{align*}
+    1-2\cos A\cos B\cos C=\cos^2A+\cos^2B+\cos^2C \geq 3(\cos A\cos B\cos C)^{2/3}
+\end{align*}
+记$ t=(\cos A\cos B\cos C)^{1/3} $，那么 $ 2t^3+3t^2-1= (2t-1)(t+1)^2 \leq 0 $，
+于是$ t\leq \dfrac{1}{2} $，$ \cos A\cos B \cos C=t^3\leq \dfrac{1}{8} $.  
+
+\item 当$ x\in\Big(0,\dfrac{\pi}{2}\Big) $时，
+$ \sin x>\dfrac{2}{\pi}x $，$ \cos x>1-\dfrac{2}{\pi}x $.
+\begin{figure}[!h]  % sinx_Great_2x_pi.m
+    \centering
+    \includegraphics[width=0.7\linewidth]{sinx大于2x_pi}
+\end{figure} \\
+对于锐角三角形$ ABC $，有
+\begin{align}
+    \sin A +\sin B +\sin C &>\dfrac{2}{\pi}(A+B+C)=2 \label{sinA+sinB+sinC大于2} \\
+    \cos A +\cos B +\cos C &>3-\dfrac{2}{\pi}(A+B+C)=1 \label{cosA+cosB+cosC大于1}
+\end{align}
+
+\item 若$ \Delta ABC $是钝角三角形，那么$ \tan A+\tan B +\tan C =
+\tan A \tan B\tan C <0 $.\\
+若$ \Delta ABC $是锐角三角形，那么
+\begin{gather*}
+    \tan A+\tan B +\tan C =\tan A \tan B\tan C \leq \left(
+    \dfrac{\tan A+\tan B +\tan C}{3}\right)^3
+\end{gather*}
+于是
+\begin{gather*}
+    \tan A+\tan B +\tan C\geq 3\sqrt{3}
+\end{gather*}
+也可以从正切函数的凹凸性来理解上式，
+\begin{gather*}
+    \tan A+\tan B +\tan C\geq 3\tan\dfrac{A+B+C}{3}=3\sqrt{3}
+\end{gather*}
+或者考虑$ y=\tan x $在$ \Big(\dfrac{\pi}{3},\sqrt{3}\Big) $
+处的切线$ y=4\Big(x-\dfrac{\pi}{3}\Big)+\sqrt{3} $，
+$ \forall x\in \Big[0,\dfrac{\pi}{2}\Big) $，有$ \tan x\geq 
+4\Big(x-\dfrac{\pi}{3}\Big)+\sqrt{3} $，所以，
+\begin{gather*}
+    \tan A +\tan B +\tan C \geq 4\Big(A+B+C-3\cdot\dfrac{\pi}{3}\Big)
+    +3\sqrt{3}=3\sqrt{3}
+\end{gather*}
     
 \end{itemize}
 
@@ -1314,7 +1369,7 @@ $ \Delta OP_iP_j $的(有向)面积时，把$ \vec{OP_i} $的坐标写在行列�
  itemindent=\inteval{\myenumitemindent}pt]
 \item 设$ \Delta ABC $的垂心为$ H $，且$ 3\vec{HA}+4\vec{HB}
 +5\vec{HC}=\vec{0} $，求$ \cos\angle BHC $. \\
-\textbf{解}\ 根据(\ref{垂心性质三个连等式})式，可设 $ \vec{HA}\cdot
+\textbf{解}\ 根据(\ref{垂心性质三个连等式向量形式})式，可设 $ \vec{HA}\cdot
 \vec{HB}=\vec{HA}
 \cdot\vec{HC}=\vec{HB}\cdot \vec{HC}=t<0 $，分别用
 $ \vec{HB},\vec{HC} $与$ 3\vec{HA}+
