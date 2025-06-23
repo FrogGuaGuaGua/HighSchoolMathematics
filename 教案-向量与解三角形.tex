@@ -407,9 +407,9 @@ $(8,15,17)$, $(9,40,41)$, $(11,60,61)$, $(20,21,29) $.
     \dfrac{1}{4}a^2b^2\left[ 1-\left( {\dfrac{a^2+b^2-c^2}{2ab}}\right)^2 \right] 
 \end{align*}
 将括号展开后可得：
-\begin{align*}
+\begin{align}\label{三角形面积的平方1_16(-u+2v)}
     S_{\Delta ABC}^2=\dfrac{1}{16}\left[-(a^4+b^4+c^4)+2(a^2b^2+b^2c^2+c^2a^2)\right]
-\end{align*}
+\end{align}
 不做展开，而进行因式分解可得：
 \begin{align*}
     S_{\Delta ABC}^2
@@ -426,10 +426,13 @@ $(8,15,17)$, $(9,40,41)$, $(11,60,61)$, $(20,21,29) $.
     p(p-a)(p-b)(p-c)\leq p\left[\dfrac{(p-a)+(p-b)+(p-c)}{3}\right]^3=\dfrac{p^4}{27}
 \end{gather}
 以上的等号在$ a=b=c $时成立，所以，在周长固定的情况下，等边三角形的面积最大。
-
-记$ u=a^4+b^4+c^4,\ v=a^2b^2+b^2c^2+c^2a^2 ,\ w=a^2+b^2+c^2 $，
-那么$ w^2=u+2v $，根据柯西不等式：$ u\geq v $，那么$ w^2=u+2v \geq 3(-u+2v)=
-48 \cdot \dfrac{-u+2v}{16}=48 S_{\Delta ABC}^2 $，开平方后有：
+在\eqref{三角形面积的平方1_16(-u+2v)}式中，
+记$ u=a^4+b^4+c^4,\ v=a^2b^2+b^2c^2+c^2a^2 $. 然后记$ w=a^2+b^2+c^2 $，
+那么$ w^2=u+2v $，根据柯西不等式：$ u\geq v $，那么
+\begin{gather*}
+    w^2=u+2v \geq 3(-u+2v)=48\cdot\dfrac{-u+2v}{16}=48 S_{\Delta ABC}^2
+\end{gather*}
+开平方后有：
 $ w\geq 4\sqrt{3}S_{\Delta ABC} $，即
 \begin{gather}\label{外森比克不等式}
     a^2+b^2+c^2 \geq 4\sqrt{3}S_{\Delta ABC}
@@ -437,10 +440,13 @@ $ w\geq 4\sqrt{3}S_{\Delta ABC} $，即
 此不等式被称为外森比克(Weitzenböck)不等式。
 等号成立的条件是$ a=b=c $，即$ \Delta ABC $
 是等边三角形。再利用余弦定理来逆向分析外森比克不等式，
-$ a^2+b^2+c^2=a^2+b^2+(a^2+b^2-2ab\cos C)\geq 4\sqrt{3}\cdot
-\dfrac{1}{2}ab\sin C $，移项，
-$ 2(a^2+b^2)\geq 2ab(\cos C+\sqrt{3}\sin C)=4ab\sin(C+\dfrac{\pi}{6}) $，
-此不等式显然成立。 所以，当$ a^2+b^2+c^2=4\sqrt{3}S_{\Delta ABC}=
+\begin{gather*}
+    a^2+b^2+c^2=a^2+b^2+(a^2+b^2-2ab\cos C)\geq 4\sqrt{3}\cdot
+    \dfrac{1}{2}ab\sin C \\
+    2(a^2+b^2)\geq 2ab(\cos C+\sqrt{3}\sin C)=4ab\sin(C+\dfrac{\pi}{6})
+\end{gather*}
+此不等式显然成立。 等号成立的条件是$a=b$且$C=\dfrac{\pi}{3}$.
+所以，当$ a^2+b^2+c^2=4\sqrt{3}S_{\Delta ABC}=
 \begin{dcases}
     2\sqrt{3}ab\sin C \\
     2\sqrt{3}bc\sin A \\
@@ -455,15 +461,15 @@ $ 2(a^2+b^2)\geq 2ab(\cos C+\sqrt{3}\sin C)=4ab\sin(C+\dfrac{\pi}{6}) $，
         2R^2\sin A\sin B\sin C=\dfrac{abc}{4R}=\sqrt{p(p-a)(p-b)(p-c)}=pr
     \end{gathered} \right\}
 \end{gather}
-其中，$ R $是外接圆半径，$ r $是内切圆半径，$ p $为半周长。
+其中，$ R $是外接圆半径，$ r $是内切圆半径，$ p $为周长的一半。
 
-\item 外森比克不等式的等价形式：
+\item 将余弦定理的三个式子相加：
 \begin{align*}
     a^2+b^2+c^2 &=2bc\cos A+2ac\cos B+2ab\cos C \\
     &=8R^2(\sin B\sin C\cos A+\sin A\sin C\cos B+\sin A\sin B\cos C) \\
-    &\geq 4\sqrt{3}S_{\Delta}=4\cdot 2R^2\sin A\sin B\sin C
+    &\geq 4\sqrt{3}S_{\Delta ABC}=4\sqrt{3}\cdot 2R^2\sin A\sin B\sin C
 \end{align*}
-两边约去$ 8R^2 $后可得：
+两边约去$ 8R^2 $后可得外森比克不等式的等价形式：
 \begin{gather*}
     \sin B\sin C\cos A+\sin A\sin C\cos B+\sin A\sin B\cos C
     \geq \sqrt{3} \sin A\sin B\sin C
@@ -505,7 +511,8 @@ $ v=\left(1+\dfrac{\lambda_2}{\lambda_3}\right)b^2 $，则
 
 \item $ \Delta ABC $的$ BC $边上有$ n $个点，记为$ P_1,P_2,\cdots P_n $，
 设$ \vec{AP_1}+\vec{AP_2}+\cdots +\vec{AP_n}=
-\lambda \vec{AB} +\mu \vec{AC} $，则$ \lambda+\mu=n $. \begin{figure}[h]
+\lambda \vec{AB} +\mu \vec{AC} $，则$ \lambda+\mu=n $. 
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.3\linewidth]{多个向量终点共线}
 \end{figure}
@@ -515,7 +522,9 @@ $ v=\left(1+\dfrac{\lambda_2}{\lambda_3}\right)b^2 $，则
 \section{重心、垂心、内心、外心}
 \begin{itemize}[leftmargin=\inteval{\myitemleftmargin}pt,itemsep=
    \inteval{\myitemitempsep}pt,topsep=\inteval{\myitemtopsep}pt]
-\item $ \Delta ABC $的三条中线交于一点$ G $(重心)，三条中线
+   
+\item 三角形的三条中线的交点称为\textbf{重心}。
+设$ \Delta ABC $的重心为$ G $，三条中线
 把三角形分成6个面积相等的小三角形。重心分割中线的比例为1:2，证明如下：
 \begin{figure}[h]
     \centering
@@ -540,17 +549,27 @@ $ BC $边的中点为$ E $，$ CA $边的中点为$ F $.
 则 $ \begin{dcases}
     \dfrac{\lambda}{2} =\ 1-\mu  \\
     \dfrac{\mu}{2} =\ 1-\lambda
-\end{dcases} $，解得$ \lambda=\mu=\dfrac{2}{3} $，即$ \vec{AG}=
-\dfrac{2}{3}\vec{AD}+\dfrac{1}{3}\vec{AC}=
-\dfrac{2}{3}\vec{AF}+\dfrac{1}{3}\vec{AB} $，
-已经能说明重心分割中线的比例为1:2. 所以$ \vec{AG}=
-2\vec{GE}=\vec{GB}+\vec{GC}, 
-\ \vec{GA}+\vec{GB}+\vec{GC}=
-\vec{0} $. 再设$ O $为空间中的任意一点，则
+\end{dcases} $，解得$ \lambda=\mu=\dfrac{2}{3} $，即
+\begin{gather}\label{重心AG=1_3AB+1_3AC}
+    \vec{AG}=\dfrac{2}{3}\vec{AD}+\dfrac{1}{3}\vec{AC}=
+    \dfrac{2}{3}\vec{AF}+\dfrac{1}{3}\vec{AB}=
+    \dfrac{1}{3}\left(\vec{AB}+\vec{AC}\right)
+\end{gather}
+已经能说明重心分割中线的比例为1:2. 
+所以$ \vec{AG}=2\vec{GE}=\vec{GB}+\vec{GC} $. 
+\begin{gather*}
+    \vec{GA}+\vec{GB}+\vec{GC}=\vec{0} 
+\end{gather*}
+\begin{gather}\label{AG·BC表达式}
+    \vec{AG}\cdot \vec{BC}=\dfrac{1}{3}\left(\vec{AC}+\vec{AB}\right)\cdot
+    \left(\vec{AC}-\vec{AB}\right)=
+    \dfrac{1}{3}\left(|\vec{AC}|^2-|\vec{AB}|^2\right)=
+    \dfrac{1}{3}\left(b^2-c^2\right)
+\end{gather}
+再设$ O $为空间中的任意一点，则
 \begin{align*}
     \vec{OG}=\vec{OA}+\vec{AG} =&\ 
-    \vec{OA}+\dfrac{1}{3}\left(\vec{AB}+
-    \vec{AC} \right) \\
+    \vec{OA}+\dfrac{1}{3}\left(\vec{AB}+\vec{AC}\right) \\
     =&\ \vec{OA}+\dfrac{1}{3} \left[\left( \vec{OB} 
     -\vec{OA}\right) + \left( \vec{OC} -\vec{OA}\right)\right]  \\
     =&\ \dfrac{1}{3}\left(\vec{OA}+\vec{OB}+
@@ -564,8 +583,7 @@ $ BC $边的中点为$ E $，$ CA $边的中点为$ F $.
 \vec{BC},\ 0<\mu_1<1 $. $ E $是$ AD $上一点，$ \vec{AE} =
 \mu_2\vec{AD},\ 0<\mu_2<1 $. 过$ E $点的直线与$ AB,AC $所在的直线分别交于
 $ M,N $两点，设$ \vec{AM}=x\vec{AB},\vec{AN}=
-y\vec{AC} $，求证：
-$ \dfrac{(1-\mu_1)\mu_2}{x}+\dfrac{\mu_1\mu_2}{y}=1 $. 
+y\vec{AC} $，则 $ \dfrac{(1-\mu_1)\mu_2}{x}+\dfrac{\mu_1\mu_2}{y}=1 $. 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.3\linewidth]{系数倒数相加为定值}
@@ -598,10 +616,11 @@ $ \begin{dcases}
 \end{gather*}
 于是有$ x\mu_2\mu_1+y\mu_2(1-\mu_1)=xy $，两边同除$ xy $即得结论。
 
-\item 设$ \Delta ABC $的垂心为$ H $，则$ \vec{HA}\cdot \vec{BC}=
-\vec{HA}\cdot (\vec{HC}-\vec{HB})=
-\vec{0},\ \vec{HA}\cdot \vec{HC}=
-\vec{HA}\cdot \vec{HB} $，采用类似方法，可以得到
+\item 三角形的三条高的交点称为\textbf{垂心}。
+设$ \Delta ABC $的垂心为$ H $，则$ \vec{HA}\cdot \vec{BC}=
+\vec{0}=\vec{HA}\cdot (\vec{HC}-\vec{HB}),\ 
+\vec{HA}\cdot \vec{HC}=\vec{HA}\cdot \vec{HB} $，
+采用类似方法，可以得到
 \begin{gather}\label{垂心性质三个连等式向量形式}
     \vec{HA}\cdot \vec{HB}=
     \vec{HA}\cdot \vec{HC}=\vec{HB}\cdot \vec{HC} 
@@ -619,8 +638,8 @@ $ \begin{dcases}
     \centering
     \includegraphics[width=0.3\linewidth]{垂心的性质}
 \end{figure}
-设$O$为$ \Delta ABC $的外接圆圆心(外心)，连接$BO$并延长，交外接圆于$K$点，
-连接$AK, CK$. 因为$\angle EAC+\angle CAK =\pi=\angle EAC+\angle ECA $，
+在上图中，设$O$为$ \Delta ABC $的外接圆圆心(外心)，连接$BO$并延长，交外接圆于$K$点，
+连接$AK, CK$. 因为$\angle EAC+\angle CAK =\dfrac{\pi}{2}=\angle EAC+\angle ECA $，
 所以$\angle CAK=\angle ECA $，$HC//AK$(内错角相等)。又因为
 $\angle AFC=\angle KCF=\dfrac{\pi}{2}$，所以$AH//CK$(同时垂直于$BC$)，
 四边形$AHCK$为平行四边形，设$R$代表外接圆半径，
@@ -638,7 +657,8 @@ $\angle AFC=\angle KCF=\dfrac{\pi}{2}$，所以$AH//CK$(同时垂直于$BC$)，
 +\angle BHC =\pi $($\angle BHC$和$\angle EHD$是对顶角)，同理可得：
 $ \angle BCA+\angle BHA =\pi,\ \angle ABC+\angle AHC =\pi $. 
 
-\item 设$ \Delta ABC $的内心为$ I $，若$ \vec{AI}=\lambda\vec{AB}+\mu\vec{AC} $，
+\item 三角形的三条内角平分线的交点称为\textbf{内心}，因为它是内切圆的圆心。
+设$ \Delta ABC $的内心为$ I $，若$ \vec{AI}=\lambda\vec{AB}+\mu\vec{AC} $，
 则$ \lambda:\mu=|\vec{AC}|:|\vec{AB}| $. 
 \begin{figure}[h]
     \centering
@@ -671,8 +691,10 @@ $ l_1\tan\dfrac{A}{2}=l_2\tan\dfrac{B}{2}=l_3\tan\dfrac{C}{2}=r $，
 \end{align*}
 所以$ S_{\Delta ABC}=pr=p^2\tan\dfrac{A}{2}\tan\dfrac{B}{2}\tan\dfrac{C}{2}=
 \dfrac{r^2}{\tan\dfrac{A}{2}\tan\dfrac{B}{2}\tan\dfrac{C}{2}} $. \\
-\textbf{注}\ 由$ \tan(\dfrac{A}{2}+\dfrac{B}{2})=\dfrac{\tan \dfrac{A}{2}+\tan \dfrac{B}{2}}
-{1-\tan \dfrac{A}{2}\tan \dfrac{B}{2}}=\tan(\dfrac{\pi}{2}-\dfrac{C}{2})=
+\textbf{注}\ 由$ \tan\left(\dfrac{A}{2}+\dfrac{B}{2}\right)=
+\dfrac{\tan \dfrac{A}{2}+\tan \dfrac{B}{2}}
+{1-\tan \dfrac{A}{2}\tan \dfrac{B}{2}}=
+\tan\left(\dfrac{\pi}{2}-\dfrac{C}{2}\right)=
 \dfrac{1}{\tan \dfrac{C}{2}} $
 可得到
 \begin{gather*}
@@ -680,23 +702,28 @@ $ l_1\tan\dfrac{A}{2}=l_2\tan\dfrac{B}{2}=l_3\tan\dfrac{C}{2}=r $，
     \tan\dfrac{C}{2}+\tan\dfrac{B}{2}\tan\dfrac{C}{2}=1
 \end{gather*}
 设$ \vec{AI}=\rho\left(\dfrac{\vec{AB}}{|
-    \vec{AB}|}+\dfrac{\vec{AC}}{|
-    \vec{AC}|}\right) $，那么$ |\vec{AI}|^2=\rho^2(2+2\cos A) $. 
-又有$ |\vec{AI}|=\dfrac{r}{\sin \dfrac{A}{2}} $，所以
+    \vec{AB}|}+\dfrac{\vec{AC}}{|\vec{AC}|}\right) $，
+    那么$ |\vec{AI}|^2=2\rho^2(1+\cos A) $
+    (因为$\dfrac{\vec{AB}}{|\vec{AB}|},\ \dfrac{\vec{AC}}{|\vec{AC}|}$
+    的长度都是1). 又有$ |\vec{AI}|=\dfrac{r}{\sin \dfrac{A}{2}} $，所以
 \begin{gather*}
     |\vec{AI}|^2=\dfrac{r^2}{\sin^2 \dfrac{A}{2}}=
     \dfrac{2r^2}{1-\cos A}= 2\rho^2(1+\cos A) \\
-    \rho=\dfrac{r}{\sin A} \\
-    \vec{AI}\cdot\vec{BC}=\rho\left(\dfrac{
-        \vec{AB}}{|\vec{AB}|}+\dfrac{
-        \vec{AC}}{|\vec{AC}|}\right)\cdot(\vec{AC}-
-    \vec{AB})=\rho(1+\cos A)\left(|\vec{AC}|
-    -|\vec{AB}|\right)=\\
-    \dfrac{r(1+\cos A)}{\sin A}
+    \rho=\dfrac{r}{\sin A}=\dfrac{1}{\sin A}\sqrt{\dfrac{(p-a)(p-b)(p-c)}{p}} 
+\end{gather*}
+\begin{align*}
+    \vec{AI}\cdot\vec{BC}=&\ \rho\left(\dfrac{
+        \vec{AB}}{|\vec{AB}|}+\dfrac{\vec{AC}}{|\vec{AC}|}\right)
+    \cdot(\vec{AC}-\vec{AB}) \\
+    =&\ \dfrac{\rho}{|\vec{AB}|\cdot |\vec{AC}|}(
+    \vec{AB}\cdot \vec{AC} |\vec{AC}|-\vec{AB}^2|\vec{AC}|+
+    \vec{AC}^2|\vec{AB}|-\vec{AB}\cdot \vec{AC}|\vec{AB}|) \\
+    =&\ \rho(1+\cos A)\left(|\vec{AC}|-|\vec{AB}|\right) \\
+    =&\ \dfrac{r(1+\cos A)}{\sin A}
     \left(|\vec{AC}|-|\vec{AB}|\right)=
     \dfrac{r}{\tan \frac{A}{2}}
     \left(|\vec{AC}|-|\vec{AB}|\right)
-\end{gather*}
+\end{align*}
 
 \item 利用正弦定理和(\ref{三角恒等式1})式，
 \begin{align*}
@@ -711,21 +738,31 @@ $ l_1\tan\dfrac{A}{2}=l_2\tan\dfrac{B}{2}=l_3\tan\dfrac{C}{2}=r $，
 所以，$ r=4R\sin\dfrac{A}{2}\sin\dfrac{B}{2}\sin\dfrac{C}{2} $.
 设$ I $是$ \Delta ABC $的内心，则
 \begin{gather*}
-    |AI||BI||CI|=\frac{r^3}{\sin\dfrac{A}{2}\sin\dfrac{B}{2}
+    |AI|\cdot|BI|\cdot|CI|=\frac{r^3}{\sin\dfrac{A}{2}\sin\dfrac{B}{2}
         \sin\dfrac{C}{2}}=4Rr^2
 \end{gather*}
 
-\item 设$ \Delta ABC $的外心为$ O $，则$ \vec{AO} \cdot \vec{BC}=
-\vec{AO}\cdot (\vec{AC}-\vec{AB})=
-\dfrac{1}{2}|\vec{AC}|^2-\dfrac{1}{2}|\vec{AB}|^2. $ 
+\item 三角形的三条边的垂直平分线的交点称为\textbf{外心}，
+因为它是外接圆的圆心。$ \Delta ABC $的外心为$ O $，
 设$ \vec{AO}=\eta\vec{AB}+\kappa\vec{AC} $，那么 
 \begin{gather*}
 \begin{dcases}
-    \vec{AO}\cdot\vec{AB}=\eta |AB|^2+\kappa |AB|
-    \cdot |AC|\cdot\cos A=\dfrac{1}{2}|AB|^2 \\
-    \vec{AO}\cdot\vec{AC}=\eta |AB|\cdot |AC|\cdot\cos A+\kappa 
-    |AC|^2=\dfrac{1}{2}|AC|^2 
-\end{dcases} \\
+    \vec{AO}\cdot\vec{AB}=\dfrac{1}{2}|AB|^2
+    =\eta |AB|^2+\kappa |AB|\cdot |AC|\cdot\cos A \\
+    \vec{AO}\cdot\vec{AC}=\dfrac{1}{2}|AC|^2 
+    =\eta |AB|\cdot |AC|\cdot\cos A+\kappa |AC|^2
+\end{dcases}
+\end{gather*}
+两式相减，有
+\begin{gather*}
+    \vec{AO}\cdot (\vec{AC}-\vec{AB})=\vec{AO} \cdot \vec{BC}=
+    \dfrac{1}{2}|\vec{AC}|^2-\dfrac{1}{2}|\vec{AB}|^2=
+    \dfrac{1}{2}(\vec{AC}+\vec{AB})\cdot(\vec{AC}-\vec{AB})
+\end{gather*}
+注意，这个等式说明$\vec{AO}$与$\dfrac{1}{2}(\vec{AC}+\vec{AB})$
+在$\vec{BC}$上的投影的长度相等(请读者自己画图思考)，而不是说明
+$\vec{AO}=\dfrac{1}{2}(\vec{AC}+\vec{AB})$.
+\begin{gather*}
 \begin{dcases}
     \eta |AB|+\kappa |AC|\cdot\cos A=\dfrac{1}{2}|AB| \\
     \eta |AB|\cdot \cos A+\kappa |AC|=\dfrac{1}{2}|AC| 
@@ -767,12 +804,12 @@ $ p-a=l_1,p-b=l_2,p-c=l_3 $，那么
     \centering
     \includegraphics[width=0.3\linewidth]{内部点的向量和定理}
 \end{figure}
-延长$ AO $交$ BC $边于$ D $点，$ \dfrac{S_C}{S_B}=\dfrac{\frac{1}{2}AO\cdot BD \sin \angle  BDO}{\frac{1}{2}AO\cdot DC \sin \angle CDO}=\dfrac{BD}{DC} $，
+延长$ AO $交$ BC $边于$ D $点，$ \dfrac{S_C}{S_B}=\dfrac{\frac{1}{2}|AO|\cdot |BD| \sin \angle  BDO}{\frac{1}{2}|AO|\cdot |DC| \sin \angle CDO}=\dfrac{|BD|}{|DC|} $，
 \begin{gather*}
-    \vec{OD}=\dfrac{DC}{BC}\cdot\vec{OB} + 
-    \dfrac{BD}{BC}\cdot\vec{OC}=\dfrac{S_B}{S_B+S_C}\cdot
+    \vec{OD}=\dfrac{|DC|}{|BC|}\cdot\vec{OB} + 
+    \dfrac{|BD|}{|BC|}\cdot\vec{OC}=\dfrac{S_B}{S_B+S_C}\cdot
     \vec{OB} +\dfrac{S_C}{S_B+S_C}\cdot\vec{OC} \\
-    \dfrac{OD}{OA}=\dfrac{S_{\Delta BOD}}{S_{\Delta BOA}}=
+    \dfrac{|OD|}{|OA|}=\dfrac{S_{\Delta BOD}}{S_{\Delta BOA}}=
     \dfrac{S_{\Delta COD}}{S_{\Delta COA}}=\dfrac{S_{\Delta BOD}+
         S_{\Delta COD}}{S_{\Delta BOA}+S_{\Delta COA}}=\dfrac{S_A}{S_B+S_C} \\
     \vec{OD}=-\dfrac{S_A}{S_B+S_C}\cdot\vec{OA}=
@@ -2233,6 +2270,7 @@ $ |AD|=d_4 $, $ |AB|=d_5 $，即可得到$ EF $.
 \section{习题}
 \begin{enumerate}[label={\textbf{\arabic*.}},leftmargin=
     \inteval{\myenumleftmargin}pt]
+    
 \item 在$ \Delta ABC $中，已知$ a^2+b^2+c^2=2\sqrt{3}bc\sin A $，求$ B $的大小。
 
 \item $ \vec{a}=(4,t),\ \vec{b}=\left(t,\dfrac{5}{3}\right) $，若
@@ -2327,6 +2365,9 @@ y\vec{AC} $，且$ x>0,y>0 $. \\
     \centering
     \includegraphics[width=0.3\linewidth]{系数倒数相加为定值}
 \end{figure} 
+
+\item $D$是$\Delta ABC$内部的一点，且$\vec{AD}=\dfrac{2}{5}\vec{AB}
++\dfrac{1}{5}\vec{AC}$，求$\dfrac{S_{\Delta BDC}}{S_{\Delta BDA}}$.
 
 \item 求证：在任意三角形中，小角的角平分线段比大角的角平分线段更长。
 (“角平分线段”是指角平分线从顶点到对边的部分。)
@@ -2490,6 +2531,21 @@ $ \begin{dcases}
 (2) $ xy=\dfrac{1}{225}\cdot xy \left(\dfrac{8}{x}+\dfrac{2}{y}\right)^2=
 \dfrac{1}{225}\left(\dfrac{64y}{x}+32+\dfrac{4x}{y}\right)\geq\dfrac{64}{225} $. 
 
+\item 延长$AD$交$BC$于$E$点，
+\begin{figure}[H]  
+    \centering
+    \includegraphics[width=0.3\linewidth]{PDF_Picture/面积比值题目3_5}
+\end{figure}
+$\vec{AD}=\dfrac{2}{5}\vec{AB}
++\dfrac{1}{5}\vec{AC}=\dfrac{3}{5}\left(\dfrac{2}{3}\vec{AB}
++\dfrac{1}{3}\vec{AC}\right)=\dfrac{3}{5}\vec{AE}$，
+$\dfrac{S_{\Delta BDE}}{S_{\Delta CDE}}=\dfrac{|BE|}{|CE|}=
+\dfrac{1}{2}$，设$S_{\Delta BDE}=S$，那么$S_{\Delta CDE}=2S$.
+因为$\dfrac{S_{\Delta BDA}}{S_{\Delta BDE}}=\dfrac{|AD|}{|DE|}=
+\dfrac{3}{2}$，所以$ S_{\Delta BDA}=\dfrac{3}{2}S $，
+于是，$\dfrac{S_{\Delta BDC}}{S_{\Delta BDA}}=
+\dfrac{S+2S}{\frac{3}{2}S}=2$.
+
 \item 在$ \Delta ABC $中，设$ \angle B<\angle C $，
 设$ \angle B $的角平分线段长度为$ l_B $，
 $ \angle C $的角平分线段长度为$ l_C $，则
@@ -2517,11 +2573,9 @@ $ \angle C $的角平分线段长度为$ l_C $，则
 
 \end{enumerate}
 \myfootnote{\CopyrightStatementChap}
-% {\footnotesize (可在以下空白区域自行增补知识点。)}  
+
 \cleardoublepage
 
-%~\newpage
-%~\newpage
 
 %------------------------------------------
 
