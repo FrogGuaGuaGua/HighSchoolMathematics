@@ -14,11 +14,18 @@ grid minor
 axis([-10 10 -1 10])
 title('$\frac{xe^x}{e^x+1}$','interpreter','latex')
 
+% subplot(3,2,4)
+% % fplot(log(exp(x)./(exp(x)+1)),'k','linewidth',1.2)
+% fplot(x./sqrt(1+2*x.^2),'k','linewidth',1.2)
+% grid minor
+% axis([-10 10 -10 0.5])
+% title('$\ln\left(\frac{e^x}{e^x+1}\right)$','interpreter','latex')
+
 subplot(3,2,4)
-fplot(log(exp(x)./(exp(x)+1)),'k','linewidth',1.2)
+fplot(x./sqrt(1+2*x.^2),'k','linewidth',1.2)
 grid minor
-axis([-10 10 -10 0.5])
-title('$\ln\left(\frac{e^x}{e^x+1}\right)$','interpreter','latex')
+axis([-2 2 -1 1])
+title('$\frac{x}{\sqrt{1+ax^2}}\ (a>0)$','interpreter','latex')
 
 subplot(3,2,2)
 fplot(tanh(x),'k','linewidth',1.2)

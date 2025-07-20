@@ -20,7 +20,7 @@ plot([xb2 xb2],[yb1 yb2],'k','linewidth',0.3) % ≤π≥‰Õº–ŒÕ‚øÚ-”“±ﬂ‘µ
 x0=4; y0=4;
 plot(x0,y0,'k.','markersize',15)
 plot([x0 x0],[y0 -y0],'k:','linewidth',1.2)
-fimplicit(@(x,y)y*y0+p*(x+x0),'k:','linewidth',1.2)
+fimplicit(@(x,y)y*y0-p*(x+x0),'k:','linewidth',1.2)
 
 % k=5;
 % y1=2*p/k-y0;
@@ -57,3 +57,7 @@ x2=y2^2/2/p;
 plot([x0 x1],[y0 y1],'k','linewidth',1.2)
 plot([x0 x2],[y0 y2],'k','linewidth',1.2)
 fimplicit(@(x,y)y-y2+p/y0*(x-x2),'k','linewidth',1.2)
+
+text(3.8, 4.4,'$P$','Interpreter','latex','FontSize',13)
+text(0.5,-2.8,'$Q$','Interpreter','latex','FontSize',13)
+text(8.5,-6.8,'$R$','Interpreter','latex','FontSize',13)

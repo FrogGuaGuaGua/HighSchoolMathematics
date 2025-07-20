@@ -5,13 +5,13 @@
 
 \begin{itemize}[leftmargin=\inteval{\myitemleftmargin}pt,itemsep=
    \inteval{\myitemitempsep}pt,topsep=\inteval{\myitemtopsep}pt]
-\item 零点：使$ f(x)=0 $的$ x $. 
+\item \textbf{零点}：使$ f(x)=0 $的$ x $. 
 \item 极值点：设函数$ f(x) $在区间$ I $上有定义，$ x_0\in I $，若$ \exists\ \sigma>0,\ \forall\ x\in(x_0-\sigma,x_0+\sigma) $\footnote{$ \exists $表示存在，可以理解为Exist的首字母E左右颠倒；$ \forall $表示任意，可以理解为Any的首字母A上下颠倒。}，有$ f(x)\leq f(x_0) $(或$ f(x)\geq f(x_0) $)，则称$ f(x_0) $是函数$ f(x) $的一个极大值(或极小值)，$ x_0 $是函数的一个极大值点(或极小值点)，但有时候也把$ (x_0,f(x_0)) $称为极大值点(或极小值点)。极大值与极小值统称为极值；极大值点与极小值点统称为极值点。高中阶段基本只考察连续、可导的函数，可以认为极值只会在$ f'(x)=0 $的位置取得。
 % \item 极点(pole)$ ^* $：使$ f(x)\to +\infty $或$-\infty $的$ x $，比如$ x=0 $是$ \dfrac{1}{x^2} $的极点\footnote{可查阅https://complex-analysis.com/content/classification\_of\_singularities.html，或者\ 胡嗣柱，倪光炯. 数学物理方法[M]. 高等教育出版社，2002. }。
 
-\item 偶函数：$ f(x)=f(-x) $，函数图像为轴对称图形
+\item \textbf{偶函数}：$ f(x)=f(-x) $，函数图像为轴对称图形
 (关于$y$轴对称)；\\
-奇函数：$ f(-x)=-f(x) $，函数图像为中心对称图形
+\textbf{奇函数}：$ f(-x)=-f(x) $，函数图像为中心对称图形
 (关于原点中心对称)，
 若奇函数$ f(x) $在$ x=0 $处有定义，则必有$ f(0)=0 $.
 
@@ -23,7 +23,8 @@
 (5)正切函数$ \tan() $括号内的表达式不等于$ k\pi+\dfrac{\pi}{2}\ 
 (k\in \mathbf{Z}) $. 
 
-\item 对于函数$ y=f(x) $，交换$ x $和$ y $，即可得到其反函数$ x=f(y) $.
+\item 对于函数$ y=f(x) $，交换$ x $和$ y $，
+即可得到其反函数$ x=f(y) $.
 一个函数和其反函数的图像关于一三象限角平分线$ y=x $对称。
 
 \item 对于函数$ y=f(x) $，把$ x $换成$ -y $，把$ y $换成$ -x $，
@@ -32,7 +33,8 @@ $ y=-x $对称。比如$ y=\ln(x) $，
 替换以后得到$ -x=\ln(-y) $，即$ y=-\e^{-x} $，该函数与$ y=\ln(x) $
 的图像关于直线$ y=-x $对称.
 
-\item 将函数$y=f(x)$进行平移，遵循“负加正减”的原则，即向$x$轴或$y$轴
+\item 将函数$y=f(x)$进行平移，遵循“\textbf{负加正减}”的原则，
+即向$x$轴或$y$轴
 的负方向平移距离$a\:(a>0)$时，就把$x$换成$x+a$或$y$换成$y+a$，
 函数变成$y=f(x+a)$或$y+a=f(x)$；向$x$轴或$y$轴
 的正方向平移距离$a\:(a>0)$时，就把$x$换成$x-a$或$y$换成$y-a$，
@@ -63,7 +65,7 @@ $ \log_{a^n} M=\dfrac{1}{n}\log_a M $. \\
     c_{10}x+c_{01}y+d=0
 \end{gather*}
 其中，$ a_{30},a_{21},a_{12},a_{03} $不全为0. 三次曲线种类繁多\footnote{陈谷新. 
-    平面三次代数曲线\ 连载No.1$ \sim $No.8[J]. (工程)图学学报, 1988年起。}，
+    平面三次代数曲线\ 连载No.1$ \sim $No.8[J]. 工程图学学报, 1988年起。}，
 在此不做详细介绍。
 
 \item 求$ y=\dfrac{Ax+B}{Cx+D} $的值域：
@@ -126,11 +128,11 @@ $ A $前面的正负号取决于$ x $的正负。\\
 \begin{align*}
     y+\dfrac{1}{y}=&\ \dfrac{Ax-\sqrt{Bx^2+C}}{Ax+\sqrt{Bx^2+C}}+
     \dfrac{Ax+\sqrt{Bx^2+C}}{Ax-\sqrt{Bx^2+C}}   \\
-    =&\ \dfrac{2(A^2+B^2)x^2+2C}{(A^2-B^2)x^2+C} 
-    =   \dfrac{2(A^2+B^2)}{A^2-B^2}\cdot
-    \dfrac{x^2+\dfrac{C}{A^2+B^2}}{x^2+\dfrac{C}{A^2-B^2}} \\
-    =&\ \dfrac{2(A^2+B^2)}{A^2-B^2}\cdot \left(1+
-    \dfrac{\dfrac{C}{A^2+B^2}-\dfrac{C}{A^2-B^2}}{x^2+\dfrac{C}{A^2-B^2}} \right)
+    =&\ \dfrac{2(A^2+B)x^2+2C}{(A^2-B)x^2-C} 
+    =   \dfrac{2(A^2+B)}{A^2-B}\cdot
+    \dfrac{x^2+\dfrac{C}{A^2+B}}{x^2-\dfrac{C}{A^2-B}} \\
+    =&\ \dfrac{2(A^2+B)}{A^2-B}\cdot \left(1+
+    \dfrac{\dfrac{C}{A^2+B}+\dfrac{C}{A^2-B}}{x^2-\dfrac{C}{A^2-B}} \right)
 \end{align*}
 先求出$ y+\dfrac{1}{y} $的范围，再求$ y $的范围。\\
 \textbf{方法三}\ 判别式
@@ -150,19 +152,19 @@ b_2 $)，在此区间内，函数值为常数$ b_2-b_1 $. 函数$ y=|x-b_1|+|x-b
 如果$ n $是偶数，那么最小值在区间$ [b_{\frac{n}{2}},b_{\frac{n}{2}+1}] $
 内取得；如果$ n $是奇数，那么最小值在$ x=b_{\frac{n+1}{2}} $处取得。
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\linewidth]{多个绝对值之和}
 \end{figure} 
 
 \item 函数$ y=|x-b_1|-|x-b_2| $的图像是“两头平，中间斜”。
 而$ y=|x-b_1|-|x-b_2|-|x-b_3| $的图像则比较复杂。
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\linewidth]{几个绝对值之差}
 \end{figure}
 
-\item \textbf{零点存在定理}：若函数$ f(x) $在闭区间$ [a,b] $连续，
+\item \textbf{零点存在定理}： 若函数$ f(x) $在闭区间$ [a,b] $连续，
 且$ f(a)\cdot f(b)<0 $，则一定存在$ x_0\in(a,b) $，使$ f(x_0)=0 $. 
 此定理为二分法找函数零点的理论基础。
 
@@ -170,11 +172,11 @@ b_2 $)，在此区间内，函数值为常数$ b_2-b_1 $. 函数$ y=|x-b_1|+|x-b
 且$ f(a)\cdot f(b)<0 $，给定精度$\varepsilon >0$，
 按如下步骤计算区间$[a,b]$内的零点的近似值：
 \begin{enumerate}[label=(\arabic*)]
-    \item 令$c=\dfrac{a+b}{2}$，若$f(c)=0$，则$c$就是函数的零点；
-    \item 若$ f(a)\cdot f(c)<0 $，则零点位于$(a,c)$内，令$b=c$；
-    \item 若$ f(c)\cdot f(b)<0 $，则零点位于$(c,b)$内，令$a=c$；
+    \item 令$c=\dfrac{a+b}{2}$，若$f(c)=0$，则$c$就是$f(x)$的零点；
+    \item 若$ f(a)\cdot f(c)<0 $，则零点位于$(a,c)$内，令$b=c$ ；
+    \item 若$ f(c)\cdot f(b)<0 $，则零点位于$(c,b)$内，令$a=c$ ；
     \item 若$ |a-b|<\varepsilon $，则满足精度要求，$a$或$b$均可作为零点近似值；
-    否则重复步骤\q (1)$\sim$(4).
+    否则重复步骤 (1)$\sim$(4).
 \end{enumerate}
 需要注意的是：\\
 (i) 若$ f(a)\cdot f(b)<0 $，则$f(x)$在$[a,b]$上未必只有一个零点。
@@ -219,10 +221,14 @@ b_2 $)，在此区间内，函数值为常数$ b_2-b_1 $. 函数$ y=|x-b_1|+|x-b
 (2)令$ x_2=-x_1 $，则$ f(x_1-x_1)=f(0)=f(x_1)+f(-x_1)=0 $，所以$ f(x) $是奇函数。\\
 %(以上两步也适用于$ f(x_1)+f(x_2)=f\left(\dfrac{x_1+x_2}{1+x_1x_2} \right) $，
 %$ \ln \dfrac{1-x}{1+x} $和$ \arctan x $满足都是奇函数。)\\
-(3)任取正整数$ m,n $，有 $ f(\dfrac{m}{n})=f\Big(\dfrac{m-1}{n}+\dfrac{1}{n}\Big)=
-f\Big(\dfrac{m-1}{n}\Big)+f\Big(\dfrac{1}{n}\Big)=
-f\Big(\dfrac{m-2}{n}\Big)+2f\Big(\dfrac{1}{n}\Big)=
-\cdots =mf\Big(\dfrac{1}{n}\Big)$，当$ m=n $时，$ f(1)=nf\Big(\dfrac{1}{n}\Big) $，
+(3)任取正整数$ m,n $，有
+\begin{align*}
+    f\Big(\dfrac{m}{n}\Big)=f\Big(\dfrac{m-1}{n}+\dfrac{1}{n}\Big)
+    =&\ f\Big(\dfrac{m-1}{n}\Big)+f\Big(\dfrac{1}{n}\Big) \\
+    =&\ f\Big(\dfrac{m-2}{n}\Big)+2f\Big(\dfrac{1}{n}\Big)=
+    \cdots =mf\Big(\dfrac{1}{n}\Big)
+\end{align*}
+当$ m=n $时，$ f(1)=nf\Big(\dfrac{1}{n}\Big) $，
 即 $ f\Big(\dfrac{1}{n}\Big)=\dfrac{1}{n}f(1) $，
 所以 $f\Big(\dfrac{m}{n}\Big)=\dfrac{m}{n}f(1) $. 
 如果记$ f(1)=k $，再利用$ f(x) $是奇函数的性质，那么对任意有理数$ q $，
@@ -254,18 +260,24 @@ $ f(a_1+a_2,b)=f(a_1,b)+f(a_2,b) $. 可加性也说明了$ f(a,b) $既
 如果我们规定$ f(1,1)=0.0929 $，相当于就是进入英制单位的世界，
 与公制单位并无任何实质性的差别。
 
-\item 考虑$ f(x_1+x_2)=f(x_1)f(x_2) $，假设$ f(x) $还满足：对任意$ x\in 
-\textbf{R} $，都有$ f(x)> 0 $. \\ 令$ x_2=0 $，则$ f(x_1)=f(x_1)f(0) $，所以
-$ f(0)=1 $. $ f\Big(\dfrac{m}{n}\Big)=f\Big(\dfrac{m-1}{n}+\dfrac{1}{n}\Big)=
-f\Big(\dfrac{m-1}{n}\Big)f\Big(\dfrac{1}{n}\Big)=f\Big(\dfrac{m-2}{n}\Big)f^2
-\Big(\dfrac{1}{n}\Big)=\cdots =f^m\Big(\dfrac{1}{n}\Big) $，
-当$ m=n $时，$ f(1)=f^n\Big(\dfrac{1}{n}\Big),\ f\Big(\dfrac{1}{n}\Big)
-=[f(1)]^{\frac{1}{n}} $. 
-所以$f\Big(\dfrac{m}{n}\Big)=f^m\Big(\dfrac{1}{n}\Big)=[f(1)]^{\frac{m}{n}} $. 
+\item 考虑$ f(x_1+x_2)=f(x_1)f(x_2) $，假设$ f(x) $还满足：
+对任意$ x\in \textbf{R} $，都有$ f(x)> 0 $. \\ 
+令$ x_2=0 $，则$ f(x_1)=f(x_1)f(0) $，所以$ f(0)=1 $. 
+\begin{gather*}
+    f\Big(\dfrac{m}{n}\Big)=f\Big(\dfrac{m-1}{n}+\dfrac{1}{n}\Big)=
+    f\Big(\dfrac{m-1}{n}\Big)f\Big(\dfrac{1}{n}\Big)=
+    f\Big(\dfrac{m-2}{n}\Big)f^2
+    \Big(\dfrac{1}{n}\Big)=\cdots =f^m\Big(\dfrac{1}{n}\Big)
+\end{gather*}
+当$ m=n $时，$ f(1)=f^n\Big(\dfrac{1}{n}\Big) $，
+$ f\Big(\dfrac{1}{n}\Big)=[f(1)]^{\frac{1}{n}} $. 
+所以$f\Big(\dfrac{m}{n}\Big)=f^m\Big(\dfrac{1}{n}\Big)=
+      [f(1)]^{\frac{m}{n}} $. 
 
 \item 考虑$ f(x_1x_2)=f(x_1)+f(x_2) $，假设$ f(x) $的定义域是$ x> 0 $. \\
 令$ x_2=1 $，则$ f(x_1)=f(x_1)+f(1) $，所以$ f(1)=0 $. 
-令$ x_2=\dfrac{1}{x_1} $，则$ f(1)=f(x_1x_2)=f(x_1)+f(\dfrac{1}{x_1})=0 ,
+令$ x_2=\dfrac{1}{x_1} $，
+则$ f(1)=f(x_1x_2)=f(x_1)+f\Big(\dfrac{1}{x_1}\Big)=0 ,
 \ f\Big(\dfrac{1}{x_1}\Big)=-f(x_1) $. 又有
 $ f(x^{\frac{m}{n}})=mf(x^{\frac{1}{n}}) $，
 当$ m=n $时，$ f(x)=nf(x^{\frac{1}{n}}),\ f(x^{\frac{1}{n}})=\dfrac{1}{n}f(x) $. 
@@ -289,7 +301,7 @@ $ x_1 $无关的常数，即$ f'(x_1) $具有平移不变性，
 $ \ln \dfrac{1+x}{1-x},\ln \dfrac{x+1}{x-1},\ln \dfrac{x-1}{x+1}$有类似性质。另外，反正切函数也有相似形式：$ \arctan x_1+\arctan x_2=\arctan\dfrac{x_1+x_2}{1-x_1x_2} $. 
 
 \item 满足$ f(x_1+x_2)= f(x_1)+f(x_2)+2\lambda x_1x_2 $的函数是$ f(x)=\lambda x^2+\mu x $. \\
-\textbf{分析}\ 首先令$ x_2=0 $，可得$ f(x_1+0)=f(x_1)+f(0)+0 $，所以$ f(0)=0 $.
+令$ x_2=0 $，可得$ f(x_1+0)=f(x_1)+f(0)+0 $，所以$ f(0)=0 $.
 (令$ x_1=x_2=0 $也可得到$ f(0)=0 $)，考虑正整数情形，
 \begin{align*}
     f(2)=&\ 2f(1)+2\lambda \\
@@ -297,9 +309,12 @@ $ \ln \dfrac{1+x}{1-x},\ln \dfrac{x+1}{x-1},\ln \dfrac{x-1}{x+1}$有类似性质
     f(4)=&\ f(3)+f(1)+6\lambda=4f(1)+12\lambda \\
     \vdots&\  
 \end{align*}
-用归纳法容易证明，$ f(n)=f(n-1)+f(1)+2\lambda (n-1)=nf(1)+\lambda n(n-1)=
-\lambda n^2+[f(1)-\lambda]n $. 剩余步骤省略，此时已经可以大胆猜测
-$ f(x)=\lambda x^2+\mu x $. 
+用归纳法容易证明：
+\begin{gather*}
+    f(n)=f(n-1)+f(1)+2\lambda (n-1)=nf(1)+\lambda n(n-1)=
+    \lambda n^2+[f(1)-\lambda]n
+\end{gather*}
+剩余步骤省略，此时已经可以大胆猜测$ f(x)=\lambda x^2+\mu x $. 
 
 %\item $^*$ 在数论中，满足性质$ f(x_1x_2)=f(x_1)+f(x_2) $的函数被称为“加性函数”；
 %满足性质$ f(x_1x_2)=f(x_1)f(x_2) $的函数被称为“积性函数”。
@@ -316,9 +331,10 @@ $ f(x)=\lambda x^2+\mu x $.
 \begin{itemize}[leftmargin=\inteval{\myitemleftmargin}pt,itemsep=
    \inteval{\myitemitempsep}pt,topsep=\inteval{\myitemtopsep}pt]
 \item 同一个函数$ f(x) $不断地复合，
-$ f(f(x)),f(f(f(x))) \cdots $称为函数的迭代。
-记$ f_0(x)=x,\ f_1(x)=f(x),\ f_{n+1}(x)=f(f_n(x)) $. 
-则$ f_n(x) $称为函数$ f(x) $的$ n $次迭代。一些函数迭代如表\ref{函数迭代列表}
+$ f(f(x)),f(f(f(x))) \cdots $称为\textbf{函数迭代}。
+记$ f_0(x)=x $，$ f_1(x)=f(x) $，$ f_{n+1}(x)=f(f_n(x)) $. 
+则$ f_n(x) $称为函数$ f(x) $的$ n $次迭代。
+一些函数迭代如表\ref{函数迭代列表}
 \footnote{张伟年. 动力系统基础[M]. 高等教育出版社，施普林格出版社, 2001.}：
 \begin{table}[h] 
 \centering
@@ -378,13 +394,19 @@ $ f(x)=\dfrac{\left(\cos \frac{2\pi}{n}\right)x-\sin \frac{2\pi}{n}}
 \item 三次函数$ y=ax^3+bx^2+cx+d $也是一种三次曲线，
 通过平移变换$ x=t-\dfrac{b}{3a} $，可以消去三次函数的二次项，
 如果再做上下平移消去常数项，就可得到一个奇函数(关于原点中心对称)，
-说明任意三次函数的图像都是中心对称图形，对称中心坐标为 
+说明\underline{任意三次函数的图像都是中心对称图形}，对称中心坐标为 
 $ \left(-\dfrac{b}{3a},f\left(-\dfrac{b}{3a}\right)\right) $. 
 
-\item 三次方程韦达定理：$ x^3+\dfrac{b}{a}x^2+\dfrac{c}{a}x+
-\dfrac{d}{a}=(x-x_1)(x-x_2)(x-x_3)=0$，则
+\item 三次方程韦达定理：
+\begin{align*}
+     &\ x^3+\dfrac{b}{a}x^2+\dfrac{c}{a}x+\dfrac{d}{a} \\
+    =&\ (x-x_1)(x-x_2)(x-x_3) \\
+    =&\ x^3-(x_1+x_2+x_3)x^2+(x_1x_2+x_1x_3+x_2x_3)x-x_1x_2x_3
+\end{align*}
+比较系数可得：
 \begin{align}\label{三次方程韦达定理}
-    x_1+x_2+x_3=-\dfrac{b}{a},\ x_1x_2+x_1x_3+x_2x_3=\dfrac{c}{a},\ x_1x_2x_3=-\dfrac{d}{a}
+    x_1+x_2+x_3=-\dfrac{b}{a},\q x_1x_2+x_1x_3+x_2x_3=\dfrac{c}{a},\q 
+    x_1x_2x_3=-\dfrac{d}{a}
 \end{align}
 可以从量纲的角度来进行理解和记忆，假设$ x $代表长度，那么$ x^3 $
 就代表体积，因为只有单位相同的物理量才能相加减
@@ -403,16 +425,18 @@ $ x_1x_2x_3 $代表体积。单位相同的物理量才能相等。
 
 \item 由(\ref{三次方程韦达定理})式可得：
 \begin{align*}
-     &\ x_1^2x_2^2+x_1^2x_3^2+x_2^2x_3^2 \\ 
-    =&\  (x_1x_2+x_1x_3+x_2x_3)^2- 2x_1x_2x_3(x_1+x_2+x_3)\\
-    =&\  \dfrac{c^2-2bd}{a^2} \\
-     &\ x_1^2+x_2^2+x_3^2 \\
-    =&\ (x_1+x_2+x_3)^2-2(x_1x_2+x_1x_3+x_2x_3) \\
-    =&\ \dfrac{b^2-2ac}{a^2} \\
-     &\ (x_1-x_2)^2+(x_1-x_3)^2+(x_2-x_3)^2 \\
+    &\ x_1^2x_2^2+x_1^2x_3^2+x_2^2x_3^2 
+    =(x_1x_2+x_1x_3+x_2x_3)^2- 2x_1x_2x_3(x_1+x_2+x_3)
+    = \dfrac{c^2-2bd}{a^2} \\
+    &\ x_1^2+x_2^2+x_3^2 
+    = (x_1+x_2+x_3)^2-2(x_1x_2+x_1x_3+x_2x_3) 
+    = \dfrac{b^2-2ac}{a^2} 
+\end{align*}
+\begin{align*}
+    (x_1-x_2)^2+(x_1-x_3)^2+(x_2-x_3)^2 
     =&\  2[x_1^2+x_2^2+x_3^2-(x_1x_2+x_1x_3 +x_2x_3)]\\ 
     =&\  2[(x_1+x_2+x_3)^2-3(x_1x_2+x_1x_3+x_2x_3)] \\
-    =&\  \dfrac{2(b^2-3ac)}{a^2}
+    =&\ \dfrac{2(b^2-3ac)}{a^2}
 \end{align*}
 以上等式说明，如果$ x_1,x_2,x_3 $均为实数，那么必有
 $ c^2-2bd\geq 0,\ b^2-2ac \geq 0,\ b^2-3ac \geq 0 $. 
@@ -434,15 +458,30 @@ $ c^2-2bd\geq 0,\ b^2-2ac \geq 0,\ b^2-3ac \geq 0 $.
 
 \item 常用因式分解：
 \begin{align*}
-    &  a^3-b^3=(a-b)(a^2+ab+b^2) \\
-    &  a^3+b^3=(a+b)(a^2-ab+b^2) \\
-    &  a^4-b^4=(a-b)(a^3+a^2b+ab^2+b^3)=(a^2-b^2)(a^2+b^2)=(a-b)(a+b)(a^2+b^2) \\
-    &  a^3+b^3+c^3-3abc=(a+b+c)(a^2+b^2+c^2-ab-bc-ca) \\
-    =&\ (a+b+c)\cdot \dfrac{1}{2}\left[(a^2+b^2-2ab)
-    +(b^2+c^2-2bc)+(c^2+a^2-2ca) \right]
+    a^3-b^3=&\ (a-b)(a^2+ab+b^2) \\
+    a^3+b^3=&\ (a+b)(a^2-ab+b^2) \\
+    a^4-b^4=&\ (a-b)(a^3+a^2b+ab^2+b^3)=(a^2-b^2)(a^2+b^2)=(a-b)(a+b)(a^2+b^2) 
 \end{align*}
-\item 如果$ a,b,c $均为非负数，那么$ a^3+b^3+c^3 \geq 3abc $，把$ a,b,c $分别换成
-$ \sqrt[3]{a},\sqrt[3]{b},\sqrt[3]{c} $，有$ a+b+c \geq 3 \sqrt[3]{abc}$. 
+
+\item 如果$ a,b,c $均为非负数，那么
+\begin{align*}
+    a^3+b^3+c^3-3abc=&\ (a+b+c)(a^2+b^2+c^2-ab-bc-ca) \\
+    =&\ (a+b+c)\cdot \dfrac{1}{2}\left[
+    (a-b)^2+(b-c)^2+(a-c)^2 \right] \geq 0
+\end{align*}
+把$ a,b,c $分别换成$ \sqrt[3]{a},\sqrt[3]{b},\sqrt[3]{c} $，
+有如下的三变量均值不等式：
+\begin{gather}
+    a+b+c \geq 3 \sqrt[3]{abc}  \label{三变量均值不等式}
+\end{gather}
+等号成立的条件是$a=b=c$. 另一种证明该不等式的方法：
+\begin{align*}
+    (a+b)+\left(c+\sqrt[3]{abc}\right)
+    \geq&\ 2\sqrt{ab}+2\sqrt{c\cdot\sqrt[3]{abc}} \\
+    \geq&\ 2\sqrt{2\sqrt{ab}\cdot 2\sqrt{c\cdot \sqrt[3]{abc}}}
+    = 4\sqrt{\sqrt{abc\cdot\sqrt[3]{abc}}}=4\sqrt[3]{abc}
+\end{align*}
+把第一个和最后一个式子同时减去$ \sqrt[3]{abc} $即完成证明。
 
 \end{itemize}
 
@@ -462,7 +501,7 @@ $ f\left(\dfrac{x_1+x_2}{2}\right) $的相对大小，本小节均默认$ x_1 \n
     \includegraphics[width=0.8\linewidth]{函数凹凸性主图}
 \end{figure}
 
-\noindent \textbf{三角函数} \\
+\item \textbf{三角函数} \\
 当$ x_1,x_2\in (0,\pi) $时，
 \begin{align*}
     \dfrac{1}{2} \left(\sin x_1 + \sin x_2 \right) =&\ 
@@ -471,25 +510,29 @@ $ f\left(\dfrac{x_1+x_2}{2}\right) $的相对大小，本小节均默认$ x_1 \n
     =&\  \sin \dfrac{x_1+x_2}{2} \cos \dfrac{x_1-x_2}{2} 
      < \sin \dfrac{x_1+x_2}{2}
 \end{align*}
-当$ x_1,x_2\in (0,\dfrac{\pi}{2}) $时，
+当$ x_1,x_2\in \Big(0,\dfrac{\pi}{2}\Big) $时，
 \begin{align*}
     \dfrac{1}{2}\left(\tan x_1+\tan x_2\right)-\tan\dfrac{x_1+x_2}{2}
     =&\  \dfrac{\sin\dfrac{x_1+x_2}{2}\left(\cos^2\dfrac{x_1+x_2}{2}
-        -\cos x_1\cos x_2 \right)}{\cos x_1\cos x_2 \cos\dfrac{x_1+x_2}{2}}\\
+        -\cos x_1\cos x_2 \right)}{\cos x_1\cos x_2 \cos\dfrac{x_1+x_2}{2}}  \\
+    =&\  \dfrac{\sin\dfrac{x_1+x_2}{2}\left[\dfrac{1}{2}
+        \cos(x_1+x_2)+\dfrac{1}{2}
+        -\cos x_1\cos x_2 \right]}{\cos x_1\cos x_2 \cos\dfrac{x_1+x_2}{2}}  \\        
     =&\  \dfrac{\sin\dfrac{x_1+x_2}{2}\left[1-\cos(x_1-x_2) \right]}
     {2\cos x_1\cos x_2 \cos\dfrac{x_1+x_2}{2}} >0
 \end{align*}
-\\
-\textbf{指数函数和对数函数} \\
+
+\item \textbf{指数函数和对数函数} 
 \begin{align*}
-    \dfrac{\e^{x_1}+\e^{x_2}}{2}>\sqrt{\e^{x_1}·\e^{x_2}}=\e^{\frac{x_1+x_2}{2}}
+    \dfrac{\e^{x_1}+\e^{x_2}}{2}>\sqrt{\e^{x_1}·\e^{x_2}}=
+    \e^{\frac{x_1+x_2}{2}}
 \end{align*}
 \begin{align*}
     \dfrac{\ln x_1+\ln x_2}{2}=\ln \sqrt{x_1 x_2}<\ln\dfrac{x_1+x_2}{2}
 \end{align*}
-$ \e^x $与$ \ln x $互为反函数，两者的图像关于直线$ y=x $对称，请结合图像思考上面两个不等式的含义。\\
-\\
-\textbf{幂函数} \\
+$ \e^x $与$ \ln x $互为反函数，两者的图像关于直线$ y=x $对称，请结合图像思考上面两个不等式的含义。
+
+\item \textbf{幂函数} \\
 若$ \alpha $为实数，$ 0<x_1<x_2 $，
 \begin{align*}
     \dfrac{x_1^{\alpha}+x_2^{\alpha}}{2}-\left( \dfrac{x_1+x_2}{2}\right)^{\alpha} =&\ 
@@ -512,8 +555,13 @@ $ f(1)=0,f'(1)=0 $，当$ t>1 $时，若$ \alpha>1 $或$ \alpha<0 $，
 \begin{gather}\label{幂函数凹凸性不等式}
     \dfrac{x_1^n+x_2^n}{2}>\left( \dfrac{x_1+x_2}{2}\right)^n
 \end{gather}
-\textbf{方法一}\ 二项式定理。设$ 0<k<n $，则$ (x_2^k-x_1^k)(x_2^{n-k}-x_1^{n-k})=x_2^n+x_1^n-x_2^kx_1^{n-k}-x_1^kx_2^{n-k}>0 $，故
-$ x_2^n+x_1^n > x_2^kx_1^{n-k}+x_1^kx_2^{n-k} $，于是：
+\textbf{方法一}\ 二项式定理。设$ 0<k<n $，则
+\begin{gather*}
+    (x_2^k-x_1^k)(x_2^{n-k}-x_1^{n-k})=
+     x_2^n+x_1^n-x_2^kx_1^{n-k}-x_1^kx_2^{n-k}>0 \\
+     x_2^n+x_1^n > x_2^kx_1^{n-k}+x_1^kx_2^{n-k}
+\end{gather*}
+于是：
 \begin{align*}
     2^n(x_1^n+x_2^n)-& 2(x_1+x_2)^n \\
     =2^n(x_1^n+x_2^n)-&\bigl[C_n^0(x_1^n+x_2^n)+C_n^1(x_1^{n-1}x_2+x_2^{n-1}x_1)+\cdots\\
@@ -564,8 +612,8 @@ $ x_1^nx_2+x_1x_2^n<x_1^{n+1}+x_2^{n+1} $，于是
 
 \item Dirichlet(狄利克雷)函数：$ D(x)=
 \begin{dcases}
-    1,\ x\text{为有理数} \\
-    0,\ x\text{为无理数} \\
+    1,\ x\,\text{为有理数} \\
+    0,\ x\,\text{为无理数} \\
 \end{dcases} $. \\
 它是偶函数，值域为$ \{0,1\} $，无法绘制函数图像，任何正有理数都是它的周期，但无最小正周期。2012年福建高考理科数学选择题第7题考了此函数。
 
@@ -576,7 +624,7 @@ $ \begin{dcases}
  f(1)=1+b+c \\
  f(2)=4+2b+c \\
  f(3)=9+3b+c 
-\end{dcases} $，
+\end{dcases} $，\\
 于是有$ f(1)+f(3)-2f(2)=2 $，那么
 \begin{gather*}
  2=|f(1)+f(3)-2f(2)|\leq |f(1)|+|f(3)|+2|f(2)|<
@@ -632,40 +680,36 @@ $ \begin{dcases}
 \end{align*}
 
 \item (2022，浙江高考)已知$a,b\in\mathbf{R}$，若对任意$x\in\mathbf{R} $， 
-$ a|x-b|+|x-4|-|2x-5|\geq 0$，则(\q ) \\
-A.$a\leq 1,b\geq 3$\qquad   B.$a\leq 1,b\leq 3$ \qquad
-C.$a\geq 1,b\geq 3$\qquad   D.$a\geq 1,b\leq 3$ \\
-\textbf{解}\ 选D. 令$x\to+\infty $，
-\begin{gather*}
-    ax-ab+x-4-2x+5\geq 0 \\
-    (a-1)x\geq ab-1\ (\text{常数}) \\
-    a\geq 1
-\end{gather*}
-令$ x=b $，
-\begin{gather*}
-    |b-4| \geq |2b-5| \\
-    (b-4)^{2}-(2b-5)^{2}\geq 0 \\
-    -3(b-3)(b-1)\geq 0 \\
-    1 \leq b\leq 3
-\end{gather*}
+$ a|x-b|+|x-4|-|2x-5|\geq 0$，则(\q ). \\
+A. $a\leq 1,b\geq 3$\qquad   B. $a\leq 1,b\leq 3$ \qquad
+C. $a\geq 1,b\geq 3$\qquad   D. $a\geq 1,b\leq 3$ \\
+\textbf{解}\ 选D. 令$x\to+\infty $，有$ ax-ab+x-4-2x+5\geq 0 $，
+$ (a-1)x\geq ab-1 $，$a\geq 1$，
+此时可排除A、B选项。现在不确定$b$是否大于3，可以用特殊值法，
+已知$a\geq 1$，可以取$a=2$. 对于$b$，先取一个大于3的试试，比如取$b=4$，
+于是有$3|x-4|-|2x-5|\geq 0$，再取$x=4$(或者5，或者6)，发现该不等式都不成立。
+所以$b\leq 3$. 严格的证明方法如下：令$ x=b $，有$ |b-4| \geq |2b-5| $，
+$ (b-4)^{2}-(2b-5)^{2}=-3(b-3)(b-1)\geq 0 $，$ 1 \leq b\leq 3 $.
 
-\item 定义在\textbf{R}上的奇函数$ f(x) $满足$ f(x)=f(a-x) $，其中$ a \neq 0 $，求$ f(x) 
-$的周期。\\
+\item 定义在\textbf{R}上的奇函数$ f(x) $满足$ f(x)=f(a-x) $，
+其中$ a \neq 0 $，求$ f(x) $的周期。\\
 \textbf{解}\ $ f(x)=f(a-x)=-f(x-a)=-f(a-(x-a))=-f(2a-x)=f(x-2a) $，
-所以$ f(x) $的周期为$ 2a $. 另外，
-$ f(x+\dfrac{a}{2})=f(a-(x+\dfrac{a}{2}))=f(\dfrac{a}{2}-x) $，
+所以$ f(x) $的周期为$ 2a $(但这未必是最小正周期). 另外，
+$ f\Big(x+\dfrac{a}{2}\Big)=f\Big(a-\Big(x+\dfrac{a}{2}\Big)\Big)
+=f\Big(\dfrac{a}{2}-x\Big) $，
 说明$ x=\dfrac{a}{2} $是$ f(x) $的一条对称轴。\\
-\textbf{推广1}：如果$ f(x) $满足$ f(x+a)=f(b-x) $，用$ x-a $换其中的$ x $，则有$ f(x)=f(a+b-x) $，
+\textbf{推广1}：如果$ f(x) $满足$ f(x+a)=f(b-x) $，
+用$ x-a $换其中的$ x $，则有$ f(x)=f(a+b-x) $，
 那么$ x=\dfrac{a+b}{2} $是$ f(x) $的一条对称轴。\\
-\textbf{推广2}：如果$ f(x) $同时具有对称轴和对称中心，且对称轴和对称中心的横坐标不相同，
-那么$ f(x) $是周期函数。\\
+\textbf{推广2}：如果$ f(x) $同时具有对称轴和对称中心，
+且对称轴和对称中心的横坐标不相同，那么$ f(x) $是周期函数。\\
 \textbf{证}\ 设$ f(x) $的对称轴是$ x=a $，对称中心是$ (b,c) $，
 且$ a\neq b $，那么
-\begin{gather}
-    f(a-x)=f(a+x) \label{fx对称轴} \\
-    f(b-x)+f(b+x)=2c \label{fx对称中心}
-\end{gather}
-把(\ref{fx对称轴})式中的$ x $换成$ b-x $，(\ref{fx对称中心})式中的$ x $
+\begin{gather*}
+    f(a-x)=f(a+x)   \tag*{\ding{172}} \\
+    f(b-x)+f(b+x)=2c \tag*{\ding{173}}
+\end{gather*}
+把\ding{172}式中的$ x $换成$ b-x $，\ding{173}式中的$ x $
 换成$ a-x $，有
 \begin{gather*}
     f(a-b+x)=f(a+b-x)  \\
@@ -695,7 +739,7 @@ g(x)=\dfrac{\e^x-1}{2(\e^x+1)}=\dfrac{1-\e^{-x}}{2(1+\e^{-x})}=-g(-x)
 如果把$ \e^x $换成$ a^x $，并不会影响$ f(x),g(x) $的奇偶性。\\
 \textbf{注}$ ^* $ $ \dfrac{x}{\e^x-1} $为伯努利数$ B_n $的生成函数，
 \begin{gather*}
-    \dfrac{x}{\e^x-1}=\sum\limits_{n=0}^{\infty}B_n\dfrac{x^n}{n!} 
+    \dfrac{x}{\e^x-1}=\sum\limits_{n=0}^{+\infty}B_n\dfrac{x^n}{n!} 
 \end{gather*}
 可参看《 特殊函数概论》\footnote{
     王竹溪，郭敦仁. 特殊函数概论[M].北京大学出版社, 2012.7，第1页。}。
@@ -707,13 +751,18 @@ Sigmoid函数满足微分方程$ y'=y(1-y) $，同时，
     0<y'=y(1-y)=\dfrac{1}{1+\e^{-x}}\cdot\dfrac{1}{1+\e^{x}}
     =\dfrac{1}{2+\e^{x}+\e^{-x}}\leq\dfrac{1}{4}
 \end{gather*}
-$ \dfrac{\e^x}{\e^x+1},\ \dfrac{x\e^x}{\e^x+1},\ \ln\left(\dfrac{\e^x}{\e^x+1}\right),
- \tanh(x)=\dfrac{\e^x-\e^{-x}}{\e^x+\e^{-x}},\ \dfrac{x}{1+|x|},\ 
-\ln(\e^x+1) $都是人工神经网络中常用的函数，图像如下。
-\begin{figure}[!htbp]   % AI_Function.m
+$ \dfrac{\e^x}{\e^x+1},\ \tanh(x)=\dfrac{\e^x-\e^{-x}}{\e^x+\e^{-x}},\ 
+\dfrac{x}{1+|x|},\ \dfrac{x}{\sqrt{1+ax^2}}\ (a>0),\ \dfrac{x\e^x}{\e^x+1},\ 
+\ln(\e^x+1) $ 都是人工神经网络中常用的激活函数，图像如下。
+\begin{figure}[h]   % AI_Function.m
     \centering
-    \includegraphics[width=0.95\linewidth]{人工智能函数}
+    \includegraphics[width=0.95\linewidth]{人工智能激活函数}
 \end{figure} 
+其中一些函数的导数如下：
+\begin{align*}
+    & [\tanh(x)]'=\dfrac{4\e^{2x}}{(\e^{2x}+1)^2}=1-[\tanh(x)]^2 \\
+    & [\ln(\e^x+1)]'=\dfrac{\e^x}{\e^x+1}
+\end{align*}
 
 \item (2022，新高考II卷)若函数$f(x)$的定义域为
 $\mathbf{R}$.且$f(x+y)+f(x-y)=f(x)f(y),\ f(1)=1$，
@@ -721,11 +770,11 @@ $\mathbf{R}$.且$f(x+y)+f(x-y)=f(x)f(y),\ f(1)=1$，
 \textbf{解}\ 令$ x=1,\ y=0 $，有$ f(1)+f(1)=f(1)f(0) $，故$ f(0)=2 $. \\
 令$ x=1,\ y=1 $，有$ f(2)+f(0)=f(1)f(1) $，故$ f(2)=-1 $. \\
 令$ x=n,\ y=1 $，有$ f(n+1)+f(n-1)=f(n) $，即
-\begin{gather}\label{2022II递推数列周期6}
-    f(n+1)=f(n)-f(n-1)
+\begin{gather}
+    f(n+1)=f(n)-f(n-1) \tag*{\ding{172}}
 \end{gather}
 于是，$ f(3)=-2,\ f(4)=-1,\ f(5)=1,\ f(6)=2 $. \\
-把(\ref{2022II递推数列周期6})式中的$ n $换成$ n+1 $，有
+把\ding{172}式中的$ n $换成$ n+1 $，有
 \begin{gather*}
     f(n+2)=f(n+1)-f(n)=f(n+1)-[f(n+1)+f(n-1)]=-f(n-1)
 \end{gather*}
@@ -739,7 +788,8 @@ $\mathbf{R}$.且$f(x+y)+f(x-y)=f(x)f(y),\ f(1)=1$，
     \sum\limits_{k=1}^{22}f(k)=f(19)+f(20)+f(21)+f(22)=
     f(1)+f(2)+f(3)+f(4)=-3
 \end{gather*}
-\textbf{注}：递推关系(\ref{2022II递推数列周期6})对应的特征方程为$ x^2=x-1 $，
+\textbf{注}：根据\eqref{二阶线性递推数列的特征方程}式，
+递推关系\ding{172}对应的特征方程为$ x^2=x-1 $，
 特征根为$ x_{1,2}=\dfrac{1}{2}\pm \dfrac{\sqrt{3}}{2}\i=
 \cos\dfrac{\pi}{3}\pm \i\sin\dfrac{\pi}{3} $，
 周期$ T=\dfrac{2\pi}{\frac{\pi}{3}}=6 $. 
@@ -832,25 +882,26 @@ $ g(x)=\dfrac{1}{f(x)}\in (-\infty,3-2\sqrt{2}]\cup [3+2\sqrt{2},+\infty) $. \\
 \item 已知$ a $是实数，函数$ f(x)=ax^2+2x-6-4a $，如果$ f(x) $在区间
 $ [0,4] $上有零点，求$ a $的取值范围。 \\
 \textbf{方法一}\ 
-\mycircled{1} 先考虑$ f(x) $在区间$ [0,4] $上有且仅有一个零点，此时$ f(0)\cdot 
-f(4)\leq 0 $，(无需区分是一次函数还是二次函数)，解得
-\begin{gather} \label{根的分布-解集1}
-    a\leq -\dfrac{3}{2},\ a\geq -\dfrac{1}{6}
+(一) 先考虑$ f(x) $在区间$ [0,4] $上有且仅有一个零点
+(无需区分$f(x)$是一次函数还是二次函数)，
+此时$ f(0)\cdot f(4)=(-6-4a)(12a+2)\leq 0 $，解得
+\begin{gather} 
+    a\leq -\dfrac{3}{2},\ a\geq -\dfrac{1}{6} \tag*{\ding{172}}
 \end{gather}
-\mycircled{2} 再考虑$ f(x) $在区间$ [0,4] $上有两个零点，此时必有
+(二) 再考虑$ f(x) $在区间$ [0,4] $上有两个零点，此时必有
 $ a\neq 0,\ \Delta=4+4a(6+4a)\geq 0 $，解得
-\begin{gather} \label{根的分布-解集2}
+\begin{gather} 
     a\leq\dfrac{-3-\sqrt{5}}{4}\approx -1.3090,\ a\geq\dfrac{-3+\sqrt{5}}{4}
-    \approx -0.1910,\ a\neq 0
+    \approx -0.1910,\ a\neq 0  \tag*{\ding{173}}
 \end{gather}
 若$ a>0 $，则$ f(0)=-6-4a<0 $，$ f(x) $在区间$ [0,4] $上不可能有两个零点。\\
-若$ a<0 $，则需满足 $ f(0)\leq 0, f(4)\leq 0, 0\leq -\dfrac{2}{2a} \leq 4 $，
+若$ a<0 $，则需满足 $ f(0)\leq 0,\ f(4)\leq 0,\ 0\leq -\dfrac{2}{2a} \leq 4 $，
 解得
-\begin{gather} \label{根的分布-解集3}
-    -\dfrac{3}{2} \leq a \leq -\dfrac{1}{4}
+\begin{gather} 
+    -\dfrac{3}{2} \leq a \leq -\dfrac{1}{4} \tag*{\ding{174}}
 \end{gather}
-(\ref{根的分布-解集2})式和(\ref{根的分布-解集3})式求交集，然后和
-(\ref{根的分布-解集1})式求并集，可得$ a $的范围是：
+\ding{173}式和\ding{174}式求交集，然后和\ding{172}式求并集，
+可得$ a $的范围是：
 $ \left(-\infty,\dfrac{-3-\sqrt{5}}{4}\right]\cup 
 \left[-\dfrac{1}{6},+\infty \right) $. 
 \\ 
@@ -860,19 +911,29 @@ $ t=3-x\in[-1,3] $，则$ \dfrac{6-2x}{x^2-4}=\dfrac{2t}{(3-t)^2-4}=
 \dfrac{2t}{t^2-6t+5}=\dfrac{2}{t-6+\dfrac{5}{t}} \in 
 \left(-\infty,\dfrac{-3-\sqrt{5}}{4}\right]\cup 
 \left[-\dfrac{1}{6},+\infty \right) $. \\
-\textbf{说明}\ 下面介绍三次曲线$y=f(x)=\dfrac{x+C}{x^2+Ax+B}$的图像该如何手工绘制。\\
+\textbf{注1}\ 如果我们不考虑$t$的范围，那么$\dfrac{2t}{t^2-6t+5}$
+在$t=\pm \sqrt{5}$时取极值，此时，$x=3-t=3\pm\sqrt{5}$，
+这实际上展现了一个有趣的性质：
+$\dfrac{6-2x}{x^2-4} $的两个极值点的横坐标以零点横坐标为等差中项。\\
+\textbf{注2}\ 下面介绍三次曲线$y=f(x)=\dfrac{x+C}{x^2+Ax+B}$的图像该如何手工绘制。\\
 (一) 因为$y=f(x)=\dfrac{x+C}{x^2+Ax+B}$的分母是二次，分子是一次，
-当$x$充分大时，二次函数的绝对值可以远远大于一次函数的绝对值。所以当$x$趋于
-$+\infty$或$-\infty$时，$f(x)$趋于0，即曲线$y=f(x)$必然以$x$轴为渐近线。\\
+当$|x|$充分大时，二次函数的绝对值可以远远大于一次函数的绝对值。所以当$x$趋于
+$+\infty$或$-\infty$时，$f(x)$趋于0，即曲线$y=f(x)$必然
+\underline{以$x$轴为渐近线}。\\
 (二) 曲线$y=f(x)$在$x=-C$处必然会穿越$x$轴。\\
 (三) 当$x^2+Ax+B=0$有两个不等实根时，
-曲线$y=f(x)$在这两个实根处各有一条垂直渐近线；
+曲线$y=f(x)$在这\underline{两个实根处各有一条垂直}
+\underline{渐近线}；
 当$x^2+Ax+B=0$有两个相等实根时，曲线$y=f(x)$只在实根处有一条垂直渐近线；
 当$x^2+Ax+B=0$没有实根时，曲线$y=f(x)$不存在垂直渐近线。\\
 (四) $f(x)$的正负号与$g(x)=(x+C)(x^2+Ax+B)$的正负号一致(除了使$x^2+Ax+B=0$的点。)\\
 (五) 设$x^2+Ax+B=0$有两个不等实根$x_1,x_2\ (x_1<x_2)$，
 如果$-C$位于区间$(x_1,x_2)$外部，则曲线$y=f(x)$在区间$(x_1,x_2)$内有一个极值点，
-在$x=-C$所在的分支上有另一个极值点；
+在其零点$x=-C$所在的分支上有另一个极值点，
+\underline{而且两个极值点的横坐标以零点横坐标为等差中项}
+\footnote{直接求导，$\left(\dfrac{x+C}{x^2+Ax+B}\right)'=
+    \dfrac{-x^2-2Cx+B-AC}{(x^2+Ax+B)^2}$，
+    而$-x^2-2Cx+B-AC=0$的两根(两个极值点的横坐标)之和就是$2(-C)$. }。
 如果$-C$位于区间$(x_1,x_2)$内部，则曲线$y=f(x)$没有极值点，在区间
 $(-\infty,x_1),(x_1,x_2),(x_2,+\infty)$上都是单调的。\\
 \\
@@ -880,24 +941,34 @@ $(-\infty,x_1),(x_1,x_2),(x_2,+\infty)$上都是单调的。\\
 先绘制两条垂直渐近线$ x=\pm 2 $，再标记出分子的零点$x=3$，然后根据
 三次函数$y=(x+2)(x-2)(3-x) $的正负，确定$ y=\dfrac{2(3-x)}{x^2-4} $在区间
 $ (-\infty,-2),(-2,2),(2,3),(3,+\infty) $上的正负，在垂直渐近线的左右两侧，
-要让曲线分别向$+\infty$和$-\infty$延伸。当$ |x|\to \pm\infty $时，
-要让曲线逐渐靠近$ x $轴。其图像如下：
+要让曲线分别向$+\infty$和$-\infty$延伸。当$ x\to \pm\infty $时，
+要让曲线逐渐靠近$ x $轴。其图像见\ref{(6-2x)_(x^2-4)图像}.
 \begin{figure}[h] % cubicCurve_2x3_x_x2_4.m
     \centering
-    \includegraphics[width=0.7\linewidth]{三次曲线-分子零点在右侧}
-\end{figure} \\
+    \includegraphics[width=0.6\linewidth]{三次曲线-分子零点在右侧}
+    \caption{}
+    \label{(6-2x)_(x^2-4)图像}
+\end{figure}
+
 $ y=\dfrac{6-2x}{x^2-4} $的分子的零点在分母两个零点所形成的区间的外部，
-它在区间$(-2,2)$上有一个极大值点，在区间$(3,+\infty)$上有一个极小值点。\\
+它在区间$(-2,2)$上有一个极大值点，在区间$(3,+\infty)$上有一个极小值点
+(或者说是在零点所在的分支上存在一个极小值点)。\\
 而对于$ y=\dfrac{x-1}{x^2-4} $，它的分子的零点在分母两个零点之间，
-不存在极值点，在两条垂直渐近线所划分的三个区间中都是单调递减的，其图像如下：
+不存在极值点，在两条垂直渐近线所划分的三个区间中都是单调递减的，
+其图像见\ref{(x-1)_(x^2-4)图像}.
 \begin{figure}[h] % cubicCurve_x_1_x2_4.m
     \centering
     \includegraphics[width=0.45\linewidth]{三次曲线-分子零点在中间}
-\end{figure} \\
-再展示几种三次曲线的图像如下：
+        \caption{}
+    \label{(x-1)_(x^2-4)图像}
+\end{figure} 
+
+再展示几种三次曲线的图像见\ref{另外3种三次曲线图像}.
 \begin{figure}[h] % CubicCurve3type.m
     \centering
-    \includegraphics[width=0.84\linewidth]{三次曲线-附加三幅图}
+    \includegraphics[width=0.95\linewidth]{三次曲线-附加三幅图}
+    \caption{}
+    \label{另外3种三次曲线图像}
 \end{figure} 
 
 \item $ y=\dfrac{x-1}{x-2} $的对称中心是$(2,1)$; \\
@@ -907,7 +978,7 @@ $ y=\dfrac{x-1}{x-2}+\dfrac{x-2}{x-3}+\dfrac{x-3}{x-4} $
 $ y=\dfrac{x-1}{x-2}+\dfrac{x-2}{x-3}+\dfrac{x-3}{x-4}+
 \dfrac{x-4}{x-5} $的对称中心是$(3.5, 4)$; \\
 根据以上规律，设$ a_1,a_2,\cdots,a_n \ (n\geq 2) $是公差非0的等差数列，\\
-求$ f(x)=\dfrac{x-a_1}{x-a_2}+\dfrac{x-a_2}{x-a_3}+\cdots+
+求$ y=f(x)=\dfrac{x-a_1}{x-a_2}+\dfrac{x-a_2}{x-a_3}+\cdots+
 \dfrac{x-a_{n-1}}{x-a_n} $的对称中心的坐标。 \\
 \textbf{解}\ 对称中心的坐标是$ \left(\dfrac{a_2+a_n}{2}, 
 n-1\right) $. 证明如下：设等差数列的公差为$d$，则
@@ -920,7 +991,7 @@ n-1\right) $. 证明如下：设等差数列的公差为$d$，则
     =&\ (n-1)+d\left(\dfrac{1}{x-a_2}+
     \dfrac{1}{x-a_3}+\cdots+\dfrac{1}{x-a_n}\right) 
 \end{align*}
-把上式的括号内$n-1$个分式进行首尾配对，有
+把上式第二个括号内的$n-1$个分式进行首尾配对，有
 \begin{align*}
     &\dfrac{1}{x-a_2}+\dfrac{1}{x-a_n}
     \text{关于点} \left(\dfrac{a_2+a_n}{2},0\right)\text{中心对称} \\
@@ -937,7 +1008,10 @@ $\dfrac{1}{x-a_{1+\frac{n}{2}}}$，已经配对的项对称性同上。
 所以，剩余的一项也是关于点$\left(\dfrac{a_2+a_n}{2},0\right)$
 中心对称。\\
 综上所述，对于任意$n\geq 2$，$f(x)$的对称中心坐标为
-$ \left(\dfrac{a_2+a_n}{2}, n-1\right) $.
+$ \left(\dfrac{a_2+a_n}{2}, n-1\right) $. \\
+这个结论也很容易记忆：$\dfrac{a_2+a_n}{2}$就是分母中的等差数列的
+中点；在$f(x)$中令$x\to+\infty$，那么每个分式都将趋近于1，
+$n-1$个分式加起来自然就是$n-1$. 
 
 \item 已知$ f(x)=x^2+\dfrac{a}{x} $，其中$ a>0 $，若$ f(x) $在
 $ [2,+\infty) $上单调递增，求$ a $的取值范围。 \\
@@ -948,9 +1022,10 @@ $ [2,+\infty) $上单调递增，求$ a $的取值范围。 \\
 \end{align*} 
 所以$ x_1+x_2-\dfrac{a}{x_1x_2}>0,\ a<x_1x_2(x_1+x_2) $. 又因为
 $ x_1x_2(x_1+x_2)>2\cdot 2 \cdot(2+2)=16 $，所以$ 0<a\leq 16 $. \\
-\textbf{方法二}\ 求导：$ f'(x)=2x-\dfrac{a}{x^2},f'\left(\sqrt[3]{
-    \dfrac{a}{2}} \right)=0,\sqrt[3]{\dfrac{a}{2}}\leq 2,a\leq 16 $. \\
-\textbf{方法三}\ 用三变量均值不等式：$ f(x)=x^2+\dfrac{a}{2x}+\dfrac{a}{2x} 
+\textbf{方法二}\ 求导：$ f'(x)=2x-\dfrac{a}{x^2},\ f'\left(\sqrt[3]{
+    \dfrac{a}{2}} \right)=0,\ \sqrt[3]{\dfrac{a}{2}}\leq 2,a\leq 16 $. \\
+\textbf{方法三}\ 用三变量均值不等式\eqref{三变量均值不等式}：
+$ f(x)=x^2+\dfrac{a}{2x}+\dfrac{a}{2x} 
 \geq 3\sqrt[3]{x^2\cdot\dfrac{a}{2x}\cdot\dfrac{a}{2x}}=
 3\sqrt[3]{\dfrac{a^2}{4}} $. 当$ x^2=\dfrac{a}{2x} $时，等号成立，
 剩余步骤同方法二。 \\
@@ -977,29 +1052,30 @@ $ x_1 $和$ x_2 $都是单调递增的，$ \dfrac{x_1^2x_2^2}{x_1+x_2}>
 \dfrac{2^2\cdot 2^2}{2+2}=4 $. 于是，$ 0<a\leq 4 $. \\
 \textbf{方法二}\ 求导：$ f'(x)=1-\dfrac{2a}{x^3},f'\left(\sqrt[3]{
     2a} \right)=0,\sqrt[3]{2a}\leq 2,\ 0<a\leq 4 $. \smallskip \\
-\textbf{方法三}\ 用三变量均值不等式：$ f(x)=\dfrac{x}{2}+\dfrac{x}{2}+\dfrac{a}{x^2}
+\textbf{方法三}\ 用三变量均值不等式\eqref{三变量均值不等式}：
+$ f(x)=\dfrac{x}{2}+\dfrac{x}{2}+\dfrac{a}{x^2}
 \geq 3\sqrt[3]{\dfrac{x}{2}\cdot\dfrac{x}{2}\cdot \dfrac{a}{x^2}}=
 3\sqrt[3]{\dfrac{a}{4}} $. 当$ \dfrac{x}{2}=\dfrac{a}{x^2} $时，等号成立，
 剩余步骤同方法二。 \\
 \textbf{说明}\ $ y=x+\dfrac{a}{x^2}\ (a\neq 0) $可变形为$ x^3-x^2y+a=0 $，
 属于三次曲线，它有两条渐近线，第一条是$ y=x $，第二条是$ x=0 $. 
 取$ a=4 $，则$ y=x+\dfrac{4}{x^2} $的图像如下：
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.5\linewidth]{三次曲线x3-x2y+4}
-\end{figure} \\
-更一般地，对于$ f(x)=x^m+\dfrac{a}{x^n},\ x>0,\ a>0,\ m,n\in \textbf{N}^+ $，那么
+\end{figure}
+更一般地，对于$ f(x)=ax^m+\dfrac{b}{x^n},\ x>0,\ a,b>0,\ m,n\in \textbf{N}^+ $，那么
 \begin{align*}
-    x^m+\dfrac{a}{x^n}=&\ \underbrace{\left(\frac{1}{n}x^m+\frac{1}{n}x^m+\cdots+
-        \frac{1}{n}x^m \right)}_{n\text{个}}+
-    \underbrace{\left(\frac{1}{m}\frac{a}{x^n}+\frac{1}{m}\frac{a}{x^n}
-     +\cdots+ \frac{1}{m}\frac{a}{x^n} \right)}_{m\text{个}}  \\
-    \geq &\ (n+m) \left[\left(\frac{1}{n}x^m\right)^n\cdot 
-    \left(\frac{1}{m}\dfrac{a}{x^n}\right)^m\right]^{\frac{1}{n+m}} 
-    =(n+m) \left(\frac{a^m}{n^nm^m}\right)^{\frac{1}{n+m}}
+    ax^m+\dfrac{b}{x^n}=&\ \Big(\underbrace{\frac{a}{n}x^m+\frac{a}{n}x^m+\cdots+
+        \frac{a}{n}x^m}_{n\text{个}} \Big)+
+    \Big(\underbrace{\frac{b}{m}\frac{1}{x^n}+\frac{b}{m}\frac{1}{x^n}
+        +\cdots+ \frac{b}{m}\frac{1}{x^n}}_{m\text{个}} \Big)  \\
+    \geq &\ (n+m) \left[\left(\frac{a}{n}x^m\right)^n\cdot 
+    \left(\frac{b}{m}\dfrac{1}{x^n}\right)^m\right]^{\frac{1}{n+m}} 
+    =(n+m) \left(\frac{a^nb^m}{n^nm^m}\right)^{\frac{1}{n+m}}
 \end{align*}
-当$ \dfrac{1}{n}x^m=\dfrac{1}{m}\dfrac{a}{x^n},\ 
-x=\left(\dfrac{na}{m}\right)^{\frac{1}{n+m}} $时，等号成立。\\
+当$ \dfrac{a}{n}x^m=\dfrac{b}{m}\dfrac{1}{x^n},\ 
+x=\left(\dfrac{nb}{ma}\right)^{\frac{1}{n+m}} $时，等号成立。
 
 \item 已知$ 3f(x)+2f\Big(\dfrac{1}{x}\Big)=x \quad (x\neq 0) $，求$ f(x) $. \\
 \textbf{解}\ 
@@ -1022,48 +1098,19 @@ x=\left(\dfrac{na}{m}\right)^{\frac{1}{n+m}} $时，等号成立。\\
 \end{gather*}
 所以，$ f(-3)=18-f(3)=6 $. 
 
-\item 设$ n $为大于1的正整数，求$ f(x)=\sin^{2n}x+\cos^{2n}x $的值域。\\
-\textbf{解}\ 
-\begin{align*}
-    \sin^{4}x+\cos^{4}x =&\ (\sin^{2}x+\cos^{2}x)^2-2\sin^{2}x\cos^{2}x\\
-    =&\ 1-\dfrac{1}{2}\sin^2 2x\in\left[\dfrac{1}{2},1\right] \\
-    \sin^{6}x+\cos^{6}x =&\ (\sin^{2}x+\cos^{2}x)^3
-    -3\sin^{2}x\cos^{2}x (\sin^{2}x+\cos^{2}x) \\
-    =&\ 1-\dfrac{3}{4}\sin^2 2x\in\left[\dfrac{1}{4},1\right] \\
-    \sin^{8}x+\cos^{8}x =&\ (\sin^{2}x+\cos^{2}x)^4
-    -4\sin^{2}x\cos^{2}x (\sin^{4}x+\cos^{4}x)-6\sin^{4}x\cos^{4}x\\
-    =&\ 1-\sin^2 2x\left(1-\dfrac{1}{2}\sin^2 2x\right)
-    -\dfrac{3}{8}\sin^4 2x \\
-    =&\ \dfrac{1}{8}\sin^4 2x-\sin^2 2x+1 
-    \in\left[\dfrac{1}{8},1\right]
-\end{align*}
-可以猜想：$ f(x)=\sin^{2n}x+\cos^{2n}x $的值域是
-$ \left[\dfrac{1}{2^{n-1}},1\right] $. \\
-因为$ \sin^2 x,\cos^2 x\in[0,1] $，所以
-\begin{gather*}
-    \sin^{2n}x\leq \sin^2 x ,\q \cos^{2n}x\leq \cos^2 x  \\ \sin^{2n}x+\cos^{2n}x\leq \sin^{2}x+\cos^{2}x=1
-\end{gather*}
-当$ \sin^2 x=0 $或1时，以上等号成立。\\
-再利用幂函数$ g(x)=x^n $的凹凸性，那么
-\begin{gather*}
-    \dfrac{g(\sin^2 x)+g(\cos^2 x)}{2}\geq g\left(
-    \dfrac{\sin^2 x+\cos^2 x}{2}\right)=\dfrac{1}{2^n} \\
-    f(x)=g(\sin^2 x)+g(\cos^2 x)\geq \dfrac{1}{2^{n-1}}
-\end{gather*}
-当$ |\sin x|=|\cos x|=\dfrac{\sqrt{2}}{2} $时，以上等号成立。
 
 
 \end{enumerate}
 
 \section{习题} 
-\begin{enumerate}[label={\textbf{\arabic*.}},leftmargin=
+\begin{enumerate}[label={\textbf{\thechapter.\arabic*}},leftmargin=
     \inteval{\myenumleftmargin}pt]
 %\item $ y=\cos(2x^2+3x) $\underline{\hspace{1cm}}(填“是”或“不是”)周期函数。
 %$ y=x\cos(\dfrac{1}{x}+1) $\underline{\hspace{1cm}}(填“是”或“不是”)周期函数。
 %\textbf{解}\ 不是，不是
 
 \item  已知$ x\in \textbf{R} $，求下列函数的最小值。\\
-(1)$ |x+1|+|x-3|+|x-5| $；\quad (2) $ |x-1|+|2x-4|+|4x-16| $ .
+(1) $ |x+1|+|x-3|+|x-5| $；\quad (2) $ |x-1|+|2x-4|+|4x-16| $ .
 
 \item 设$ ac\neq 0 $，尝试绘制$ |ax-b|+|cy-d|=1 $的图像。
 
@@ -1120,12 +1167,12 @@ $ f(x+2)=\sqrt{2}f(x+1)-f(x) $，求$ f(x) $的周期。
 则$ f(x)=\underline{\hspace{2cm}} $.
 
 \item 求解以下函数方程：\\
-(1) $ 4f(x)-2f(\dfrac{1}{x})=3x^2 \quad (x\neq 0) $. \\
+(1) $ 4f(x)-2f\Big(\dfrac{1}{x}\Big)=3x^2 \quad (x\neq 0) $. \\
 (2) $ 2f(x)+f(2-x)=x $.  \\
 (3) $ 3f(x^3)+2f(-x^3)=4x $. 
 
-\item 因式分解：\\ (1)$ x^3-3x+2 $;\quad (2)$ x^3 + 2x^2 - x - 2 $;  \\
-(3)$ x^3 + 3x^2 + 4x + 4 $;\quad (4)$ 2x^3 + 9x^2 + 7x - 6 $ ;\\
+\item 因式分解：\\ (1) $ x^3-3x+2 $;\quad (2) $ x^3 + 2x^2 - x - 2 $;  \\
+(3) $ x^3 + 3x^2 + 4x + 4 $;\quad (4) $ 2x^3 + 9x^2 + 7x - 6 $ ;\\
 再对(4)式写出韦达定理的三个式子。
 
 \item 已知$ a $是实数，函数$ f(x)=ax^2+5x−20-5a $，如果$ f(x) $在区间
@@ -1146,19 +1193,22 @@ f(x_1)f(x_2) $，其中$ x_1,x_2\in \textbf{R} $，已知$ f(1)=2 $，
 \end{enumerate}
 
 \section{习题答案}
-\begin{enumerate}[label={\textbf{\arabic*.}},leftmargin=
+\begin{enumerate}[label={\textbf{\thechapter.\arabic*}},leftmargin=
     \inteval{\myenumleftmargin}pt]
 \item 三个绝对值里面有三个不同的零点，三个零点把数轴分成4段，每一段上都是单调的
 (都是直线)，所以最小值只可能在三个零点中的某一零点处取得，
 第(1)题当然是在中间零点处达到。
 第(2)题只需把$ x=1,2,4 $分别代入计算，即可找出最小值。\\
-(1)$ x=3 $时取得最小值6. \quad (2) $ x=4 $时取得最小值7. 
+(1) $ x=3 $时取得最小值6. \quad (2) $ x=4 $时取得最小值7. 
 
 
 \item 图像是一个以$ \left(\dfrac{b}{a},\dfrac{d}{c}\right) $
 为中心的的菱形，菱形的两条对角线分别平行于$ x $轴和$ y $轴。
+先考虑$|x|+|y|=1$的图像，再考虑$|ax|+|cy|=1$的图像，就能理解上述结论。
 
-\item 规律：当$ n\geq 3 $时，$ n^{n+1}>(n+1)^n $. 
+\item 规律：当$ n\geq 3 $时，$ n^{n+1}>(n+1)^n $. 两边取自然对数，
+$(n+1)\ln n>n\ln(n+1)$，$\dfrac{\ln n}{n}>\dfrac{\ln(n+1)}{n+1}$，
+只需求导研究$\dfrac{\ln x}{x}$的单调性就能证明结论。
 
 \item $ \log_n (n+1) > \log_{n+1} (n+2) $. \\ 因为$ \log_n (n+1)=
 \dfrac{\ln (n+1)}{\ln n}=\dfrac{\ln n+\ln\left(1+\frac{1}{n}
@@ -1170,16 +1220,18 @@ f(x_1)f(x_2) $，其中$ x_1,x_2\in \textbf{R} $，已知$ f(1)=2 $，
 \item 
 $ k\in \textbf{N} $, $ f_{4k+1}(x)=\dfrac{1+x}{1-x} $,
 $ f_{4k+2}(x)=-\dfrac{1}{x} $, $ f_{4k+3}(x)=\dfrac{x-1}{x+1} $,
-$ f_{4k+4}(x)=x $,$ f_{2021}(x)=f_1(x)=\dfrac{1+x}{1-x} $. 
+$ f_{4k+4}(x)=x $, \\ $ f_{2021}(x)=f_1(x)=\dfrac{1+x}{1-x} $. 
 
-\item 数列的周期为4，$ a_{4k+1}=2,a_{4k+2}=-3,a_{4k+3}
-=-\dfrac{1}{2},a_{4k+4}=\dfrac{1}{3},\ a_{2022}=a_2=-3 $. 
+\item 数列的周期为4，$ a_{4k+1}=2,\ a_{4k+2}=-3,\ a_{4k+3}
+=-\dfrac{1}{2},\ a_{4k+4}=\dfrac{1}{3},\ a_{2022}=a_2=-3 $. 
 
-\item 3249
+\item $ f_{50}(x)=(\sqrt{x}+50)^2 $，$f_{50}(49)=(\sqrt{49}+50)^2=3249 $.
 
-\item 
-$ f(1)+f(2)+f(3)+f(4)+f(5)+f(6)=f(1)+f(2)+f(3)+f(2)+f(1)+f(0)=-3,\ 
-f(1)+f(2)+\cdots +f(2022)=\dfrac{2022}{6}[f(1)+f(2)+\cdots+f(6)]=-1011 $. 
+\item $f(x)=f(6-x)=f(x-6)$，说明$f(x)$的周期是6. 
+\begin{align*}
+& f(1)+f(2)+f(3)+f(4)+f(5)+f(6)=f(1)+f(2)+f(3)+f(2)+f(1)+f(0)=-3 \\ 
+& f(1)+f(2)+\cdots +f(2022)=\dfrac{2022}{6}[f(1)+f(2)+\cdots+f(6)]=-1011 
+\end{align*} 
 
 \item 
 (1) $ f(x)+f(1-x)=1 $；\quad (2) 50.
@@ -1194,7 +1246,11 @@ f(1)+f(2)+\cdots +f(2022)=\dfrac{2022}{6}[f(1)+f(2)+\cdots+f(6)]=-1011 $.
     =&\ -f(x) \\
     f(x+8)=&\ -f(x+4)=f(x)
 \end{align*} 
-周期是8.
+周期是8. 或者根据\eqref{二阶线性递推数列的特征方程}式，
+递推关系对应的特征方程为$ x^2=\sqrt{2}x-1 $，
+特征根为$ x_{1,2}=\dfrac{\sqrt{2}}{2}\pm \dfrac{\sqrt{2}}{2}\i=
+\cos\dfrac{\pi}{4}\pm \i\sin\dfrac{\pi}{4} $，
+周期$ T=\dfrac{2\pi}{\frac{\pi}{4}}=8 $. 
 
 \item  %ExciseAnswerFunctionFigure.m
 \begin{figure}[h]
@@ -1220,21 +1276,22 @@ f(1)+f(2)+\cdots +f(2022)=\dfrac{2022}{6}[f(1)+f(2)+\cdots+f(6)]=-1011 $.
 2+\dfrac{2}{2}=3 $，$f(x)\leq \dfrac{1}{3}$，等号在$x=1$时成立。
 因此，$f(x)$的值域是$\left[-\dfrac{1}{3},\dfrac{1}{3}\right]$.
 
-\item (1) $ 3x-1 $;\quad (2) $ 3^x $;\quad 
-(3) $ \log_5x $;\quad (4) $ x^3 $ ;\quad (5) $ 2x^2+2x $.
+\item (1) $ 3x-1 $ ;   \qquad  (2) $ 3^x $ ; \qquad 
+      (3) $ \log_5x $ ;\qquad  (4) $ x^3 $ ; \qquad (5) $ 2x^2+2x $.
 
 \item 
-(1) $ f(x)=x^2+\dfrac{1}{2x^2} $. \\
-(2) $ f(x)=x-\dfrac{2}{3} $. \\
+(1) $ f(x)=x^2+\dfrac{1}{2x^2} $ ;  \q
+(2) $ f(x)=x-\dfrac{2}{3} $ ; \q 
 (3) $ f(x)=4\sqrt[3]{x} $. 
 
 \item 
-(1)$ (x-1)^2(x+2) $  \\
-(2)$ (x - 1)(x + 1)(x + 2) $ \\
-(3)$ (x^2+x+2)(x+2) $ \\
-(4)$ (2x-1)(x+2)(x+3) $ 
+(1) $ (x-1)^2(x+2) $ ;  \q     (2) $ (x - 1)(x + 1)(x + 2) $ ; \\
+(3) $ (x^2+x+2)(x+2) $ ; \q    (4) $ (2x-1)(x+2)(x+3) $. 
 
-\item 
+\item $a=\dfrac{5(4-x)}{x^2-5}$，作代换$t=4-x\in[-1,4]$，
+$\dfrac{5t}{(4-t)^2-5}=\dfrac{5t}{t^2-8t+11}=\dfrac{5}{t-8+\frac{11}{t}}$，
+当$t=\pm\sqrt{11}$，$x=4\pm\sqrt{11}$时，取得极值，
+(两个极值点的横坐标以零点横坐标为等差中项)。结合图像可知$a$的范围是
 $ \left(-\infty,\dfrac{-4-\sqrt{11}}{2}\right] \cup 
 \left[-\dfrac{1}{4},+\infty\right) $. 
 

@@ -37,7 +37,7 @@
 
 %\usepackage{fontawesome5}
     
-\special{dvipdfmx:config z 0}
+%\special{dvipdfmx:config z 0}
 
 % \everymath{\displaystyle} % 全文的行内公式都显示行间公式效果
 % \setCJKmainfont[BoldFont=SimHei]{SimSun}
@@ -66,13 +66,13 @@
 \renewcommand{\today}{\number\year-\number\month-\number\day}
 
 % 脚注数字带圈
-\renewcommand{\thefootnote}{\ding{\numexpr171+\value{footnote}}}
+\renewcommand{\thefootnote}{\ding{\numexpr181+\value{footnote}}}
 
 \newcommand{\myfootnote}[1]{
     \renewcommand{\thefootnote}{}
     \footnotetext{\scriptsize#1}
     %    \renewcommand{\thefootnote}{\arabic{footnote}}
-    \renewcommand{\thefootnote}{\ding{\numexpr171+\value{footnote}}}
+    \renewcommand{\thefootnote}{\ding{\numexpr181+\value{footnote}}}
 }
 \newcommand\parallelogram
 {\mathord{\text{
@@ -112,7 +112,7 @@
 \renewcommand{\Im}{\mathrm{Im}}
 \renewcommand{\d}{\mathrm{d}}
 \renewcommand{\i}{\mathrm{i}}
-\renewcommand{\mod}{\ \mathrm{mod}\ } 
+\renewcommand{\mod}{\mathrm{mod}\ } 
 
 \newcommand{\q}{\quad}
 \newcommand{\e}{\mathrm{e}}
@@ -187,14 +187,27 @@
 %\includeonly{教案-Latex排版入门}
 
 \begin{document}
-\numberwithin{equation}{chapter}​
-%\numberwithin{equation}{section}​
+%\numberwithin{equation}{chapter}​
+\numberwithin{figure}{section}​
+\numberwithin{equation}{section}​
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
 \columnseprule=0.5pt 
 
 \title{\Bookname}
 \author{蒋力夫}
-\date{编译日期：\today}
+\date{编译日期：\today \\ 
+{\scriptsize 如果发现错误，或有任何改进意见，或者想增补任何知识点，
+    欢迎通过知乎私信向我(磁悬浮青蛙呱呱呱)反馈。}}
+
 \maketitle
+
+\vspace*{\fill} % 填充上方空白
+\begin{center}
+    {\huge 人类社会几乎总是向着阻力最小的方向发展，而极少向着最正确的方向发展       
+        ——即使有识之士已经指明了最正确的方向。}
+\end{center}
+\vspace*{\fill} % 填充下方空白
+
 \cleardoublepage 
  
 \tableofcontents

@@ -1106,7 +1106,7 @@ $ (0,0)\sim(4,4) $阶帕德逼近表。
 %当$ f'(x) $在区间$ [x_1,x_2] $上递增时(注意不是$ f(x) $递增，此时$ f''(x)>0 $)，
 %有$ f'(x_1)<f'(\xi)<f'(x_2) $；$ f'(x) $递减时($ f''(x)<0 $)，有
 %$ f'(x_1)>f'(\xi)>f'(x_2) $.
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.4\linewidth]{拉格朗日中值定理主图}
 \end{figure}
@@ -1424,7 +1424,7 @@ $ \dfrac{5}{4},\ \dfrac{34}{27},\ \dfrac{63}{50}\cdots $.
 随着小区间划分数量越来越多，每个小矩形的宽度都越来越小，所有小矩形面积之和也越来越接近
 大曲边梯形的面积。当小区间划分数量趋于无穷大，而每个小矩形宽度都趋于0，那么
 所有的小矩形面积之和就等于曲边梯形的真实面积。
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.7\linewidth]{定积分无限细分}
 \end{figure}
@@ -1432,7 +1432,7 @@ $ \dfrac{5}{4},\ \dfrac{34}{27},\ \dfrac{63}{50}\cdots $.
 % DingJifen_JuXing_TiXing.m
 肯定有读者会提出疑问，如果在小区间上不是画矩形，而是画直角梯形，
 那算出来的面积不就更加精确吗？
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.6\linewidth]{矩形法与梯形法}
 \end{figure}
@@ -1486,7 +1486,7 @@ $ [-a,a] $上的积分为0，因为原点左右两侧的面积大小相等而正
 \item 若一个偶函数在区间$ [-a,a] $上有定义，那么它在区间$ [-a,a] $上的积分
 是它在区间$ [0,a] $上的积分值的两倍。
 \end{itemize}
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.9\linewidth]{定积分的一些性质}
 \end{figure}  
@@ -1625,9 +1625,9 @@ $ \diamond $ Impossibility theorems for elementary integration,
 $ \diamond $ 王建华，周丽萍. 某些不定积分的非初等性问题[J]. 
 呼伦贝尔学院学报, 2005, 13(2):2.})。
 
-\item 利用定积分对阶乘的增长速度做粗略估计：
+\item 利用定积分对阶乘的增长速度做粗略估计$(n>0)$：
 \begin{align*}
-    \ln n! &=\ln 1+\ln 2+ \cdots +\ln n  \\
+    \ln(n!) &=\ln 1+\ln 2+ \cdots +\ln n  \\
     &\approx \int_{3/2}^{n+1/2} \ln x\d x  
     =\left.(x\ln x - x)\right|_{3/2}^{n+1/2} \\
     &= \left[\left(n+\dfrac{1}{2}\right)
@@ -1653,7 +1653,7 @@ $ \diamond $ 王建华，周丽萍. 某些不定积分的非初等性问题[J].
 \item $^*$ 更精确的估计是下面的斯特林(Stirling)公式\footnote{《特殊函数概论》，
     第3.12节，渐进展开式。 }：
 \begin{align}
-    \ln n! &= \left(n+\dfrac{1}{2}\right)\ln n-n+\dfrac{1}{2}\ln(2\pi)+
+    \ln (n!) &= \left(n+\dfrac{1}{2}\right)\ln n-n+\dfrac{1}{2}\ln(2\pi)+
     \sum_{r=1}^{N}\dfrac{(-1)^{r-1}B_{2r}}{2r(2r-1)n^{2r-1}}+O(n^{-2N-1}) \label{斯特林公式对数形式1-伯努利数} \\
     & \approx n(\ln n-1)+\dfrac{1}{2}\ln(2\pi n)+\dfrac{1}{12n}-
     \dfrac{1}{360n^3}+\dfrac{1}{1260n^5}-\dfrac{1}{1680n^7}+\cdots 
@@ -1668,8 +1668,9 @@ $ \diamond $ 王建华，周丽萍. 某些不定积分的非初等性问题[J].
 $ \sqrt{2\pi}\approx 2.506628 $，稍大于(\ref{积分估计阶乘-系数2.219})
 式中的$ 2.219467 $.当$ n $很大时，可近似取$ n!\approx \sqrt{2\pi n}\left(\dfrac{n}{\e}\right)^n $.
 
-\item 关于$ n! $，还有如下不等式\footnote{Hsu L C ,  Luo X . On a 
-    Two-sided Inequality Involving Stirling's Formula[J]. JOURNAL OF MATHEMATICAL RESEARCH AND EXPOSITION, 1999, 19(3):491-494.}：
+\item 关于$ n!\ (n>0)$，还有如下不等式\footnote{Hsu L C ,  Luo X N. On a 
+    Two-sided Inequality Involving Stirling's Formula[J]. JOURNAL OF MATHEMATICAL RESEARCH AND EXPOSITION, 1999, 19(3):491-494. 
+    下载地址 https://wenku.csdn.net/doc/139dq8f3v6}：
 \begin{gather}\label{阶乘-斯特林不等式}
     \sqrt{2\pi n}\left(\dfrac{n}{\e}\right)^n \left(1+\dfrac{1}{12n}\right)
     <n!<\sqrt{2\pi n}\left(\dfrac{n}{\e}\right)^n \left(1+
@@ -2365,17 +2366,16 @@ $b=g(0.1)>a=f(0.1)>c=h(0.1)$，故$b>a>c$.
 1.35\times 10^{2996} $，大大超过了双精度浮点数可表示的
 最大值$ 2^{1024}\approx 1.80\times10^{308} $，一般的计算器和数学软件
 (比如Matlab)无法处理$ 10^{2996} $这么大的数，需要使用
-Maple、MPFR、GMP\footnote{MPFR: Multiple-Precision Floating-point computations with correct Rounding. \\
-GMP: GNU Multiple Precision Arithmetic Library}
-等相对冷门的工具。所以，掌握一些基本的转换方法，
+Maple、MPFR、GMP等相对冷门的工具。所以，掌握一些基本的转换方法，
 使得计算器能派上用场，还是有必要的。
 
-\item 已知两个不同的定点$ A(x_1,y_1),B(x_2,y_2) $，动点
+\item \label{光的反射定律} 已知两个不同的定点$ A(x_1,y_1),B(x_2,y_2) $，动点
 $P(x,0)$在$x$轴上移动，求$ |PA|+|PB| $的最小值。
+
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.5\linewidth]{反射定律}
-\end{figure}  \\
+\end{figure} 
 \textbf{解}\ 作出点$ A(x_1,y_1) $关于$ x $轴的对称点
 $ A'(x_1,-y_1) $，那么，
 \begin{align*}
@@ -2403,7 +2403,7 @@ $ f(x) $取最小值$ |A'B| $.
 在$ [0,1] $上的图像，假想$ b $从$ -\infty $变化到$ +\infty $，
 那么直线与对数曲线的交点数量将会依次为0，2，1，0，显然在交点数量
 为2的时候，$ E(b) $才可能取得最小值。如下图，
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.5\linewidth]{PDF_Picture/x+b-log2(1+x)最大最小值}
 \end{figure}
@@ -2463,8 +2463,9 @@ $\rho=\dfrac{(1+y'^2)^{3/2}}{|y''|}$，其中$y''$代表二阶导数，
 那么指数函数$y=C\e^{ax}\ (C>0, a\neq 0)$的曲率半径在何处取最小值？\\
 \textbf{解}\ $y'=Ca\e^{ax},\ y''=Ca^2\e^{ax}$，
 \begin{align*}
-    r =&\ \dfrac{(1+C^2a^2\e^{2ax})^{3/2}}{Ca^2\e^{ax}}  \\
-    =&\ \left(\dfrac{1+C^2a^2\e^{2ax}}{C^{2/3}a^{4/3}\e^{2ax/3}}\right)^{3/2} \\
+    r =&\ \dfrac{(1+C^2a^2\e^{2ax})^{3/2}}{Ca^2\e^{ax}}
+    = \left(\dfrac{1+C^2a^2\e^{2ax}}{C^{2/3}a^{4/3}\e^{2ax/3}}
+          \right)^{3/2} \\
     =&\ \left(\dfrac{1}{2C^{2/3}a^{4/3}\e^{2ax/3}}+
     \dfrac{1}{2C^{2/3}a^{4/3}\e^{2ax/3}}+
     C^{4/3}a^{2/3}\e^{4ax/3}\right)^{3/2} \\
@@ -2475,7 +2476,7 @@ $\rho=\dfrac{(1+y'^2)^{3/2}}{|y''|}$，其中$y''$代表二阶导数，
     =\dfrac{3\sqrt{3}}{2|a|}
 \end{align*}
 等号成立条件为$ \dfrac{1}{2C^{2/3}a^{4/3}\e^{2ax/3}}=
-C^{4/3}a^{2/3}\e^{4ax/3} $，\\ 
+C^{4/3}a^{2/3}\e^{4ax/3} $， 
 即$2C^2a^2\e^{2ax}=1$，$x=-\dfrac{1}{a}\ln(\sqrt{2}Ca)$. 
 
 \item 求证：$ \e^x-\ln x>2\ (x>0) $. \\
@@ -2517,15 +2518,16 @@ $x_0=-1.974614997\cdots $. \\
 \textbf{解}\ (1) 因为$ f(-1)=f(0)=0 $，由对称性必有$ f(-2)=f(-3)=0 $，
 故$ x^2+ax+b=(x+2)(x+3)=x^2+5x+6,\ a=5,\ b=6 $. \\
 (2) \textbf{方法一}
-\begin{align}\label{x(x+1)(x+2)(x+3)}
-    f(x)=[x(x+3)][(x+1)(x+2)]=&(x^2+3x)(x^2+3x+2) \\
+\begin{align*}
+    f(x)=[x(x+3)][(x+1)(x+2)]=&(x^2+3x)(x^2+3x+2) \tag*{\ding{172}}\\
     =&[(x^2+3x)+1]^2-1 \geq -1 
-\end{align}
+\end{align*}
 当$ x^2+3x+1=0 $，即 $ x=\dfrac{-3\pm\sqrt{5}}{2} $时，等号成立。\\
-\eqref{x(x+1)(x+2)(x+3)}式中的因式分解的技巧性较强，事实上有更一般的
+\ding{172}式中的因式分解的技巧性较强，事实上有更一般的
 方法，即先将$ f(x) $展开成$ x^4 + 6x^3 + 11x^2 + 6x $，再令其等于
-\begin{gather}\label{四次函数配成二次函数平方加常数}
-    (x^2+cx+d)^2+g=x^4+2cx^3+(c^2+2d)x^2+2dcx+(d^2+g) 
+\begin{gather}
+    (x^2+cx+d)^2+g=x^4+2cx^3+(c^2+2d)x^2+2dcx+(d^2+g)
+     \tag*{\ding{173}}
 \end{gather}
 比较系数可得
 $ \begin{dcases}
@@ -2539,7 +2541,7 @@ $ \begin{dcases}
     d=1\\
     g=-1
 \end{dcases} $. 当然，不是所有的4次函数都可以进行
-\eqref{四次函数配成二次函数平方加常数}式这样的配方操作，比如
+\ding{173}式这样的配方操作，比如
 $ (x-1)(x-2)(x-3)(x-5)=x^4-11x^3+41x^2-61x+30 $就无法进行，
 比较系数得到的方程会相互矛盾，
 只有当四次函数的图像是轴对称图形时才可以进行。
@@ -2860,10 +2862,10 @@ $ \sqrt{4^n+1}<2^n+\dfrac{1}{2\cdot 2^n} $.
 \ln(1+\dfrac{1}{\e^n})<n+\dfrac{1}{\e^n} $. 
 
 \item $ ^* $ 函数$ f(x) $的定义域为$ (0,+\infty) $，且恒满足$ f(x)>0,\ 2f(x)<xf'(x)<3f(x) $，则$ \dfrac{f(1)}{f(2)} $的范围是\underline{\hspace{2cm}}.\\
-$ A.(\dfrac{1}{4},\dfrac{1}{2})\hspace{2cm} 
-  B.(\dfrac{1}{16},\dfrac{1}{8})\hspace{2cm} 
-  C.(\dfrac{1}{3},\dfrac{1}{2})\hspace{2cm} 
-  D.(\dfrac{1}{8},\dfrac{1}{4})  $ \medskip \\
+$ A. \Big(\dfrac{1}{4},\dfrac{1}{2}\Big) \hspace{2cm} 
+  B. \Big(\dfrac{1}{16},\dfrac{1}{8}\Big) \hspace{2cm} 
+  C. \Big(\dfrac{1}{3},\dfrac{1}{2}\Big)\hspace{2cm} 
+  D. \Big(\dfrac{1}{8},\dfrac{1}{4}\Big)  $ \medskip \\
 \textbf{方法一}\ $ \left[\dfrac{f(x)}{x^n}\right]'=
 \dfrac{xf'(x)-nf(x)}{x^{n+1}} $，
 \begin{gather*}
@@ -3027,8 +3029,10 @@ $ (\dfrac{1}{2},-\dfrac{1}{4}+c) $和$ (-\dfrac{1}{2},\dfrac{1}{4}+c) $是$ f(x)
 所以$ -\dfrac{1}{4}\leq c \leq \dfrac{1}{4} $，% 此时的三个实根绝对值明显都小于1.
 设$ u $是$ f(x) $的一个实根，那么$ -\dfrac{1}{4}\leq c=-u^3+\dfrac{3}{4}u \leq \dfrac{1}{4} $, 
 $ \begin{dcases}
-    u^3-\dfrac{3}{4}u-\dfrac{1}{4}=(u-1)(u+\dfrac{1}{2})^2 \leq 0 \\
-    u^3-\dfrac{3}{4}u+\dfrac{1}{4}=(u+1)(u-\dfrac{1}{2})^2 \geq 0 
+    u^3-\dfrac{3}{4}u-\dfrac{1}{4}=
+            (u-1)\Big(u+\dfrac{1}{2}\Big)^2 \leq 0 \\
+    u^3-\dfrac{3}{4}u+\dfrac{1}{4}=
+            (u+1)\Big(u-\dfrac{1}{2}\Big)^2 \geq 0 
 \end{dcases} $，$ -1 \leq u \leq 1 $，即实根的绝对值不大于1.\\
 \\
 \textbf{方法二}$ ^* $使用韦达定理：$ x_1+x_2+x_3=0,x_1x_2+x_1x_3+x_2x_3=-\dfrac{3}{4} $,
@@ -3049,7 +3053,8 @@ $ \begin{dcases}
 \textbf{方法三}\ 使用三倍角公式，因为这个三次方程恰好缺少二次项。
 假设$ x_1=\cos \theta \in [-1,1] $是方程的一个实根，那么$ f(x_1)
 =f(\cos \theta)=\dfrac{1}{4}(4\cos^3 \theta-3\cos \theta)+c=\dfrac{1}{4}\cos3\theta + c=0 $,
-因为$ \cos3\theta=\cos3(\theta+\dfrac{2\pi}{3})=\cos3(\theta+\dfrac{4\pi}{3}) $，
+因为$ \cos3\theta=\cos3\Big(\theta+\dfrac{2\pi}{3}\Big)=
+\cos3\Big(\theta+\dfrac{4\pi}{3}\Big) $，
 所以$ x_2=\cos(\theta+\dfrac{2\pi}{3}),x_3=\cos(\theta+\dfrac{4\pi}{3}) $也是方程的根，
 这两个根的绝对值显然小于等于1.  \\
 \textbf{注}：此题的背景是：$ n $次首一多项式在区间$ [-1,1] $上的最大值不小于$ \dfrac{1}{2^{n-1}} $.
@@ -3349,11 +3354,11 @@ $ F(a) $在$ (0,+\infty) $上单调递减，$ a=1 $是唯一解。\\
     \includegraphics[width=0.5\linewidth]{2022新高考I卷}
 \end{figure}
 \noindent 设从左到右三个交点横坐标依次为$ x_1,x_2,x_3 $，则
-\begin{gather}
-    f(x_1)=f(x_2)=g(x_2)=g(x_3)=b \nonumber \\
+\begin{gather*}
+    f(x_1)=f(x_2)=g(x_2)=g(x_3)=b  \\
     \e^{x_1}-x_1=\e^{x_2}-x_2=x_2-\ln x_2=x_3-\ln x_3 
-    \label{2022全国x1x2x3}
-\end{gather}
+    \tag*{\ding{172}}
+\end{gather*}
 利用$ g(x)=f(\ln x) $\ (这是本题的关键)，有
 \begin{gather*}
     f(x_1)=f(x_2)=f(\ln x_2)=f(\ln x_3)=b
@@ -3366,8 +3371,8 @@ $ \begin{dcases}
 \begin{dcases}
     \e^{x_1}=x_2 \\
     \ln x_3=x_2
-\end{dcases}$. \\再结合(\ref{2022全国x1x2x3})式，
-$ x_1+x_3=\e^{x_1}+\ln x_3=x_2+x_2 $，证毕。
+\end{dcases}$. \\
+再结合\ding{172}式，$ x_1+x_3=\e^{x_1}+\ln x_3=x_2+x_2 $，证毕。
 
 利用软件，$ x_2=0.527447\cdots $，
 $ x_1=\ln x_2=-0.639706\cdots $，$ x_3=\e^{x_2}=1.694600\cdots $. 
@@ -3504,7 +3509,7 @@ $ \dfrac{f(x_2)-f(x_1)}{x_2-x_1}<a-2 $. \\
 	{x_2-\dfrac{1}{x_2}} 	
 	=-2+\dfrac{2a\ln x_2}{x_2-\dfrac{1}{x_2}}
 \end{align*}
-根据(\ref{不等式2lnt<t-1/t})式，(当然可以直接求导证明)，有$ 0<2\ln x_2<x_2-\dfrac{1}{x_2} $，所以$ \dfrac{2a\ln x_2}{x_2-\dfrac{1}{x_2}}<a $，原不等式成立。
+根据(\ref{不等式2lnt<t-1/t})式，(当然可以直接求导证明)，有$ 0<2\ln x_2<x_2-\dfrac{1}{x_2} $，所以$ \dfrac{2a\ln x_2}{x_2-\frac{1}{x_2}}<a $，原不等式成立。
 
 有的读者可能会想到使用拉格朗日中值定理，$ \dfrac{f(x_2)-f(x_1)}{x_2-x_1}=f'(\xi),\  \xi\in(x_1,x_2) $，而$f'(\xi) $肯定不超过$ f'(x) $在区间$ [x_1,x_2] $上的最大值，$ f''(x)=\dfrac{2-ax}{x^3} $，其零点是$ x_0=\dfrac{2}{a}\in (x_1,x_2)=\left(\dfrac{a-\sqrt{a^2-4}}{2},\dfrac{a+\sqrt{a^2-4}}{2}\right)=\left(\dfrac{2}{a+\sqrt{a^2-4}},\dfrac{2}{a-\sqrt{a^2-4}}\right) $，所以$ f'(x) $在$ x_0 $处取得极大值，但是$ f'(x_0)=\dfrac{a^2}{4}-1>a-2 $，缩放过头了，这样做行不通。
 
@@ -3564,7 +3569,7 @@ $ \bullet $ 将(\ref{2(t-1)/(t+1)<lnt})式和(\ref{lnt<sqrt(t)-1/sqrt(t)})式合
 (2)\ $ g(x)=f(2-x)=(2-x)\e^{x-2} $，令$ h(x)=f(x)-g(x)=x\e^{-x}-(2-x)\e^{x-2} $，$ h'(x)=(x-1)(\e^{2x-2}-1)\e^{-x}\geq 0 $，$ h(x) $在\textbf{R}上单调递增。当$ x>1 $时，$ h(x)>h(1)=0,\ f(x)>g(x) $. \\
 (3)\ \textbf{方法一}\ 设$ 0<x_1<1<x_2 $，因为$ f(x_1)=f(x_2)>g(x_2)=f(2-x_2) $，
 又有$ 2-x_2<1 $，且$ f(x) $在$ (-\infty,1) $上单调递增，所以$ x_1>2-x_2,\ x_1+x_2>2 $. \\
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=0.4\linewidth]{2010天津高考}
 \end{figure}
@@ -3700,7 +3705,7 @@ $ p(x)<f(x) $.(建议读者用绘图软件画一画$ y=-\dfrac{1}{2.5}(x-1)^2+1 
 
 证明$ x_1+x_2<\e $的\textbf{方法一}：令$ H(x)=f(x)-f(\e-x),\ x\in (0,\e) $，则$ H'(x)=-\ln[x(\e-x)] $，当$ x\in \left(0,\dfrac{\e-\sqrt{\e^2-4}}{2}\right)\cup\left(\dfrac{\e+\sqrt{\e^2-4}}{2},\e\right) $时，$ H'(x)>0,\ H(x) $单调递增，当$ x\in \left(\dfrac{\e-\sqrt{\e^2-4}}{2},\dfrac{\e+\sqrt{\e^2-4}}{2}\right) $时，$ H'(x)<0,\ H(x) $单调递减。根据(\ref{limit_xlnx=0})式，$ \lim\limits_{x\to 0} x\ln x=0 $，所以，$ \lim\limits_{x\to 0} f(x)=0,\ \lim\limits_{x\to 0} H(x)=0 $. 显然有$ H(\dfrac{\e}{2})=0 $，于是当$ x\in (0,\dfrac{\e}{2}) $时，$ H(x)>0,\ f(x)>f(\e-x) $；当$ x\in (\dfrac{\e}{2},\e) $时，$ H(x)<0,\ f(x)<f(\e-x) $. 因为$ x_1\in(0,1) $，所以$ H(x_1)=f(x_1)-f(\e-x_1)>0,\ f(x_1)>f(\e-x_1),f(x_1)=f(x_2)>f(\e-x_1) $，
 $ x_2\in(1,\e),\ \e-x_1\in (\e-1,\e)\subset(1,\e) $，再根据$ f(x) $在$ (1,\e) $上单调递减，所以$ x_2<\e-x_1,\ x_1+x_2<\e $.
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=0.9\linewidth]{2021新高考全国I卷图2}
 \end{figure}
@@ -3734,21 +3739,22 @@ $ \lim\limits_{x\to+\infty}f(x)=+\infty $，结合(I)中的单调性，
 \begin{align}
     f(x_0) & =a^{x_0}-bx_0+\e^2 \nonumber \\
     & =\dfrac{b}{\ln a}-b\cdot \dfrac{\ln b-\ln(\ln a)}{\ln a}+
-    \e^2\q (\text{消去}\ x_0) \label{2021浙江(2)消去x0}\\
-    & =a^{x_0}-(a^{x_0}\ln a)x_0+\e^2 \q (\text{消去}\ b) \label{2021浙江(2)消去b}
+    \e^2\q (\text{消去}\ x_0) \tag*{\ding{172}}\\
+    & =a^{x_0}-(a^{x_0}\ln a)x_0+\e^2 \q (\text{消去}\ b) 
+    \tag*{\ding{173}}
 \end{align}
-\textbf{方法一}\ 因为$ a>1 $，所以(\ref{2021浙江(2)消去x0})式等价于
+\textbf{方法一}\ 因为$ a>1 $，所以\ding{172}式等价于
 \begin{gather}
-    b -b\ln b+b\ln(\ln a)+\e^2\ln a<0 \label{2021浙江g(b)<0}
+    b -b\ln b+b\ln(\ln a)+\e^2\ln a<0 \tag*{\ding{174}}
 \end{gather}
 对任意$ b>2\e^2 $恒成立，将上式左侧定义为$ g(b) $，
 则$ g'(b)=-\ln b+\ln(\ln a) $. \\
-\mycircled{1} 若$ \ln a>2\e^2 $，则$ g'(\ln a)=0 $，
+(一) 若$ \ln a>2\e^2 $，则$ g'(\ln a)=0 $，
 $ g(b) $在$ b=\ln a $时取得极大值，但$ g(\ln a)=(1+\e^2)\ln a>0 $，
-不符合(\ref{2021浙江g(b)<0})式。\\
-\mycircled{2} $ \ln a\leq 2\e^2 $，则$ g'(b)<0 $，
+不符合\ding{174}式。\\
+(二) $ \ln a\leq 2\e^2 $，则$ g'(b)<0 $，
 $ g(b) $在$ (2\e^2,+\infty) $上单调递减，只需$ g(2\e^2)\leq 0 $
-即可满足(\ref{2021浙江g(b)<0})式，
+即可满足\ding{174}式，
 \begin{gather*}
     g(2\e^2)=2\e^2-2\e^2\ln(2\e^2)-2\e^2\ln(\ln a)+\e^2\ln a\leq 0 \\
     -2\ln 2-2+2\ln(\ln a)+\ln a\leq 0 \q \Rightarrow \q
@@ -3756,7 +3762,7 @@ $ g(b) $在$ (2\e^2,+\infty) $上单调递减，只需$ g(2\e^2)\leq 0 $
 \end{gather*}
 $ (\ln a)^2 a\leq 4\e^2\ \Rightarrow\ a\leq \e^2 $，
 所以，$ a $的范围是$ (1,\e^2] $. \\
-\textbf{方法二}\ 从(\ref{2021浙江(2)消去b})式出发，
+\textbf{方法二}\ 从\ding{173}式出发，
 令$ h(x)=a^{x}-(a^{x}\ln a)x+\e^2\ (x\in \textbf{R}) $，
 则$ h'(x)=-xa^x(\ln a)^2 $，$ h(x) $在$ (0,+\infty) $
 上单调递减，又有$ x=\log_a \e^2=\dfrac{2}{\ln a} $
@@ -3795,33 +3801,33 @@ $ \dfrac{\e^6+\e^2}{6}>\dfrac{7.29\e^4+\e^2}{6}>\e^4 $.
 \end{gather*}
 
 只需证明
-\begin{gather}
+\begin{gather*}
     \ln(5b-\e^2)>\dfrac{b\ln b}{2\e^{2}}\dfrac{2\e^2}{b}
-    +\dfrac{\e^{2}}{b}=\ln b+\dfrac{\e^{2}}{b} \nonumber \\
+    +\dfrac{\e^{2}}{b}=\ln b+\dfrac{\e^{2}}{b}  \\
     \Leftrightarrow\ 
     \ln\left(5-\dfrac{\e^{2}}{b}\right)>\dfrac{\e^{2}}{b}
-    \label{2021浙江ln(5-x)>x}
-\end{gather}
+    \tag*{\ding{175}}
+\end{gather*}
 令$ K(x)=\ln(5-x)-x\ (0<x<5) $，显然$ K(x) $单调递减，
 $ K(1)=2\ln 2-1>0 $，所以，当$ x\in(0,1) $时，
 $ K(x)>0 $，而$ \dfrac{\e^{2}}{b}<\dfrac{\e^{2}}{\e^4}<1 $，
-所以(\ref{2021浙江ln(5-x)>x})式成立。证毕。\\
+所以\ding{175}式成立。证毕。\\
 \textbf{注1}：如果想到利用不等式$ \e^x<\dfrac{2+x}{2-x}\ (0<x<2) $，那么
-\begin{gather}
+\begin{gather*}
     b=\dfrac{\e^{x_1}+\e^2}{x_1}<\dfrac{\frac{2+x_1}{2-x_1}+\e^2}{x_1}
-    \nonumber \\
-    bx_1^2+(1-\e^2-2b)x_1+2+2\e^2>0 \nonumber \\
+     \\
+    bx_1^2+(1-\e^2-2b)x_1+2+2\e^2>0  \\
     x_1<\dfrac{(2b+\e^2-1)-\sqrt{(1-\e^2-2b)^2-4b(2+2\e^2)}}{2b} 
-    \label{2021浙江x1二次不等式}
-\end{gather}
-将(\ref{2021浙江x1二次不等式})式右侧关于$ b $的函数记为$ \varphi(b) $，
+    \tag*{\ding{176}}
+\end{gather*}
+将\ding{176}式右侧关于$ b $的函数记为$ \varphi(b) $，
 $ \varphi(b) $表达式过于复杂，手算难以继续。借助用计算机可以验证下式成立
 \begin{gather*}
     \ln(5b-\e^2)>\ln b+\dfrac{\e^{2}}{b}
     >\dfrac{b\ln b}{2\e^{2}}\varphi(b)+\dfrac{\e^{2}}{b}
 \end{gather*}
 三个函数图像如下：
-\begin{figure}[!ht] % ZheJiang2021.m
+\begin{figure}[H] % ZheJiang2021.m
     \centering
     \includegraphics[width=0.7\linewidth]{2021浙江图1}
 \end{figure}
@@ -3849,7 +3855,7 @@ $ \dfrac{T}{2\pi}\ln\dfrac{T}{2\pi}-\dfrac{T}{2\pi} $(已经证明\footnote{参�
 }按虚部从小到大排列时，
 第$ N $个虚部的大小大约为$ 2\pi F(N) $. 图像如下：
 % RiemannZetaZero.m
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
     \includegraphics[width=0.6\linewidth]{zeta函数虚部拟合}
 \end{figure}
@@ -3862,10 +3868,10 @@ $ \dfrac{T}{2\pi}\ln\dfrac{T}{2\pi}-\dfrac{T}{2\pi} $(已经证明\footnote{参�
 (1) 求$ a $的取值范围；\\
 (2) 设$ x_1,x_2 $为$ f(x) $的两个零点，证明：$ x_1+x_2<2 $。\\
 \textbf{解}\ (1)\textbf{方法一}\ 等价于函数$ g(x)=\dfrac{(x-2)\e^x}{(x-1)^2} $与直线$ y=-a $有两个交点。$ g'(x)=\dfrac{(x-2)^2+1}{(x-1)^3} \e^x $，当$ x\in(-\infty,1) $时，$ g'(x)<0,\ g(x)<0,\ g(x) $单调递减；当$ x\in(1, +\infty) $时，$ g'(x)>0,\ g(x) $单调递增，$ g(x) $有且仅有$ x=2 $一个零点，$ g(x) $图像如下，所以当$ -a<0 $时，$ y=-a $才能与$ y=g(x) $有两个交点，$a>0 $.
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.5\linewidth]{2016全国I卷}
-\end{figure} \\
+\end{figure}
 \textbf{方法二}\ $ f'(x)=(x-1)\e^x+2a(x-1)=(x-1)(\e^x+2a) $.\\
 \mycircled{1} 若$ a=0 $，则$ f(x) $有且仅有$ x=2 $一个零点，不符合题意，所以$ a\neq 0 $.\\
 \mycircled{2} 若$ a>0 $，则$ f(x) $在$ (-\infty,1) $上单调递减，在$ (1,+\infty) $上单调递增，在$ x=1 $处取得极小值$ -\e<0 $，且$ f(-\infty)=+\infty,\ f(+\infty)=+\infty $，所以$ f(x) $在$ (-\infty,1) $和$ (1,+\infty) $上各有一个零点，符合题意。\\
@@ -3896,29 +3902,34 @@ $ \dfrac{1}{2^{n-1}} $，本题是三次首一多项式，所以不小于$ \dfra
 \begin{align*}
     M&\geq |f(-1)|=|-1+a-b| \\
     M&\geq |f(1)|=|1-a-b|=|-1+a+b| \\
-    2M&\geq 2|f(-\dfrac{1}{2})|=2|-\dfrac{1}{8}+\dfrac{1}{2}a-b|=
-    |\dfrac{1}{4}-a+2b| \\
-    2M&\geq 2|f( \dfrac{1}{2})|=2| \dfrac{1}{8}-\dfrac{1}{2}a-b|=
-    |\dfrac{1}{4}-a-2b|	  
+    2M&\geq 2\left|f\Big(-\dfrac{1}{2}\Big)\right|=
+    2\left|-\dfrac{1}{8}+\dfrac{1}{2}a-b\right|=
+    \left|\dfrac{1}{4}-a+2b\right| \\
+    2M&\geq 2\left|f\Big( \dfrac{1}{2}\Big)\right|=
+    2\left| \dfrac{1}{8}-\dfrac{1}{2}a-b\right|=
+    \left|\dfrac{1}{4}-a-2b\right|
 \end{align*}
 将以上4个式子相加，并利用三角不等式，有
 \begin{gather*}
-    6M\geq |(-1+a-b)+(-1+a+b)+(\dfrac{1}{4}-a+2b)+(\dfrac{1}{4}-a-2b)|
+    6M\geq \left|(-1+a-b)+(-1+a+b)+
+    \Big(\dfrac{1}{4}-a+2b\Big)+\Big(\dfrac{1}{4}-a-2b\Big)\right|
     =\dfrac{3}{2}
 \end{gather*}
 所以，$ M\geq \dfrac{1}{4} $.上面4个式子在$ M $前面配的系数，是先设为未知数，再解方程
 组得出的。如果不取$ \pm 1,\pm \dfrac{1}{2} $这4个点，比如把$ \pm \dfrac{1}{2} $
 换成$ \pm \dfrac{1}{3} $，那么
 \begin{align*}
-    3M&\geq 3|f(-\dfrac{1}{3})|=3|-\dfrac{1}{27}+\dfrac{1}{3}a-b|=
-    |\dfrac{1}{9}-a+3b| \\
-    3M&\geq 3|f( \dfrac{1}{3})|=3| \dfrac{1}{27}-\dfrac{1}{3}a-b|=
-    |\dfrac{1}{9}-a-3b|  
+    3M&\geq 3\left|f(-\dfrac{1}{3})\right|=
+    3\left|-\dfrac{1}{27}+\dfrac{1}{3}a-b\right|=
+    \left|\dfrac{1}{9}-a+3b\right| \\
+    3M&\geq 3\left|f\Big(\dfrac{1}{3}\Big)\right|=
+    3\left| \dfrac{1}{27}-\dfrac{1}{3}a-b\right|=
+    \left|\dfrac{1}{9}-a-3b\right|  
 \end{align*}
 同样取4个式子相加，
 \begin{align*}
-    8M\geq |(-1+a-b)+(-1+a+b)+(\dfrac{1}{9}-a+3b)+(\dfrac{1}{9}-a-3b)|=
-    \dfrac{16}{9}
+    8M\geq \left|(-1+a-b)+(-1+a+b)+\Big(\dfrac{1}{9}-a+3b\Big)+
+    \Big(\dfrac{1}{9}-a-3b\Big)\right|=\dfrac{16}{9}
 \end{align*}
 于是，$ M\geq \dfrac{2}{9} $，这样是无法证明$ M\geq \dfrac{1}{4} $的。
 为什么$ \pm \dfrac{1}{2} $具有特殊地位呢？是因为$ \pm \dfrac{1}{2} $恰好是
@@ -3935,11 +3946,12 @@ $ \dfrac{1}{2} $和1的相对大小分类讨论，即将$ a $分成$ (0,\dfrac{3
 (II)设$ m\in [1,x_0)\cup(x_0,2] $，定义函数$ h(x)=g(x)(m-x_0)-f(m) $，求证：
 $ h(m)h(x_0)<0 $；
 (III)求证：存在大于0的常数$ A $，使得对于任意的正整数$ p,q $，且$ \dfrac{p}{q}\in[1,
-x_0)\cup(x_0,2] $，满足$ |\dfrac{p}{q}-x_0|\geq \dfrac{1}{Aq^4} $. \\
+x_0)\cup(x_0,2] $，满足$ \left|\dfrac{p}{q}-x_0\right|\geq 
+ \dfrac{1}{Aq^4} $. \\
 \textbf{解}\ (1)\ 以下一律使用$ f'(x) $代替$ g(x) $，能让思路更加清晰。
 $ f'(x)=8x^3+9x^2-6x-6 $，$ f''(x)=6(4x^2+3x-1)=6(4x-1)(x+1) $，
-所以$ f'(x) $在$ (-\infty,-1) $和$ (\dfrac{1}{4},+\infty) $上分别单调递增，
-在$ (-1,\dfrac{1}{4}) $上单调递减。\\
+所以$ f'(x) $在$ (-\infty,-1) $和$ \Big(\dfrac{1}{4},+\infty\Big) $上分别单调递增，
+在$ \Big(-1,\dfrac{1}{4}\Big) $上单调递减。\\
 (2)\ 当$ x\geq 1 $时，$ f'(x)\geq f'(1)=5>0 $，所以$ f(x) $在
 $ [1,+\infty) $上单调递增，
 \begin{align*}
@@ -3984,7 +3996,8 @@ $ |2p^4+3p^3q-3p^2q^2-6pq^3+aq^4| $也是正整数，
 \begin{gather}
     f'(x_0)<\frac{f(m)-f(x_0)}{m-x_0}=f'(\xi)<f'(m)
 \end{gather}
-因为$ f'(x) $在$ (\dfrac{1}{4},+\infty) $上单调递增，所以上式显然成立。
+因为$ f'(x) $在$ \Big(\dfrac{1}{4},+\infty\Big) $上单调递增，
+所以上式显然成立。
 
 第(3)问实际上是刘维尔逼近定理。
 
@@ -4221,7 +4234,7 @@ $ x_n $具有如下渐近公式：
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.5\linewidth]{2019天津高考文科}
-\end{figure} \\
+\end{figure}
 (II) (i) $ x=1 $是一个显然的零点，$ f'(x_0)=\dfrac{1}{x_0}-ax_0\e^{x_0}=0,\ x_0^2\e^{x_0}=\dfrac{1}{a}>\e=1^2 \e^1 $，因为函数$ x^2\e^x $在$ (0,+\infty) $上单调递增，所以$ x_0>1 $. 而$ f(x_0)=\ln x_0-a(x_0-1)\e^{x_0}=\ln x_0-a(x_0-1)\cdot \dfrac{1}{ax_0^2}=\ln x_0-\dfrac{1}{x_0}+\dfrac{1}{x_0^2} $，令$ g(x)=\ln x-\dfrac{1}{x}+\dfrac{1}{x^2}\ (x\geq 1) $，则$ g'(x)=\dfrac{(x+2)(x-1)}{x^3}\geq 0 $，所以$ g(x) $在$ (1,+\infty) $上单调递增，$ f(x_0)=g(x_0)>g(1)=0 $. 因为$ f(x) $在$ (0,x_0) $上单调递增，在$ (x_0,+\infty) $上单调递减，且$ f(x_0)>0,\ \lim\limits_{x\to 0}f(x)=-\infty,\ \lim\limits_{x\to +\infty}f(x)=-\infty $，由零点存在定理，$ (x_0,+\infty) $内必有一个零点，所以$ f(x) $恰有两个零点。
 
 (ii)\ $ 1<x_0<x_1,\ a=\dfrac{1}{x_0^2\e^{x_0}}=
@@ -4695,14 +4708,14 @@ $ m_{2t+2} $是$ S_{2t+2}(x) $唯一的、正的极小值。
 (\ref{两条曲线交点})式还说明$ (-(2t+1),S_{2t\pm 1}(-(2t+1))) $恰好是$ y=S_{2t+1}(x) $与$ y=S_{2t-1}(x) $两条曲线的交点。同理，$ (-2t,S_{2t}(-2t)) $恰好是$ y=S_{2t}(x) $与$ y=S_{2t-2}(x) $两条曲线的交点。 
 
 $ S_n(x),\ n=2,3,\cdots, 12 $的图像如下：
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.6\linewidth]{ex截断多项式图像12}
 \end{figure} 
 
 下面来粗略分析$ S_n(x)=0 $的全部根$ Z_{n,j},\ j=1,2 \cdots n $在复平面上的分布情况。
 $ n=15,24,33,42,51,60 $时，根的分布情况如下图：
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.6\linewidth]{ex未归一化的根的分布}
 \end{figure} 
@@ -4713,13 +4726,13 @@ $ n=15,24,33,42,51,60 $时，根的分布情况如下图：
 
 而$ n=2,3,4,\cdots,60 $时，
 全部根的分布情况如下图，似乎是落在某些规则的曲线上，相当有趣。
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.6\linewidth]{ex未归一化的根的分布2_60}
 \end{figure} 
 
 把$ S_n(x)=0 $的全部根除以$ n $后，再次绘制$ n=24,42,60 $时的分布情况如下图：
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.6\linewidth]{ex归一化的根的分布}
 \end{figure} 
@@ -4929,7 +4942,7 @@ $ x_n-\overline{x}<\dfrac{1}{n},\ x_n<\dfrac{1}{n}+\overline{x} $，
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.6\linewidth]{2013安徽高考dilog实根递减速度}
-\end{figure} \\
+\end{figure}
 \textbf{注3}：当$ n $是偶数时，$ f_n(x)=0 $有两个实根，一个实根位于区间$ \left(\dfrac{3}{4},1\right) $内，这个实根随着$ n $的增加而单调递减，极限是
 $ \overline{x}=0.761542\cdots $；
 另一个实根位于区间$ (-5,-1) $内，这个实根随着$ n $的增加而单调递增，
@@ -4981,7 +4994,7 @@ $ f_n(x),\ n=10,30,,50,70,90 $的全部复数根的分布如下图：
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.6\linewidth]{2013安徽高考dilog截断根的分布10-30-50}
-\end{figure} \\
+\end{figure}
 可以看出，对于某个$ n $，全部复数根近似分布在一个椭圆上，随着$ n $增加，椭圆在缩小，但不会变成无限小，而是存在一个极限椭圆。绘制上图的MATLAB代码如下：
 \lstset{
     backgroundcolor = \color{gray!5},    % 背景色：灰色
@@ -5022,7 +5035,7 @@ $ f_n(x),\ n=10,30,,50,70,90 $的全部复数根的分布如下图：
 \end{lstlisting} 
 而$ n=2,3,4,\cdots,100 $时，
 全部根的分布情况如下图，似乎是落在某些规则的曲线上，相当有趣。
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
     \includegraphics[width=0.6\linewidth]{2013安徽高考dilog截断根的分布2_100}
 \end{figure} 
@@ -5212,7 +5225,7 @@ $ \xi(s)=\xi(1-s) $. \\
 %~\newpage
 
 \section{习题} 
-\begin{enumerate}[label={\textbf{\arabic*.}},leftmargin=
+\begin{enumerate}[label={\textbf{\thechapter.\arabic*}},leftmargin=
     \inteval{\myenumleftmargin}pt]
 \item 对以下函数，分别计算$ (fg)' $和$ f'g' $，判断两者是否相等。\\
 (1)$ f(x)=\e^{x^2},\ g(x)=\sqrt{2x-1}\e^x $.\\
@@ -5228,13 +5241,18 @@ $ \xi(s)=\xi(1-s) $. \\
 
 \item 求$ f(x)=\sqrt{x^2+9}+\sqrt{x^2-4x+20} $的最小值。
 
+\item 求证：当$x>\dfrac{1}{24}$时，$\ln\Big(1+\dfrac{1}{12x-0.5}\Big)-
+\dfrac{1}{12x}>0$. 
+
 \item 
 (1) 设$ 0<x_1<1<x_2 $，且$ (\ln x_1)^2=(\ln x_2)^2 $，
 求证：$ x_1+x_2>2 $. \\
 (2) 求证：当$x>0$时，$ x+\dfrac{1}{x}-2\geq (\ln x)^2 $. 
 
-\item 求证：当$ x<\dfrac{1}{2} $时，$ \e^x\leq \dfrac{1}{(1-\dfrac{x}{2})^2}
-\leq \dfrac{1}{1-x}\leq \sqrt{\dfrac{1}{1-2x}} $.(均为$ \e^x\geq 1+x $的衍生不等式。)
+\item 求证：当$ x<\dfrac{1}{2} $时，$ \e^x\leq 
+ \dfrac{1}{\Big(1-\dfrac{x}{2}\Big)^2}
+\leq \dfrac{1}{1-x}\leq \sqrt{\dfrac{1}{1-2x}} $.
+(均为$ \e^x\geq 1+x $的衍生不等式。)
 
 \item $ f(x)=\e^x-\dfrac{1}{2}x^2 $，求证：$ f(x)+f(-x)\geq 2 $. 
 
@@ -5370,27 +5388,28 @@ $ \cos x<1-\dfrac{4x^2}{\pi^2} $.
     \includegraphics[width=0.4\linewidth]{幂指函数图像}
 \end{figure} 
  
-存在$\begin{cases}
+存在$\begin{dcases}
     a=\left(\dfrac{n}{n+1}\right)^n \\
     b=\left(\dfrac{n}{n+1}\right)^{n+1}
-\end{cases}$，满足$a^a=b^b$，相比直接验证，
+\end{dcases}$，满足$a^a=b^b$，相比直接验证，
 改为验证$a\ln a=b\ln b$会更加容易。 
 
-\item $ \dfrac{\ln x}{\ln(1-x)}>\left(\dfrac{1-x}{x}\right)^{
-    \frac{1}{\ln 2}},\ x\in\left(\dfrac{1}{2},1\right) $. 
-\item $ x^{\frac{1}{x}}\ln x<\sqrt{x},\ (x>0) $. (\textbf{注}：
-$ x^{\frac{1}{x}}\ln x-\sqrt{x} $的极大值为$ -0.015439\cdots $) 
-\item $ x^{\frac{1}{x}}\ln x >-\dfrac{2}{9},\ (x>0) $.(\textbf{注}：
-$ x^{\frac{1}{x}}\ln x $的极小值为$ -0.222218\cdots $，与
-$ -\dfrac{2}{9}=-0.222222\cdots $十分接近。) 
-\item $ \left(\dfrac{\sin x}{x}\right)^3>\cos x,\ (0<|x|<4.7) $.
-\item $ \sin\sqrt{\dfrac{2}{x}}>\sqrt{\dfrac{2}{x+1}},\ x>1.2 $.
+\item 当$ x\in\left(\dfrac{1}{2},1\right) $时，
+$ \dfrac{\ln x}{\ln(1-x)}>\left(\dfrac{1-x}{x}\right)^{\frac{1}{\ln 2}} $. 
+\item 当$ x>0 $时，$ x^{\frac{1}{x}}\ln x<\sqrt{x} $. 
+(\textbf{注}：$ x^{\frac{1}{x}}\ln x-\sqrt{x} $的极大值为$ -0.015439\cdots $) 
+\item 当$ x>0 $时，$ x^{\frac{1}{x}}\ln x >-\dfrac{2}{9} $.
+(\textbf{注}：$ x^{\frac{1}{x}}\ln x $的极小值为$ -0.222218\cdots $，
+与$ -\dfrac{2}{9}=-0.222222\cdots $十分接近。) 
+\item 当$ 0<|x|<4.7 $时，$ \left(\dfrac{\sin x}{x}\right)^3>\cos x$.
+\item 当$ x>1.2 $时，$ \sin\sqrt{\dfrac{2}{x}}>\sqrt{\dfrac{2}{x+1}} $. 
+\item 当$0<x<\dfrac{\pi}{2}$时，$\sin(\sqrt{x})<\sqrt{\sin x}$. 
 \end{enumerate}
 
 
 \end{enumerate}
 \section{习题答案}
-\begin{enumerate}[label={\textbf{\arabic*.}},leftmargin=
+\begin{enumerate}[label={\textbf{\thechapter.\arabic*}},leftmargin=
     \inteval{\myenumleftmargin}pt]
 \item (1)$\ (fg)'=f'g'=\dfrac{4x^2\e^{x+x^2}}{\sqrt{2x-1}} $. \quad
 (2)$\ (fg)'=f'g'=(1+x)^2\e^{2x+x^2/2} $. \\
@@ -5418,13 +5437,18 @@ $ x=-\dfrac{1}{2} $处取得极大值$ \dfrac{31}{16} $；
 \dfrac{1}{2}\right)^2+\dfrac{1}{4}\geq \dfrac{1}{4} $，
 这里的等号显然可以成立(因为$ x^2+x-\dfrac{1}{2}=0 $显然有实根)。
 
-\item $ f(x)=\sqrt{(x-0)^2+3^2}+\sqrt{(x-2)^2+4^2}\geq 
+\item 根据光的反射定律\ref{光的反射定律}，\\
+$ f(x)=\sqrt{(x-0)^2+3^2}+\sqrt{(x-2)^2+4^2}\geq 
 \sqrt{(2-0)^2+(4+3)^2} =\sqrt{53} $.
+
+\item 令$f(x)=\ln\Big(1+\dfrac{1}{12x-0.5}\Big)-\dfrac{1}{12x}$，则
+$f'(x)=-\dfrac{1}{12x^2(24x-1)(24x+1)}$，当$x>\dfrac{1}{24}$时，
+$f'(x)<0$，$f(x)$单调递减。因为$\lim\limits_{x\to+\infty}f(x)=0$，
+所以当$x>\dfrac{1}{24}$时，$f(x)>0$.
 
 \item (1) 显然有 $ \ln x_1<0<\ln x_2 $，那么$ -\ln x_1=\ln x_2 $，
 $ \ln x_1+\ln x_2=\ln(x_1x_2)=0 $，$ x_1x_2=1 $，即$ x_2=\dfrac{1}{x_1} $，
 $ x_1+x_2=x_1+\dfrac{1}{x_1}>2 $. \\
-
 (2) 令$f(x)=x+\dfrac{1}{x}-2-(\ln x)^2$，则$ f'(x)=
 \dfrac{x^2-2x\ln x-1}{x^2} $，令$g(x)=x^2-2x\ln x-1$，
 则$g(1)=0$，$g'(x)=2(x-1-\ln x)\geq 0$.
@@ -5481,37 +5505,37 @@ $ F'(x)=-\dfrac{2x(x-1)(x^2+4x+1)}{(x^2+1)^3} $，分子零点为$ 0, 1,
 \end{gather*}
 (2) 与(1)类似，略。\\
 (3) 
-\begin{gather}
+\begin{gather*}
     px_1^3+qx_2^3\geq (px_1+qx_2)^3=p^3x_1^3+q^3x_2^3+3pqx_1x_2(px_1+qx_2)
-    \q \Leftrightarrow \nonumber\\ 
+    \q \Leftrightarrow \\ 
     p(1-p^2)x_1^3+q(1-q^2)x_2^3-3pqx_1x_2(px_1+qx_2)\geq 0
-    \q \Leftrightarrow \nonumber \\
+    \q \Leftrightarrow  \\
     (1+p)x_1^3+(1+q)x_2^3-3x_1x_2(px_1+qx_2)\geq 0
-    \q \Leftrightarrow \nonumber \\
+    \q \Leftrightarrow  \\
     (1+p)\Big(\dfrac{x_1}{x_2}\Big)^3+(1+1-p)-3\dfrac{x_1}{x_2}
-    \Big(p\dfrac{x_1}{x_2}+1-p\Big)\geq 0 \label{三次函数凹凸性-求导证明}
-\end{gather}
+    \Big(p\dfrac{x_1}{x_2}+1-p\Big)\geq 0 \tag*{\ding{172}}
+\end{gather*}
 因为$ x_1,x_2 $地位平等，不妨设$ x_1\geq x_2>0 $，令$ t=\dfrac{x_1}{x_2}\geq 1 $，\\
 $ g(t)=(1+p)t^3-3pt^2-3(1-p)t+2-p\ (t\geq 1) $，\\ 则$ g'(t)=3(1+p)t^2-6pt-3(1-p)=
 3(t^2-1)+3p(t-1)^2\geq 0 $，所以，$ g(t)\geq g(1)=0 $，
-(\ref{三次函数凹凸性-求导证明})式成立。\\
+\ding{172}式成立。\\
 (4) 
-\begin{align}
-    p\ln x_1+q\ln x_2 &\leq \ln(px_1+qx_2) \q \Leftrightarrow \nonumber\\
+\begin{align*}
+    p\ln x_1+q\ln x_2 &\leq \ln(px_1+qx_2) \q \Leftrightarrow \\
     x_1^{p}x_2^q=\Big(\dfrac{x_1}{x_2}\Big)^p x_2 &\leq px_1+(1-p)x_2
-    \q \Leftrightarrow \nonumber\\
+    \q \Leftrightarrow \\
     \Big(\dfrac{x_1}{x_2}\Big)^p &\leq p\Big(\dfrac{x_1}{x_2}\Big)+1-p
-    \q \Leftrightarrow \nonumber\\
+    \q \Leftrightarrow \\
     \left[1+\Big(\dfrac{x_1}{x_2}-1\Big)\right]^p &\leq 
-    1+p\Big(\dfrac{x_1}{x_2}-1\Big) \label{凹凸性习题-伯努利不等式}
-\end{align}
-由伯努利不等式，(\ref{凹凸性习题-伯努利不等式})式显然成立。
+    1+p\Big(\dfrac{x_1}{x_2}-1\Big) \tag*{\ding{173}}
+\end{align*}
+由伯努利不等式，\ding{173}式显然成立。
 或者求导证明，不妨设$ x_1\geq x_2>0 $，\\
 记$ g(x)=(1+x)^p-1-px\ (x\geq 0,\ 0<p<1) $，
 则$ g'(x)=p(1+x)^{p-1}-p\leq 0 $，\\ 
 $ g(x)\leq g(0)=0 $，$ (1+x)^p\leq 1+px $，
 令$ x=\dfrac{x_1}{x_2}-1\geq 0 $，
-即可得(\ref{凹凸性习题-伯努利不等式})式成立。\\
+即可得\ding{173}式成立。\\
 (5) $ p\e^{x_1}+q\e^{x_2}\geq \e^{px_1+qx_2} $，令$ \e^{x_1}=u_1>0 $，
 $ \e^{x_2}=u_2>0 $，则只需证$ pu_1+qu_2\geq u_1^pu_2^q $，这就是(4)的结果。\\
 (6) 
@@ -5555,7 +5579,7 @@ $ \dfrac{2}{5}\cdot 49^{5/2}+\dfrac{1}{2}\cdot 49^{3/2}+\dfrac{1}{8}
 \end{align*}
 \textbf{方法三}\ $ \disp \int_{16.5}^{49.5}x^{3/2}\d x=
 \dfrac{2}{5}(49.5^{5/2}-16.5^{5/2})=6453.260838 \cdots $ \\
-该求和的精确值为$ 6453.0749933832212036\cdots $，整数部分为6453. \\
+该求和的精确值为$ 6453.0749933832212036\cdots $，整数部分为6453. 
 \begin{align*}
     &\ \lim\limits_{n\to \infty} \left[ \sum\limits_{l=1}^{n} l^{3/2}-
     \left(\dfrac{2}{5}n^{5/2}+\dfrac{1}{2}n^{1/2}+\dfrac{1}{8}n^{1/2}
@@ -5571,12 +5595,13 @@ $ \dfrac{2}{5}\cdot 49^{5/2}+\dfrac{1}{2}\cdot 49^{3/2}+\dfrac{1}{8}
 <\dfrac{2}{3}\left(\dfrac{3}{2}\right)^{3/2}+\dfrac{1}{2}
 \left(\dfrac{3}{2}\right)^{1/2}$. \\
 当$n\geq 2$时，只需证明
-\begin{align}\label{差分后的待证目标1}
-    \left(n+\dfrac{1}{2}\right)^{1/2}
-    <&\ \dfrac{2}{3}\left(n+\dfrac{1}{2}\right)^{3/2}+\dfrac{1}{2}
-    \left(n+\dfrac{1}{2}\right)^{1/2} \notag \\
-    &-\left[\dfrac{2}{3}\left(n-\dfrac{1}{2}\right)^{3/2}+
-    \dfrac{1}{2}\left(n-\dfrac{1}{2}\right)^{1/2}\right]  
+\begin{align}
+{\small  \left(n+\dfrac{1}{2}\right)^{1/2}
+    <\dfrac{2}{3}\left(n+\dfrac{1}{2}\right)^{3/2}+\dfrac{1}{2}
+    \left(n+\dfrac{1}{2}\right)^{1/2} 
+    -\left[\dfrac{2}{3}\left(n-\dfrac{1}{2}\right)^{3/2}+
+    \dfrac{1}{2}\left(n-\dfrac{1}{2}\right)^{1/2}\right] } 
+    \tag*{\ding{172}}
 \end{align}
 用逆向分析法，
 \begin{gather*}
@@ -5601,8 +5626,8 @@ $ \dfrac{2}{5}\cdot 49^{5/2}+\dfrac{1}{2}\cdot 49^{3/2}+\dfrac{1}{8}
     2\sqrt{n^2-\dfrac{1}{4}}+n-\dfrac{1}{2}\right)>0 \\
     \dfrac{1}{3}\left(n-\sqrt{n^2-\dfrac{1}{4}}\right)>0
 \end{gather*}
-最后一式显然成立，以上步骤步步可逆，于是\eqref{差分后的待证目标1}式成立，
-在\eqref{差分后的待证目标1}式中依次取$n=2,3,4,\cdots$，再结合
+最后一式显然成立，以上步骤步步可逆，于是\ding{172}式成立，
+在\ding{172}式中依次取$n=2,3,4,\cdots$，再结合
 $n=1$时的不等式，累加即可。
 
 \item (I)
@@ -5800,11 +5825,12 @@ $f\left(\dfrac{1}{a}+x\right)>f\left(\dfrac{1}{a}-x\right)$.\\
 \item  
 答案是D. 本题也有微分方程的背景，$ x^2f'(x)+2xf(x)=[x^2f(x)]'=\dfrac{\e^x}{x} $，但对$ \dfrac{\e^x}{x} $积分是积不出来的。既然题目给了$ f(2)=\dfrac{\e^2}{8} $，那就要立刻想到在微分方程中令$ x=2 $，即$ 2^2f'(2)+2\cdot 2\cdot \dfrac{\e^2}{8}=\dfrac{\e^2}{2} $，可得到$ f'(2)=0 $，但此时还不能肯定$ x=2 $是一个极值点。在微分方程两侧同时求导，求两次，
 \begin{gather}
-    x^2f''(x)+4xf'(x)+2f(x)=\dfrac{x-1}{x^2}\e^x \label{2013辽宁微分方程1} \\
-    x^2f'''(x)+6xf''(x)+6f'(x)=\dfrac{x^2-2x+2}{x^3}\e^x  \label{2013辽宁微分方程2}
+    x^2f''(x)+4xf'(x)+2f(x)=\dfrac{x-1}{x^2}\e^x \tag*{\ding{172}} \\
+    x^2f'''(x)+6xf''(x)+6f'(x)=\dfrac{x^2-2x+2}{x^3}\e^x  
+    \tag*{\ding{173}}
 \end{gather}
-在(\ref{2013辽宁微分方程1})式中令$ x=2 $，可得$ f''(2)=0 $. 
-在(\ref{2013辽宁微分方程2})式中令$ x=2 $，可得$ f'''(2)=\dfrac{\e^2}{16} $，
+在\ding{172}式中令$ x=2 $，可得$ f''(2)=0 $. 
+在\ding{173}式中令$ x=2 $，可得$ f'''(2)=\dfrac{\e^2}{16} $，
 所以$ f(x) $在$ x=2 $处的行为与$ x^3 $在$ x=0 $处的行为十分相似，一阶、二阶导数为0，
 三阶导数不为0，所以$ x=2 $不是$ f(x) $的极值点。类比$ x^3 $，应该大胆猜测答案是D.
 严格证明如下：$ f'(x)=\dfrac{\e^x-2x^2f(x)}{x^3} $，令$ g(x)=\e^x-2x^2f(x) $，
@@ -5879,8 +5905,9 @@ x_0^{(r+1)/r} $，即
     \dfrac{r}{r+1}\Big(\ln\dfrac{\e}{r}+\ln a\Big)\leq \ln x_0
 \end{gather*}
 如果
-\begin{gather}\label{xlnx零点不等式习题}
-    \dfrac{\e}{\e+1}\ln a\leq \dfrac{r}{r+1}\Big(\ln\dfrac{\e}{r}+\ln a\Big)
+\begin{gather}
+    \dfrac{\e}{\e+1}\ln a\leq \dfrac{r}{r+1}
+    \Big(\ln\dfrac{\e}{r}+\ln a\Big)  \tag*{\ding{172}}
 \end{gather}
 成立，那么
 \begin{gather*}
@@ -5888,7 +5915,7 @@ x_0^{(r+1)/r} $，即
         \ln\dfrac{\e}{r}+\ln a\Big)} 
     \leq \dfrac{a}{\dfrac{\e}{\e+1}\ln a}
 \end{gather*}
-即原不等式右半部分得证。把(\ref{xlnx零点不等式习题})式左右两侧看成关于
+即原不等式右半部分得证。把\ding{172}式左右两侧看成关于
 $ \ln a $的一次函数，那么$ \dfrac{\e}{\e+1}\leq \dfrac{r}{r+1} $，
 解得$ r\geq \e $，取$ r=\e $，那么有$ \dfrac{\e}{\e+1}\ln a\leq x_0 $，
 当$ a=\e^{\e+1},\ x_0=\e^{\e} $时，等号成立。证毕。
@@ -5934,7 +5961,8 @@ $ \dfrac{\partial v}{\partial x} =\e^x \sin y=
 $ \dfrac{\partial v}{\partial x} = -\sin x\sinh y=
 -\dfrac{\partial u}{\partial y} $. 
 
-\item 略
+\item 
+(7) 参见 https://zhuanlan.zhihu.com/p/1926420751084417604
 
 \end{enumerate}
 %$ \displaystyle\int_0^1x^xdx=\sum_{k=1}^{\infty}\dfrac{(-1)^{n+1}}{n^n},\

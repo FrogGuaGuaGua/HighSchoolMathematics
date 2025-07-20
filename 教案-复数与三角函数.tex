@@ -11,7 +11,7 @@
 AD=&\ BC=\cos\beta\cos\alpha=BE+EC=\cos(\alpha+\beta)+\sin\beta\sin\alpha  \\
 AB=&\ DC=\sin(\alpha+\beta)=DF+FC=\cos\beta\sin\alpha+\sin\beta\cos\alpha  
 \end{align*}
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \includegraphics[width=0.4\linewidth]{正余弦和角公式图}
 \end{figure}
@@ -21,7 +21,7 @@ AB=&\ DC=\sin(\alpha+\beta)=DF+FC=\cos\beta\sin\alpha+\sin\beta\cos\alpha
 连接$ D,B $两点，设$ \angle ABD =\alpha $，$ \angle ADB =\beta $，
 则$ \angle CAB =\alpha+\beta $. 
 过$ A $点向$ BD $做垂线，垂足为$ E $点，在$ RT \Delta BCD $中使用勾股定理：
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \includegraphics[width=0.3\linewidth]{余弦和角公式作图证明}
 %    \caption{}
@@ -76,9 +76,15 @@ $\angle BCA $为直角，则
 \sin x\cos y=&\ \dfrac{1}{2}[\sin(x+y)+\sin(x-y)] 
 \end{align*}
 \begin{align*}
-\sin(x-y)\sin(x+y) =&\ \sin^2 x-\sin^2y=\cos^2 y-\cos^2 x \\
+\sin(x-y)\sin(x+y) =&\ \sin^2x\cos^2y-\cos^2x\sin^2y \\
+=&\ \sin^2x(1-\sin^2y)-(1-\sin^2x)\sin^2y \\
+=&\ (1-\cos^2x)\cos^2y-\cos^2x(1-\cos^2y) \\
+=&\ \sin^2 x-\sin^2y=\cos^2 y-\cos^2 x \\
 =&\ (\sin x-\sin y)(\sin x+\sin y)=(\cos y-\cos x)(\cos y+\cos x) \\
-\cos(x-y)\cos(x+y) =&\ \cos^2 x+\cos^2 y-1=1-\sin^2 x-\sin^2 y \\
+\cos(x-y)\cos(x+y) =&\ \cos^2x\cos^2y-\sin^2x\sin^2y \\
+=&\ \cos^2x\cos^2y-(1-\cos^2x)(1-\cos^2y) \\
+=&\ (1-\sin^2x)(1-\sin^2y)-\sin^2x\sin^2y \\
+=&\ \cos^2 x+\cos^2 y-1=1-\sin^2 x-\sin^2 y \\
 =&\ \cos^2 x-\sin^2 y=\cos^2 y-\sin^2 x \\
 =&\ (\cos x-\sin y)(\cos x+\sin y)=(\cos y-\sin x)(\cos y+\sin x)
 \end{align*}
@@ -112,25 +118,22 @@ a\sin^2x+b\cos x=a(1-\cos^2x)+b\cos x=
 \end{align*}
 
 \item $ ^* $ 三个角之和的正、余弦公式
-\footnote{这几个公式在笔者的工作中经常遇到，在多轴机械臂的运动控制中，
-    如果5轴或6轴的机械臂存在连续3根轴是平行的，那么其正向运动学计算就需要
-    用到三个角的和与差的正余弦公式，而逆向运动学存在解析解。
-    5轴码垛机械臂就是典型的存在连续3根平行轴的机械臂，其2、3、4号轴是平行的，
-    且都与1、5号轴垂直。挖掘机也存在连续3根平行轴。}：
-\begin{align*}
-    &\sin(\alpha+\beta+\gamma)\\
+{\small 
+    \begin{align}
+    \sin(\alpha+\beta+\gamma)
     =&-\sin\alpha\sin\beta\sin\gamma
     +\sin \alpha \cos \beta \cos \gamma  + \cos \alpha \sin \beta 
-    \cos \gamma + \cos \alpha \cos \beta \sin \gamma  \\
-    &\cos(\alpha+\beta+\gamma)\\ 
+    \cos \gamma + \cos \alpha \cos \beta \sin \gamma  \label{sin三个角之和} \\
+    \cos(\alpha+\beta+\gamma) 
     =& \cos \alpha \cos \beta \cos\gamma
     -\cos\alpha  \sin \beta \sin \gamma - \sin \alpha \sin \beta 
-    \cos \gamma - \sin \alpha \cos \beta \sin \gamma
-\end{align*}
-$ \sin(\alpha+\beta+\gamma) $展开式的特点是会含有三个$ \sin $
+    \cos \gamma - \sin \alpha \cos \beta \sin \gamma  \label{cos三个角之和}
+\end{align} 
+}
+$ \sin(\alpha+\beta+\gamma) $展开式的特点是有一个含三个$ \sin $
 的乘积的项，其余三项都是两个$ \cos $，一个$ \sin $，
 $ \sin $的总数等于$ \cos $的总数(都是6个)。
-$ \cos(\alpha+\beta+\gamma) $展开式有类似性质，会含有三个
+$ \cos(\alpha+\beta+\gamma) $展开式有类似性质，有一个含三个
 $ \cos $的乘积的项，其余三项都是两个$ \sin $，一个$ \cos $，
 $ \sin $的总数等于$ \cos $的总数(都是6个)。
 
@@ -139,6 +142,28 @@ $ \sin $的总数等于$ \cos $的总数(都是6个)。
 所以$ \sin $的数量会始终等于等于$ \cos $的数量。
 手工计算时可以利用这一性质进行快速检查，若发现数量不相等，
 则肯定存在错误。
+
+如果5轴或6轴的机械臂存在连续3根轴是平行的，那么其正向运动学计算就需要
+用到\eqref{sin三个角之和}式和\eqref{cos三个角之和}式，而逆向运动学存在解析解。
+5轴码垛机械臂\footnote{这里展示的机械臂，从结构上讲存在5根轴，但只配有4台伺服电机，
+所以，有一根轴是无法独立控制的，依靠平行四边形机构来驱动。这样的机械臂通常被称为4轴码垛机械臂
+(因为只有4根轴能独立控制)，但考虑到直接称为“4轴”会引起读者困惑，所以在正文里还是直观地称为5轴。}就是典型的存在连续3根平行轴的机械臂，其2、3、4号轴是平行的，
+且都与1、5号轴垂直。挖掘机也存在连续3根平行轴。
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{位图/KUKA机械臂-KR-40-PA}
+        \caption*{码垛机械臂}
+%        \label{码垛机械臂}
+    \end{subfigure}
+    \hspace{15mm}
+    \begin{subfigure}[b]{0.4\textwidth}
+        \includegraphics[width=\textwidth]{位图/挖掘机}
+        \caption*{挖掘机}
+%        \label{挖掘机}
+    \end{subfigure}
+\end{figure}
+%\vspace{-5mm}
 
 \item $^*$ 双曲正弦函数 $ \sinh x=\dfrac{\e^x-\e^{-x}}{2} $， 双曲余弦函数
 $\cosh x=\dfrac{\e^x+\e^{-x}}{2} $，这两个函数存在与$ \sin x,\cos x $
@@ -158,6 +183,13 @@ $\cosh x=\dfrac{\e^x+\e^{-x}}{2} $，这两个函数存在与$ \sin x,\cos x $
 \end{align*}
 双曲正弦$ y=\sinh x $的反函数为$ y=\ln(x+\sqrt{x^2+1})\ (x\in\textbf{R}) $；\\
 双曲余弦$ y=\cosh x\ (x\geq 0) $的反函数为$ y=\ln(x+\sqrt{x^2-1})\ (x\geq 1) $.
+
+至此，本书一共介绍了3个(连续)函数能满足函数方程
+\begin{gather*}
+    f(x_1+x_2)f(x_1-x_2)=[f(x_1)]^2-[f(x_2)]^2
+\end{gather*}
+分别为$f(x)=kx,\ f(x)=A\sin(\omega x),\ f(x)=A\sinh(\omega x)$，
+请读者自行验证。
 
 \item 函数$z=A_1\sin(k_1x+\omega t)+A_2\sin(k_2y+\omega t)$
 在一些画质要求不高或硬件性能较差的场合可被用来模拟水面的波纹，
@@ -403,10 +435,10 @@ $ x=a\e^{\i\frac{1+2k}{n}\pi} ,\ k=0,1,2\cdots ,(n-1) $.
 
 \noindent$\left( 1+\dfrac{1}{x}\right)^x,\dfrac{\e^x-1}{x},\dfrac{\sin x}{x} $
 三者的图像如下：
-\begin{figure}[h]  % TwoImportLimit.m
+\begin{figure}[H]  % TwoImportLimit.m
 \centering
 \includegraphics[width=0.8\linewidth]{两个重要极限图像.pdf}
-\end{figure}\\
+\end{figure}
 
 \item 设$ z_1=r_1(\cos\alpha_1 +\i\sin\alpha_1),\ 
 z_2=r_2(\cos\alpha_2 +\i\sin\alpha_2) $，那么
@@ -526,10 +558,10 @@ $ T_0(u)=1,\ T_1(u)=u,\ T_2(u)=2u^2-1,\ T_3(u)=4u^3-3u,\ T_4(u)=8u^4-8u^2+1,\cdo
 的等腰三角形中，连接$ 72^{\circ} $角的顶点和对边中点，
 可得一对相似三角形，根据对应边成比例的性质可以得到一个二次方程，
 从而求得$ 36^{\circ},72^{\circ},18^{\circ} $的正、余弦值。
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.2\linewidth]{36度72度三角形}
-\end{figure} \\
+\end{figure}
 因为$ 36=3\times 3 \times 2\times 2 $，所以，只要利用二倍角和三倍角公式，
 并利用二次方程和三次方程的求根公式，就能得到$ 1^{\circ} $角的
 正余弦值的根式表达式。
@@ -705,10 +737,11 @@ $ 1+z+z^2+\cdots +z^{n-1}=0 $的$ n-1 $个根，所以，
 \item (2021，上海春季高考)已知$ \theta>0 $，存在实数$ \varphi $，
 使得对任意 $ n\in \mathbf{N}^{+} $，$ \cos(n\theta+\varphi)
 <\dfrac{\sqrt{3}}{2} $，求$ \theta $的最小值。
-\begin{figure}[!ht]
+\begin{figure}[h]
     \centering
     \includegraphics[width=0.3\linewidth]{2021上海春季高考-角度问题}
-\end{figure} \\
+\end{figure}
+
 \textbf{解}\ 题目的意思是，可以选择一个合适的$ \varphi $作为初始值，
 然后每次逆时针旋转$ \theta $角(步长为$ \theta $)，无论转多少次，
 始终不会落在圆心角为$ \dfrac{\pi}{3} $的阴影区域中，
@@ -765,7 +798,7 @@ $ z_1=1+\i,\ z_2=1+2\i,\ z_3=1+3\i,\ z_1z_2z_3=-10 $，所以$ z_1,z_2,z_3 $
 \end{align*} 
 
 \item $ \sin(\sin x),\ \sin(\cos x),\ \cos(\cos x),\ \cos(\sin x) $
-的周期都是\underline{$\quad 2\pi \quad $}. $ \sin(\sin x),\ 
+的周期都是\underline{$\quad 2\pi \quad $}. $ \sin(\sin x)$, $
 \sin(\cos x) $的值域是\underline{$\quad [-\sin 1,\sin 1] \quad$}. 
 $ \cos(\cos x),\ \cos(\sin x) $的值域是\underline{$\quad
     [\cos 1,1] \quad $}. 
@@ -874,18 +907,17 @@ $\sin\left(\dfrac{1}{x^2} \cdot x\right),
 %综上所述，对任意$x\in[0,T]$，都有$f(x+T)=f(x)+f(T)$.\\
 %\textbf{方法二}\ 
 因为$ \cos f(x+T)=\cos f(x) $，所以必有
-\begin{gather} \label{2015上海解法二1}
-    f(x+T)= f(x) +2k\pi,\q k\in \textbf{N}^+ 
+\begin{gather} 
+    f(x+T)= f(x) +2k\pi,\q k\in \textbf{N}^+ \tag*{\ding{172}}
 \end{gather}
 或者
-\begin{gather}\label{2015上海解法二2}
-    f(x+T)= 2k\pi-f(x),\q k\in \textbf{N}^+
+\begin{gather}
+    f(x+T)= 2k\pi-f(x),\q k\in \textbf{N}^+ \tag*{\ding{173}}
 \end{gather}
-因为(\ref{2015上海解法二2})式左侧关于$ x $单调递增，
-右侧关于$ x $单调递减，矛盾，所以(\ref{2015上海解法二2})式
-不可能成立。
+因为\ding{173}式左侧关于$ x $单调递增，
+右侧关于$ x $单调递减，矛盾，所以\ding{173}式不可能成立。
 
-在(\ref{2015上海解法二1})式中令$ x=0 $可得：$ f(T)=f(0)+2k\pi $，
+在\ding{172}式中令$ x=0 $可得：$ f(T)=f(0)+2k\pi $，
 所以$ k=2 $，
 \begin{gather*}
     f(x+T)=f(x)+4\pi=f(x)+f(T)
@@ -894,11 +926,11 @@ $\sin\left(\dfrac{1}{x^2} \cdot x\right),
 是否可能出现如下情况呢？比如存在$ t\in(0,T) $，
 存在$ x_1\in(0,t),x_2\in (t,T) $，使得
 \begin{align}
-    f(x_1+T) &= f(x_1) +2k_1\pi,\q k_1\in \textbf{N}^+ \label{2015上海解法二3}  \\
-    f(x_2+T) &= f(x_2) +2k_2\pi,\q k_2\in \textbf{N}^+ \label{2015上海解法二4}
+f(x_1+T) &= f(x_1) +2k_1\pi,\q k_1\in \textbf{N}^+ \tag*{\ding{174}}  \\
+f(x_2+T) &= f(x_2) +2k_2\pi,\q k_2\in \textbf{N}^+ \tag*{\ding{175}}
 \end{align}
 其中$ k_1\neq k_2 $. 
-回答是不可能。假如(\ref{2015上海解法二3}),(\ref{2015上海解法二4})
+回答是不可能。假如\ding{174},\ding{175}
 两式都成立，那么在$ x=t+T $处，$ f(x) $的左右极限不相等。
 又因为$ f(x) $是单调递增的，说明$ f(x) $在$ x=t+T $处出现了一个
 向上的跳跃(或称“间断”)，此时，$ f(x) $的值域就达不到\textbf{R}，
@@ -1296,16 +1328,46 @@ $ z_2 $的轨迹与$ z_1 $一样。
     =&\  \dfrac{1}{2}\cos(2x-(x_1+x_2))+\dfrac{1}{2}\cos(x_1-x_2)
 \end{align*}
 
+\item 设$ n $为大于1的正整数，求$ f(x)=\sin^{2n}x+\cos^{2n}x $的值域。\\
+\textbf{解}\ 
+\begin{align*}
+    \sin^{4}x+\cos^{4}x =&\ (\sin^{2}x+\cos^{2}x)^2-2\sin^{2}x\cos^{2}x\\
+    =&\ 1-\dfrac{1}{2}\sin^2 2x\in\left[\dfrac{1}{2},1\right] \\
+    \sin^{6}x+\cos^{6}x =&\ (\sin^{2}x+\cos^{2}x)^3
+    -3\sin^{2}x\cos^{2}x (\sin^{2}x+\cos^{2}x) \\
+    =&\ 1-\dfrac{3}{4}\sin^2 2x\in\left[\dfrac{1}{4},1\right] \\
+    \sin^{8}x+\cos^{8}x =&\ (\sin^{2}x+\cos^{2}x)^4
+    -4\sin^{2}x\cos^{2}x (\sin^{4}x+\cos^{4}x)-6\sin^{4}x\cos^{4}x\\
+    =&\ 1-\sin^2 2x\left(1-\dfrac{1}{2}\sin^2 2x\right)
+    -\dfrac{3}{8}\sin^4 2x \\
+    =&\ \dfrac{1}{8}\sin^4 2x-\sin^2 2x+1 
+    \in\left[\dfrac{1}{8},1\right]
+\end{align*}
+可以猜想：$ f(x)=\sin^{2n}x+\cos^{2n}x $的值域是
+$ \left[\dfrac{1}{2^{n-1}},1\right] $. \\
+因为$ \sin^2 x,\cos^2 x\in[0,1] $，所以
+\begin{gather*}
+    \sin^{2n}x\leq \sin^2 x ,\q \cos^{2n}x\leq \cos^2 x  \\ \sin^{2n}x+\cos^{2n}x\leq \sin^{2}x+\cos^{2}x=1
+\end{gather*}
+当$ \sin^2 x=0 $或1时，以上等号成立。\\
+再利用幂函数$ g(x)=x^n $的凹凸性\eqref{幂函数凹凸性不等式}式，那么
+\begin{gather*}
+    \dfrac{g(\sin^2 x)+g(\cos^2 x)}{2}\geq g\left(
+    \dfrac{\sin^2 x+\cos^2 x}{2}\right)=\dfrac{1}{2^n} \\
+    f(x)=g(\sin^2 x)+g(\cos^2 x)\geq \dfrac{1}{2^{n-1}}
+\end{gather*}
+当$ |\sin x|=|\cos x|=\dfrac{\sqrt{2}}{2} $时，以上等号成立。
+
 \item 已知$ \begin{dcases}
     x=A\cos(\omega t+a) \\
     y=B\cos(\omega t+b)
 \end{dcases}, AB\neq 0 $，求证：
 \begin{align}\label{斜椭圆消参例题}
-    \dfrac{x^2}{A^2}+\dfrac{y^2}{B^2}-2\dfrac{xy}{AB}\cos(a-b)=\sin^2(a-b)
+    \dfrac{x^2}{A^2}+\dfrac{y^2}{B^2}-\dfrac{2xy}{AB}\cos(a-b)=\sin^2(a-b)
 \end{align}
 \textbf{方法一}\ 
 \begin{align*}
-    & \dfrac{x^2}{A^2}+\dfrac{y^2}{B^2}-2\dfrac{xy}{AB}\cos(a-b) \\
+    & \dfrac{x^2}{A^2}+\dfrac{y^2}{B^2}-\dfrac{2xy}{AB}\cos(a-b) \\
     =&\  \cos^2(\omega t+a)+\cos^2(\omega t+b)-2\cos(\omega t+a)\cos(\omega t+b)\cos(a-b) \\
     =&\  \dfrac{1}{2}[\cos(2\omega t+2a)+\cos(2\omega t+2b)]+1-[\cos(2\omega t+a+b)+\cos(a-b)]\cos(a-b)\\
     =&\  \cos(2\omega t+a+b)\cos(a-b) +1-[\cos(2\omega t+a+b)+\cos(a-b)]\cos(a-b)\\
@@ -1319,7 +1381,7 @@ $ z_2 $的轨迹与$ z_1 $一样。
 \end{align*}
 然后两边同时平方即可证明。
 
-\item 一般而言，(\ref{斜椭圆消参例题})式表示一个倾斜的椭圆，
+\textbf{注1}\ 一般而言，(\ref{斜椭圆消参例题})式表示一个倾斜的椭圆，
 下面计算需要旋转多少角度才能变成正椭圆。\\
 \textbf{方法一}\ 根据$ (x+\i y)(\cos\theta +\i\sin \theta)=(x\cos\theta-y\sin\theta)+
 \i(x\sin\theta+y\cos\theta) $，
@@ -1328,38 +1390,35 @@ $ (x\sin\theta+y\cos\theta) $替换$ y $，展开后，$ xy $的系数为
 \begin{align*}
     -\left[\sin2\theta\left(\dfrac{1}{A^2}-\dfrac{1}{B^2} \right) + \dfrac{2\cos(a-b)\cos2\theta }{AB}\right] 
 \end{align*}
-使之为0，可得：$ \tan2\theta =\dfrac{2AB\cos(a-b)}{A^2-B^2} $. 
+使之为0，可得：$ \tan2\theta =\dfrac{2AB\cos(a-b)}{A^2-B^2} $. \\
 \textbf{方法二}\ 令$ x=r\cos\theta,\ y=r\sin\theta $，则
 \begin{align*}
     r^2=\dfrac{\sin^2(a-b)}{\dfrac{\cos^2\theta}{A^2}+
         \dfrac{ \sin^2\theta}{B^2}-\dfrac{\sin2\theta}{AB}\cos(a-b)}
 \end{align*}
-让分母取极值的角度，就是长轴或短轴所在的角度。$ \tan2\theta $表达式同上。 
-
-% LiSaRu.m
-\item $^*$ 参数曲线$ \begin{dcases}
+让分母取极值的角度，就是长轴或短轴所在的角度。$ \tan2\theta $表达式同上。 \\
+\textbf{注2}\ 参数曲线$ \begin{dcases}
     x=A\cos(\omega_1 t+a) \\
     y=B\sin(\omega_2 t+b)
 \end{dcases} $ 对应的图形被称为李萨如(Lissajous)图形，大学的理工科学生基本上都会在
 基础物理实验或者电子学实验中接触到李萨如图形。
 选取不同的$ A,B $,$ \omega_1 $,$ \omega_2 $,$ a,b $，可以得到无穷无尽的形状。
-下面固定$ A=B=1 $,$ a=b=0 $，让$ \omega_1 $,$ \omega_2 $
+下面固定$ A=B=1 $, $ a=b=0 $，让$ \omega_1 $,$ \omega_2 $
 取一些较小的正整数，产生的一些形状如下：
-\begin{figure}[H]
+\begin{figure}[h] % LiSaRu.m
     \centering
     \includegraphics[width=0.95\linewidth]{李萨如图形}
 \end{figure}
 
-% ShangHai_2021GaoKao.m
-\item 
-(2021，上海高考)已知参数方程$ \begin{dcases}
+\item (2021，上海高考)已知参数方程$ \begin{dcases}
     x=3t-4t^3 \\
     y=2t\sqrt{1-t^2}
 \end{dcases} ,\ t\in [-1,1] $，下列选项的图中，符合该方程的是哪一个？
-\begin{figure}[!htbp]
+\begin{figure}[h]  % ShangHai_2021GaoKao.m
     \centering
     \includegraphics[width=1\linewidth]{2021上海高考参数曲线-李萨如}
-\end{figure} \\
+\end{figure}
+
 \textbf{解}\ 在参数方程中，如果把$ t $换成$ -t $，
 那么$ (x,y) $会变成$ (-x,-y) $，
 说明这条曲线是关于原点中心对称的，不过，4个选项的图形都是中心对称图形，
@@ -1501,21 +1560,21 @@ $ \displaystyle{ \int\dfrac{(4-\sin x)}{3-\cos x}\d x } $
     }{(\gamma+1)M_1^2\sin^2\beta}
 \end{align*}
 (I)求证：
-\begin{align}\label{Q-B-M关系}
-    \tan\theta=\dfrac{2(M_1^2\sin^2\beta-1)}{\tan\beta[M_1^2(\gamma+\cos2\beta)+2]}
+\begin{align}
+    \tan\theta=\dfrac{2(M_1^2\sin^2\beta-1)}{\tan\beta[M_1^2(\gamma+\cos2\beta)+2]}  \tag*{\ding{172}}
 \end{align} 
 (II)\ $ M_{n1}=M_1\sin\beta,\ M_{n2}^2=\dfrac{1+\dfrac{\gamma-1}{2}M_{n1}^2}{
     \gamma M_{n1}^2-\dfrac{\gamma-1}{2}},\ M_2=\dfrac{M_{n2}}{\sin(\beta-
     \theta)} $，求证：
-\begin{align}\label{斜激波比值等式}
+\begin{align}
     \dfrac{1+\dfrac{\gamma-1}{2}M_1^2}{1+\dfrac{\gamma-1}{2}M_2^2}=
-    \dfrac{1+\dfrac{\gamma-1}{2}M_{n1}^2}{1+\dfrac{\gamma-1}{2}M_{n2}^2}
+    \dfrac{1+\dfrac{\gamma-1}{2}M_{n1}^2}{1+\dfrac{\gamma-1}{2}M_{n2}^2}  \tag*{\ding{173}}
 \end{align}
 \textbf{证}\ (I)
-\begin{align}\label{tanB_Q等式}
+\begin{align}
     \tan(\beta-\theta)=\dfrac{\tan\beta-\tan\theta}{1+\tan\beta\tan\theta}=
     \dfrac{[2+(\gamma-1)M_1^2\sin^2\beta]
-        \tan\beta}{(\gamma+1)M_1^2\sin^2\beta}
+        \tan\beta}{(\gamma+1)M_1^2\sin^2\beta} \tag*{\ding{174}}
 \end{align}
 \begin{align*}
     \tan\theta
@@ -1530,7 +1589,7 @@ $ \displaystyle{ \int\dfrac{(4-\sin x)}{3-\cos x}\d x } $
     =&\ \dfrac{2(M_1^2\sin^2\beta-1)}{\tan\beta[M_1^2(\gamma+\cos2\beta)+2]}
 \end{align*}
 (II) 先取一些具体的数字，让读者有直观的感受。令$ M_1=2,\ \beta=0.6,\ \gamma=1.4 $，
-利用\eqref{tanB_Q等式}式，$ \tan(\beta-\theta)\approx 0.561071,\ 
+利用\ding{174}式，$ \tan(\beta-\theta)\approx 0.561071,\ 
 \sin^2(\beta-\theta)=\dfrac{\tan^2(\beta-\theta)}{1+\tan^2(\beta-
     \theta)}\approx 0.239428 $，
 $ M_{n1}=M_1\sin\beta\approx 1.129284 $，$ M_{n2}^2=\dfrac{
@@ -1543,7 +1602,7 @@ $ M_2^2=\dfrac{M_{n2}^2}{\sin^2(\beta-\theta)}\approx 3.306351 $，那么
     \dfrac{1+\dfrac{\gamma-1}{2}M_{n1}^2}{1+\dfrac{\gamma-1}{2}M_{n2}^2}
 \end{align*}
 下面给出严格证明，
-将\eqref{斜激波比值等式}式左右交叉相乘，两边消去1，再约掉$ \dfrac{\gamma-1}{2} $，有
+将\ding{173}式左右交叉相乘，两边减去1，再约掉$ \dfrac{\gamma-1}{2} $，有
 \begin{gather*}
     M_1^2+M_{n2}^2+\dfrac{\gamma-1}{2}M_1^2M_{n2}^2=
     M_2^2+M_{n1}^2+\dfrac{\gamma-1}{2}M_2^2M_{n1}^2   \\
@@ -1557,7 +1616,7 @@ $ M_2^2=\dfrac{M_{n2}^2}{\sin^2(\beta-\theta)}\approx 3.306351 $，那么
     \right\}\dfrac{1+\dfrac{\gamma-1}{2}M_{n1}^2}{\gamma M_{n1}^2
         -\dfrac{\gamma-1}{2}}=-2M_1^2\cos^2\beta
 \end{gather*}
-将$ \tan(\beta-\theta) $用\eqref{tanB_Q等式}式右侧替换以后，只需验证下式成立：
+将$ \tan(\beta-\theta) $用\ding{174}式右侧替换以后，只需验证下式成立：
 \begin{gather*}
     \left[2+(\gamma-1)M_1^2\right]\left[2+(\gamma-1)M_{n1}^2\right]\sin^2\beta-
     \Big\{(\gamma+1)^2M_{n1}^4\cos^2\beta+\\ [2+(\gamma-1) M_{n1}^2]^2
@@ -1565,7 +1624,7 @@ $ M_2^2=\dfrac{M_{n2}^2}{\sin^2(\beta-\theta)}\approx 3.306351 $，那么
     M_1^2\sin^2\beta\cos^2\beta
 \end{gather*}
 (上式化简似乎没有特别的技巧，就是纯粹地去括号。) 证毕。 \\
-\textbf{注}：(\ref{Q-B-M关系})式是空气动力学中用于研究激波的重要公式，
+\textbf{注}：\ding{172}式是空气动力学中用于研究激波的重要公式，
 被称为$ \theta$-$\beta$-$M$关系
 \footnote{ Anderson, John David. Fundamentals of Aerodynamics. McGraw-Hill(2005).Chapter 9, Oblique shock and expansion waves. \quad  或者参考 http://web.mit.edu/16.unified/www/SPRING/fluids/Spring2008/LectureNotes/f17.pdf}。$ M_1,\ M_2 $分别是斜激波前后的气流的马赫数。当$ M_1\to +\infty $时，$ \tan\theta=\dfrac{2\sin^2\beta}{\tan\beta(\gamma+\cos2\beta)}=\dfrac{\sin2\beta}{\gamma+\cos2\beta} $. 其中$ \gamma $是气体的绝热指数，与气体的成分、压强、温度有关，对于常温的空气，可以取$ \gamma=1.4 $. 利用\ref{分式三角求值域}的方法，可求出当$ \cos2\beta=-\dfrac{5}{7},\ \sin2\beta=\dfrac{\sqrt{24}}{7},\ \beta\approx 67.79^{\circ} $时，$ \dfrac{\sin2\beta}{\gamma+\cos2\beta} $取得最大值$ \dfrac{5\sqrt{6}}{12}=1.020620\cdots $，此时$ \theta_{\max}\approx\arctan1.02=45.5^{\circ} $\footnote{当$ \theta $超过$ \theta_{\max}=45.5^{\circ} $后，便无法在转角处产生附着的斜激波，而是产生脱体激波。在设计超声速飞行器(比如火箭、洲际弹道导弹、超声速战斗机等)的时候，不可避免地要研究激波。}. \\
 
@@ -1573,7 +1632,7 @@ $ M_2^2=\dfrac{M_{n2}^2}{\sin^2(\beta-\theta)}\approx 3.306351 $，那么
 \end{enumerate}
 
 \section{习题}
-\begin{enumerate}[label={\textbf{\arabic*.}},leftmargin=
+\begin{enumerate}[label={\textbf{\thechapter.\arabic*}},leftmargin=
     \inteval{\myenumleftmargin}pt]
 
 \item 用数学归纳法证明(\ref{余弦等差连加})和(\ref{正弦等差连加}).   
@@ -1621,10 +1680,28 @@ $\left[0,\dfrac{\pi}{2}\right]$上的最大值。
 
 \item $ \i $是虚数单位，求$ 1+3\i+5\i^2+7\i^3+\cdots +4039\i^{2019} $的值。
 
+\item $^*$令$\omega=-\dfrac{1}{2}+\dfrac{\sqrt{3}}{2}\i $(i为虚数单位)，
+那么$\omega^2=-\dfrac{1}{2}-\dfrac{\sqrt{3}}{2}\i=\overline{\omega}$，
+$\omega^3=1$，那么
+\begin{align*}
+    (1+\omega)^n &=\left(\dfrac{1}{2}+\dfrac{\sqrt{3}}{2}\i\right)^n
+    =\left(\e^{\pi\i/3}\right)^n=\e^{n\pi\i/3}=
+    \cos\left(\dfrac{n\pi}{3}\right)+
+    \i\sin\left(\dfrac{n\pi}{3}\right) \\
+    &=C_n^0+C_n^1\omega+C_n^2\omega^2+C_n^3\omega^3+\cdots+C_n^n\omega^n \\
+    &=C_n^0+C_n^1\omega+C_n^2\overline{\omega}+C_n^3+\cdots+C_n^n\omega^n
+\end{align*}
+比较实部和虚部，你能得到哪些等式？
+
 \item 找出以下列数值为根的整系数方程(要求方程的次数尽量低)。\\
 (1) $ \sqrt{2}+\sqrt{5} $ \quad 
 (2) $ \sqrt{2}+\sqrt{3}+\sqrt{5} $ \quad 
 (3) $ \sqrt{2}+\sqrt[3]{2} $ 
+
+\item $ \begin{dcases}
+    x=\cos(2t) \\
+    y=\cos(3t) 
+\end{dcases},t\in[0,2\pi] $，消去参数$t$，求$x$和$y$满足的方程。
 
 \item$^*$  借助软件，用只含$ \cos x $或$ \cos x $的幂的式子表达
 $ \cos 7x,\cos 8x,\cos 9x $. 
@@ -1656,7 +1733,7 @@ ContourPlot[Sin[x^2]+Sin[y^2]==1, {x, -10, 10}, {y, -10, 10}]
 \end{enumerate}
 
 \section{习题答案}
-\begin{enumerate}[label={\textbf{\arabic*.}},leftmargin=
+\begin{enumerate}[label={\textbf{\thechapter.\arabic*}},leftmargin=
     \inteval{\myenumleftmargin}pt]
 
 \item 略
@@ -1774,7 +1851,17 @@ $ \dfrac{\sin\dfrac{16\pi}{17}}{16\sin\dfrac{\pi}{17}}=\dfrac{1}{16} $. \\
 
 \item $ (-4-4\i)\times \dfrac{2020}{4}=-2020-2020\i $. 
 
-\item (1)$ x^4-14x^2+9 $ .\\
+\item 
+\begin{align*}
+    \cos\left(\dfrac{n\pi}{3}\right) =&\ (C_n^0+C_n^3+C_n^6+\cdots) 
+    -\dfrac{1}{2}\left[(C_n^1+C_n^4+C_n^7+\cdots)+
+    (C_n^2+C_n^5+C_n^8+\cdots)\right] \\
+    \sin\left(\dfrac{n\pi}{3}\right) =&\ 
+    \dfrac{\sqrt{3}}{2}\left[(C_n^1+C_n^4+C_n^7+\cdots)-
+    (C_n^2+C_n^5+C_n^8+\cdots)\right] 
+\end{align*}
+
+\item (1) $ x^4-14x^2+9 $ .\\
 (2) \textbf{方法一}\ 
 \begin{gather*}
     x= \sqrt{2}+\sqrt{3}+\sqrt{5} \\
@@ -1782,20 +1869,31 @@ $ \dfrac{\sin\dfrac{16\pi}{17}}{16\sin\dfrac{\pi}{17}}=\dfrac{1}{16} $. \\
     x^2-6=2\sqrt{15}+2\sqrt{2}x
 \end{gather*}
 剩余步骤同\ref{sqrt2+sqrt3极小多项式}，最终可得
-\begin{align}\label{x8-40x6+352x4}
-    x^8-40x^6+352x^4-960x^2+576=0
+\begin{align}
+    x^8-40x^6+352x^4-960x^2+576=0  \tag*{\ding{172}}
 \end{align}
 \textbf{方法二}\ 把(\ref{x4-10x2+1})式中的$ x $换成$ (x-\sqrt{5}) $，即
 \begin{gather*}
     (x-\sqrt{5})^4-10(x-\sqrt{5})^2+1=x^4-4\sqrt{5}x^3+20x^2-24=0\\
     (x^4+20x^2-24)^2=(4\sqrt{5}x^3)^2=80x^6
 \end{gather*}
-化简后同样可得(\ref{x8-40x6+352x4})式。 \\
+化简后同样可得\ding{172}式。 \\
 (3)
 \begin{gather*}
     (x-\sqrt{2})^3=x^3-3x^2\sqrt{2}+3x\cdot 2-2\sqrt{2}=(\sqrt[3]{2})^3=2 \\
     x^6-6x^4-4x^3+12x^2-24x-4=0
 \end{gather*}
+
+\item $ \begin{dcases}
+    x=\cos(2t)=2\cos^2t-1 ,\\
+    y=\cos(3t)=4\cos^3t-3\cos t=\cos t(4\cos^2t-3),
+\end{dcases} $ 那么
+\begin{align*}
+    y^2=\cos^2 t(4\cos^2t-3)^2 &=
+    \dfrac{x+1}{2}\left(4\cdot \dfrac{x+1}{2} -3\right)^2 \\
+    &= \dfrac{1}{2}(x+1)(2x-1)^2=\dfrac{1}{2}(4x^3-3x+1) 
+\end{align*}
+$x$和$y$满足的方程为$ 4x^3-3x+1-2y^2=0 $.
 
 \item
 \begin{align*}
