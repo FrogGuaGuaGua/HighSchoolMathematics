@@ -45,6 +45,48 @@ $ 11^2=121,\ 22^2=484 $.\ ($ 11,121,22,484 $
 ($ n $左右颠倒后，$ n^2 $也左右颠倒。)\\
 $ 88^2=7744 $，小学阶段经常喜欢拿这个平方数作为难题。
 
+\item 设$a,b$均为正整数，$(a,b)$代表两者的最大公因数，
+$[a,b]$代表两者的最小公倍数，则有
+\begin{gather*}
+    (a,b)[a,b]=ab
+\end{gather*}
+比如$a=72,\ b=126$，那么$(a,b)=18,\ [a,b]=504$，
+$(a,b)[a,b]=9072=ab$. 
+
+\item 同余的性质：\\
+(一) 若 $ a \equiv b \pmod{n} $，且 $ c \equiv d \pmod{n} $，则
+\vspace{-3mm}
+\begin{enumerate}[label=(\arabic*)]
+    \item $ a + c \equiv b + d \pmod{n} $； 
+    \item $ ac \equiv bd \pmod{n} $；  
+    \item $ ka \equiv kb \pmod{n} $，$ k $ 为任意整数；   
+    \item $ a^m \equiv b^m \pmod{n} $，$ m $ 为正整数。
+\end{enumerate}  
+\vspace{-3mm}
+(二) 若 $ ab \equiv ac \pmod{n} $，且 $ (a, n) = 1 $，则 $ b \equiv c \pmod{n} $.
+
+\item 如果一次同余方程$ax\equiv b \pmod{n}$有解，则$(a,n)\mid b$ ；反之，
+当$(a,n)\mid b$时，一次同余方程$ax\equiv b \pmod{n}$恰好有$(a,n)$个解。
+
+\item 设$a,b,c$为固定的整数，且$ab\neq 0$. 如果不定方程$ax+by=c$有整数解，
+则$(a,b)\mid c$ ；反之，当$(a,b)\mid c$时，不定方程$ax+by=c$有整数解。
+类似地，三元一次不定方程$ax+by+cz=d$有整数解的充要条件为
+$(a,b,c)\mid d$ ；四元一次不定方程$ax+by+cz+dw=e$有整数解的充要条件为
+$(a,b,c,d)\mid e$. 
+
+\item \textbf{孙子定理}：设$a,b,c$为两两互质的正整数，$e,f,g$为任意整数，
+则同余方程组
+\begin{gather*}
+    \begin{dcases}
+        x\equiv e \pmod{a} \\
+        x\equiv f \pmod{b} \\
+        x\equiv g \pmod{c} 
+    \end{dcases}
+\end{gather*}
+仅有一解：$x\equiv ebcc_1+facc_2+gabc_3 \pmod{abc}$，其中$c_1,c_2,c_3$
+分别为满足同余式：$c_1bc\equiv 1\pmod{a} $, 
+$ac_2c\equiv 1\pmod{b} $, $abc_3\equiv 1\pmod{c} $的整数。
+
 \item $ \pi\approx 3.141592653 $的分数近似值：$ \dfrac{22}{7} 
 \approx 3.142857,\ \dfrac{355}{113}\approx 3.14159292 $. 
 
@@ -54,8 +96,8 @@ $ 88^2=7744 $，小学阶段经常喜欢拿这个平方数作为难题。
 若$ x+\dfrac{1}{x}=2\cos\theta $，则$ x=1,\cos\theta=1 $
 或$ x=-1,\cos\theta=-1 $. 
 
-\item 设$ \vec{i},\vec{j} $是既不平行又不垂直的
-单位向量，有非零向量$ \vec{a}=x_1\vec{i}+y_1\vec{j},
+\item 设$ \vec{i},\vec{j} $都是单位向量，这两者既不平行又不垂直，
+有非零向量$ \vec{a}=x_1\vec{i}+y_1\vec{j},
 \vec{b}=x_2\vec{i}+y_2\vec{j} $，那么，
 $ \vec{a}//\vec{b} $的充要条件仍然是$ x_1y_2-x_2y_1=0 $. 
 先不考虑分母为零的情形，这个式子可以变形为$ \dfrac{x_1}{x_2}=\dfrac{y_1}{y_2} $，
@@ -156,6 +198,11 @@ $ \ \ A \subsetneqq B $：集合$ A $为集合$ B $的真子集(不能有$ A=B $
 也是偶数，于是$ a,b $同为偶数，这与两者互质的条件矛盾，所以$ \sqrt{2} $不能表示成两个互质整数的商。同样的方法可证明$ \sqrt[n]{2} $不是有理数。\\
 \textbf{推广}：$ k\in \textbf{N}^+ $，如果$ \sqrt{k} $不是整数，
 那么$ \sqrt{k} $是无理数。
+
+\item 无理数的无理数次幂未必是无理数。考虑$\sqrt{2}^{\sqrt{2}}$，
+如果这是一个有理数，那我们就找到了一个说明前述结论成立的例子。
+如果这是一个无理数，那么$ \Big(\sqrt{2}^{\sqrt{2}}\Big)^{\sqrt{2}}
+=\sqrt{2}^2=2$，那我们还是找到了一个说明前述结论成立的例子。
 
 \item 质数有无限多个。\\
 \textbf{证}\ 用反证法：假设质数只有有限个，将它们依次记为$ p_1,p_2,\cdots p_n $，

@@ -184,20 +184,25 @@ $\cosh x=\dfrac{\e^x+\e^{-x}}{2} $，这两个函数存在与$ \sin x,\cos x $
 双曲正弦$ y=\sinh x $的反函数为$ y=\ln(x+\sqrt{x^2+1})\ (x\in\textbf{R}) $；\\
 双曲余弦$ y=\cosh x\ (x\geq 0) $的反函数为$ y=\ln(x+\sqrt{x^2-1})\ (x\geq 1) $.
 
-至此，本书一共介绍了3个(连续)函数能满足函数方程
+至此，本书一共介绍了3个连续函数能满足函数方程
 \begin{gather*}
     f(x_1+x_2)f(x_1-x_2)=[f(x_1)]^2-[f(x_2)]^2
 \end{gather*}
-分别为$f(x)=kx,\ f(x)=A\sin(\omega x),\ f(x)=A\sinh(\omega x)$，
-请读者自行验证。
+分别为$f(x)=kx,\ f(x)=A\sin(\omega x),\ f(x)=A\sinh(\omega x)$.\\
+一共介绍了2个连续函数能满足函数方程
+\begin{gather*}
+    f(x_1+x_2)+f(x_1-x_2)=2\lambda f(x_1)f(x_2)
+\end{gather*}
+分别为$f(x)=\dfrac{1}{\lambda}\cos(\omega x),
+\ f(x)=\dfrac{1}{\lambda}\cosh(\omega x)$，请读者自行验证。
 
 \item 函数$z=A_1\sin(k_1x+\omega t)+A_2\sin(k_2y+\omega t)$
 在一些画质要求不高或硬件性能较差的场合可被用来模拟水面的波纹，
 其中$x,y,z$为三维空间的坐标，$t$代表时间。
 比如$ z=\sin(x)+\sin(y) $的图像如下：
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=0.7\linewidth]{PDF_Picture/曲面z=sinx+siny}
+ \centering
+ \includegraphics[width=0.7\linewidth]{PDF_Picture/曲面z=sinx+siny}
 \end{figure}
 
 \end{itemize}
@@ -210,18 +215,42 @@ $\cosh x=\dfrac{\e^x+\e^{-x}}{2} $，这两个函数存在与$ \sin x,\cos x $
 一定存在极大值或极小值。
 
 \item 对于任意三次方程$ ax^3+bx^2+cx+d=0 $，可先除以非零的$ a $，把三次项系数化为1，
-再通过平移变换$ x=t-\dfrac{b}{3a} $，消去三次方程的二次项，故只需考虑形如$ x^3+px+q=0 $的三次方程。
-引入新的未知数$ u,v $，并假设$ x=u+v $，则
+再通过平移变换$ x=t-\dfrac{b}{3a} $，消去三次方程的二次项，
 \begin{gather*}
-    x^3=u^3+v^3+3uv(u+v)=u^3+v^3+3uvx  \\
-     x^3-3uvx-(u^3+v^3)=0
+    \left(t-\dfrac{b}{3a}\right)^3+\dfrac{b}{a}
+    \left(t-\dfrac{b}{3a}\right)^2+\dfrac{c}{a}
+    \left(t-\dfrac{b}{3a}\right)+\dfrac{d}{a}=0 \\
+    t^3+\left(\dfrac{c}{a}-\dfrac{b^2}{3a^2}\right)t+\left(
+    \dfrac{2b^3}{27a^3}-\dfrac{bc}{3a^2}+\dfrac{d}{a}\right)=0
 \end{gather*}
-比较系数可得：
+令
+\begin{align}
+    p=&\ \dfrac{c}{a}-\dfrac{b^2}{3a^2}=\dfrac{3ac-b^2}{3a^2}  
+    \label{无二次项三次方程系数p} \\
+    q=&\ \dfrac{2b^3}{27a^3}-\dfrac{bc}{3a^2}+\dfrac{d}{a}=
+    \dfrac{2b^3-9abc+27a^2d}{27a^3} \label{无二次项三次方程系数q} 
+\end{align}
+那么只需考虑形如$ x^3+px+q=0 $的三次方程。
+引入新的未知数$ u,v $，并假设$ x=u+v $，则
+\begin{gather}
+    x^3=(u+v)^3=u^3+v^3+3uv(u+v)=u^3+v^3+3uvx  \notag\\
+     x^3-3uvx-(u^3+v^3)=0   \label{三次方程引入u+v}
+\end{gather}
+比较$ x^3+px+q=0 $与\eqref{三次方程引入u+v}式的系数可得：
 $ \begin{dcases}
 -3uv = p \ \left(u^3v^3=-\dfrac{p^3}{27} \right) \\
 -(u^3+v^3) = q
-\end{dcases} \vspace{-4mm} $，于是，$ u^3,v^3 $是二次方程$ y^2+qy-\dfrac{p^3}{27}=0 $的根，二次方程的判别式除以4以后仍用
-$ \Delta $表示，$ \Delta=\dfrac{q^2}{4}+\dfrac{p^3}{27} $. 解二次方程可得：
+\end{dcases} $，根据韦达定理，$ u^3,v^3 $是二次方程
+$y^2+qy-\dfrac{p^3}{27}=0$的根，二次方程的判别式除以4以后仍用
+$ \Delta $表示，
+\begin{align} 
+    \Delta=\dfrac{q^2}{4}+\dfrac{p^3}{27}=&\ 
+    \dfrac{1}{108a^4}(27a^2d^2-18abcd+4ac^3+4b^3d-b^2c^2) 
+    \label{三次方程判别式q2_4+p3_27}  \\
+    =&\ \dfrac{\Big(\dfrac{d}{a}\Big)^2}{4}+\dfrac{\Big(\dfrac{c}{a}\Big)^3}{27}+
+    \dfrac{b}{108a^4}\left(-18acd+4b^2d-bc^2\right)     \notag
+\end{align}
+解二次方程可得：
 $ u^3=-\dfrac{q}{2} + \sqrt{\Delta},\ v^3=-\dfrac{q}{2} - \sqrt{\Delta}$.
 再令$ \omega=-\dfrac{1}{2}+\dfrac{\sqrt{3}}{2}\i =
 \cos\left(\dfrac{2\pi}{3}\right)+\i\sin\left(\dfrac{2\pi}{3}\right)
@@ -243,6 +272,24 @@ $ q $就是体积(长度的3次方)，
 $ p^3 $和$ q^2 $具有相同的单位(都是长度的6次方)，
 否则两者不能进行加法运算，再把$ \Delta $写成
 $ \Delta=\dfrac{q^2}{2^2}+\dfrac{p^3}{3^3} $就好记了。
+
+\item 三次方程至少有一个实根，现在来分析何时只有一个实根
+(意味着不能有重根)。\\ 
+令$f(x)=x^3+px+q$，则$f'(x)=3x^2+p$. \\
+\ding{172} 若$p>0$，则$f'(x)>0$恒成立，$f(x)$在\textbf{R}
+上单调递增，必然只有一个实根；\\
+\ding{173} 若$p=0$，当$q=0$时，有一个三重根$x=0$；
+当$q\neq 0$时，只有一个实根；\\
+\ding{174} 若$p<0$，则$f'\left(\pm\sqrt{-\dfrac{p}{3}}\right)=0$，
+当极小值$f\left(\sqrt{-\dfrac{p}{3}}\right)=\dfrac{2p}{3}
+\sqrt{-\dfrac{p}{3}}+q>0$时，只有一个实根。
+\begin{gather*}
+    \dfrac{2p}{3}\sqrt{-\dfrac{p}{3}}+q>0  \q \Rightarrow \q 
+    q>-\dfrac{2p}{3}\sqrt{-\dfrac{p}{3}}>0 \q \Rightarrow \\
+    q^2 >\dfrac{4p^2}{9}\cdot \left(-\dfrac{p}{3}\right)=
+    -\dfrac{4p^3}{27}  \q \Rightarrow \q 
+    4\left(\dfrac{q^2}{4}+\dfrac{p^3}{27}\right)=4\Delta>0
+\end{gather*}
 
 \item 对于一般的四次函数$ ax^4+bx^3+cx^2+dx+e $，
 做平移$ x=t-\dfrac{b}{4a} $，可以消去三次项。
@@ -813,8 +860,9 @@ $ \cos(\cos x),\ \cos(\sin x) $的值域是\underline{$\quad
     \tan 15^{\circ}&=\tan (1^{\circ}+14^{\circ})=\dfrac{\tan 1^{\circ}+
         \tan 14^{\circ}}{1-\tan 1^{\circ}\cdot \tan 14^{\circ}} \in \textbf{Q}
 \end{align*}
-以上都是有理数，但$ \tan 15^{\circ}=\dfrac{\sqrt{6}-\sqrt{2}}{\sqrt{6}+\sqrt{2}}
-=2-\sqrt{3} $是无理数，这就产生了矛盾，所以原命题成立。(若不熟悉$ 15^{\circ} $的正切值，
+以上都是有理数，但$ \tan 15^{\circ}=\tan(45^{\circ}-
+30^{\circ})=2-\sqrt{3} $是无理数，这就产生了矛盾，
+所以原命题成立。(若不熟悉$ 15^{\circ} $的正切值，
 也可以递推到$ \tan 30^{\circ} $，与$ \tan 30^{\circ}=\dfrac{\sqrt{3}}{3} $是无理数矛盾。)\\
 \textbf{注}：$ \tan 75^{\circ}=2+\sqrt{3} $. 
 
@@ -861,6 +909,30 @@ $\sin\left(\dfrac{1}{x^2} \cdot x\right),
     \centering
     \includegraphics[width=0.9\linewidth]{三个乘除型非周期函数}
 \end{figure}
+
+\item 设$\alpha$为无理数，求证：$f(x)=\sin x+\sin(\alpha x)$不是周期函数。\\
+\textbf{证}：用反证法，假设$T$为$f(x)$的一个周期，
+那么$f(x-T)=f(x)=f(x+T)$，即
+\begin{align*}
+    \sin(x-T)+\sin(\alpha x-\alpha T)=&\ 
+    \sin(x+T)+\sin(\alpha x+\alpha T) \\
+    \sin(x-T)-\sin(x+T)=&\ 
+    \sin(\alpha x+\alpha T)-\sin(\alpha x-\alpha T) \\
+    -\cos x\sin T=&\ \cos(\alpha x)\sin(\alpha T) \tag*{\ding{172}}
+\end{align*}
+在\ding{172}中令$x=\dfrac{\pi}{2}$，可得$ \sin(\alpha T)=0 $，那么
+\begin{gather*}
+    \alpha T=n\pi\ (n\in\mathbf{Z},n\neq 0)  \tag*{\ding{173}}
+\end{gather*}
+在\ding{172}中令$x=\dfrac{\pi}{2\alpha}$，可得$ \sin T=0 $，那么
+\begin{gather*}
+    T=m\pi\ (m\in\mathbf{Z},m\neq 0) \tag*{\ding{174}}
+\end{gather*}
+结合\ding{173}和\ding{174}可得$\alpha=\dfrac{n}{m}$，
+这与$\alpha$是无理数相矛盾。\\
+所以，两个周期函数之和未必是周期函数。如果两个周期函数的周期之比为有理数，
+那么这两个函数之和(与积)也是周期函数。两个非周期函数之和也可能是周期函数，
+比如$x+\sin x$与$-x$都是非周期函数，但两者之和是周期函数。
 
 % ShangHai2015.m
 \item (2015，上海高考)对于定义域为$ \mathbf{R} $的函数$ g(x) $，
@@ -951,7 +1023,7 @@ $ f(x) $在$ (T,2T) $上的图像是由$ f(x) $在$ (0,T) $
 型号的计算器，该计算器存在一些漏洞，可利用漏洞可获得一些
 无法直接使用的功能，比如求最大公约数和最小公倍数等
 \footnote{
-    https://zhuanlan.zhihu.com/p/261156688\\
+    https://zhuanlan.zhihu.com/p/261156688，
     https://zhuanlan.zhihu.com/p/464012892\\
     https://zhuanlan.zhihu.com/p/618704031}。
 
@@ -1040,8 +1112,9 @@ $ x_1=1-\dfrac{\sqrt{3}}{3} $，$ x_2=-1-\sqrt{3} $. \\
 $ a-b\i $也是$ f(x)=0 $的根。如果多项式$ f(x) $的所有系数均为有理数，
 当$ a+b\sqrt{C} $是$ f(x)=0 $的根时，$ a-b\sqrt{C} $也是$ f(x)=0 $的根。
 
-\item 设$a,b,c,d$都是实数，且$ad-bc=1$，若$z$是一个虚部
-大于0的复数，求证：$f(z)=\dfrac{az+b}{cz+d}$的虚部也大于0. \\
+\item \label{ad-bc=1分式线性变换例题}设$a,b,c,d$都是实数，
+且$ad-bc=1$，若$z$是一个虚部大于0的复数，
+求证：$f(z)=\dfrac{az+b}{cz+d}$的虚部也大于0. \\
 \textbf{解}\ 
 \begin{align*}
     f(z) =&\ \dfrac{az+b}{cz+d}=
@@ -1706,6 +1779,13 @@ $\omega^3=1$，那么
 \item$^*$  借助软件，用只含$ \cos x $或$ \cos x $的幂的式子表达
 $ \cos 7x,\cos 8x,\cos 9x $. 
 
+\item $^*$ 对于三次方程$ ax^3+bx^2+cx+d=0 $， 
+类似于\ref{二次方程线性变换}第(2)问，对三次方程做变量代换
+$x=\dfrac{At+B}{Ct+D}\ (AD-BC\neq 0)$，然后将关于
+$t$的方程乘上$(Ct+D)^3$以去掉分母，化为关于$t$的三次方程
+$a't^3+b't^2+c't+d'=0$，利用\eqref{三次方程判别式q2_4+p3_27}式，
+借助软件将$\Delta'$用含$a,b,c,d,A,B,C,D$的式子表达。
+
 \item$ ^* $ 用软件绘制$ \sin(x^2)+\sin(y^2)=1 $的图像。\\
 $\diamond$ GeoGebra、Desmos、MathStudio：直接输入
 \verb|sin(x^2)+sin(y^2)=1|即可。\\
@@ -1813,7 +1893,9 @@ $ \Delta=\dfrac{q^2}{4}+\dfrac{p^3}{27}=17 $，原方程实根为：
 $ y=\dfrac{1}{2}\cos 2x+2\sin2x+\dfrac{5}{2}=
 \dfrac{\sqrt{17}}{2}\sin(2x+\varphi)+\dfrac{5}{2} $，
 其中，$ \cos\varphi=\dfrac{4}{\sqrt{17}} $, $ \sin\varphi=\dfrac{1}{\sqrt{17}} $. 
-最值为$ \dfrac{5\pm \sqrt{17}}{2} $，单调递增区间为$ [k\pi-\dfrac{\pi}{4}-\dfrac{\varphi}{2},k\pi+\dfrac{\pi}{4}-\dfrac{\varphi}{2}],\ k\in \textbf{Z} $. \\
+最值为$ \dfrac{5\pm \sqrt{17}}{2} $，单调递增区间为
+$ \Big[k\pi-\dfrac{\pi}{4}-\dfrac{\varphi}{2},
+k\pi+\dfrac{\pi}{4}-\dfrac{\varphi}{2}\Big],\ k\in \textbf{Z} $. \\
 万能代换后，$ y=\dfrac{3t^4-8t^3+2t^2+8t+3}{(t^2+1)^2}=3-\dfrac{4(2t^3+t^2-2t)}
 {(t^2+1)^2} $，令$ f(t)=\dfrac{2t^3+t^2-2t}{(t^2+1)^2} $，则$ f'(t)=
 \dfrac{-2(t^4+t^3-6t^2-t+1)}{(t^2+1)^3} $，分子中的四次多项式$ t^4+t^3-6t^2-t+1 $在有理数域内无法因式分解，所以万能代换会遇到困难。
@@ -1897,10 +1979,37 @@ $x$和$y$满足的方程为$ 4x^3-3x+1-2y^2=0 $.
 
 \item
 \begin{align*}
-    & 64\cos^7x-112\cos^5x+56\cos^3x-7\cos x \\
-    & 128\cos^8x-256\cos^6x+160\cos^4x-32\cos^2x+1 \\
-    & 256\cos^9x-576\cos^7x+432\cos^5x-120\cos^3x+9\cos x
+   \cos 7x=&\ 64\cos^7x-112\cos^5x+56\cos^3x-7\cos x \\
+   \cos 8x=&\ 128\cos^8x-256\cos^6x+160\cos^4x-32\cos^2x+1 \\
+   \cos 9x=&\ 256\cos^9x-576\cos^7x+432\cos^5x-120\cos^3x+9\cos x
 \end{align*}
+
+\item 
+\begin{gather*}
+    \Delta=\dfrac{1}{108a^4}(27a^2d^2-18abcd+4ac^3+4b^3d-b^2c^2)
+\end{gather*}
+\begin{align*}
+    a'=&\ A^3+\dfrac{A^2Cb}{a}+\dfrac{AC^2c}{a}+\dfrac{C^3d}{a}=
+    \dfrac{1}{a}(A^3a+A^2Cb+AC^2c+C^3d) \\
+    b'=&\ 3A^2B+\dfrac{A^2Db}{a}+\dfrac{BC^2c}{a}+\dfrac{3C^2Dd}{a}+
+    \dfrac{2ABCb}{a}+\dfrac{2ACDc}{a} \\
+    c'=&\ 3AB^2+\dfrac{B^2Cb}{a}+\dfrac{AD^2c}{a}+\dfrac{3CD^2d}{a}+
+    \dfrac{2ABDb}{a}+\dfrac{2BCDc}{a} \\
+    d'=&\ B^3+\dfrac{B^2Db}{a}+\dfrac{BD^2c}{a}+\dfrac{D^3d}{a} 
+\end{align*}
+\begin{align*}
+    \Delta'=&\ \dfrac{1}{108a'^4}(27a'^2d'^2-18a'b'c'd'+4a'c'^3+4b'^3d'-b'^2c'^2) \\
+    =&\ \dfrac{(AD-BC)^6}{108(A^3a+A^2Cb+AC^2c+C^3d)^4}
+    \left(27a^2d^2-18abcd+4ac^3+4b^3d-b^2c^2\right) \\
+    =&\ (AD-BC)^6\left(\dfrac{a}{A^3a+A^2Cb+AC^2c+C^3d}\right)^4\cdot\Delta
+\end{align*}
+
+\item $ \sin(x^2)+\sin(y^2)=1 $的图像如下：
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{PDF_Picture/sin(x2)+sin(y2)=1图像}
+\end{figure}
+
 
 \end{enumerate}
 
